@@ -46,7 +46,7 @@
 ### Scripted effects
 
 scripted_effect apply_elven_influence = {
-	title:c_langstrand = {
+	title:c_cobas = {
 		add_county_modifier = {
 			modifier = elves_in_edhellond
 			years = 30
@@ -800,6 +800,7 @@ gondor.0500 = {
 	title = gondor.0500.t
 	desc = gondor.0500.desc
 	theme = diplomacy_majesty_focus
+	trigger = { NOT = { has_character_flag = aragorn_has_returned } }# Don't fire if he's already king through the gondorian liberation
 	override_background = {
 		reference = minas_tirith
 	}
@@ -1196,6 +1197,13 @@ gondor.0502 = { # Aragorn is allowed into Minas Tirith and is coronated
 				limit = { 
 					NOR = { 
 						this = title:c_osgiliath
+						this = title:e_mordor
+						this = title:k_dark_lord
+						this = title:d_barad_dur
+						this = title:c_barad_dur
+						this = title:c_baugatsor_i_sauron
+						this = title:c_orodruin
+						this = title:c_mordath
 						AND = {
 							this != title:c_minas_tirith
 							this = root.capital_county
@@ -1411,6 +1419,8 @@ gondor.0502 = { # Aragorn is allowed into Minas Tirith and is coronated
 			name = unavailable_unique_decisions
 			target = flag:aragorn_returned_to_gondor
 		}
+		
+		add_character_flag = aragorn_has_returned
 	}
 	
 	after = {
@@ -2243,7 +2253,9 @@ gondor.0517 = { #Aragorn wedding if he was too stupid to do it himself
 					remove_relation_soulmate = root
 				}	
 				
+				set_relation_lover = character:linefinwe30
 				set_relation_friend = character:linefinwe30
+				set_relation_soulmate = character:linefinwe30
 				
 				character:linefinwe36 = { # Galadriel sends a royal gift
 					trigger_event = {
@@ -6244,7 +6256,26 @@ gondor.2105 = { #Event that handles unexpected sauron death effects
 				}
 			}
 		}
-		nurnoth_slaves_openly_convert = yes
+		#custom_tooltip = shadow_of_mordor_clears_tt
+		#hidden_effect = {
+		#	nurnoth_slaves_openly_convert = yes
+		#	every_province = {
+		#		limit = {
+		#			has_holding = yes
+		#			OR = {
+		#				has_holding_type = wastelands_holding
+		#				has_holding_type = settlement_holding
+		#				has_holding_type = ruined_holding
+		#			}
+		#			has_building = shadow_of_mordor
+		#			NOT = { geographical_region = middleearth_mordor_gorgoroth }
+		#		}
+		#		remove_building = shadow_of_mordor
+		#	}
+		#}
+		hidden_effect = {
+			nurnoth_slaves_openly_convert = yes
+		}
 		
 		character:mouthofsauron = {
 			hidden_effect = {
@@ -9376,7 +9407,10 @@ gondor.3500 = {
 		animation = personality_honorable
 	}
 	
-	immediate = { play_music_cue = lotr_cue_gondor }
+	immediate = {
+		play_music_cue = lotr_cue_gondor
+		create_numenor_in_exile_effect = yes
+	}
 	
 	option = { 
 		name = gondor.3500.a

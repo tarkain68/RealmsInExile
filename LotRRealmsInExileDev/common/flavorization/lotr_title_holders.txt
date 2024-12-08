@@ -2595,7 +2595,7 @@ duke_feudal_female_k_lebennin_noncoast = {
 county_feudal_k_lebennin = { 
 	type = title
 	tier = county
-	titles = { c_pelargir c_landor c_calimir c_daldor c_linhir c_serni c_lindon c_ethir_anduin c_gilrain c_gilbin c_lameduin c_brethil c_orchaldor c_enedhir c_caragost c_tumladen }
+	titles = { c_pelargir c_landor c_calimir c_fanuilond c_linhir c_serni c_lindon c_ethir_anduin c_gilrain c_gilbin c_lameduin c_brethil c_orchaldor c_enedhir c_caragost c_tumladen }
 	priority = 90
 	heritages = { heritage_dunedain }
 }
@@ -2609,7 +2609,7 @@ count_feudal_k_lebennin = {
 		top_liege = no
 		only_holder = yes
 	}
-	titles = { c_pelargir c_landor c_calimir c_daldor c_linhir c_serni c_lindon c_ethir_anduin c_gilrain c_gilbin c_lameduin c_brethil c_orchaldor c_enedhir c_caragost c_tumladen }
+	titles = { c_pelargir c_landor c_calimir c_fanuilond c_linhir c_serni c_lindon c_ethir_anduin c_gilrain c_gilbin c_lameduin c_brethil c_orchaldor c_enedhir c_caragost c_tumladen }
 	heritages = { heritage_dunedain }
 }
 
@@ -2971,6 +2971,38 @@ duke_feudal_male_fleet_of_shadows = {
 	tier = duchy
 	heritages = { heritage_bellakari }
 	titles = { d_fleet_of_shadows }
+	priority = 950
+}
+
+kingdom_sacred_isles = {
+	type = title
+	tier = kingdom
+	flavourization_rules = { 
+		top_liege = no
+		only_holder = no
+	}
+	titles = { k_sacred_isles }
+	heritages = { heritage_bellakari }
+	priority = 1000
+}
+
+king_feudal_female_sacred_isles = {
+	type = character
+	gender = female
+	special = holder
+	tier = kingdom
+	heritages = { heritage_bellakari }
+	titles = { k_sacred_isles }
+	priority = 950
+}
+
+king_feudal_male_sacred_isles = {
+	type = character
+	gender = male
+	special = holder
+	tier = kingdom
+	heritages = { heritage_bellakari }
+	titles = { k_sacred_isles }
 	priority = 950
 }
 

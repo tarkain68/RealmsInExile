@@ -630,6 +630,53 @@ initialise_elven_holdings = {
 	}
 }
 
+convert_elven_holdings_effect = { #naugrim04
+	every_sub_realm_county = {
+		limit = {
+			holder = {
+				is_elf = yes
+			}
+		}
+		set_county_culture = holder.culture
+		set_county_faith = holder.faith
+		every_province = {
+			limit = { county = prev }
+			if = {
+				limit = {
+					has_holding = yes
+					NOT = { has_holding_type = elven_holding }
+				}
+				set_holding_type = elven_holding
+			}
+			if = {
+				limit = { barony.holder = { is_elf = no } }
+				create_character = {
+					gender = male
+					age = { 120 7030 }
+					culture = root.culture
+					faith = root.faith
+					save_scope_as = new_holder
+					location = barony.holder.location
+				}
+				barony = {
+					create_title_and_vassal_change = {
+						type = usurped
+						save_scope_as = change
+						add_claim_on_loss = no
+					}
+					change_title_holder = {
+						holder = scope:new_holder
+						change = scope:change
+					}
+					resolve_title_and_vassal_change = scope:change
+				}
+			}
+		}
+	}
+	change_government = elven_government
+}
+
+
 vanquish_darkness_generate_new_holder_culture_and_faith = { #In Title Scope
 	if = { # Gondor
 		limit = {
@@ -640,6 +687,16 @@ vanquish_darkness_generate_new_holder_culture_and_faith = { #In Title Scope
 			}
 		}
 		culture:gondorian = { save_scope_as = holder_culture }
+		faith:faith_edain = { save_scope_as = holder_faith }
+	}
+	else_if = { #Arnor or Orrostar
+		limit = { 
+			OR = {
+				empire = title:e_arnor
+				empire = title:e_orrostar
+			}
+		}
+		culture:dunedain_ranger = { save_scope_as = holder_culture }
 		faith:faith_edain = { save_scope_as = holder_faith }
 	}
 	else_if = { #Calenardhon
@@ -679,7 +736,7 @@ vanquish_darkness_generate_new_holder_culture_and_faith = { #In Title Scope
 	}
 	else_if = { # Mordor
 		limit = { empire = title:e_mordor }
-		culture:donan = { save_scope_as = holder_culture }
+		culture:nurnoth = { save_scope_as = holder_culture }
 		faith:faith_nurn_good = { save_scope_as = holder_faith }
 	}
 	else_if = { # Khand
@@ -719,8 +776,18 @@ vanquish_darkness_generate_new_holder_culture_and_faith = { #In Title Scope
 	}
 	else_if = { # Thani-Hazad
 		limit = { empire = title:e_thani_hazad }
-		culture:anbalukkhori = { save_scope_as = holder_culture }
-		faith:faith_edain = { save_scope_as = holder_faith }
+		culture:kharadunaim = { save_scope_as = holder_culture }
+		faith:faith_gimileth = { save_scope_as = holder_faith }
+	}
+	else_if = { # Mag Tumag
+		limit = { empire = title:e_mag_tumag }
+		culture:tumag = { save_scope_as = holder_culture }
+		faith:faith_tamska_anjiru = { save_scope_as = holder_faith }
+	}
+	else_if = { # Usakan
+		limit = { empire = title:e_usakan }
+		culture:usakani = { save_scope_as = holder_culture }
+		faith:faith_sederi = { save_scope_as = holder_faith }
 	}
 	else_if = { # Misty Mountains
 		limit = { empire = title:e_misty_mountains }
@@ -742,6 +809,11 @@ vanquish_darkness_generate_new_holder_culture_and_faith = { #In Title Scope
 	}
 	else_if = { # Yellow Mountains
 		limit = { empire = title:e_yellow_mountains }
+		culture:blacklocks = { save_scope_as = holder_culture }
+		faith:faith_blacklocks = { save_scope_as = holder_faith }
+	}
+	else_if = { # Western Yellow Mountains
+		limit = { empire = title:e_western_yellow_mountains }
 		culture:blacklocks = { save_scope_as = holder_culture }
 		faith:faith_blacklocks = { save_scope_as = holder_faith }
 	}

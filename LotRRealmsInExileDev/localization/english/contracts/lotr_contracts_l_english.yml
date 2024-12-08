@@ -17,13 +17,13 @@
  lotr_laamp_contract_schemes.1002.desc: "When we arrive at [task_contract_destination.GetName], I am quick to inquire about the stragglers harassing the locals. [corrupt_province_peasant.GetName],"
  lotr_laamp_contract_schemes.1002.desc_orcs: "a great Orc with a thirst for blood leads them from the darkest reaches of the wilderness."
  lotr_laamp_contract_schemes.1002.desc_elves: "a tall Elf with a brilliant sword leads his warriors without rest."
- lotr_laamp_contract_schemes.1002.a: ""Silence your people or #EMP die#!, peasant!""
- lotr_laamp_contract_schemes.1002.b: "I cannot stand for this manner of injustice."
+ lotr_laamp_contract_schemes.1002.a: ""Flee or die, scum!""
+ lotr_laamp_contract_schemes.1002.b: "We will follow a subtle approach there."
  lotr_laamp_contract_schemes.1002.a_win: "You help exert [task_contract_councillor.GetCouncilTitleFirstNamePossessive] presence"
  lotr_laamp_contract_schemes.1002.a_lose: "But you have to leave some [ROOT.Char.GetWomenMen] behind"
- every_lowborn_follower: "Every [lowborn|E] [follower|E]"
+#  every_lowborn_follower: "Every [lowborn|E] [follower|E]" #Already defined in vanilla
  lotr_laamp_contract_schemes.1003.t: "$lotr_laamp_contract_schemes.1001.t$"
- lotr_laamp_contract_schemes.1003.desc: "When the clamorous ordeal of bending each peasant leader to my will is complete, we take once more to the road. [task_contract_councillor.GetName] speaks of our next destination.\n\n"We shall go to [corrupt_province.GetName], for better or worse. The local mobs are of grave concern."
+ lotr_laamp_contract_schemes.1003.desc: "When the grueling ordeal of rooting out every bandit is complete, we take once more to the road. [task_contract_councillor.GetName] speaks of our next destination.\n\n"We shall go to [corrupt_province.GetName], for better or worse. The local mobs are of grave concern."
  lotr_laamp_contract_schemes.1003.desc_orcs: "$lotr_laamp_contract_schemes.1001.desc_orcs$"
  lotr_laamp_contract_schemes.1003.desc_elves: "$lotr_laamp_contract_schemes.1001.desc_elves$"
  lotr_laamp_contract_schemes.1003.a: "Let's make haste!"
@@ -45,7 +45,7 @@
  lotr_laamp_3011_request: "$laamp_request_boilerplate_intrigue_scheme$"
 
  lotr_laamp_contract_schemes.3011.t: "Thinning Enemy Ranks"
- lotr_laamp_contract_schemes.3011.desc: ""[target.GetTitledFirstName] has sent many of our best soldiers into [employer.GetFaith.DeathDeityNamePossessive] embrace , too many. Someone needs to put a stop to this, the way it happens matters little." growls [employer.GetTitledFirstName].\n\nI nod. There's nothing more to say  — [target.GetSheHe] is too deadly to be left in service of our enemy — and my employer would rather ask a professional.\n\nOne life cut short to save many."
+ lotr_laamp_contract_schemes.3011.desc: ""[target.GetTitledFirstName] has sent many of our best soldiers into [employer.GetFaith.DeathDeityNamePossessive] embrace, too many. Someone needs to put a stop to this, the way it happens matters little." growls [employer.GetTitledFirstName].\n\nI nod. There's nothing more to say  — [target.GetSheHe] is too deadly to be left in service of our enemy — and my employer would rather ask a professional.\n\nOne life cut short to save many."
  lotr_laamp_contract_schemes.3011.orc.desc: "Too many of my merry little snagas have been chopped up by [target.GetFirstNameNoTooltip] and [target.GetHerHis] forces, [root.GetFirstNameNoTooltip]! We're more the worse for wear." [employer.GetFirstNameNoTooltip] slams a knife on the table, foaming at the mouth. Clearly, [employer.getSheHe] is more than a little mad, and you shrug.\n\n[employer.getSheHe] picks up the knife and points it at you, and a cruel smile splits on [employer.GetHerHis] lips. "That's why #italic you#!, my good little maggot, are going to bring me [target.getHerHis] head, and soon! Otherwise, I'll string your stinking guts up from Dushgoi to Lugbúrz!" You've gotten the message, and leave quickly."
  lotr_laamp_contract_schemes.3011.a: "$laamp_base_contract_schemes.0000.generic_option.success_chance$"
  lotr_laamp_contract_schemes.3011.b: "$laamp_base_contract_schemes.0000.generic_option.speed$"
@@ -55,7 +55,7 @@
 
  lotr_laamp_contract_schemes.3012.t: "$lotr_laamp_contract_schemes.3011.t$: Success!"
  lotr_laamp_contract_schemes.3012.desc: ""Your receipt, [employer.GetTitleAsNameNoTooltip]," I say, dropping the stolen insignia on [employer.GetFirstNameNicknamedPossessive] table. The fabric is speckled with dark stains, but [target.GetTitledFirstNamePossessive] sigil is clear enough.\n\n"You did us all a favour," [employer.GetSheHe] grunts, "[target.GetTitledFirstName]'s days of terrorising our soldiers are over. A job well done. Your pay is with the servant outside."\n\nI dip my head respectfully and depart."
- lotr_laamp_contract_schemes.3012.orc.desc: ""Here you are, [employer.GetTitleAsNameNoTooltip]," I say, dropping the package on [employer.GetFirstNameNicknamedPossessive] table. The roll is bundled and covered in old, dark-red stains, but it's round enough to confirm what everyone knows it to be.\n\n"YA good job, my happy little slug," [employer.GetSheHe] grunts, "A good job! They say the Great War'll end soon, and no small part to you and your head-chopping. Ha! Ha! Now... where should I mount you, [target.GetTitledFirstName]?" [employer.GetFirstNameNoTooltip] cradles the bundle like a child and spins around with wicked glee, while you wait and watch, and after a while clear your throat. The Orc looks at you, eyes narrowed now. "Your stinking coins are outside, little rat! Get out of my sight!" \n\nI leave quickly, grabbing the bags of pay from one of the orcs outside."
+ lotr_laamp_contract_schemes.3012.orc.desc: ""Here you are, [employer.GetTitleAsNameNoTooltip]," I say, dropping the package on [employer.GetFirstNameNicknamedPossessive] table. The roll is bundled and covered in old, dark-red stains, but it's round enough to confirm what everyone knows it to be.\n\n"A good job, my happy little slug," [employer.GetSheHe] grunts, "A good job! They say the Great War'll end soon, and no small part to you and your head-chopping. Ha! Ha! Now... where should I mount you, [target.GetTitledFirstName]?" [employer.GetFirstNameNoTooltip] cradles the bundle like a child and spins around with wicked glee, while you wait and watch, and after a while clear your throat. The Orc looks at you, eyes narrowed now. "Your stinking coins are outside, little rat! Get out of my sight!" \n\nI leave quickly, grabbing the bags of pay from one of the orcs outside."
  lotr_laamp_contract_schemes.3012.a: "$laamp_base_contract_schemes.0000.generic_option.proceed.neutral$"
 
  lotr_laamp_contract_schemes.3013.t: "$lotr_laamp_contract_schemes.3011.t$: Failure!"

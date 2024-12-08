@@ -279,7 +279,7 @@
 278;98;237;248;bar_melui;x
 279;54;134;91;imloth_arthor;x
 280;7;59;41;minas_tumladen;x
-281;136;247;152;drambor;x
+281;136;247;152;Tumladen;x
 282;42;135;216;bar_novond;x
 283;182;192;112;aerthir;x
 284;34;50;75;caragost;x
@@ -393,7 +393,7 @@
 392;208;33;176;dol_faeren;x
 393;108;254;227;nineryn;x
 394;240;146;245;cul_bin;x
-395;119;127;153;curcenis;x
+395;119;127;153;Mothondost;x
 396;208;68;125;palomire;x
 397;149;130;50;cartrev_matho;x
 398;220;209;250;rendul;x
@@ -442,10 +442,10 @@
 441;144;164;134;annodrun;x
 442;193;210;141;annulond;x
 443;125;5;51;dellutham;x
-444;76;72;125;glorfalc;x
+444;76;72;125;glorfalch;x
 445;51;241;172;umestelwain;x
-446;97;217;131;cum_idrisaith;x
-447;235;51;226;tholtaen;x
+446;97;217;131;cum_idhrilthaeg;x
+447;235;51;226;lunbad;x
 448;67;169;247;rond_deren;x
 449;118;137;246;dol_udul;x
 450;59;68;27;annon_wain;x
@@ -543,7 +543,7 @@
 542;114;229;11;braedforth;x
 543;33;185;127;rhas_druath;x
 544;135;161;27;geann_a_lish;x
-545;14;97;132;garthost;x
+545;14;97;132;Garthoren;x
 546;32;144;242;cum_ehuir;x
 547;47;85;109;marr_hu;x
 548;136;44;143;ehuir;x
@@ -1017,7 +1017,7 @@
 1016;170;164;246;garhereb;x
 1017;133;157;137;kas_marzuk;x
 1018;79;219;149;tol_uialgaer;x
-1019;140;145;105;dol_idrisaith;x
+1019;140;145;105;dol_idhrilthaeg;x
 1020;188;192;165;cum_mandring;x
 1021;19;19;19;erednimrais1;x
 1022;20;20;20;erednimrais2;x

@@ -38,6 +38,8 @@
 	nick_the_unifier = {}
 	nick_steelsheen = {}
 	nick_the_pure = {}
+	nick_bride_of_death = {} # Héra
+	nick_warrior_poet = {} # Háma son of Helm
 	
 	nick_the_rider_that_remained = {} 	#Leofr
 	nick_the_singer_of_sagas = {}		#Leofring leader
@@ -146,6 +148,8 @@
 	nick_avenging_swan = {}
 	nick_the_pale = {}
 	nick_the_ambusher = {}
+	nick_alcarin = {}
+	nick_the_prince = {}
 	
 	# Defender against Wildmen
 	nick_the_unyielding = {}
@@ -170,6 +174,8 @@
 	nick_the_far_sighted = {}
 	nick_romendacil = {}
 	nick_the_tall_dunedain = {}
+	nick_sheep_lord = {}
+	nick_hyarmendacil = {}
 	
 	# Edain
 	nick_lorindol = {}
@@ -273,6 +279,8 @@
 	nick_captain_of_the_pit = {}
 	nick_seashadow = {}
 	nick_golden_reaver = {}
+	nick_lady_of_tides = {}
+	nick_lord_of_tides = {}
 	
 	# Haruzan
 	nick_serpentlord = {}
@@ -283,6 +291,7 @@
 	nick_the_arbiter_pezar = {}
 	nick_the_cunning_pezar = {}
 	nick_the_warlord_haruzan = {}
+	nick_the_valiant_arzagar = {}
 	
 	# Dune Sea
 	nick_wind_crowned = {}
@@ -298,8 +307,11 @@
 	
 	nick_windrider = {}
 	nick_tribemaker = {}
+	nick_tempest_of_darsalan = {}
 	
 	# Tedjin
+	nick_the_shrouded_tarb = {}
+	nick_the_bloodmaker = {}
 	nick_tedjinrestorer = {}
 	nick_tedjinrestorer_female = {}
 	nick_the_reformer_tedjin = {}
@@ -317,6 +329,7 @@
 	nick_the_kings_guide = {}
 	nick_the_opportunist_harad = {}
 	nick_the_war_king = {}
+	nick_the_widowless = {}
 	
 	# Druedain
 	nick_honnin_restorer = {}
