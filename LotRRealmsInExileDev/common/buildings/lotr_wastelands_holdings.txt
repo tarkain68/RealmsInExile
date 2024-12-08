@@ -85,6 +85,17 @@ wilderness_01 = {
 # It automatically spawns after colonisation
 # Primary holding of SETTLEMENT
 settlement_01 = {
+	
+	### Orcish ###
+
+	asset = {
+		type = pdxmesh
+		names = { "building_orc_farm_01_mesh" }
+		graphical_cultures = { "orc_building_gfx" }
+		illustration = @holding_illustration_grass
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
+	}
+
 	asset = {
 		type = pdxmesh
 		names = { "norse_underground_holding_01_mesh" }
@@ -95,14 +106,6 @@ settlement_01 = {
 		type = pdxmesh
 		names = { "building_western_tribal_01_a_mesh" }
 		graphical_cultures = { "numenorean_building_gfx" }
-		graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" }
-		illustration = @holding_illustration_grass
-		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
-	}
-	asset = {
-		type = pdxmesh
-		names = { "building_orc_farm_01_mesh" }
-		graphical_cultures = { "orc_building_gfx" }
 		graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" }
 		illustration = @holding_illustration_grass
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
@@ -262,6 +265,16 @@ settlement_01 = {
 settlement_02 = {
 	construction_time = very_slow_construction_time
 	
+	### Orcish ###
+
+	asset = {
+		type = pdxmesh
+		names = { "building_orc_farm_01_mesh" }
+		graphical_cultures = { "orc_building_gfx" }
+		illustration = @holding_illustration_grass
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
+	}
+
 	asset = {
 		type = pdxmesh
 		names = { "norse_underground_holding_01_mesh" }
@@ -271,15 +284,7 @@ settlement_02 = {
 	asset = {
 		type = pdxmesh
 		names = { "building_western_tribal_01_a_mesh" }
-		graphical_cultures = { "numenorean_building_gfx" }
-		graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" }
-		illustration = @holding_illustration_grass
-		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
-	}
-	asset = {
-		type = pdxmesh
-		names = { "building_orc_farm_01_mesh" }
-		graphical_cultures = { "orc_building_gfx" }
+		graphical_cultures = { "numenorean_building_gfx" "umbarean_building_gfx" "elven_building_gfx" "noldor_building_gfx" }
 		graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" }
 		illustration = @holding_illustration_grass
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
@@ -449,6 +454,16 @@ settlement_02 = {
 settlement_03 = {
 	construction_time = slow_construction_time
 
+	### Orcish ###
+
+	asset = {
+		type = pdxmesh
+		names = { "building_orc_farm_01_mesh" }
+		graphical_cultures = { "orc_building_gfx" }
+		illustration = @holding_illustration_grass
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
+	}
+
 	asset = {
 		type = pdxmesh
 		names = { "norse_underground_holding_01_mesh" }
@@ -459,14 +474,6 @@ settlement_03 = {
 		type = pdxmesh
 		names = { "building_western_tribal_01_a_mesh" }
 		graphical_cultures = { "numenorean_building_gfx" }
-		graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" }
-		illustration = @holding_illustration_grass
-		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
-	}
-	asset = {
-		type = pdxmesh
-		names = { "building_orc_farm_01_mesh" }
-		graphical_cultures = { "orc_building_gfx" }
 		graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" }
 		illustration = @holding_illustration_grass
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }

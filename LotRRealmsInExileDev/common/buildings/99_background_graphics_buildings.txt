@@ -44,48 +44,38 @@ walls_00 = {
 walls_01_tribal = {
 	is_graphical_background = yes
 
-	### Realms ###
+	### Elven ###
+
 	asset = {
 		type = entity
 		name = elven_tirion_wall_entity
-		# graphical_cultures = { noldor_building_gfx }
 		graphical_regions = { graphical_valinor }
 	}
+
 	asset = {
 		type = entity
 		names = { "highelves_fort_wall_entity" }
 		graphical_cultures = { noldor_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
 	}
+	
 	asset = {
 		type = entity
 		names = { "sindarin_hedge_wall_01_entity" }
 		graphical_cultures = { elven_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
 	}
+
+	### Orcish ###
+
 	asset = {
-		type = entity
-		names = { "orc_walls_01_a_entity" "orc_walls_01_b_entity" }
+		type = pdxmesh
+		name = mountain_orc_walls_02_mesh
 		graphical_cultures = { orc_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
 	}
+
 	asset = {
 		type = entity
 		name = wall_tribal_rohan_entity
 		graphical_cultures = { rohirrim_building_gfx hobbit_building_gfx slavic_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
 	}
 	asset = {
 		type = pdxmesh
@@ -98,7 +88,6 @@ walls_01_tribal = {
 		type = entity
 		names = { "celtic_wall_01_entity" "celtic_wall_01_a_entity" "brythonic_wall_01_entity" }
 		graphical_cultures = { goidelic_building_gfx brythonic_building_gfx }
-		# graphical_regions = { graphical_western }
 	}
 	# asset = {
 	# 	type = entity
@@ -111,7 +100,7 @@ walls_01_tribal = {
 		names = { "tribal_walls_01_a_entity" "tribal_walls_01_b_entity" }
 		graphical_cultures = {
 			norse_building_gfx iberian_building_gfx iranian_building_gfx
-			western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx
+			western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx numenorean_building_gfx
 		}
 		# graphical_regions = { graphical_western graphical_mediterranean graphical_india graphical_steppe }
 	}
@@ -137,12 +126,6 @@ walls_01_tribal = {
 			has_building_or_higher = "hill_forts_01"
 			has_building_or_higher = "ramparts_01"
 			has_building_or_higher = "watchtowers_01"
-			# has_building_or_higher = "theodosian_walls_01"
-			# has_building_or_higher = "walls_of_benin_01"
-			# has_building_or_higher = "walls_of_genoa_01"
-			# has_building_or_higher = "aurelian_walls_01"
-			# has_building_or_higher = "city_wall_of_toledo_01"
-			# has_building_or_higher = "roman_wall_of_lugo_01"
 			has_building_or_higher = "wonder_ramlond"
 			has_building_or_higher = "wonder_mirlond"
 			has_building_or_higher = "wonder_nilulonde_01"
@@ -165,39 +148,38 @@ walls_01_tribal = {
 walls_01 = {
 	is_graphical_background = yes
 
-	### Realms ###
+	### Elven ###
+
 	asset = {
 		type = entity
 		name = elven_tirion_wall_entity
-		# graphical_cultures = { noldor_building_gfx }
 		graphical_regions = { graphical_valinor }
 	}
+
 	asset = {
 		type = entity
 		names = { "highelves_fort_wall_entity" }
 		graphical_cultures = { noldor_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
 	}
+	
 	asset = {
 		type = entity
-		names = { "orc_walls_01_a_entity" "orc_walls_01_b_entity" }
-		graphical_cultures = { orc_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
+		names = { "sindarin_hedge_wall_01_entity" }
+		graphical_cultures = { elven_building_gfx }
 	}
+
+	### Orcish ###
+
+	asset = {
+		type = pdxmesh
+		name = mountain_orc_walls_02_mesh
+		graphical_cultures = { orc_building_gfx }
+	}
+
 	asset = {
 		type = entity
 		name = wall_01_rohan_entity
 		graphical_cultures = { rohirrim_building_gfx hobbit_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
 	}
 	asset = {
 		type = pdxmesh
@@ -210,7 +192,6 @@ walls_01 = {
 		type = entity
 		names = { "western_walls_01_a_entity" "western_walls_01_b_entity" }
 		graphical_cultures = { goidelic_building_gfx brythonic_building_gfx }
-		# graphical_regions = { graphical_western }
 	}
 	asset = {
 		type = entity
@@ -234,13 +215,11 @@ walls_01 = {
 		type = entity
 		name = "walls_01_sea"
 		graphical_cultures = { sea_building_gfx }
-		# graphical_regions = { graphical_india }
 	}
 	asset = {
 		type = entity
 		name = "walls_01_slavic"
 		graphical_cultures = { slavic_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_steppe }
 	}
 	
 	asset = {
@@ -248,40 +227,34 @@ walls_01 = {
 		name = "fp1_norse_walls_01_entity"
 		requires_dlc_flag = the_northern_lords
 		graphical_cultures = { norse_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_steppe }
 	}
 	asset = {
 		type = entity
 		name = "fp1_norse_walls_01_mena_entity"
 		requires_dlc_flag = the_northern_lords
 		graphical_cultures = { norse_building_gfx }
-		# graphical_regions = { graphical_mena }
 	}
 	asset = {
 		type = entity
 		name = "fp2_building_iberian_wall_01_entity"
 		requires_dlc_flag = the_fate_of_iberia
 		graphical_cultures = { iberian_building_gfx mediterranean_building_gfx numenorean_building_gfx umbarean_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_mena }
 	}
 	asset = {
 		type = entity
 		name = "fp3_building_persian_walls_01_a_01_entity"
 		requires_dlc_flag = legacy_of_persia
 		graphical_cultures = { iranian_building_gfx mena_building_gfx }
-		# graphical_regions = { graphical_mena graphical_india graphical_steppe }
 	}
 	asset = {
 		type = entity
 		names = { "western_walls_01_a_entity" "western_walls_01_b_entity" }
 		graphical_cultures = { western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx norse_building_gfx iberian_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_steppe }
 	}
 	asset = {
 		type = entity
 		names = { "mena_walls_01_a_entity" "mena_walls_01_b_entity" }
 		graphical_cultures = { western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx norse_building_gfx iberian_building_gfx }
-		# graphical_regions = { graphical_mena graphical_india }
 	}
 	
 	is_enabled = {
@@ -300,12 +273,6 @@ walls_01 = {
 			has_building_or_higher = "hill_forts_02"
 			has_building_or_higher = "ramparts_02"
 			has_building_or_higher = "watchtowers_02"
-			# has_building_or_higher = "theodosian_walls_01"
-			# has_building_or_higher = "walls_of_benin_01"
-			# has_building_or_higher = "walls_of_genoa_01"
-			# has_building_or_higher = "aurelian_walls_01"
-			# has_building_or_higher = "city_wall_of_toledo_01"
-			# has_building_or_higher = "roman_wall_of_lugo_01"
 			has_building_or_higher = "wonder_ramlond"
 			has_building_or_higher = "wonder_mirlond"
 			has_building_or_higher = "wonder_nilulonde_01"
@@ -337,45 +304,38 @@ walls_01 = {
 walls_02 = {
 	is_graphical_background = yes
 	
-	### Realms ###
+	### Elven ###
+
 	asset = {
-		type = pdxmesh
-		name = elven_tirion_wall_mesh
-		# graphical_cultures = { noldor_building_gfx }
+		type = entity
+		name = elven_tirion_wall_entity
 		graphical_regions = { graphical_valinor }
 	}
+
 	asset = {
-		type = pdxmesh
-		names = { "highelves_fort_wall_mesh" }
+		type = entity
+		names = { "highelves_fort_wall_entity" }
 		graphical_cultures = { noldor_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
 	}
+	
+	asset = {
+		type = entity
+		names = { "sindarin_hedge_wall_01_entity" }
+		graphical_cultures = { elven_building_gfx }
+	}
+
+	### Orcish ###
+
 	asset = {
 		type = pdxmesh
-		name = building_orc_walls_04_mesh
+		name = mountain_orc_walls_03_mesh
 		graphical_cultures = { orc_building_gfx }
-		# graphical_regions = { graphical_steppe }
 	}
-	asset = {
-		type = pdxmesh
-		name = mountain_orc_walls_02_mesh
-		graphical_cultures = { orc_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
-	}
+
 	asset = {
 		type = pdxmesh
 		name = wall_02_rohan_mesh
 		graphical_cultures = { rohirrim_building_gfx hobbit_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
 	}
 	asset = {
 		type = pdxmesh
@@ -388,13 +348,11 @@ walls_02 = {
 		type = pdxmesh
 		name = "walls_02_celtic_mesh"
 		graphical_cultures = { goidelic_building_gfx brythonic_building_gfx }
-		# graphical_regions = { graphical_western }
 	}
 	asset = {
 		type = pdxmesh
 		name = "chinese_walls_02_mesh"
 		graphical_cultures = { rhun_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe }
 	}
 	# asset = {
 	# 	type = pdxmesh
@@ -418,13 +376,11 @@ walls_02 = {
 		type = pdxmesh
 		name = "walls_02_sea_mesh"
 		graphical_cultures = { sea_building_gfx }
-		# graphical_regions = { graphical_india }
 	}
 	asset = {
 		type = pdxmesh
 		name = "walls_02_slavic_mesh"
 		graphical_cultures = { slavic_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_steppe }
 	}
 	
 	asset = {
@@ -432,40 +388,34 @@ walls_02 = {
 		name = "fp1_norse_walls_02_mesh"
 		requires_dlc_flag = the_northern_lords
 		graphical_cultures = { norse_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_steppe }
 	}
 	asset = {
 		type = pdxmesh
 		name = "fp1_norse_walls_02_mena_mesh"
 		requires_dlc_flag = the_northern_lords
 		graphical_cultures = { norse_building_gfx }
-		# graphical_regions = { graphical_mena graphical_india }
 	}
 	asset = {
 		type = pdxmesh
 		name = "fp2_building_iberian_wall_02_mesh"
 		requires_dlc_flag = the_fate_of_iberia
 		graphical_cultures = { iberian_building_gfx mediterranean_building_gfx numenorean_building_gfx umbarean_building_gfx }
-		# graphical_regions = { graphical_mediterranean graphical_mena }
 	}
 	asset = {
 		type = pdxmesh
 		name = "fp3_building_persian_walls_02_a_01_mesh"
 		requires_dlc_flag = legacy_of_persia
 		graphical_cultures = { iranian_building_gfx mena_building_gfx }
-		# graphical_regions = { graphical_mena graphical_india graphical_steppe }
 	}
 	asset = {
 		type = pdxmesh
 		name = "western_walls_02_a_mesh"
 		graphical_cultures = { western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx norse_building_gfx iberian_building_gfx }
-		# graphical_regions = { graphical_western graphical_steppe }
 	}
 	asset = {
 		type = pdxmesh
 		name = "mena_walls_02_a_mesh"
 		graphical_cultures = { western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx norse_building_gfx iberian_building_gfx }
-		# graphical_regions = { graphical_mena }
 	}
 
 	is_enabled = {
@@ -483,12 +433,6 @@ walls_02 = {
 			has_building_or_higher = "hill_forts_03"
 			has_building_or_higher = "ramparts_03"
 			has_building_or_higher = "watchtowers_03"
-			# has_building_or_higher = "theodosian_walls_01"
-			# has_building_or_higher = "walls_of_benin_01"
-			# has_building_or_higher = "walls_of_genoa_01"
-			# has_building_or_higher = "aurelian_walls_01"
-			# has_building_or_higher = "city_wall_of_toledo_01"
-			# has_building_or_higher = "roman_wall_of_lugo_01"
 			has_building_or_higher = "wonder_ramlond"
 			has_building_or_higher = "wonder_mirlond"
 			has_building_or_higher = "wonder_nilulonde_01"
@@ -520,45 +464,37 @@ walls_02 = {
 walls_03 = {
 	is_graphical_background = yes
 	
-	### Realms ###
+	### Elven ###
 	asset = {
-		type = pdxmesh
-		name = elven_tirion_wall_mesh
-		# graphical_cultures = { noldor_building_gfx }
+		type = entity
+		name = elven_tirion_wall_entity
 		graphical_regions = { graphical_valinor }
 	}
+
 	asset = {
-		type = pdxmesh
-		names = { "highelves_fort_wall_mesh" }
+		type = entity
+		names = { "highelves_fort_wall_entity" }
 		graphical_cultures = { noldor_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
 	}
+	
+	asset = {
+		type = entity
+		names = { "sindarin_hedge_wall_01_entity" }
+		graphical_cultures = { elven_building_gfx }
+	}
+
+	### Orcish ###
+
 	asset = {
 		type = pdxmesh
-		name = building_orc_walls_04_mesh
+		name = mountain_orc_walls_04_mesh
 		graphical_cultures = { orc_building_gfx }
-		# graphical_regions = { graphical_steppe }
 	}
-	asset = {
-		type = pdxmesh
-		name = mountain_orc_walls_03_mesh
-		graphical_cultures = { orc_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
-	}
+
 	asset = {
 		type = pdxmesh
 		name = wall_03_rohan_mesh
 		graphical_cultures = { rohirrim_building_gfx hobbit_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
 	}
 	asset = {
 		type = pdxmesh
@@ -571,13 +507,11 @@ walls_03 = {
 		type = pdxmesh
 		name = "walls_03_celtic_mesh"
 		graphical_cultures = { goidelic_building_gfx brythonic_building_gfx }
-		# graphical_regions = { graphical_western }
 	}
 	asset = {
 		type = pdxmesh
 		name = "chinese_walls_03_mesh"
 		graphical_cultures = { rhun_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe }
 	}
 	# asset = {
 	# 	type = pdxmesh
@@ -601,52 +535,44 @@ walls_03 = {
 		type = pdxmesh
 		name = "walls_03_sea_mesh"
 		graphical_cultures = { sea_building_gfx }
-		# graphical_regions = { graphical_india }
 	}
 	asset = {
 		type = pdxmesh
 		name = "walls_03_slavic_mesh"
 		graphical_cultures = { slavic_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_steppe }
 	}
 
 	asset = {
 		type = pdxmesh
 		name = "fp2_building_iberian_wall_03_mesh"
 		requires_dlc_flag = the_fate_of_iberia
-		graphical_cultures = { iberian_building_gfx mediterranean_building_gfx numenorean_building_gfx umbarean_building_gfx }
-		# graphical_regions = { graphical_mediterranean graphical_mena }
+		graphical_cultures = { iberian_building_gfx mediterranean_building_gfx umbarean_building_gfx }
 	}
 	asset = {
 		type = pdxmesh
 		name = "fp3_building_persian_walls_03_a_01_mesh"
 		requires_dlc_flag = legacy_of_persia
 		graphical_cultures = { iranian_building_gfx mena_building_gfx }
-		# graphical_regions = { graphical_mena graphical_india graphical_steppe }
 	}
 	asset = {
 		type = pdxmesh
 		name = "western_walls_03_a_mesh"
-		graphical_cultures = { western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx norse_building_gfx iberian_building_gfx }
-		# graphical_regions = { graphical_western graphical_steppe }
+		graphical_cultures = { western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx norse_building_gfx iberian_building_gfx numenorean_building_gfx }
 	}
 	asset = {
 		type = pdxmesh
 		name = "mediterranean_walls_03_a_mesh"
 		graphical_cultures = { western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx norse_building_gfx iberian_building_gfx }
-		# graphical_regions = { graphical_mediterranean }
 	}
 	asset = {
 		type = pdxmesh
 		name = "india_walls_03_a_mesh"
 		graphical_cultures = { western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx norse_building_gfx iberian_building_gfx }
-		# graphical_regions = { graphical_india }
 	}
 	asset = {
 		type = pdxmesh
 		name = "mena_walls_03_a_mesh"
 		graphical_cultures = { western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx norse_building_gfx iberian_building_gfx }
-		# graphical_regions = { graphical_mena }
 	}
 	
 	is_enabled = {
@@ -659,9 +585,6 @@ walls_03 = {
 			has_building_or_higher = "hill_forts_03"
 			has_building_or_higher = "ramparts_03"
 			has_building_or_higher = "watchtowers_03"
-			# has_building_or_higher = "walls_of_benin_01"
-			# has_building_or_higher = "walls_of_genoa_01"
-			# has_building_or_higher = "aurelian_walls_01"
 		}
 		NOR = {
 			# Disabling this level of walled graphics for holdings with special walls and other fortifications so that they always look appropriately fortified. Note: If any of these buildings are given unique 3D assets, this should be looked at again.
@@ -669,9 +592,6 @@ walls_03 = {
 			has_building_or_higher = "hill_forts_06"
 			has_building_or_higher = "ramparts_06"
 			has_building_or_higher = "watchtowers_06"
-			# has_building_or_higher = "theodosian_walls_01"
-			# has_building_or_higher = "city_wall_of_toledo_01"
-			# has_building_or_higher = "roman_wall_of_lugo_01"
 			has_building_or_higher = "wonder_ramlond"
 			has_building_or_higher = "wonder_mirlond"
 			has_building_or_higher = "wonder_nilulonde_01"
@@ -703,45 +623,38 @@ walls_03 = {
 walls_04 = {
 	is_graphical_background = yes
 	
-	### Realms ###
+	### Elven ###
 	asset = {
-		type = pdxmesh
-		name = elven_tirion_wall_mesh
-		# graphical_cultures = { noldor_building_gfx }
+		type = entity
+		name = elven_tirion_wall_entity
 		graphical_regions = { graphical_valinor }
 	}
+
 	asset = {
-		type = pdxmesh
-		names = { "highelves_fort_wall_mesh" }
+		type = entity
+		names = { "highelves_fort_wall_entity" }
 		graphical_cultures = { noldor_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
 	}
+	
+	asset = {
+		type = entity
+		names = { "sindarin_hedge_wall_01_entity" }
+		graphical_cultures = { elven_building_gfx }
+	}
+
+	### Orcish ###
+	
 	asset = {
 		type = pdxmesh
 		name = building_orc_walls_04_mesh
 		graphical_cultures = { orc_building_gfx }
-		# graphical_regions = { graphical_steppe }
 	}
-	asset = {
-		type = pdxmesh
-		name = mountain_orc_walls_04_mesh
-		graphical_cultures = { orc_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
-	}
+
 	asset = {
 		type = pdxmesh
 		name = wall_04_rohan_mesh
 		graphical_cultures = { rohirrim_building_gfx hobbit_building_gfx }
-		# graphical_regions = {
-		# 	graphical_valinor graphical_lothlorien
-		# 	graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe
-		# }
+
 	}
 	asset = {
 		type = pdxmesh
@@ -754,82 +667,69 @@ walls_04 = {
 		type = pdxmesh
 		name = "walls_04_celtic_mesh"
 		graphical_cultures = { goidelic_building_gfx brythonic_building_gfx }
-		# graphical_regions = { graphical_western }
 	}
 	asset = {
 		type = pdxmesh
 		name = "chinese_walls_04_mesh"
 		graphical_cultures = { rhun_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe }
 	}
 	asset = {
 		type = pdxmesh
 		name = "guinean_walls_04_mesh"
 		graphical_cultures = { guinean_building_gfx }
-		graphical_regions = { graphical_mena }
 	}
 	asset = {
 		type = pdxmesh
 		name = "walls_04_roman_mesh"
 		graphical_cultures = { byzantine_building_gfx }
-		graphical_regions = { graphical_mediterranean }
 	}
 	asset = {
 		type = pdxmesh
 		name = "walls_04_sahelian_mesh"
 		graphical_cultures = { sahelian_building_gfx }
-		graphical_regions = { graphical_mena }
 	}
 	asset = {
 		type = pdxmesh
 		name = "walls_04_sea_mesh"
 		graphical_cultures = { sea_building_gfx }
-		# graphical_regions = { graphical_india }
 	}
 	asset = {
 		type = pdxmesh
 		name = "walls_04_slavic_mesh"
-		graphical_cultures = { slavic_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_steppe }
+		graphical_cultures = { slavic_building_gfx  }
 	}
 
 	asset = {
 		type = pdxmesh
 		name = "fp2_building_iberian_wall_04_mesh"
 		requires_dlc_flag = the_fate_of_iberia
-		graphical_cultures = { iberian_building_gfx mediterranean_building_gfx numenorean_building_gfx umbarean_building_gfx }
-		# graphical_regions = { graphical_mediterranean graphical_mena }
+		graphical_cultures = { iberian_building_gfx mediterranean_building_gfx numenorean_building_gfx umbarean_building_gfx  }
 	}
 	asset = {
 		type = pdxmesh
 		name = "fp3_building_persian_walls_04_a_01_mesh"
 		requires_dlc_flag = legacy_of_persia
 		graphical_cultures = { iranian_building_gfx mena_building_gfx }
-		# graphical_regions = { graphical_mena graphical_india graphical_steppe }
 	}
 	asset = {
 		type = pdxmesh
 		name = "western_walls_04_a_mesh"
 		graphical_cultures = { western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx norse_building_gfx iberian_building_gfx }
-		# graphical_regions = { graphical_western graphical_steppe }
 	}
 	asset = {
 		type = pdxmesh
 		name = "india_walls_04_a_mesh"
 		graphical_cultures = { western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx norse_building_gfx iberian_building_gfx }
-		# graphical_regions = { graphical_india }
 	}
 	asset = {
 		type = pdxmesh
 		name = "mediterranean_walls_04_a_mesh"
 		graphical_cultures = { western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx norse_building_gfx iberian_building_gfx }
-		# graphical_regions = { graphical_mediterranean }
 	}
 	asset = {
 		type = pdxmesh
 		name = "mena_walls_04_a_mesh"
 		graphical_cultures = { western_building_gfx mediterranean_building_gfx indian_building_gfx mena_building_gfx steppe_building_gfx norse_building_gfx iberian_building_gfx }
-		# graphical_regions = { graphical_mena }
 	}
 	
 	is_enabled = {
@@ -842,7 +742,6 @@ walls_04 = {
 			has_building_or_higher = "hill_forts_06"
 			has_building_or_higher = "ramparts_06"
 			has_building_or_higher = "watchtowers_06"
-			# has_building_or_higher = "theodosian_walls_01"
 			has_building_or_higher = "wonder_umbar_01"
 			has_building_or_higher = "wonder_ramlond"
 			has_building_or_higher = "wonder_mirlond"

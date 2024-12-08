@@ -182,11 +182,8 @@
 		culture = corsair
 		religion = faith_corsair
 		buildings = {
-			castle_03
-			hill_forts_05
-			garrison_tower_02
-			# common_tradeport_04 
-			# hill_farms_04 
+			castle_04
+			hill_forts_06
 		}
 	}
 }
@@ -194,7 +191,7 @@
 847 = {	 	#Gimilêth (b_gimleth)
 	culture = old_umbarean
 	religion = faith_kings_men_castamir
-	holding = none
+	holding = castle_holding
 	5200.1.1 = {
 		culture = umbaredain
 		religion = faith_edain
@@ -202,13 +199,17 @@
 	5600.1.1 = {
 		culture = corsair
 		religion = faith_corsair
+		buildings = {
+			castle_03
+			hill_forts_03
+		}
 	}
 }
 
 848 = {	 	#Abanazûl (b_abanazul)
 	culture = old_umbarean
 	religion = faith_kings_men_castamir
-	holding = none
+	holding = castle_holding
 	5200.1.1 = {
 		culture = umbaredain
 		religion = faith_edain
@@ -216,18 +217,17 @@
 	5600.1.1 = {
 		culture = corsair
 		religion = faith_corsair
+		buildings = {
+			castle_02
+			hill_forts_02
+		}
 	}
 }
 
 845 = {		#Tol Glingal (b_tol_glingal)
 	culture = old_umbarean
 	religion = faith_kings_men_castamir
-	holding = city_holding
-	buildings = {
-		city_02
-		common_tradeport_03
-		# logging_camps_03 
-	}
+	holding = castle_holding
 	5200.1.1 = {
 		culture = umbaredain
 		religion = faith_edain
@@ -235,13 +235,17 @@
 	5600.1.1 = {
 		culture = corsair
 		religion = faith_corsair
+		buildings = {
+			castle_01
+			hill_forts_01
+		}
 	}
 }
 
 844 = {	 	#Azûladêth (b_azuladeth)
 	culture = old_umbarean
 	religion = faith_kings_men_castamir
-	holding = none
+	holding = castle_holding
 	5200.1.1 = {
 		culture = umbaredain
 		religion = faith_edain
@@ -249,6 +253,9 @@
 	5600.1.1 = {
 		culture = corsair
 		religion = faith_corsair
+		buildings = {
+			castle_01
+		}
 	}
 }
 
@@ -289,10 +296,31 @@
 	}
 }
 
+822 = {	 	#Kharatêth (b_kharateth)
+	culture = umbarean
+	religion = faith_kings_men_castamir
+	holding = tribal_holding
+	5600.1.1 = {
+		culture = umbarean
+		religion = faith_kings_men_castamir
+		buildings = {
+			tribe_02
+			palisades_01
+		}
+	}
+}
+
 1296 = {	#Zanazûl (b_zanazul)
 	culture = umbarean
 	religion = faith_kings_men_castamir
-	holding = none
+	holding = tribal_holding
+	5600.1.1 = {
+		culture = umbarean
+		religion = faith_kings_men_castamir
+		buildings = {
+			tribe_01
+		}
+	}
 }
 
 1299 = {	#Cirith Umbar (b_cirith_umbar)
@@ -479,11 +507,8 @@
 823 = {	 	#Pelladur (b_pelladur)
 	culture = black_numenorean
 	religion = faith_kings_men_numenorean
-	holding = castle_holding
-	4060.1.1 = {
-		culture = old_umbarean
-	}
-	4966.1.1 = {
+	holding = city_holding
+	5200.1.1 = {
 		culture = umbaredain
 		religion = faith_edain
 	}
@@ -491,9 +516,7 @@
 		culture = corsair
 		religion = faith_corsair
 		buildings = {
-			castle_02
-			curtain_walls_04
-			common_tradeport_04
+			city_04
 		}
 	}
 }
@@ -503,27 +526,29 @@
 	religion = faith_corsair
 	holding = city_holding
 	buildings = {
-		city_02
-		common_tradeport_04
+		city_03
 	}
 }
 
 826 = {	 	#Lôkha (b_lokha)
 	culture = corsair
 	religion = faith_corsair
-	holding = none
+	holding = city_holding
+	buildings = {
+		city_02
+	}
 }
 
 824 = {	 	#Khôrâzul (b_khorazul)
 	culture = corsair
 	religion = faith_corsair
-	holding = none
+	holding = city_holding
 }
 
 1307 = {	#Ûrêlôni (b_ureloni)
 	culture = corsair
 	religion = faith_corsair
-	holding = none
+	holding = settlement_holding
 }
 
 ##			Zâmudôr (c_zamudor)
@@ -531,11 +556,8 @@
 1511 = {	#Adira (b_adira)
 	culture = black_numenorean
 	religion = faith_kings_men_numenorean
-	holding = castle_holding
-	4060.1.1 = {
-		culture = old_umbarean
-	}
-	4966.1.1 = {
+	holding = church_holding
+	5200.1.1 = {
 		culture = umbaredain
 		religion = faith_edain
 	}
@@ -543,11 +565,7 @@
 		culture = corsair
 		religion = faith_corsair
 		buildings = {
-			castle_02
-			ramparts_03
-			common_tradeport_03
-			# barracks_02 
-			# logging_camps_03 
+			temple_04
 		}
 	}
 }
@@ -555,23 +573,33 @@
 1524 = {	#Amutara (b_amutara)
 	culture = corsair
 	religion = faith_corsair
-	holding = city_holding
-	buildings = {
-		city_02
-		plantations_04
+	holding = church_holding
+	5600.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+			temple_02
+		}
 	}
 }
 
 2541 = {	#Zâmudôr (b_zamudor)
 	culture = corsair
 	religion = faith_corsair
-	holding = none
+	holding = church_holding
+	5600.1.1 = {
+		culture = corsair
+		religion = faith_corsair
+		buildings = {
+			temple_03
+		}
+	}
 }
 
 2547 = {	#Mâuthôr (b_mauthor)
 	culture = corsair
 	religion = faith_corsair
-	holding = none
+	holding = church_holding
 }
 
 ###			Annabrith (d_annabrith)

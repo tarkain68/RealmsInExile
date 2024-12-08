@@ -9,6 +9,7 @@
 # Realms
 @holding_illustration_hobbit = "gfx/interface/illustrations/holding_types/city_hobbit.dds"
 @holding_illustration_numenorean = "gfx/interface/illustrations/holding_types/city_numenorean.dds"
+@holding_illustration_sindarin = "gfx/interface/illustrations/holding_types/refuge_sindarin.dds"
 # Holding Sprawl
 @holding_illustration_celtic = "gfx/interface/illustrations/holding_types/city_celtic.dds"
 @holding_illustration_cemanahuac = "gfx/interface/illustrations/holding_types/city_india.dds"
@@ -27,12 +28,35 @@ city_01 = {
 		name = "building_western_castle_02_mesh"
 		illustration = @holding_illustration_western
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
-		# graphical_cultures = {
-		# 	dwarven_building_gfx orc_building_gfx elven_building_gfx
-		# 	norse_building_gfx iberian_building_gfx iranian_building_gfx
-		# 	western_building_gfx mediterranean_building_gfx mena_building_gfx indian_building_gfx steppe_building_gfx
-		# }
 		graphical_regions = { graphical_underground }
+	}
+
+	### Elven ###
+
+	asset = {
+		type = pdxmesh
+		names = { "highelves_01_01_mesh" "highelves_01_02_mesh" }
+		illustration = @holding_illustration_sindarin
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { noldor_building_gfx }
+	}
+
+	asset = {
+		type = pdxmesh
+		name = sindarin_sanctuary_01_mesh
+		illustration = @holding_illustration_sindarin
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { elven_building_gfx }
+	}
+
+	### Orcish ###
+
+	asset = {
+		type = pdxmesh
+		names = { "building_orc_city_01_a_mesh" "building_orc_city_01_b_mesh" }
+		illustration = @holding_illustration_western
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { orc_building_gfx }
 	}
 
 	### Númenórean ###
@@ -59,16 +83,6 @@ city_01 = {
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 0 } }
 		graphical_cultures = { umbarean_building_gfx }
 		# graphical_regions = { graphical_mediterranean graphical_mena graphical_india }
-	}
-
-	### Uruk ###
-	asset = {
-		type = pdxmesh
-		names = { "building_orc_city_01_a_mesh" "building_orc_city_01_b_mesh" }
-		illustration = @holding_illustration_western
-		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 0 } }
-		graphical_cultures = { orc_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe }
 	}
 
 	### Rohirrim ###
@@ -158,6 +172,17 @@ city_01 = {
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mena_city" soundparameter = { "Tier" = 0 } }
 		graphical_cultures = { iranian_building_gfx }
 		# graphical_regions = { graphical_india }
+	}
+
+	### EP3 Byzantine ###
+	asset = {
+		type = pdxmesh
+		name = "ep3_byzantine_city_01_mesh"
+		requires_dlc_flag = roads_to_power
+		illustration = @holding_illustration_byzantine
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { byzantine_building_gfx }
+		# graphical_regions = { graphical_mediterranean }
 	}
 	
 	### Western ###
@@ -409,17 +434,6 @@ city_01 = {
 		graphical_cultures = { iranian_building_gfx }
 		# graphical_regions = { graphical_india }
 	}
-	
-	### EP3 Byzantine ###
-	asset = {
-		type = pdxmesh
-		name = "ep3_byzantine_city_01_mesh"
-		### TODO Add DLC Check
-		illustration = @holding_illustration_byzantine
-		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 0 } }
-		graphical_cultures = { byzantine_building_gfx }
-		# graphical_regions = { graphical_mediterranean }
-	}
 
 	#Steppe fallbacks
 	#Iranian
@@ -618,6 +632,34 @@ city_02 = {
 		graphical_regions = { graphical_underground }
 	}
 
+	### Elven ###
+
+	asset = {
+		type = pdxmesh
+		names = { "highelves_02_01_mesh" "highelves_02_02_mesh" }
+		illustration = @holding_illustration_sindarin
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { noldor_building_gfx }
+	}
+
+	asset = {
+		type = pdxmesh
+		name = sindarin_sanctuary_01_mesh
+		illustration = @holding_illustration_sindarin
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { elven_building_gfx }
+	}
+
+	### Orcish ###
+
+	asset = {
+		type = pdxmesh
+		names = { "building_orc_city_01_a_mesh" "building_orc_city_01_b_mesh" }
+		illustration = @holding_illustration_western
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 1 } }
+		graphical_cultures = { orc_building_gfx }
+	}
+
 	### Númenórean ###
 	asset = {
 		type = pdxmesh
@@ -642,16 +684,6 @@ city_02 = {
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 1 } }
 		graphical_cultures = { umbarean_building_gfx }
 		# graphical_regions = { graphical_mediterranean graphical_mena graphical_india }
-	}
-
-	### Uruk ###
-	asset = {
-		type = pdxmesh
-		names = { "building_orc_city_01_a_mesh" "building_orc_city_01_b_mesh" }
-		illustration = @holding_illustration_western
-		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 1 } }
-		graphical_cultures = { orc_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe }
 	}
 
 	### Rohirrim ###
@@ -741,6 +773,17 @@ city_02 = {
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mena_city" soundparameter = { "Tier" = 1} }
 		graphical_cultures = { iranian_building_gfx }
 		# graphical_regions = { graphical_india }
+	}
+
+	### EP3 Byzantine ###
+	asset = {
+		type = pdxmesh
+		name = "ep3_byzantine_city_01_mesh"
+		requires_dlc_flag = roads_to_power
+		illustration = @holding_illustration_byzantine
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { byzantine_building_gfx }
+		# graphical_regions = { graphical_mediterranean }
 	}
 	
 	### Western ###
@@ -999,17 +1042,6 @@ city_02 = {
 		graphical_cultures = { iranian_building_gfx }
 		# graphical_regions = { graphical_india }
 	}
-	
-	### EP3 Byzantine ###
-	asset = {
-		type = pdxmesh
-		name = "ep3_byzantine_city_01_mesh"
-		requires_dlc_flag = roads_to_power
-		illustration = @holding_illustration_byzantine
-		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 1 } }
-		graphical_cultures = { byzantine_building_gfx }
-		# graphical_regions = { graphical_mediterranean }
-	}
 
 	#Steppe fallbacks
 	#Iranian
@@ -1194,6 +1226,34 @@ city_03 = {
 		graphical_regions = { graphical_underground }
 	}
 
+	### Elven ###
+
+	asset = {
+		type = pdxmesh
+		names = { "highelves_03_01_mesh" "highelves_03_02_mesh" }
+		illustration = @holding_illustration_sindarin
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { noldor_building_gfx }
+	}
+
+	asset = {
+		type = pdxmesh
+		name = sindarin_sanctuary_02_mesh
+		illustration = @holding_illustration_sindarin
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { elven_building_gfx }
+	}
+
+	### Orcish ###
+
+	asset = {
+		type = pdxmesh
+		names = { "building_orc_city_01_a_mesh" "building_orc_city_01_b_mesh" }
+		illustration = @holding_illustration_western
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 1 } }
+		graphical_cultures = { orc_building_gfx }
+	}
+
 	### Númenórean ###
 	asset = {
 		type = pdxmesh
@@ -1218,16 +1278,6 @@ city_03 = {
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 1 } }
 		graphical_cultures = { umbarean_building_gfx }
 		# graphical_regions = { graphical_mediterranean graphical_mena graphical_india }
-	}
-
-	### Uruk ###
-	asset = {
-		type = pdxmesh
-		names = { "building_orc_city_01_a_mesh" "building_orc_city_01_b_mesh" }
-		illustration = @holding_illustration_western
-		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 1 } }
-		graphical_cultures = { orc_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe }
 	}
 
 	### Rohirrim ###
@@ -1317,6 +1367,17 @@ city_03 = {
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mena_city" soundparameter = { "Tier" = 1} }
 		graphical_cultures = { iranian_building_gfx }
 		# graphical_regions = { graphical_india }
+	}
+
+	### EP3 Byzantine ###
+	asset = {
+		type = pdxmesh
+		name = "ep3_byzantine_city_02_mesh"
+		requires_dlc_flag = roads_to_power
+		illustration = @holding_illustration_byzantine
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 2 } }
+		graphical_cultures = { byzantine_building_gfx }
+		# graphical_regions = { graphical_mediterranean }
 	}
 	
 	### Western ###
@@ -1567,17 +1628,6 @@ city_03 = {
 		graphical_cultures = { iranian_building_gfx }
 		# graphical_regions = { graphical_india }
 	}
-	
-	### EP3 Byzantine ###
-	asset = {
-		type = pdxmesh
-		name = "ep3_byzantine_city_02_mesh"
-		requires_dlc_flag = roads_to_power
-		illustration = @holding_illustration_byzantine
-		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 2 } }
-		graphical_cultures = { byzantine_building_gfx }
-		# graphical_regions = { graphical_mediterranean }
-	}
 
 	#Steppe fallbacks
 	#Iranian
@@ -1757,6 +1807,34 @@ city_04 = {
 		graphical_regions = { graphical_underground }
 	}
 
+	### Elven ###
+
+	asset = {
+		type = pdxmesh
+		names = { "highelves_04_01_mesh" "highelves_04_02_mesh" }
+		illustration = @holding_illustration_sindarin
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { noldor_building_gfx }
+	}
+
+	asset = {
+		type = pdxmesh
+		name = sindarin_sanctuary_03_mesh
+		illustration = @holding_illustration_sindarin
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { elven_building_gfx }
+	}
+
+	### Orcish ###
+
+	asset = {
+		type = pdxmesh
+		names = { "building_orc_city_01_a_mesh" "building_orc_city_01_b_mesh" }
+		illustration = @holding_illustration_western
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 2 } }
+		graphical_cultures = { orc_building_gfx }
+	}
+
 	### Númenórean ###
 	asset = {
 		type = pdxmesh
@@ -1781,16 +1859,6 @@ city_04 = {
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 2 } }
 		graphical_cultures = { umbarean_building_gfx }
 		# graphical_regions = { graphical_mediterranean graphical_mena graphical_india }
-	}
-
-	### Uruk ###
-	asset = {
-		type = pdxmesh
-		names = { "building_orc_city_01_a_mesh" "building_orc_city_01_b_mesh" }
-		illustration = @holding_illustration_western
-		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 2 } }
-		graphical_cultures = { orc_building_gfx }
-		# graphical_regions = { graphical_western graphical_mediterranean graphical_mena graphical_india graphical_steppe }
 	}
 
 	### Rohirrim ###
@@ -1880,6 +1948,17 @@ city_04 = {
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mena_city" soundparameter = { "Tier" = 2 } }
 		graphical_cultures = { iranian_building_gfx }
 		# graphical_regions = { graphical_india }
+	}
+
+	### EP3 Byzantine ###
+	asset = {
+		type = pdxmesh
+		name = "ep3_byzantine_city_02_mesh"
+		requires_dlc_flag = roads_to_power
+		illustration = @holding_illustration_byzantine
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 2 } }
+		graphical_cultures = { byzantine_building_gfx }
+		# graphical_regions = { graphical_mediterranean }
 	}
 	
 	### Western ###
@@ -2129,17 +2208,6 @@ city_04 = {
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mena_city" soundparameter = { "Tier" = 2 } }
 		graphical_cultures = { iranian_building_gfx }
 		# graphical_regions = { graphical_india }
-	}
-	
-	### EP3 Byzantine ###
-	asset = {
-		type = pdxmesh
-		name = "ep3_byzantine_city_02_mesh"
-		requires_dlc_flag = roads_to_power
-		illustration = @holding_illustration_byzantine
-		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/mediterranean_city" soundparameter = { "Tier" = 2 } }
-		graphical_cultures = { byzantine_building_gfx }
-		# graphical_regions = { graphical_mediterranean }
 	}
 
 	#Steppe fallbacks

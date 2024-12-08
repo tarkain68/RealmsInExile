@@ -96,6 +96,11 @@
  dwarf_unit_gfx:0 "Dwarven"
  
  # Architecture
+ noldor_building_gfx:0 "Noldorin"
+ elven_building_gfx:0 "Elven"
+ orc_building_gfx:0 "Uruk"
+ numenorean_building_gfx:0 "Númenórean"
+
  akan_building_gfx:0 "Akan"
  baltic_building_gfx:0 "North-western Bórian" # Balto-Finnic
  brythonic_building_gfx:0 "Gwaithuirim" # Brythonic
@@ -116,12 +121,9 @@
  turkic_building_gfx:0 "Abrakhânese" # Turkic, Sogdian, Samarkand
  # Realms Architecture
  dwarven_building_gfx: "Dwarven"
- elven_building_gfx:0 "Elven"
  hobbit_building_gfx:0 "Hobbitish" # Is there a better adjective for Hobbit architecture?
- noldor_building_gfx:0 "Noldorin"
  arnorian_building_gfx:0 "Númenórean"
- numenorean_building_gfx:0 "Númenórean"
- orc_building_gfx:0 "Uruk"
+
  rhun_building_gfx:0 "Rhûnnic"
  rohirrim_building_gfx:0 "Rohirrim"
  caledhrim_building_gfx:0 "Caledhrim"
