@@ -1,5 +1,11 @@
 ﻿l_english: 
 
+ laamp_mining_prospecting_contract_scheme:0 "Prospecting"
+ laamp_mining_prospecting_contract_scheme_action:0 "Prospecting in the"
+ laamp_mining_prospecting_contract_scheme_desc:0 "Conduct a thorough examination of a mountainous site on behalf of your [contractor|E] to discover valuable [resources|E]."
+ laamp_mining_prospecting_contract_scheme_desc_general:0 "Conduct a thorough examination of a mountainous site on behalf of your [contractor|E] to discover valuable [resources|E]."
+ laamp_mining_prospecting_contract_scheme_desc_success:0 "$laamp_contract_scheme_desc_success_boilerplate$"
+
  lotr_laamp_1001: "Hunt Down Stragglers"
  lotr_laamp_1001_desc_title: "Fighters of repute,"
  lotr_laamp_1001_desc: "[TaskContract.GetTarget.GetPrimaryTitle.GetNameNoTierNoTooltip] suffers from surviving enemy stragglers sowing fear and chaos. Anyone willing to weed them all out will be rewarded."

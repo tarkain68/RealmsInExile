@@ -1,4 +1,116 @@
-﻿settle_wilderness_immediately_interaction = {
+﻿start_prospecting_scheme_interaction = {
+	icon = icon_scheme_generate_claim
+	interface_priority = 50
+	category = interaction_category_laamp
+
+	target_type = title
+	target_filter = recipient_de_jure_titles
+
+	can_be_picked_title = {
+		scope:target = {
+			tier = tier_county
+			custom_tooltip = {
+				text = activity_mining_county_has_no_valid_prospecting_locations_long_desc
+				any_county_province = {
+					valid_mining_activity_location = no
+					OR = {
+						terrain = mountains
+						terrain = halls
+						terrain = desert_mountains
+					}
+				}
+			}
+		}
+	}
+
+	send_name = START_SCHEME
+
+	scheme = laamp_mining_prospecting_contract_scheme
+
+	is_shown = {
+		scope:recipient = {
+			is_vassal_or_below_of = scope:actor
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = activity_mining_character_has_no_valid_prospecting_locations_long_desc
+			scope:recipient = {
+				any_held_title = {
+					tier = tier_county
+					any_county_province = {
+						valid_mining_activity_location = no
+						OR = {
+							terrain = mountains
+							terrain = halls
+							terrain = desert_mountains
+						}
+					}
+				}
+			}
+		}
+	}
+
+	desc = start_prospecting_scheme_interaction.desc
+
+	# Scheme Starter Packages
+	# options_heading = schemes.t.agent_packages
+	# send_options_exclusive = yes
+	# ## Balanced agents.
+	# send_option = {
+	# 	flag = agent_focus_balance
+	# 	current_description = start_generate_claim_interaction.tt.agent_focus_balance
+	# }
+	# ## Focused on Success Chance.
+	# send_option = {
+	# 	flag = agent_focus_success
+	# 	current_description = start_generate_claim_interaction.tt.agent_focus_success
+	# }
+	# ## Focused on Speed.
+	# send_option = {
+	# 	flag = agent_focus_speed
+	# 	current_description = start_generate_claim_interaction.tt.agent_focus_speed
+	# }
+	# ## Focused on Secrecy.
+	# send_option = {
+	# 	flag = agent_focus_secrecy
+	# 	current_description = start_generate_claim_interaction.tt.agent_focus_secrecy
+	# }
+
+	on_accept = {
+		scope:target = {
+			random_county_province = {
+				limit = {
+					valid_mining_activity_location = no
+					OR = {
+						terrain = mountains
+						terrain = halls
+						terrain = desert_mountains
+					}
+				}
+				barony = {
+					save_scope_as = prospecting_barony
+				}
+			}
+		}
+		scope:actor = {
+			begin_scheme_basic_effect = {
+				SCHEME_TYPE = laamp_mining_prospecting_contract_scheme
+				TARGET_TYPE = target_title
+				TARGET_SCOPE = scope:prospecting_barony
+			}
+		}
+	}
+
+	auto_accept = yes
+
+	ai_will_do = {
+		base = 5
+	}
+}
+
+settle_wilderness_immediately_interaction = {
 	category = interaction_debug_realms
 	use_diplomatic_range = no
 	common_interaction = no

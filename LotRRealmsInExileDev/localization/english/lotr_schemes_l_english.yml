@@ -30,3 +30,24 @@
  SCHEME_BEFRIEND_ELF_VS_GOOD:0 "[elves|E] are slow to befriend mortals: $VALUE|+0$"
  SCHEME_BEFRIEND_ELF_VS_NEUTRAL:0 "[elves|E] are slow to befriend unenlightened mortals: $VALUE|+0$"
  SCHEME_BEFRIEND_ELF_VS_EVIL:0 "[elves|E] inherently distrust those of Evil spirit: $VALUE|+0$"
+
+ #Prospecting Scheme
+
+ SCHEME_PROSPECTING_STEWARDSHIP:0 "Your [stewardship|E]: $VALUE|+0=-+$"
+ SCHEME_PROSPECTING_LEARNING:0 "Your [learning|E]: $VALUE|+0=-+$"
+ SCHEME_PROSPECTING_EXPEDITION_LEADER:0 "Expedition Leader [perk|E]: $VALUE|+0=-+$"
+ SCHEME_PROSPECTING_SONS_OF_MAHAL:0 "Sons of Mahal [dynasty_perk|E]: $VALUE|+0=-+$"
+ SCHEME_PROSPECTING_LEADER_MINING_TRAIT:0 "You are a [GetTrait('lifestyle_miner').GetName( GetNullCharacter )]: $VALUE|+0=-+$"
+ SCHEME_PROSPECTING_LEADER_MINING_SKILL:0 "Your [GetTrait('lifestyle_miner').GetName( GetNullCharacter )] Prospector [trait_level_track_xp|E]: $VALUE|+0=-+$"
+
+ agent_prospector:0 "Prospector"
+ agent_prospector_i: "[success_chance_max_i]"
+ agent_prospector_desc: "#WEAK Where others see grey rubble and dust, the prospector discerns whispers of glimmer and gleam, hints of secret fortune waiting to be unearthed.#!"
+
+ agent_miner:0 "Miner"
+ agent_miner_i: "[scheme_speed_i]"
+ agent_miner_desc: "#WEAK Dust in the throat and sparks in the dark, the miner’s world is measured in inches of progress and muffled echoes of iron on rock.#!"
+
+ agent_foreman:0 "Foreman"
+ agent_foreman_i: "[scheme_speed_i]"
+ agent_foreman_desc: "#WEAK A foreman’s voice cuts through clamor like a chisel through ore, forging order from chaos under the mountain’s roof.#!"
