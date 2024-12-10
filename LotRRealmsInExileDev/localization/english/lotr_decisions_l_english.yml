@@ -261,7 +261,7 @@
  decision_set_prospecting_contract_tooltip:0 "TEMP - Jamie-san"
  decision_set_prospecting_contract_desc:0 "TEMP - Jamie-san"
  decision_set_prospecting_contract_confirm:0 "Create Contract"
- decision_set_prospecting_contract_selected_county_tooltip:0 "[GetPlayer.MakeScope.Var('selected_county').Title.GetNameNoTierNoTooltip]"
+ decision_set_prospecting_contract_selected_county_tooltip:0 "Starts a [GetScheme('laamp_mining_prospecting_contract_scheme').GetTypeName] [scheme|E] in the barony of [GetPlayer.MakeScope.Var('selected_county').Title.GetNameNoTier]"
 
  #################################
  ### Minor Lifestyle Decisions ###

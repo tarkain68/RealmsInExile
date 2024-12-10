@@ -1178,9 +1178,9 @@ decision_set_prospecting_contract = {
 		show_from_start = yes
 
 		item = { # Southern Route
-			value = needed_filler_value
-			is_default = yes
+			value = needed_filler_value # 
 			icon = "gfx/interface/icons/message_feed/mercenary.dds"
+			is_default = yes
 		}
 	}
 	selection_tooltip = decision_set_prospecting_contract_tooltip
@@ -1194,13 +1194,7 @@ decision_set_prospecting_contract = {
 	}
 	
 	is_valid = {
-		# trigger_if = {
-		# 	limit = { has_variable = selected_county }
-		# 	always = yes
-		# } trigger_else_if = {
-		# 	limit = { has_variable_list = potential_prospecting_county }
-		# 	always = yes
-		# } trigger_else = { always = no }
+		is_imprisoned = no
 	}
 
 	is_valid_showing_failures_only = {
@@ -1208,7 +1202,34 @@ decision_set_prospecting_contract = {
 	}
 	
 	effect = {
-		custom_tooltip = decision_set_prospecting_contract_selected_county_tooltip
-		add_prestige = 100
+		custom_tooltip = {
+			text = decision_set_prospecting_contract_selected_county_tooltip
+			var:selected_county ?= {
+				random_county_province = {
+					limit = {
+						valid_mining_activity_location = no
+						OR = {
+							terrain = mountains
+							terrain = halls
+							terrain = desert_mountains
+						}
+					}
+					barony = {
+						save_scope_as = prospecting_barony
+					}
+				}
+			}
+			if = {
+				limit = { exists = scope:prospecting_barony }
+				begin_scheme_basic_effect = {
+					SCHEME_TYPE = laamp_mining_prospecting_contract_scheme
+					TARGET_TYPE = target_title
+					TARGET_SCOPE = scope:prospecting_barony
+				}
+			}
+		}
+		
+		clear_variable_list = potential_prospecting_county
+		remove_variable = selected_county
 	}
 }
