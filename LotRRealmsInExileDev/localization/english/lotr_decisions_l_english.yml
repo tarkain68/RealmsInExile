@@ -252,6 +252,17 @@
  beorning_decision_confirm:0 "Rawwwww!"
  activity_beorning_name:0 "Skinchange"
 
+ decision_palantir:0 "Gaze into the Palantír"
+ decision_palantir_tooltip:0 "You will endeavour to increase your knowledge of the world."
+ decision_palantir_desc:0 "In the uppermost chamber of your castle, an orb covered in a black cloth rests upon a pillar of marble. The Palantír could be a potent weapon - but is it worth the risk?"
+ decision_palantir_confirm:0 "No secret shall remain hidden."
+
+ decision_set_prospecting_contract:0 "TEMP - Jamie-san"
+ decision_set_prospecting_contract_tooltip:0 "TEMP - Jamie-san"
+ decision_set_prospecting_contract_desc:0 "TEMP - Jamie-san"
+ decision_set_prospecting_contract_confirm:0 "Create Contract"
+ decision_set_prospecting_contract_selected_county_tooltip:0 "[GetPlayer.MakeScope.Var('selected_county').Title.GetNameNoTierNoTooltip]"
+
  #################################
  ### Minor Lifestyle Decisions ###
  #################################

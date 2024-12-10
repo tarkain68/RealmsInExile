@@ -1,0 +1,75 @@
+﻿lotr_request_prospecting_contract_as_landed = {
+	effect = {
+		clear_variable_list = potential_prospecting_county
+		remove_variable = selected_county
+
+		every_held_county = {
+			limit = {
+				any_county_province = {
+					OR = {
+						terrain = mountains
+						terrain = halls
+						terrain = desert_mountains
+					}
+				}
+				NOT = {
+					any_county_province = {
+						OR = {
+							### Gems
+							has_province_modifier = mining_ruby_province_modifier
+							has_province_modifier = mining_emerald_province_modifier
+							has_province_modifier = mining_sapphire_province_modifier
+							has_province_modifier = mining_amethyst_province_modifier
+							has_province_modifier = mining_quartz_province_modifier
+							has_province_modifier = mining_onyx_province_modifier
+							has_province_modifier = mining_diamond_province_modifier
+							has_province_modifier = mining_peridot_province_modifier
+							### Metals
+							has_province_modifier = mining_mithril_province_modifier
+							has_province_modifier = mining_gold_province_modifier
+							has_province_modifier = mining_iron_province_modifier
+							has_province_modifier = mining_copper_province_modifier
+							has_province_modifier = mining_tin_province_modifier
+							has_province_modifier = mining_lead_province_modifier
+							has_province_modifier = mining_silver_province_modifier
+						}
+					}
+				}
+			}
+			save_scope_as = prospecting_county
+			root = {
+				add_to_variable_list = {
+					name = potential_prospecting_county
+					target = scope:prospecting_county
+				}
+			}
+		}
+	}
+}
+
+lotr_request_prospecting_clear_variables = {
+	effect = {
+		clear_variable_list = potential_prospecting_county
+		remove_variable = selected_county
+	}
+}
+
+lotr_request_prospecting_select_county = {
+	saved_scopes = {
+		selected_county
+	}
+	effect = {
+		if = {
+			limit = {
+				has_variable = selected_county
+				var:selected_county = scope:selected_county
+			}
+			remove_variable = selected_county
+		} else = {
+			set_variable = {
+				name = selected_county
+				value = scope:selected_county
+			}
+		}
+	}
+}

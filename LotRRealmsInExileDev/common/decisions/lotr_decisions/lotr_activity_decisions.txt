@@ -1156,3 +1156,59 @@ decision_rhudaur_troll_orc_hunting = {
 		}
 	}
 }
+
+decision_set_prospecting_contract = {
+	title = decision_set_prospecting_contract
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_palantir_amon_sul.dds"
+	}
+	
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+	
+	widget = {
+		gui = "decision_view_widget_lotr_prospecting"
+		controller = decision_option_list_controller
+		decision_to_second_step_button = "decision_set_prospecting_contract_confirm"
+		show_from_start = yes
+
+		item = { # Southern Route
+			value = needed_filler_value
+			is_default = yes
+			icon = "gfx/interface/icons/message_feed/mercenary.dds"
+		}
+	}
+	selection_tooltip = decision_set_prospecting_contract_tooltip
+	desc = decision_set_prospecting_contract_desc
+	confirm_text = decision_set_prospecting_contract_confirm
+	
+	decision_group_type = realms_in_exile_minor
+	
+	is_shown = {
+		always = yes
+	}
+	
+	is_valid = {
+		# trigger_if = {
+		# 	limit = { has_variable = selected_county }
+		# 	always = yes
+		# } trigger_else_if = {
+		# 	limit = { has_variable_list = potential_prospecting_county }
+		# 	always = yes
+		# } trigger_else = { always = no }
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+	
+	effect = {
+		custom_tooltip = decision_set_prospecting_contract_selected_county_tooltip
+		add_prestige = 100
+	}
+}
