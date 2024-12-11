@@ -1177,8 +1177,8 @@ decision_set_prospecting_contract = {
 		decision_to_second_step_button = "decision_set_prospecting_contract_confirm"
 		show_from_start = yes
 
-		item = { # Southern Route
-			value = needed_filler_value # 
+		item = {
+			value = needed_filler_value
 			icon = "gfx/interface/icons/message_feed/mercenary.dds"
 			is_default = yes
 		}
@@ -1202,8 +1202,8 @@ decision_set_prospecting_contract = {
 	}
 	
 	effect = {
-		custom_tooltip = {
-			text = decision_set_prospecting_contract_selected_county_tooltip
+		# custom_tooltip = {
+			# text = decision_set_prospecting_contract_selected_county_tooltip
 			var:selected_county ?= {
 				random_county_province = {
 					limit = {
@@ -1214,20 +1214,25 @@ decision_set_prospecting_contract = {
 							terrain = desert_mountains
 						}
 					}
-					barony = {
-						save_scope_as = prospecting_barony
-					}
+					save_scope_as = prospecting_province
 				}
 			}
 			if = {
-				limit = { exists = scope:prospecting_barony }
-				begin_scheme_basic_effect = {
-					SCHEME_TYPE = laamp_mining_prospecting_contract_scheme
-					TARGET_TYPE = target_title
-					TARGET_SCOPE = scope:prospecting_barony
+				limit = { exists = scope:prospecting_province }
+				# begin_scheme_basic_effect = {
+				# 	SCHEME_TYPE = laamp_mining_prospecting_contract_scheme
+				# 	TARGET_TYPE = target_title
+				# 	TARGET_SCOPE = scope:prospecting_barony
+				# }
+				create_task_contract = {
+					task_contract_type = lotr_laamp_2001
+					location = scope:prospecting_province
+					task_contract_employer = root
+					task_contract_tier = 1
+					save_scope_as = new_contract
 				}
 			}
-		}
+		# }
 		
 		clear_variable_list = potential_prospecting_county
 		remove_variable = selected_county
