@@ -9906,3 +9906,738 @@ mining.8004 = {
 	}
 
 }
+
+#####################################
+#	SCHEME-EVENTS	                #
+#	9001 - 9999						#
+#####################################
+
+# Choose your agent types
+mining.9000 = {
+	type = character_event
+	content_source = realms_dlc
+	title = mining.9001.t
+	desc = mining.9001.desc
+	theme = stewardship
+
+	override_background = { reference = mining_activity }
+
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+		
+	# Focus on speedy agents.
+	option = {
+		name = mining.9001.a
+		reason = give_me_speed_agents
+		flavor = EVENT_WINDOW_OPTION_AGENTS_SPEED
+
+		scope:new_scheme = {
+			# Success.
+			add_agent_slot = agent_prospector
+			# Speed.
+			add_agent_slot = agent_miner
+			add_agent_slot = agent_miner
+			add_agent_slot = agent_miner
+			add_agent_slot = agent_foreman
+		}
+
+		ai_chance = { base = 0 }
+	}
+
+	# Go for a balanced agent mix.
+	option = {
+		name = mining.9001.b
+		reason = give_me_balanced_agents
+		flavor = EVENT_WINDOW_OPTION_AGENTS_BALANCED
+
+		scope:new_scheme = {
+			# Success.
+			add_agent_slot = agent_prospector
+			add_agent_slot = agent_prospector
+			# Speed.
+			add_agent_slot = agent_miner
+			add_agent_slot = agent_miner
+			add_agent_slot = agent_foreman
+		}
+
+		ai_chance = { base = 100 }
+	}
+
+	# Focus on success chance agents.
+	option = {
+		name = mining.9001.c
+		reason = give_me_success_agents
+		flavor = EVENT_WINDOW_OPTION_AGENTS_SUCCESS
+
+		scope:new_scheme = {
+			# Success.
+			add_agent_slot = agent_prospector
+			add_agent_slot = agent_prospector
+			add_agent_slot = agent_prospector
+			# Speed.
+			add_agent_slot = agent_miner
+			add_agent_slot = agent_foreman
+		}
+
+		ai_chance = { base = 0 }
+	}
+	
+	# Now show us the panel.
+	after = {
+		open_view = {
+			view = intrigue_window
+			player = root
+		}
+	}
+
+}
+
+#	Results event.
+mining.9001 = {
+	hidden = yes
+
+	immediate = {
+		random = {
+			chance = scope:scheme.scheme_success_chance
+			save_scope_value_as = {
+				name = scheme_successful
+				value = yes
+			}
+		}
+		scope:owner = {
+			if = {
+				limit = { exists = scope:scheme_successful }
+				trigger_event = mining.9002
+			}
+			else = { trigger_event = mining.9003 }
+		}
+	}
+}
+
+# Prospecting Success
+mining.9002 = {
+	type = character_event
+	window = scheme_successful_event
+	title = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:mithril}
+				}
+				desc = mining.8001.t.mithril
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:gold }
+				}
+				desc = mining.8001.t.gold
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:silver }
+				}
+				desc = mining.8001.t.silver
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:lead }
+				}
+				desc = mining.8001.t.lead
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:tin }
+				}
+				desc = mining.8001.t.tin
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:copper }
+				}
+				desc = mining.8001.t.copper
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:iron }
+				}
+				desc = mining.8001.t.iron
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:diamond }
+				}
+				desc = mining.8001.t.diamond
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:ruby }
+				}
+				desc = mining.8001.t.ruby
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:sapphire }
+				}
+				desc = mining.8001.t.sapphire
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:emerald }
+				}
+				desc = mining.8001.t.emerald
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:amethyst }
+				}
+				desc = mining.8001.t.amethyst
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:onyx }
+				}
+				desc = mining.8001.t.onyx
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:peridot }
+				}
+				desc = mining.8001.t.peridot
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:quartz }
+				}
+				desc = mining.8001.t.quartz
+			}
+			desc = mining.8001.t.unknown
+		}
+	}
+	desc = {
+		desc = mining.8001.desc.start
+		first_valid = {
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:mithril }
+				}
+				desc = mining.8001.desc.mithril
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:gold }
+				}
+				desc = mining.8001.desc.gold
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:silver }
+				}
+				desc = mining.8001.desc.silver
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:lead }
+				}
+				desc = mining.8001.desc.lead
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:tin }
+				}
+				desc = mining.8001.desc.tin
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:copper }
+				}
+				desc = mining.8001.desc.copper
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:iron }
+				}
+				desc = mining.8001.desc.iron
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:diamond }
+				}
+				desc = mining.8001.desc.diamond
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:ruby }
+				}
+				desc = mining.8001.desc.ruby
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:sapphire }
+				}
+				desc = mining.8001.desc.sapphire
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:emerald }
+				}
+				desc = mining.8001.desc.emerald
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:amethyst }
+				}
+				desc = mining.8001.desc.amethyst
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:onyx }
+				}
+				desc = mining.8001.desc.onyx
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:peridot }
+				}
+				desc = mining.8001.desc.peridot
+			}
+			triggered_desc = {
+				trigger = { 
+					scope:scheme = { var:mining_resource_found ?= flag:quartz }
+				}
+				desc = mining.8001.desc.quartz
+			}
+			desc = mining.8001.desc.unknown
+		}
+	}
+	theme = stewardship
+	center_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {
+		character = scope:employer
+		animation = throne_room_applaud_1
+	}
+	override_background = { reference = mining_activity }
+
+	immediate = {
+		# Contract maintenance
+		laamp_base_contract_schemes_set_up_outcome_immediate_effect = yes
+		random_list = {
+			67 = {
+				scope:scheme.task_contract = { complete_task_contract = success_standard }
+			}
+			33 = {
+				scope:scheme.task_contract = { complete_task_contract = success_critical }
+			}
+		}
+		
+		# Employer outcome.
+		hidden_effect = { mining_generate_new_random_resource_scheme = yes } # Determine which resource will be found.
+
+		## Outcome - give participants some lifestyle experience at least.
+		# For the player
+		if = {
+			limit = { NOT = { has_trait = lifestyle_miner } }
+			add_trait = lifestyle_miner
+		}
+		if = {
+			limit = {
+				culture = { has_cultural_parameter = mining_traits_more_common }
+			}
+			add_trait_xp = {
+				trait = lifestyle_miner
+				track = prospector
+				value = 20
+			}
+		}
+		else = {
+			add_trait_xp = {
+				trait = lifestyle_miner
+				track = prospector
+				value = 15
+			}
+		}
+		# For the agents
+		hidden_effect = {
+			scope:scheme = { # And for the agents
+				every_scheme_agent_character = {
+					if = {
+						limit = { NOT = { has_trait = lifestyle_miner } }
+						add_trait = lifestyle_miner
+					}
+					if = {
+						limit = {
+							culture = { has_cultural_parameter = mining_traits_more_common }
+						}
+						add_trait_xp = {
+							trait = lifestyle_miner
+							track = prospector
+							value = 20
+						}
+					}
+					else = {
+						add_trait_xp = {
+							trait = lifestyle_miner
+							track = prospector
+							value = 15
+						}
+					}
+				}
+			}
+		}
+
+		# And wrap things up.
+		scope:scheme ?= { end_scheme = yes }
+	}
+
+	# Acknowledge.
+	option = {
+		name = mining.9002.a
+		flavor = laamp_base_contract_schemes.0000.f.contract_concluded
+
+		# Show the province modifier discovered
+		if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:mithril }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_mithril_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = mithril
+				MODIFIER = artifact_monthly_minor_prestige_3_modifier
+			}
+			set_metal_gem_variable = { METAL = mithril }
+		}
+		else_if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:gold }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_gold_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = gold
+				MODIFIER = artifact_monthly_minor_prestige_2_modifier
+			}
+			set_metal_gem_variable = { METAL = gold }
+		}
+		else_if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:silver }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_silver_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = silver
+				MODIFIER = artifact_monthly_minor_prestige_2_modifier
+			}
+			set_metal_gem_variable = { METAL = silver }
+		}
+		else_if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:copper }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_copper_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = copper
+				MODIFIER = artifact_monthly_minor_prestige_1_modifier
+			}
+			set_metal_gem_variable = { METAL = copper }
+		}
+		else_if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:tin }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_tin_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = tin
+				MODIFIER = artifact_monthly_minor_prestige_1_modifier
+			}
+			set_metal_gem_variable = { METAL = tin }
+		}
+		else_if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:lead }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_lead_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = lead
+				MODIFIER = artifact_monthly_minor_prestige_1_modifier
+			}
+			set_metal_gem_variable = { METAL = lead }
+		}
+		else_if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:iron }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_iron_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = iron
+				MODIFIER = artifact_monthly_minor_prestige_1_modifier
+			}
+			set_metal_gem_variable = { METAL = iron }
+		}
+		else_if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:diamond }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_diamond_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = diamond
+				MODIFIER = artifact_monthly_minor_prestige_3_modifier
+			}
+			set_metal_gem_variable = { METAL = diamond }
+		}
+		else_if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:ruby }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_ruby_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = ruby
+				MODIFIER = artifact_monthly_minor_prestige_2_modifier
+			}
+			set_metal_gem_variable = { METAL = ruby }
+		}
+		else_if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:sapphire }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_sapphire_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = sapphire
+				MODIFIER = artifact_monthly_minor_prestige_2_modifier
+			}
+			set_metal_gem_variable = { METAL = sapphire }
+		}
+		else_if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:emerald }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_emerald_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = emerald
+				MODIFIER = artifact_monthly_minor_prestige_2_modifier
+			}
+			set_metal_gem_variable = { METAL = emerald }
+		}
+		else_if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:amethyst }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_amethyst_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = amethyst
+				MODIFIER = artifact_monthly_minor_prestige_2_modifier
+			}
+			set_metal_gem_variable = { METAL = amethyst }
+		}
+		else_if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:onyx }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_onyx_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = onyx
+				MODIFIER = artifact_monthly_minor_prestige_1_modifier
+			}
+			set_metal_gem_variable = { METAL = onyx }
+		}
+		else_if = {
+			limit = {
+				scope:scheme = { var:mining_resource_found ?= flag:peridot }
+			}
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_peridot_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = peridot
+				MODIFIER = artifact_monthly_minor_prestige_1_modifier
+			}
+			set_metal_gem_variable = { METAL = peridot }
+		}
+		else = {
+			show_as_tooltip = { 
+				scope:target_title.title_province = {
+					add_province_modifier = {
+						modifier = mining_quartz_province_modifier
+					}
+				}
+			}
+			create_metal_gem_artifact = {
+				METAL = quartz
+				MODIFIER = artifact_monthly_minor_prestige_1_modifier
+			}
+			set_metal_gem_variable = { METAL = quartz }
+		}
+
+		laamp_base_contract_schemes_acknowledge_success_stress_effect = yes
+	}
+}
+
+# Prospecting Failure
+mining.9003 = {
+	type = character_event
+	window = scheme_failed_event
+	title = mining.8002.t
+	desc = mining.8002.desc
+	theme = stewardship
+	center_portrait = {
+		character = root
+		animation = beg
+	}
+	right_portrait = {
+		character = scope:employer
+		animation = disappointed
+	}
+	override_background = { reference = mining_activity }
+
+	immediate = {
+		laamp_base_contract_schemes_set_up_outcome_immediate_effect = yes
+		scope:scheme.task_contract = { complete_task_contract = failure_standard }
+
+		## Outcome - give participants some lifestyle experience at least.
+		# For the player
+		if = {
+			limit = { NOT = { has_trait = lifestyle_miner } }
+			add_trait = lifestyle_miner
+		}
+		if = {
+			limit = {
+				culture = { has_cultural_parameter = mining_traits_more_common }
+			}
+			add_trait_xp = {
+				trait = lifestyle_miner
+				track = prospector
+				value = 7
+			}
+		}
+		else = {
+			add_trait_xp = {
+				trait = lifestyle_miner
+				track = prospector
+				value = 5
+			}
+		}
+		# For the agents
+		hidden_effect = {
+			scope:scheme = { # And for the agents
+				every_scheme_agent_character = {
+					if = {
+						limit = { NOT = { has_trait = lifestyle_miner } }
+						add_trait = lifestyle_miner
+					}
+					if = {
+						limit = {
+							culture = { has_cultural_parameter = mining_traits_more_common }
+						}
+						add_trait_xp = {
+							trait = lifestyle_miner
+							track = prospector
+							value = 7
+						}
+					}
+					else = {
+						add_trait_xp = {
+							trait = lifestyle_miner
+							track = prospector
+							value = 5
+						}
+					}
+				}
+			}
+		}
+
+		# And wrap things up.
+		scope:scheme ?= { end_scheme = yes }
+	}
+
+	# Acknowledge.
+	option = {
+		name = laamp_base_contract_schemes.0013.a
+		flavor = laamp_base_contract_schemes.0000.f.contract_concluded
+
+		laamp_base_contract_schemes_acknowledge_failure_stress_effect = yes
+	}
+}

@@ -142,26 +142,15 @@ laamp_mining_prospecting_contract_scheme = {
 		# 		months = { 1 3 }
 		# 	}
 		# }
-		if = {
-			limit = {
-				scheme_owner = {
-					NOT = { has_variable = agents_added }
-				}
-			}
-			add_agent_slot = agent_prospector
-			add_agent_slot = agent_prospector
-			add_agent_slot = agent_miner
-			add_agent_slot = agent_miner
-			add_agent_slot = agent_foreman
-		}
+		trigger_event = mining.9000
 	}
 	on_phase_completed = {
-		# suppress_scheme_follow_up_event_till_input_given_effect = yes
-		# laamp_base_0001_contract_scheme_prep_effect = yes
+		suppress_scheme_follow_up_event_till_input_given_effect = yes
+		laamp_mining_prospecting_contract_scheme_prep_effect = yes
 		# cap_schemes_and_fire_reminders_effect = yes
 	}
 	on_hud_click  = { 
-		# laamp_base_0001_contract_scheme_prep_effect = yes
+		laamp_mining_prospecting_contract_scheme_prep_effect = yes
 	}
 	on_semiyearly = {
 		# if = {
@@ -175,17 +164,17 @@ laamp_mining_prospecting_contract_scheme = {
 		# fire_generic_contract_scheme_on_going_events_effect = yes
 	}
 	on_invalidated = {
-		# save_scope_as = scheme
-		# scheme_owner = {
-		# 	send_interface_message = {
-		# 		title = scheme_invalidated_title
-		# 		type = diplo_contract_scheme_invalidated_message
-		# 		right_icon = scope:scheme.scheme_target_character
-		# 		show_as_tooltip = {
-		# 			scope:scheme = { end_scheme = yes }
-		# 		}
-		# 	}
-		# }
+		save_scope_as = scheme
+		scheme_owner = {
+			send_interface_message = {
+				title = scheme_invalidated_title
+				type = stewardship_contract_scheme_invalidated_message
+				right_icon = scope:scheme.scheme_target_character
+				show_as_tooltip = {
+					scope:scheme = { end_scheme = yes }
+				}
+			}
+		}
 	}
 }
 

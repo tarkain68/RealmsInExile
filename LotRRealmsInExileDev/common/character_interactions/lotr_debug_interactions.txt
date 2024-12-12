@@ -100,6 +100,7 @@
 				TARGET_TYPE = target_title
 				TARGET_SCOPE = scope:prospecting_barony
 			}
+			trigger_event = mining.9000
 		}
 	}
 

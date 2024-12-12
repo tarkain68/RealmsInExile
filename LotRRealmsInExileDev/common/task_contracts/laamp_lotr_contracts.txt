@@ -674,7 +674,7 @@ lotr_laamp_2001 = {
 			}
 			# Make a note of what the scheme even is; we'll need this for the event too.
 			scope:task_contract.scheme = { save_scope_as = scheme }
-			trigger_event = lotr_laamp_contract_schemes.3011
+			trigger_event = mining.9000
 		}
 	}
 	on_create = {

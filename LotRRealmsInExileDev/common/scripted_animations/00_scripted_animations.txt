@@ -168,6 +168,14 @@ bow_closed_blunt = {
 
 scheme_prep_pick_best_stance = {
 	# Scheme Owner.
+	## LOTR PROSPECTING
+	triggered_animation = {
+		trigger = {
+			this = root
+			scope:scheme = { scheme_type = laamp_mining_prospecting_contract_scheme }
+		}
+		animation = lantern
+	}
 	## Seduce/Elope/Court.
 	triggered_animation = {
 		trigger = {

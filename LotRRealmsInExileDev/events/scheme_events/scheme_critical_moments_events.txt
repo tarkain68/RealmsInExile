@@ -551,6 +551,12 @@ scheme_critical_moments.0002 = {
 	window = scheme_preparations_event
 	title = {
 		first_valid = {
+			triggered_desc = { #LotR
+				trigger = {
+					scope:scheme = { scheme_type = laamp_mining_prospecting_contract_scheme }
+				}
+				desc = scheme_critical_moments.0001.t.prospecting
+			}
 			triggered_desc = {
 				trigger = {
 					scope:scheme = { is_scheme_category = contract }
@@ -576,6 +582,13 @@ scheme_critical_moments.0002 = {
 	}
 	# Background overrides.
 	## Tabbed one degree further for easy folding.
+		## LOTR Prospecting
+		override_background = {
+			trigger = {
+				scope:scheme = { scheme_type = laamp_mining_prospecting_contract_scheme }
+			}
+			reference = mining_activity
+		}
 		## Raid Estate Scheme.
 		override_background = {
 			trigger = {

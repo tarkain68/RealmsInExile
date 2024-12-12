@@ -1,7 +1,7 @@
 ﻿l_english: 
 
  laamp_mining_prospecting_contract_scheme:0 "Prospecting"
- laamp_mining_prospecting_contract_scheme_action:0 "Prospecting in the"
+ laamp_mining_prospecting_contract_scheme_action:0 "Prospect in the"
  laamp_mining_prospecting_contract_scheme_desc:0 "Conduct a thorough examination of a mountainous site on behalf of your [contractor|E] to discover valuable [resources|E]."
  laamp_mining_prospecting_contract_scheme_desc_general:0 "Conduct a thorough examination of a mountainous site on behalf of your [contractor|E] to discover valuable [resources|E]."
  laamp_mining_prospecting_contract_scheme_desc_success:0 "$laamp_contract_scheme_desc_success_boilerplate$"
