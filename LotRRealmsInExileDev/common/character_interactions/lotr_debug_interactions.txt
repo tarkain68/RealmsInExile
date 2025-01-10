@@ -140,6 +140,7 @@ settle_wilderness_immediately_interaction = {
 					OR = {
 						government_has_flag = government_is_feudal
 						government_has_flag = government_is_clan
+						government_has_flag = government_is_administrative
 					}
 				}
 				every_held_county = {

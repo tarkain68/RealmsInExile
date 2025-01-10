@@ -20,7 +20,10 @@ decision_reclaim_mardruak = {
 		current_year >= 5630 # After it becomes dejure Umbar
 		culture = { has_cultural_pillar = heritage_bellakari }
 		is_landed = yes
-		has_title = title:e_bellakar
+		OR = {
+			has_title = title:e_bellakar
+			has_title = title:e_pharazain
+		}
 		OR = {
 			completely_controls = title:k_felaya
 			has_title = title:k_felaya
@@ -34,7 +37,10 @@ decision_reclaim_mardruak = {
 				target = flag:reclaim_mardruak_decision
 			}
 		}
-		NOT = { title:k_mardruak.empire = title:e_bellakar } # In case its integraded elsehow
+		NOR = { # In case its integraded elsehow
+			title:k_mardruak.empire = title:e_bellakar
+			title:k_mardruak.empire = title:e_pharazain
+		}
 	}
 	is_valid = {
 		completely_controls = title:k_mardruak
@@ -199,17 +205,17 @@ decision_proclaim_pharazain = {
 	decision_group_type = realms_in_exile_major
 	
 	is_shown = {
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:proclaim_pharazain_decision
+			}
+		}
+		is_landed = yes
 		culture = { 
 			OR = {
 				has_cultural_pillar = heritage_southern_adunaic 
 				has_cultural_pillar = heritage_bellakari
-			}
-		}
-		is_landed = yes
-		NOR = {
-			is_target_in_global_variable_list = {
-				name = unavailable_unique_decisions
-				target = flag:proclaim_pharazain_decision
 			}
 		}
 		any_county_in_region = {
@@ -274,13 +280,22 @@ decision_proclaim_pharazain = {
 		}
 
 		every_kingdom = {
-			limit = { 
-				any_de_jure_county = {
-					count > 0
-					is_in_list = pharazain_counties
+			limit = {
+				OR = {
+					any_de_jure_county = {
+						count > 0
+						is_in_list = pharazain_counties
+					}
+					empire ?= title:e_bellakar
 				}
 			} 
 			set_de_jure_liege_title = title:e_pharazain
+		}
+		if = {
+			limit = {
+				exists = title:e_bellakar.holder
+			}
+			title:e_bellakar.holder = { destroy_title = title:e_bellakar }
 		}
 
 		# End Thani Struggle if ongoing
@@ -297,6 +312,18 @@ decision_proclaim_pharazain = {
 							title = numenor_in_exile_thani_struggle_toast
 							left_icon = scope:founder
 							custom_tooltip = numenor_in_exile_thani_struggle_toast_desc
+							if = {
+								limit = {
+									has_trait = balan_lai_member
+								}
+								remove_trait = balan_lai_member
+							}
+							if = {
+								limit = {
+									has_title = title:d_balan_lai_leader
+								}
+								destroy_title = title:d_balan_lai_leader
+							}
 						}
 					}
 					every_interloper_ruler = {
@@ -313,8 +340,13 @@ decision_proclaim_pharazain = {
 		}
 
 		hidden_effect = {
+			if = {
+				limit = {
+					exists = title:d_balan_lai_leader.holder
+				}
+				title:d_balan_lai_leader.holder = { destroy_title = title:d_balan_lai_leader }
+			}
 			every_balan_lai_member = { remove_trait = balan_lai_member }
-			destroy_title = title:d_balan_lai_leader
 		}
 
 		add_to_global_variable_list = {
@@ -333,6 +365,186 @@ decision_proclaim_pharazain = {
 }
 
 ### Tedjin Decisions ###
+
+
+decision_found_tedjin_confederacy = {
+	title = decision_found_tedjin_confederacy
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_harad_04.dds"
+	}
+	
+	ai_goal = yes
+	ai_potential = {
+		always = yes
+	}
+
+	selection_tooltip = decision_found_tedjin_confederacy_tooltip
+	desc = decision_found_tedjin_confederacy_desc
+	confirm_text = decision_found_tedjin_confederacy_confirm
+	
+	decision_group_type = realms_in_exile_major
+	sort_order = 90
+	
+	is_shown = {
+		current_year >= 4974 # Qadjajar destroyed
+
+		#You're Maladumite Tedjin
+		culture = { has_cultural_pillar = heritage_tedjin }
+		faith = faith:faith_easterling_war
+
+		is_landed = yes
+
+		highest_held_title_tier <= tier_duchy # Shouldn't be a kingdom or empire
+		is_independent_ruler = yes
+
+		NOR = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:found_tedjin_confederacy_decision
+			}
+			exists = title:k_tedjin.holder
+		}
+
+		# always = no
+	}
+
+	is_valid = {
+		custom_tooltip = {
+			text = found_tedjin_confederacy_tt
+			trigger_if = {
+				limit = {
+					any_county_in_region = {
+						region = custom_reform_tedjin_confederacy
+							exists = holder
+							holder = { is_independent_ruler = yes }
+							holder.culture = culture:tedjin
+							NOT = { holder = root }
+							count = all  
+							holder = { add_to_temporary_list = tedjin_rulers }
+					}
+				}
+			}
+			any_in_list = {
+				list = tedjin_rulers
+				OR = {
+					custom_tooltip = {
+						text = is_wulf
+						this = root
+					}
+					custom_tooltip = {
+						text = is_friends_with_wulf
+						has_relation_friend = root
+					}
+					custom_tooltip = {
+						text = is_an_ally_of_wulf
+						any_ally = {
+							this = root
+						}
+					}
+					custom_tooltip = {
+						text = is_hooked_by_wulf
+						root = {
+							has_hook = prev
+						}
+					}
+				}
+				count = all
+			}
+		}
+	}
+	
+	is_valid_showing_failures_only = {
+		is_imprisoned = no
+		is_available_adult = yes
+		is_at_war = no
+	}
+
+	cost = {
+		prestige = 250
+		piety = 100
+	}
+	
+	effect = {
+		
+		#Create the title and make it primary
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = title_change
+			add_claim_on_loss = yes
+		}
+		title:k_tedjin = {
+			change_title_holder = {
+				holder = root
+				change = scope:title_change
+			}
+		}
+		resolve_title_and_vassal_change = scope:title_change
+		set_primary_title_to = title:k_tedjin
+
+		custom_tooltip = {
+			text = found_tedjin_confederacy.effect1
+			every_county_in_region = {
+				region = custom_reform_tedjin_confederacy
+				limit = { 
+					exists = holder
+					holder = { is_independent_ruler = yes }
+					holder.culture = culture:tedjin
+					NOT = { holder = root }
+				}
+				holder = { add_to_list = tedjin_rulers }
+			}
+			#Vassalization
+			create_title_and_vassal_change = {
+				type = swear_fealty
+				save_scope_as = change
+				add_claim_on_loss = no
+			}	
+			every_in_list = {
+				list = tedjin_rulers
+				limit = {
+					OR = {
+						has_relation_friend = root
+						any_ally = { this = root }
+						root = { has_hook = prev }
+					}
+				}
+				change_liege = {
+					liege = root
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+		}
+
+		# Rewards
+		give_nickname = nick_high_marshal_of_maladum
+		
+		add_prestige_level = 1
+		add_piety_level = 1
+		dynasty = { add_dynasty_prestige = 750 }
+		
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:found_tedjin_confederacy_decision
+		}
+
+		save_scope_as = tedjinfounder
+
+		if = {
+			limit = { # Major News
+				NOT = { has_game_rule = no_news }
+			}
+			every_player = { #Global News Announcement
+				trigger_event = news_event.0052
+			}
+		}
+	}
+	
+	ai_will_do = {
+		base = 100
+	}
+}
+
 decision_refound_qadjajar = {
 	title = decision_refound_qadjajar
 	picture = {
@@ -799,6 +1011,8 @@ decision_greater_faithful_tedjin_kingdom = {
 		base = 100
 	}
 }
+
+##### End of Tedjin decsions ######
 
 decision_bellakar_x_gondor = {
 	picture = {

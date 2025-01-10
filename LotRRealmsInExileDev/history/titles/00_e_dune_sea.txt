@@ -1246,12 +1246,13 @@ c_qajazan = {
 		holder = lineofazumenakhad63 #Uldor
 	}
 	6762.10.28 = {
-		holder = lineofazumenakhad65 #Ôldur
+		holder = lineofazumenakhad65b #Ardatha
+		liege = d_kref_nilja
 	}
-	6802.5.28 = {
-		holder = lineofazumenakhad67 #Azzad
+	6776.7.27 = {
+		holder = lineofazumenakhad65b1 #Sakali
 	}
-	6856.12.13 = {
+	6789.7.18 = {
 		holder = lineofazumenakhad69 #Ûrig
 	}
 	6894.5.28 = {
@@ -1628,8 +1629,116 @@ c_ovonid = {
 	}
 }
 c_nomuzad = {
+	5212.8.10 = {
+		holder = lineofazumenakhad1 #Azumen
+		change_development_level = 10
+	}
+	5302.6.16 = {
+		holder = lineofazumenakhad3 #Itâna
+	}
+	5336.12.16 = {
+		holder = lineofazumenakhad5 #Ûvatha
+	}
+	5412.7.10 = {
+		holder = lineofazumenakhad7 #Ôvag
+	}
+	5457.1.17 = {
+		holder = lineofazumenakhad9 #Joam-tuv
+	}
+	5472.2.10 = {
+		holder = lineofazumenakhad11 #Eneköl
+	}
+	5494.8.4 = {
+		holder = lineofazumenakhad13 #Ardatha
+	}
+	5527.10.18 = {
+		holder = lineofazumenakhad15 #Dauthar
+	}
+	5613.11.4 = {
+		holder = lineofazumenakhad17 #Ôvatha
+	}
+	5660.12.9 = {
+		holder = lineofazumenakhad19 #Tarôk
+	}
+	5714.9.17 = {
+		holder = lineofazumenakhad21 #Lûthku
+	}
+	5749.1.21 = {
+		holder = lineofazumenakhad23 #Jotaeseimu
+	}
+	5812.1.2 = {
+		holder = lineofazumenakhad25 #Irbô
+	}
+	5829.11.8 = {
+		holder = lineofazumenakhad27 #Akhiz
+	}
+	5882.1.7 = {
+		holder = lineofazumenakhad29 #Joam-tuv
+	}
+	5929.8.26 = {
+		holder = lineofazumenakhad31 #Borlach
+	}
+	5943.12.13 = {
+		holder = lineofazumenakhad33 #Lûthku
+	}
+	6000.6.16 = {
+		holder = lineofazumenakhad35 #Gyürüchill
+	}
+	6066.8.17 = {
+		holder = lineofazumenakhad37 #Ban
+	}
+	6124.8.11 = {
+		holder = lineofazumenakhad39 #Ûrpof
+	}
+	6159.1.11 = {
+		holder = lineofazumenakhad41 #Sacal
+	}
+	6223.12.9 = {
+		holder = lineofazumenakhad43 #Ûvatha
+	}
+	6244.10.12 = {
+		holder = lineofazumenakhad45 #Ulfast
+	}
+	6329.8.25 = {
+		holder = lineofazumenakhad47 #Tarôk
+	}
+	6377.4.27 = {
+		holder = lineofazumenakhad49 #Markova
+	}
+	6430.9.24 = {
+		holder = lineofazumenakhad51 #Itô
+	}
+	6488.1.15 = {
+		holder = lineofazumenakhad53 #Lûthkan
+	}
+	6521.4.28 = {
+		holder = lineofazumenakhad55 #Akhiz
+	}
+	6573.3.23 = {
+		holder = lineofazumenakhad57 #Vangariz
+	}
+	6658.10.27 = {
+		holder = lineofazumenakhad59 #Ishtiran
+	}
+	6665.6.1 = {
+		holder = lineofazumenakhad61 #Hargrog
+	}
+	6710.12.2 = {
+		holder = lineofazumenakhad63 #Uldor
+	}
+	6762.10.28 = {
+		holder = lineofazumenakhad65b #Ardatha
+		liege = d_kref_nilja
+	}
+	6776.7.27 = {
+		holder = lineofazumenakhad65b1 #Sakali
+	}
+	6789.7.18 = {
+		holder = lineofazumenakhad69 #Ûrig
+	}
 	6856.12.13 = {
 		holder = lineofazumenakhad162 #Bór
+		liege = 0
 		change_development_level = 7
 	}
 	6918.8.12 = {
@@ -1645,6 +1754,34 @@ c_nomuzad = {
 
 # Duchy of Kref Tuvvaj
 c_itashtun = {
+	6526.8.12 = {
+        holder = lineofcrazkhad1 #Le_idan
+    }
+    6586.1.5 = {
+        holder = lineofcrazkhad3 #Mi_i_onid
+    }
+    6625.7.2 = {
+        holder = lineofcrazkhad5 #Yukti_i_r
+    }
+    6664.5.15 = {
+        holder = lineofcrazkhad7 #Jotaen
+    }
+    6688.7.19 = {
+        holder = lineofcrazkhad9 #Mardrash
+    }
+    6719.8.17 = {
+        holder = lineofcrazkhad11 #Tejhazor
+    }
+    6746.2.16 = {
+        holder = lineofcrazkhad13 #Wastaph
+    }
+    6780.3.3 = {
+        holder = lineofcrazkhad15 #Surakaris
+    }
+    6804.9.11 = {
+        holder = lineofcrazkhad17 #Joam
+    }
+
 	6856.12.13 = {
 		holder = lineofazumenakhad162 #Bór
 		change_development_level = 7
@@ -1660,6 +1797,34 @@ c_itashtun = {
 	}
 }
 c_vragun = {
+    6526.8.12 = {
+        holder = lineofcrazkhad1 #Le_idan
+    }
+    6586.1.5 = {
+        holder = lineofcrazkhad3 #Mi_i_onid
+    }
+    6625.7.2 = {
+        holder = lineofcrazkhad5 #Yukti_i_r
+    }
+    6664.5.15 = {
+        holder = lineofcrazkhad7 #Jotaen
+    }
+    6688.7.19 = {
+        holder = lineofcrazkhad9 #Mardrash
+    }
+    6719.8.17 = {
+        holder = lineofcrazkhad11 #Tejhazor
+    }
+    6746.2.16 = {
+        holder = lineofcrazkhad13 #Wastaph
+    }
+    6780.3.3 = {
+        holder = lineofcrazkhad15 #Surakaris
+    }
+    6804.9.11 = {
+        holder = lineofcrazkhad17 #Joam
+    }
+
 	6856.12.13 = {
 		holder = lineofazumenakhad162 #Bór
 		change_development_level = 6
@@ -1675,6 +1840,34 @@ c_vragun = {
 	}
 }
 c_raisodun = {
+    6526.8.12 = {
+        holder = lineofcrazkhad1 #Le_idan
+    }
+    6586.1.5 = {
+        holder = lineofcrazkhad3 #Mi_i_onid
+    }
+    6625.7.2 = {
+        holder = lineofcrazkhad5 #Yukti_i_r
+    }
+    6664.5.15 = {
+        holder = lineofcrazkhad7 #Jotaen
+    }
+    6688.7.19 = {
+        holder = lineofcrazkhad9 #Mardrash
+    }
+    6719.8.17 = {
+        holder = lineofcrazkhad11 #Tejhazor
+    }
+    6746.2.16 = {
+        holder = lineofcrazkhad13 #Wastaph
+    }
+    6780.3.3 = {
+        holder = lineofcrazkhad15 #Surakaris
+    }
+    6804.9.11 = {
+        holder = lineofcrazkhad17 #Joam
+    }
+
 	6899.2.18 = {
 		holder = lineofdriond3 #Warlôg
 		change_development_level = 5
@@ -1711,6 +1904,43 @@ d_kref_urt = {
 		de_jure_liege = k_tedja
 	}
 
+	6380.10.11 = {
+        holder = lineofseramij1 #Borlad
+    }
+    6449.9.28 = {
+        holder = lineofseramij3 #Lojnar
+    }
+    6472.8.6 = {
+        holder = lineofseramij5 #Akhev
+    }
+    6526.6.11 = {
+        holder = lineofseramij7 #Akhev
+    }
+    6529.3.27 = {
+        holder = lineofseramij9 #Djata_i_i
+    }
+    6554.4.21 = {
+        holder = lineofseramij11 #O_O_lriag
+    }
+    6591.11.20 = {
+        holder = lineofseramij13 #Lorgan
+    }
+    6647.4.7 = {
+        holder = lineofseramij15 #Asternak
+    }
+    6680.3.19 = {
+        holder = lineofseramij19 #U_U_rdrath
+    }
+    6733.4.11 = {
+        holder = lineofseramij21 #Djata_i_i
+    }
+    6768.4.11 = {
+        holder = lineofseramij23 #Blodren
+    }
+    6809.10.16 = {
+        holder = 0
+    }
+
 	6812.3.16 = {
 		holder = lineofdriond1 #Ûrdrath
 		liege = k_tedjin
@@ -1727,6 +1957,40 @@ d_kref_urt = {
 	}
 }
 c_ayalid = {
+	    6380.10.11 = {
+        holder = lineofseramij1 #Borlad
+    }
+    6449.9.28 = {
+        holder = lineofseramij3 #Lojnar
+    }
+    6472.8.6 = {
+        holder = lineofseramij5 #Akhev
+    }
+    6526.6.11 = {
+        holder = lineofseramij7 #Akhev
+    }
+    6529.3.27 = {
+        holder = lineofseramij9 #Djata_i_i
+    }
+    6554.4.21 = {
+        holder = lineofseramij11 #O_O_lriag
+    }
+    6591.11.20 = {
+        holder = lineofseramij13 #Lorgan
+    }
+    6647.4.7 = {
+        holder = lineofseramij15 #Asternak
+    }
+    6680.3.19 = {
+        holder = lineofseramij19 #U_U_rdrath
+    }
+    6733.4.11 = {
+        holder = lineofseramij21 #Djata_i_i
+    }
+    6768.4.11 = {
+        holder = lineofseramij23 #Blodren
+    }
+
 	6812.3.16 = {
 		holder = lineofdriond1 #Ûrdrath
 		liege = k_tedjin
@@ -1743,6 +2007,44 @@ c_ayalid = {
 	}
 }
 c_tarokad = {
+	6380.10.11 = {
+        holder = lineofseramij1 #Borlad
+    }
+    6449.9.28 = {
+        holder = lineofseramij3 #Lojnar
+    }
+    6472.8.6 = {
+        holder = lineofseramij5 #Akhev
+    }
+    6526.6.11 = {
+        holder = lineofseramij7 #Akhev
+    }
+    6529.3.27 = {
+        holder = lineofseramij9 #Djata_i_i
+    }
+    6554.4.21 = {
+        holder = lineofseramij11 #O_O_lriag
+    }
+    6591.11.20 = {
+        holder = lineofseramij13 #Lorgan
+    }
+    6647.4.7 = {
+        holder = lineofseramij15 #Asternak
+    }
+    6680.3.19 = {
+        holder = lineofseramij19 #U_U_rdrath
+    }
+    6733.4.11 = {
+        holder = lineofseramij21 #Djata_i_i
+    }
+    6768.4.11 = {
+        holder = lineofseramij33 #Ban
+		liege = d_kref_urt
+    }
+    6781.11.27 = {
+        holder = lineofseramij35 #Dashanjal
+    }
+
 	6899.2.18 = {
 		holder = lineofdriond3 #Warlôg
 		change_development_level = 5
@@ -1849,7 +2151,7 @@ c_yazat = {
     6721.6.1 = {
         holder = lineofnatana7 #Quado_o_mearh
     }
-    6752.8.25 = {
+    6764.1.3 = {
         holder = lineofnatana19 #Shalin
 		liege = d_kes_aluk
     }
@@ -1960,17 +2262,20 @@ d_kes_aluk = {
     6721.6.1 = {
         holder = lineofnatana7 #Quado_o_mearh
     }
-    6752.8.25 = {
+    6764.1.3 = {
         holder = lineofnatana11 #Milye_e_nko
     }
     6805.2.12 = {
         holder = lineofnatana13 #Gyorruad
     }
 
-	6883.1.4 = {
-		holder = lineofozhomin1 #Ozho
+	6901.1.24 = {
+		holder = lineofmisrakim1 #Misrak
 	}
-	6944.7.24 = {
+	6961.12.22 = {
+		holder = lineofmisrakim6 #Ozre_e_n
+	}
+	6978.1.14 = { # Seizes by Vassals
 		holder = lineofozhomin3 #Raduji
 	}
 	6978.7.10 = {
@@ -1994,18 +2299,21 @@ c_aluk = {
     6721.6.1 = {
         holder = lineofnatana7 #Quado_o_mearh
     }
-    6752.8.25 = {
+    6764.1.3 = {
         holder = lineofnatana11 #Milye_e_nko
     }
     6805.2.12 = {
         holder = lineofnatana13 #Gyorruad
     }
 
-	6883.1.4 = {
-		holder = lineofozhomin1 #Ozho
+	6901.1.24 = {
+		holder = lineofmisrakim1 #Misrak
 		change_development_level = 4
 	}
-	6944.7.24 = {
+	6961.12.22 = {
+		holder = lineofmisrakim6 #Ozre_e_n
+	}
+	6978.1.14 = { # Seizes by Vassals
 		holder = lineofozhomin3 #Raduji
 	}
 	6978.7.10 = {
@@ -2062,7 +2370,7 @@ c_zakik = {
     6721.6.1 = {
         holder = lineofnatana7 #Quado_o_mearh
     }
-    6752.8.25 = {
+    6764.1.3 = {
         holder = lineofnatana43 #Desa
 		liege = d_kes_aluk
     }
@@ -2099,7 +2407,7 @@ c_lasirrat = {
     6721.6.1 = {
         holder = lineofnatana7 #Quado_o_mearh
     }
-    6752.8.25 = {
+    6764.1.3 = {
         holder = lineofnatana31 #Krierh
 		liege = d_kes_aluk
     }
@@ -2270,7 +2578,7 @@ c_zerrak = {
     6721.6.1 = {
         holder = lineofnatana7 #Quado_o_mearh
     }
-    6752.8.25 = {
+    6764.1.3 = {
         holder = lineofnatana55 #Nurru
 		liege = d_kes_aluk
     }
@@ -2323,6 +2631,22 @@ c_shaval = {
 		holder = linezhajomin17 #Radofa_a_n
 	}
 
+	6632.2.21 = {
+    	holder = lineofsuabel1 #Suabe_e_l
+	}
+	6707.4.6 = {
+    	holder = lineofsuabel3 #Isa_a_lin
+	}
+	6728.5.14 = {
+    	holder = lineofsuabel5 #Vese_e_lko
+	}
+	6791.2.14 = {
+    	holder = lineofsuabel7 #Zae
+	}
+	6805.5.22 = {
+    	holder = lineofsuabel9 #Qa_a_lfa_a_n
+	}
+
 	6919.5.17 = {
 		holder = lineofketomin1 #Keto
 	}
@@ -2369,15 +2693,40 @@ d_zar_uran = {
 	5385.1.1 = {
 		holder = sakalgovernor37
 	}
+	5400.1.1 = {
+		de_jure_liege = k_narak
+	}
 	5402.1.1 = {
 		holder = sakalgovernor38
 	}
 	5424.1.1 = {
 		holder = sakalgovernor39
 	}
-	5400.1.1 = {
-		de_jure_liege = k_narak
+	5555.5.5 = {
+	    holder = 0
 	}
+	6563.7.8 = {
+        holder = lineofnatana1 #Natana
+		change_development_level = 6
+    }
+    6633.10.26 = {
+        holder = lineofnatana3 #Asu_u_ma_a_ni
+    }
+    6643.2.15 = {
+        holder = lineofnatana5 #Ve_e_luado
+    }
+    6721.6.1 = {
+        holder = lineofnatana7 #Quado_o_mearh
+    }
+	6764.1.3 = {
+        holder = lineofnatana11 #Milye_e_nko
+    }
+    6805.2.12 = {
+        holder = lineofnatana13 #Gyorruad
+    }
+	6848.9.13 = {
+        holder = 0
+    }
 	6912.1.1 = {
 		holder = lineizrissas1 # Keraja		
 	}
@@ -2396,6 +2745,7 @@ d_zar_uran = {
 c_pharim = {
     6563.7.8 = {
         holder = lineofnatana1 #Natana
+		change_development_level = 5
     }
     6633.10.26 = {
         holder = lineofnatana3 #Asu_u_ma_a_ni
@@ -2406,7 +2756,7 @@ c_pharim = {
     6721.6.1 = {
         holder = lineofnatana7 #Quado_o_mearh
     }
-    6752.8.25 = {
+    6764.1.3 = {
         holder = lineofnatana11 #Milye_e_nko
     }
     6805.2.12 = {
@@ -2415,7 +2765,7 @@ c_pharim = {
 
 	6912.1.1 = {
 		holder = lineizrissas1 # Keraja	
-		change_development_level = 5	
+		change_development_level = 7	
 	}
 	6947.1.1 = {
 		holder = lineizrissas2 # Yugerten	
@@ -2430,14 +2780,60 @@ c_pharim = {
 
 #Ialut
 c_ialut = {
+	6563.7.8 = {
+        holder = lineofnatana1 #Natana
+		change_development_level = 6
+    }
+    6633.10.26 = {
+        holder = lineofnatana3 #Asu_u_ma_a_ni
+    }
+    6643.2.15 = {
+        holder = lineofnatana5 #Ve_e_luado
+    }
+    6721.6.1 = {
+        holder = lineofnatana7 #Quado_o_mearh
+    }
+	6764.1.3 = {
+        holder = lineofnatana7a1 # Aniri_i_k
+		liege = e_haradwaith # Change to d_ramlond once in
+    }
+	6792.3.13 = {
+        holder = lineofnatana7a2 # Ailuk
+    }
+	6812.3.13 = {
+        holder = lineofnatana7a1b1 # Akhubar
+    }
+	6833.9.17 = {
+        holder = lineofnatana7a1b2 # Akubarh
+    }
+	
 	7021.1.1 = {		
-		holder = lineizrissas5 # Aksel
-		change_development_level = 6		
+		holder = lineizrissas5 # Aksel	
 	}	
 }
 
 #Gyurothar
 c_gyurothar = {
+	6603.10.24 = {
+    	holder = lineofkrauka1 #Sa_a_mirh
+	}
+	6668.9.27 = {
+    	holder = lineofkrauka3 #Terko
+	}
+	6732.11.2 = {
+    	holder = lineofkrauka5 #Harsa_a_l
+	}
+	6756.2.4 = {
+		holder = lineofkrauka7 #Lavorraz
+		}
+	6779.8.7 = {
+    	holder = lineofkrauka22 #Torna
+		liege = d_kref_tuvvaj
+	}
+	6823.4.19 = {
+    	holder = lineofkrauka24 #Krauko
+	}
+
 	6812.3.16 = {
 		holder = lineofdriond1 #Ûrdrath
 		liege = k_tedjin
@@ -2463,6 +2859,44 @@ c_gyurothar = {
 
 #Yavvad
 c_yavvad = {
+	6380.10.11 = {
+        holder = lineofseramij1 #Borlad
+    }
+    6449.9.28 = {
+        holder = lineofseramij3 #Lojnar
+    }
+    6472.8.6 = {
+        holder = lineofseramij5 #Akhev
+    }
+    6526.6.11 = {
+        holder = lineofseramij7 #Akhev
+    }
+    6529.3.27 = {
+        holder = lineofseramij9 #Djata_i_i
+    }
+    6554.4.21 = {
+        holder = lineofseramij11 #O_O_lriag
+    }
+    6591.11.20 = {
+        holder = lineofseramij13 #Lorgan
+    }
+    6647.4.7 = {
+        holder = lineofseramij15 #Asternak
+    }
+    6680.3.19 = {
+        holder = lineofseramij19 #U_U_rdrath
+    }
+    6733.4.11 = {
+        holder = lineofseramij21 #Djata_i_i
+    }
+    6768.4.11 = {
+        holder = lineofseramij33 #Ban
+		liege = d_kref_urt
+    }
+    6781.11.27 = {
+        holder = lineofseramij35 #Dashanjal
+    }
+
 	6812.3.16 = {
 		holder = lineofdriond1 #Ûrdrath
 		liege = k_tedjin
@@ -2494,10 +2928,27 @@ d_kref_tuvvaj = {
 	4000.1.1 = {
 		de_jure_liege = k_tedja
 	}
-	6901.1.24 = {
-		holder = lineofmisrakim1 #Misrak
+
+	6603.10.24 = {
+    	holder = lineofkrauka1 #Sa_a_mirh
 	}
-	6961.12.22 = {
+	6668.9.27 = {
+    	holder = lineofkrauka3 #Terko
+	}
+	6732.11.2 = {
+    	holder = lineofkrauka5 #Harsa_a_l
+	}
+	6756.2.4 = {
+    	holder = lineofkrauka7 #Lavorraz
+	}
+	6779.8.7 = {
+    	holder = lineofkrauka9 #Mo_o_mirh
+	}
+	6807.3.3 = {
+    	holder = lineofkrauka11 #Ruado_o_mirh
+	}
+
+	6978.3.7 = {
 		holder = lineofmisrakim6 #Ozre_e_n
 	}
 	7009.3.26 = {
@@ -2510,12 +2961,28 @@ d_kref_tuvvaj = {
 
 #Uonia
 c_uonia = {
-	6901.1.24 = {
-		holder = lineofmisrakim1 #Misrak
-		change_development_level = 4
+	6603.10.24 = {
+    	holder = lineofkrauka1 #Sa_a_mirh
 	}
-	6961.12.22 = {
+	6668.9.27 = {
+    	holder = lineofkrauka3 #Terko
+	}
+	6732.11.2 = {
+    	holder = lineofkrauka5 #Harsa_a_l
+	}
+	6756.2.4 = {
+    	holder = lineofkrauka7 #Lavorraz
+	}
+	6779.8.7 = {
+    	holder = lineofkrauka9 #Mo_o_mirh
+	}
+	6807.3.3 = {
+    	holder = lineofkrauka11 #Ruado_o_mirh
+	}
+
+	6978.3.7 = {
 		holder = lineofmisrakim6 #Ozre_e_n
+		change_development_level = 4
 	}
 	7009.3.26 = {
 		holder = lineofmisrakim10 #Da_a_mirh
@@ -2527,12 +2994,28 @@ c_uonia = {
 
 #Usried
 c_usried = {
-	6901.1.24 = {
-		holder = lineofmisrakim1 #Misrak
-		change_development_level = 4
+	6603.10.24 = {
+    	holder = lineofkrauka1 #Sa_a_mirh
 	}
-	6961.12.22 = {
+	6668.9.27 = {
+    	holder = lineofkrauka3 #Terko
+	}
+	6732.11.2 = {
+    	holder = lineofkrauka5 #Harsa_a_l
+	}
+	6756.2.4 = {
+    	holder = lineofkrauka7 #Lavorraz
+	}
+	6779.8.7 = {
+    	holder = lineofkrauka14 #Vise_e_lak
+		liege = d_kref_tuvvaj
+	}
+
+	
+	6978.3.7 = {
 		holder = lineofmisrakim6 #Ozre_e_n
+		change_development_level = 4
+		liege = 0
 	}
 	7009.3.26 = {
 		holder = lineofmisrakim10 #Da_a_mirh
@@ -2544,12 +3027,32 @@ c_usried = {
 
 #Tain
 c_tain = {
-	6901.1.24 = {
-		holder = lineofmisrakim1 #Misrak
-		change_development_level = 3
+	6603.9.26 = {
+    	holder = lineofkrauka1 #Brayko
 	}
-	6961.12.22 = {
+	6664.4.26 = {
+    	holder = lineofkrauka3 #Quado_o_mearh
+	}
+	6712.7.7 = {
+    	holder = lineofkrauka5 #Pinak
+	}
+	6742.1.26 = {
+    	holder = lineofkrauka7 #Rayo
+	}
+	6763.7.1 = {
+    	holder = lineofkrauka9 #Timirh
+	}
+	6793.9.18 = {
+    	holder = lineofkrauka11 #Yasiko
+	}
+	6813.3.4 = {
+    	holder = lineofkrauka13 #Nafasirh
+	}
+
+	6978.3.7 = {
 		holder = lineofmisrakim6 #Ozre_e_n
+		change_development_level = 3
+		liege = 0
 	}
 	7009.3.26 = {
 		holder = lineofmisrakim10 #Da_a_mirh
@@ -2566,13 +3069,12 @@ c_harizad = {
 		change_development_level = -100
 		government = wastelands_government
 	}
-	6901.1.24 = {
-		holder = lineofmisrakim1 #Misrak
+	
+	6978.3.7 = {
+		holder = lineofmisrakim6 #Ozre_e_n
 		change_development_level = 3
 		government = tribal_government
-	}
-	6961.12.22 = {
-		holder = lineofmisrakim6 #Ozre_e_n
+		liege = 0
 	}
 	7009.3.26 = {
 		holder = lineofmisrakim10 #Da_a_mirh
@@ -2621,8 +3123,26 @@ d_kes_susad = {
 	}
 }
 c_sazat = { # Sazat
+	6617.1.3 = {
+        holder = lineofratka1 #Nurru
+    }
+    6690.2.22 = {
+        holder = lineofratka3 #Timbahr
+    }
+    6724.9.8 = {
+        holder = lineofratka5 #Torna
+    }
+    6771.4.12 = {
+        holder = lineofratka11 #Ozo
+		liege = d_auz_bekar
+    }
+    6786.11.7 = {
+        holder = lineofratka13 #Dobarruadish
+    }
+
 	6882.10.26 = {
 		holder = lineofqarsatim1 #Qarsat
+		liege = 0
 		change_development_level = 7
 	}
 	6952.8.12 = {
@@ -2636,6 +3156,16 @@ c_sazat = { # Sazat
 	}
 }
 c_zatay = { # Zatay
+    6683.11.20 = {
+        holder = lineoflavorres1 #Mek
+    }
+    6764.3.27 = {
+        holder = lineoflavorres3 #Bogo
+    }
+    6806.7.27 = {
+        holder = lineoflavorres5 #Qa_a_lfa_a_n
+    }
+
 	6882.10.26 = {
 		holder = lineofqarsatim1 #Qarsat
 		change_development_level = 7
@@ -2651,8 +3181,26 @@ c_zatay = { # Zatay
 	}
 }
 c_tofarh = { # Tofarh
+	6617.1.3 = {
+        holder = lineofratka1 #Nurru
+    }
+    6690.2.22 = {
+        holder = lineofratka3 #Timbahr
+    }
+    6724.9.8 = {
+        holder = lineofratka5 #Torna
+    }
+    6771.4.12 = {
+        holder = lineofratka11 #Ozo
+		liege = d_auz_bekar
+    }
+    6786.11.7 = {
+        holder = lineofratka13 #Dobarruadish
+    }
+
 	6882.10.26 = {
 		holder = lineofqarsatim1 #Qarsat
+		liege = 0
 		change_development_level = 8
 	}
 	6952.8.12 = {
@@ -2666,6 +3214,16 @@ c_tofarh = { # Tofarh
 	}
 }
 c_tiazen = { # Tiazen
+    6683.11.20 = {
+        holder = lineoflavorres1 #Mek
+    }
+    6764.3.27 = {
+        holder = lineoflavorres3 #Bogo
+    }
+    6806.7.27 = {
+        holder = lineoflavorres5 #Qa_a_lfa_a_n
+    }
+
 	6882.10.26 = {
 		holder = lineofqarsatim1 #Qarsat
 		change_development_level = 5
@@ -2718,14 +3276,42 @@ c_ramirh = {
 
 # Tuazat
 c_tuazat = {
+    6674.9.3 = {
+        holder = lineoftarraukin1 #Zete_e_limirh
+    }
+    6714.5.20 = {
+        holder = lineoftarraukin3 #Zevo_o_nko
+    }
+    6784.2.26 = {
+        holder = lineoftarraukin10 #Veas
+		liege = d_kes_kriz
+    }
+
 	7002.10.26 = {
 		holder = lineofqarsatim24 #Isalan
+		liege = 0
 		change_development_level = 7
 	}
 }
 
 #Auz Bekar
 d_auz_bekar = {
+    6617.1.3 = {
+        holder = lineofratka1 #Nurru
+    }
+    6690.2.22 = {
+        holder = lineofratka3 #Timbahr
+    }
+    6724.9.8 = {
+        holder = lineofratka5 #Torna
+    }
+    6771.4.12 = {
+        holder = lineofratka7 #Pakirh
+    }
+    6796.11.12 = {
+        holder = lineofratka9 #Bogo
+    }
+
 	6807.10.6 = {
 		holder = lineofzakirhim1 #Zakirh
 	}
@@ -2764,6 +3350,19 @@ d_kes_weza = {
 
 #Weza
 c_weza = {
+	6694.10.8 = {
+        holder = lineofzalatkes1 #Berrivoz
+    }
+    6770.6.14 = {
+        holder = lineofzalatkes3 #Sa_a_milya_a_n
+    }
+    6800.9.7 = {
+        holder = lineofzalatkes5 #Ima_a_n
+    }
+    6825.9.11 = {
+        holder = lineofzalatkes7 #Nediyko
+    }
+
 	6807.10.6 = {
 		holder = lineofzakirhim1 #Zakirh
 		change_development_level = 7
@@ -2785,6 +3384,16 @@ c_weza = {
 
 #Zunzun
 c_zunzun = {
+    6674.9.3 = {
+        holder = lineoftarraukin1 #Zete_e_limirh
+    }
+    6714.5.20 = {
+        holder = lineoftarraukin3 #Zevo_o_nko
+    }
+    6784.2.26 = {
+        holder = lineoftarraukin5 #Yasiko
+    }
+
 	6807.10.6 = {
 		holder = lineofzakirhim1 #Zakirh
 		change_development_level = 6
@@ -2806,6 +3415,22 @@ c_zunzun = {
 
 # Tarmur
 c_tarmur = {
+    6617.1.3 = {
+        holder = lineofratka1 #Nurru
+    }
+    6690.2.22 = {
+        holder = lineofratka3 #Timbahr
+    }
+    6724.9.8 = {
+        holder = lineofratka5 #Torna
+    }
+    6771.4.12 = {
+        holder = lineofratka7 #Pakirh
+    }
+    6796.11.12 = {
+        holder = lineofratka9 #Bogo
+    }
+
 	6807.10.6 = {
 		holder = lineofzakirhim1 #Zakirh
 		change_development_level = 8
@@ -2827,6 +3452,19 @@ c_tarmur = {
 
 # Kaljoa
 c_kalijoa = {
+	6694.10.8 = {
+        holder = lineofzalatkes1 #Berrivoz
+    }
+    6770.6.14 = {
+        holder = lineofzalatkes3 #Sa_a_milya_a_n
+    }
+    6800.9.7 = {
+        holder = lineofzalatkes5 #Ima_a_n
+    }
+    6825.9.11 = {
+        holder = lineofzalatkes7 #Nediyko
+    }
+
 	6807.10.6 = {
 		holder = lineofzakirhim1 #Zakirh
 		change_development_level = 8
@@ -2851,6 +3489,22 @@ c_kalijoa = {
 
 # Temelahi
 c_temelahi = {
+	6617.1.3 = {
+        holder = lineofratka1 #Nurru
+    }
+    6690.2.22 = {
+        holder = lineofratka3 #Timbahr
+    }
+    6724.9.8 = {
+        holder = lineofratka5 #Torna
+    }
+    6771.4.12 = {
+        holder = lineofratka7 #Pakirh
+    }
+    6796.11.12 = {
+        holder = lineofratka9 #Bogo
+    }
+
 	6807.10.6 = {
 		holder = lineofzakirhim1 #Zakirh
 		change_development_level = 10
@@ -2871,6 +3525,22 @@ c_temelahi = {
 
 # Ephalak
 c_ephalak = {
+    6617.1.3 = {
+        holder = lineofratka1 #Nurru
+    }
+    6690.2.22 = {
+        holder = lineofratka3 #Timbahr
+    }
+    6724.9.8 = {
+        holder = lineofratka5 #Torna
+    }
+    6771.4.12 = {
+        holder = lineofratka7 #Pakirh
+    }
+    6796.11.12 = {
+        holder = lineofratka9 #Bogo
+    }
+
 	6807.10.6 = {
 		holder = lineofzakirhim1 #Zakirh
 		change_development_level = 12
@@ -2891,8 +3561,20 @@ c_ephalak = {
 
 # Menaja
 c_menaja = {
+    6674.9.3 = {
+        holder = lineoftarraukin1 #Zete_e_limirh
+    }
+    6714.5.20 = {
+        holder = lineoftarraukin3 #Zevo_o_nko
+    }
+    6784.2.26 = {
+        holder = lineoftarraukin10 #Veas
+		liege = d_kes_kriz
+    }
+
 	6807.10.6 = {
 		holder = lineofzakirhim1 #Zakirh
+		liege = 0
 		change_development_level = 9
 	}
 	6892.4.3 = {
@@ -2911,6 +3593,19 @@ c_menaja = {
 
 # Duchy of Kes Kriz
 d_kes_kriz = {
+    6674.9.3 = {
+        holder = lineoftarraukin1 #Zete_e_limirh
+    }
+    6714.5.20 = {
+        holder = lineoftarraukin3 #Zevo_o_nko
+    }
+    6784.2.26 = {
+        holder = lineoftarraukin5 #Yasiko
+    }
+	6821.7.18 = {
+        holder = 0
+    }
+
 	6871.7.16 = {
 		holder = lineoffirhunes1 #Sa_a_milya_a_n
 		change_development_level = 5
@@ -2929,6 +3624,16 @@ d_kes_kriz = {
 	}
 }
 c_asud = {
+    6674.9.3 = {
+        holder = lineoftarraukin1 #Zete_e_limirh
+    }
+    6714.5.20 = {
+        holder = lineoftarraukin3 #Zevo_o_nko
+    }
+    6784.2.26 = {
+        holder = lineoftarraukin5 #Yasiko
+    }
+
 	6871.7.16 = {
 		holder = lineoffirhunes1 #Sa_a_milya_a_n
 	}
@@ -2981,6 +3686,16 @@ c_akuman = {
 	}
 }
 c_haman = {
+    6674.9.3 = {
+        holder = lineoftarraukin1 #Zete_e_limirh
+    }
+    6714.5.20 = {
+        holder = lineoftarraukin3 #Zevo_o_nko
+    }
+    6784.2.26 = {
+        holder = lineoftarraukin5 #Yasiko
+    }
+
 	6871.7.16 = {
 		holder = lineoffirhunes1 #Sa_a_milya_a_n
 	}
