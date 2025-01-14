@@ -17,7 +17,7 @@
 		religion = faith_edain
 	}
 	5600.1.1 = {
-		culture = umbarean
+		culture = corsair
 		religion = faith_corsair
 		buildings = {
 			castle_04
@@ -27,7 +27,10 @@
 			# barracks_04 
 		}
 	}
-	6930.1.1 = { religion = faith_kings_men_castamir }
+	6930.1.1 = {
+		culture = umbarean
+		religion = faith_kings_men_castamir
+		}
 }
 
 820 = {	 	#Azarobroth (b_azarobroth)
@@ -273,7 +276,7 @@
 		religion = faith_edain
 	}
 	5600.1.1 = {
-		culture = umbarean
+		culture = corsair
 		religion = faith_corsair
 		buildings = {
 			castle_03
@@ -282,7 +285,10 @@
 			# hunting_grounds_04 
 		}
 	}
-	6930.1.1 = { religion = faith_kings_men_castamir }
+	6930.1.1 = {
+		culture = umbarean
+		religion = faith_kings_men_castamir
+	}
 }
 
 818 = {		#Zabthân (b_zabthan)
@@ -341,8 +347,11 @@
 
 849 = {	 	#Barazôn (b_barazon)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	5800.1.1 = {
 		culture = corsair
 		religion = faith_corsair
@@ -407,8 +416,9 @@
 			# common_tradeport_02 
 			# barracks_05 
 		}
+		special_building_slot = wonder_umbar_citadel
+		special_building = wonder_umbar_citadel
 	}
-	special_building_slot = wonder_umbar_citadel
 }
 
 830 = {	 	#Folen (b_folen)
@@ -477,8 +487,11 @@
 
 840 = {	 	#Sûzâkal (b_suzakal)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	5600.1.1 = {
 		culture = corsair
 		religion = faith_corsair
@@ -607,8 +620,11 @@
 
 834 = {	 	#Dol Annabrith (b_dol_annabrith)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	5600.1.1 = {
 		culture = corsair
 		religion = faith_corsair
@@ -636,8 +652,11 @@
 
 1403 = {	#Ethazôr (b_ethazor)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	6000.1.1 = {
 		culture = tedjin
 		religion = faith_easterling_war
@@ -686,16 +705,23 @@
 
 1407 = {	#Sûl-Dhurn (b_sul_dhurn)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	6000.1.1 = {
-		culture = tedjin
-		religion = faith_easterling_war
+		culture = corsair
+		religion = faith_corsair
 		buildings = {
 			castle_01
 			horse_pastures_02
 			plantations_02
 		}
+	}
+	7000.1.1 = {
+		culture = tedjin
+		religion = faith_easterling_war
 	}
 }
 
@@ -737,8 +763,11 @@
 
 853 = {		#Isigir (b_isigir)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	4966.1.1 = {
 		culture = umbaredain
 		religion = faith_edain
@@ -790,8 +819,11 @@
 
 855 = {	 	#Erädas (b_eradas)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	5600.1.1 = {
 		culture = corsair
 		religion = faith_corsair
@@ -846,7 +878,6 @@
 		curtain_walls_04
 		garrison_tower_02
 	}
-	special_building_slot = wonder_umbar_citadel
 	4060.1.1 = {
 		culture = old_umbarean
 	}
@@ -858,6 +889,8 @@
 		culture = corsair
 		religion = faith_corsair
 	}
+	special_building_slot = wonder_umbar_citadel
+	special_building = wonder_umbar_citadel
 }
 
 856 = {	 	#Aglarêth (b_aglareth)
@@ -890,8 +923,11 @@
 
 865 = {		#Dibis (b_dibis)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	5800.1.1 = {
 		culture = corsair
 		religion = faith_corsair
@@ -952,15 +988,20 @@
 
 906 = {		#Sûk Oda (b_suk_oda)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	6000.1.1 = {
 		culture = corsair
 		religion = faith_corsair
 	}
-	6900.1.1 = {
+	6500.1.1 = {
 		culture = jelut
-		religion = faith_jelut
+	}
+	6900.1.1 = {
+		religion = faith_haruze
 		holding = tribal_holding
 	}
 }
@@ -987,15 +1028,18 @@
 
 876 = {		#Kas Shafra (b_kas_shafra)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	5800.1.1 = {
 		culture = corsair
 		religion = faith_corsair
 	}
 	6900.1.1 = {
 		culture = jelut
-		religion = faith_jelut
+		religion = faith_haruze
 		holding = tribal_holding
 	}
 }
@@ -1015,15 +1059,18 @@
 873 = {		#Bur Baklin (b_bur_baklin)
 	culture = sakalai
 	religion = faith_chelkar
-	holding = tribal_holding
+	holding = none
 }
 
 ##			Zoran (c_zoran)
 
 871 = {	 	#An Zoran (b_an_zoran)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = tribal_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	5900.1.1 = {
 		culture = jelut
 		religion = faith_jelut
@@ -1115,8 +1162,11 @@
 
 1454 = {	#Azulathân (b_azulathan)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	5600.1.1 = {
 		culture = corsair
 		religion = faith_corsair
@@ -1150,8 +1200,11 @@
 
 1458 = {	#Mazrakh (b_mazrakh)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	6000.1.1 = {
 		culture = tedjin
 		religion = faith_easterling_war
@@ -1188,8 +1241,11 @@
 
 1461 = {	#Dalajaf (b_dalajaf)
 	culture = sakalai
-	religion = faith_chelkar
+	religion = faith_legends_of_harwan
 	holding = castle_holding
+	4300.1.1 = { # Nadi-Manye rises in importance
+		religion = faith_chelkar
+	}
 	6000.1.1 = {
 		culture = tedjin
 		religion = faith_easterling_war

@@ -8017,8 +8017,8 @@ lineofmisrakim1 = {
 	name = Misrak
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	sexuality = heterosexual
 
@@ -8051,8 +8051,8 @@ lineofmisrakim2 = {
 	name = Za_a_la
 	female = yes
 
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	sexuality = heterosexual
 
@@ -8082,8 +8082,8 @@ lineofmisrakim3 = {
 	female = yes
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim1
 	mother = lineofmisrakim2
@@ -8116,8 +8116,8 @@ lineofmisrakim4 = {
 	female = yes
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim1
 	mother = lineofmisrakim2
@@ -8150,8 +8150,8 @@ lineofmisrakim5 = {
 	female = yes
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim1
 	mother = lineofmisrakim2
@@ -8183,8 +8183,8 @@ lineofmisrakim6 = {
 	name = Ozre_e_n
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim1
 	mother = lineofmisrakim2
@@ -8220,8 +8220,8 @@ lineofmisrakim7 = {
 	name = Maharre_e_na
 	female = yes
 
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	sexuality = heterosexual
 
@@ -8251,8 +8251,8 @@ lineofmisrakim8 = {
 	female = yes
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim6
 	mother = lineofmisrakim7
@@ -8285,8 +8285,8 @@ lineofmisrakim9 = {
 	female = yes
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim1
 	mother = lineofmisrakim2
@@ -8318,8 +8318,8 @@ lineofmisrakim10 = {
 	name = Da_a_mirh
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim1
 	mother = lineofmisrakim2
@@ -8355,8 +8355,8 @@ lineofmisrakim11 = {
 	name = Lua_a_ma
 	female = yes
 
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	sexuality = heterosexual
 
@@ -8385,8 +8385,8 @@ lineofmisrakim12 = {
 	name = Qa_a_lfa_a_n
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim10
 	mother = lineofmisrakim11
@@ -8423,8 +8423,8 @@ lineofmisrakim13 = {
 	name = Dye_e_na
 	female = yes
 
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	sexuality = heterosexual
 
@@ -8453,8 +8453,8 @@ lineofmisrakim14 = {
 	name = Lasim
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim12
 	mother = lineofmisrakim13
@@ -8490,8 +8490,8 @@ lineofmisrakim15 = {
 	name = Harriyka
 	female = yes
 
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	sexuality = heterosexual
 
@@ -8520,8 +8520,8 @@ lineofmisrakim16 = {
 	name = Zete_e_limirh
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim12
 	mother = lineofmisrakim13
@@ -8557,8 +8557,8 @@ lineofmisrakim17 = {
 	name = Na_a_ma_a_ndia
 	female = yes
 
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	sexuality = heterosexual
 
@@ -8575,8 +8575,8 @@ lineofmisrakim18 = {
 	female = yes
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim12
 	mother = lineofmisrakim13
@@ -8609,8 +8609,8 @@ lineofmisrakim19 = {
 	female = yes
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim12
 	mother = lineofmisrakim13
@@ -8643,8 +8643,8 @@ lineofmisrakim20 = {
 	female = yes
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim12
 	mother = lineofmisrakim13
@@ -8676,8 +8676,8 @@ lineofmisrakim21 = {
 	name = Isa_a_lin
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim12
 	mother = lineofmisrakim13
@@ -8713,8 +8713,8 @@ lineofmisrakim22 = {
 	name = A_A_mita
 	female = yes
 
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	sexuality = heterosexual
 
@@ -8731,8 +8731,8 @@ lineofmisrakim23 = {
 	female = yes
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim10
 	mother = lineofmisrakim11
@@ -8764,8 +8764,8 @@ lineofmisrakim24 = {
 	name = Zakarra_a_n
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim10
 	mother = lineofmisrakim11
@@ -8801,8 +8801,8 @@ lineofmisrakim25 = {
 	name = Se_e_la_a_marrit
 	female = yes
 
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	sexuality = heterosexual
 
@@ -8832,8 +8832,8 @@ lineofmisrakim26 = {
 	female = yes
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim24
 	mother = lineofmisrakim25
@@ -8852,8 +8852,8 @@ lineofmisrakim27 = {
 	name = Liuadikirh
 
 	dynasty = dynasty_misrakim
-	religion = faith_arani
-	culture = sand_people
+	religion = faith_jelut
+	culture = jelut
 
 	father = lineofmisrakim24
 	mother = lineofmisrakim25
@@ -8876,7 +8876,7 @@ lineofmisrakim28 = {
 	name = Na_a_ma_a_ndia
 	female = yes
 
-	religion = faith_arani
+	religion = faith_jelut
 	culture = sand_people
 
 	sexuality = heterosexual
@@ -16687,6 +16687,27 @@ lineofyugertenes10 = {
 		death = { death_reason = death_natural_causes }
 	}
 }
+lineofyugertenes10a1 = {
+	name = Dye_e_na
+	female = yes
+
+	dynasty = dynasty_yugertenes
+	religion = faith_garauda
+	culture = aukuag
+
+	father = lineofyugertenes9
+	mother = lineofyugertenes10
+
+	sexuality = heterosexual
+
+	6818.4.3 = {
+		birth = yes
+	}
+
+	6902.8.12 = {
+		death = { death_reason = death_natural_causes }
+	}
+}
 lineofyugertenes11 = {
 	name = Veo_o_no_o_mirh
 
@@ -23316,6 +23337,10 @@ lineofezarkia3 = { # Long Winter
 	6761.6.28 = { # fled from her family in the east
 		add_spouse = lineadara7
 	}
+	
+	6763.10.31 = {
+		set_relation_grudge = character:lineadara0
+	}
 
 	6763.12.2 = {
 		add_spouse = linesafarhiz8
@@ -23404,9 +23429,7 @@ lineofezarkia5 = {
 
 	sexuality = heterosexual
 
-	trait = callous
-	trait = arrogant
-	trait = deceitful
+	trait = bossy
 
 	diplomacy = 6
 	martial = 8
@@ -23420,7 +23443,7 @@ lineofezarkia5 = {
 	trait = intellect_good_2
 	trait = disputed_heritage
 
-	disallow_random_traits = yes
+	#disallow_random_traits = yes
 
 
 	6775.2.3 = {
@@ -24390,7 +24413,7 @@ lineofsintal5 = {
 	name = Bozisharh
 
 	dynasty_house = house_sintal
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = lineofsintal1
@@ -24427,7 +24450,7 @@ lineofsintal6 = {
 	name = Dye_e_nebahr
 	female = yes
 
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	sexuality = heterosexual
@@ -24457,7 +24480,7 @@ lineofsintal7 = {
 	name = Zakarra_a_n
 
 	dynasty_house = house_sintal
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = lineofsintal5
@@ -24494,7 +24517,7 @@ lineofsintal8 = {
 	name = Farrisi
 	female = yes
 
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	sexuality = heterosexual
@@ -24524,7 +24547,7 @@ lineofsintal9 = {
 	name = Kra_a_mo
 
 	dynasty_house = house_sintal
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = lineofsintal5
@@ -24561,7 +24584,7 @@ lineofsintal10 = {
 	name = Tarra
 	female = yes
 
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	sexuality = heterosexual
@@ -24591,7 +24614,7 @@ lineofsintal11 = {
 	name = Za_a_la
 	female = yes
 
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = lineofsintal1
@@ -25006,8 +25029,8 @@ linefatrakes8 = {
 	name = Nisha_a_n
 	female = yes
 
-	religion = faith_arani
-	culture = sand_people 
+	religion = faith_haruze
+	culture = jelut 
 
 	trait = fickle
 	trait = gregarious
@@ -25120,7 +25143,7 @@ linefatrakes13 = {
 	name = Kyatikarh
 
 	dynasty = dynasty_vikhames
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = linefatrakes11
@@ -25147,8 +25170,8 @@ linefatrakes14 = {
 	name = Teeha
 	female = yes
 
-	religion = faith_arani
-	culture = sand_people 
+	religion = faith_haruze
+	culture = haruze 
 
 	trait = humble
 	trait = paranoid
@@ -25167,7 +25190,7 @@ linefatrakes15 = {
 	name = Mo_o_mirh
 
 	dynasty = dynasty_vikhames
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = linefatrakes13
@@ -25194,8 +25217,8 @@ linefatrakes16 = {
 	name = Verra_a_na
 	female = yes
 
-	religion = faith_arani
-	culture = sand_people 
+	religion = faith_haruze
+	culture = jelut 
 
 	trait = vengeful
 	trait = gluttonous
@@ -25214,7 +25237,7 @@ linefatrakes17 = {
 	name = Terko
 
 	dynasty = dynasty_vikhames
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = linefatrakes15
@@ -25314,7 +25337,7 @@ linedrahar4 = {
 	female = yes
 
 	religion = faith_arani
-	culture = sand_people 
+	culture = pezarsani 
 
 	trait = arrogant
 	trait = wrathful
@@ -25333,7 +25356,7 @@ linedrahar5 = {
 	name = Boa_a_n
 
 	dynasty_house = house_draharhes
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = linedrahar3
@@ -25360,7 +25383,7 @@ linedrahar6 = {
 	name = Za_a_la
 	female = yes
 
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	trait = diligent
@@ -25380,7 +25403,7 @@ linedrahar7 = {
 	name = Berris
 
 	dynasty_house = house_draharhes
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = linedrahar5
@@ -25407,7 +25430,7 @@ linedrahar8 = {
 	name = Yu_u_ma
 	female = yes
 
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	trait = ambitious
@@ -25427,7 +25450,7 @@ linedrahar9 = {
 	name = Darh
 
 	dynasty_house = house_draharhes
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = linedrahar7
@@ -25454,7 +25477,7 @@ linedrahar10 = {
 	name = Ina
 	female = yes
 
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	trait = shy
@@ -25474,7 +25497,7 @@ linedrahar11 = {
 	name = Ima_a_n
 
 	dynasty_house = house_draharhes
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = linedrahar9
@@ -25501,7 +25524,7 @@ linedrahar12 = {
 	name = Marya_a_ni
 	female = yes
 
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	trait = paranoid
@@ -25521,7 +25544,7 @@ linedrahar13 = {
 	name = Quaba_a_li
 
 	dynasty_house = house_draharhes
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = linedrahar11
@@ -26853,7 +26876,7 @@ lineacammes3 = {
 	name = Druagii
 
 	dynasty = dynasty_acammes
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = lineacammes1
@@ -26880,7 +26903,7 @@ lineacammes4 = {
 	name = Sidibahr
 	female = yes
 
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	trait = diligent
@@ -26900,7 +26923,7 @@ lineacammes5 = {
 	name = Sa_a_lu
 
 	dynasty = dynasty_acammes
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = lineacammes3
@@ -26927,7 +26950,7 @@ lineacammes6 = {
 	name = Fa_a_la
 	female = yes
 
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	trait = arrogant
@@ -26947,7 +26970,7 @@ lineacammes7 = {
 	name = Ve_e_luado
 
 	dynasty = dynasty_acammes
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = lineacammes5
@@ -26970,7 +26993,7 @@ lineacammes8 = {
 	name = Na_a_ma_a_ndia
 	female = yes
 
-	religion = faith_arani
+	religion = faith_haruze
 	culture = sand_people 
 
 	father = lineacammes5
@@ -27066,7 +27089,7 @@ lineadara0b = { # An unknown  Black Numenorean from Mordor, in service of Sauron
 	trait = overseer
 	
 
-	trait = blood_of_numenor_6
+	trait = blood_of_numenor_2
 	6624.11.25 = {
 		birth = yes
 	}
@@ -27100,7 +27123,10 @@ lineadara1 = { # son of Adya, killed after birth
 		birth = yes
 	}
 	6693.11.14 = {
-		death = { death_reason = death_murder killer = lineadara0 }
+		death = {
+			death_reason = death_murder_known
+			killer = lineadara0
+		}
 	}
 }
 
@@ -27119,7 +27145,7 @@ lineadara2 = { # son of Adya, killed after birth
 		birth = yes
 	}
 	6725.9.16 = {
-		death = { death_reason = death_murder killer = lineadara0 }
+		death = { death_reason = death_murder_known killer = lineadara0 }
 	}
 }
 
@@ -27188,7 +27214,7 @@ lineadara5 = { # son of Adya, killed after birth
 		birth = yes
 	}
 	6739.4.3 = {
-		death = { death_reason = death_murder killer = lineadara0 }
+		death = { death_reason = death_murder_known killer = lineadara0 }
 	}
 }
 
@@ -27283,7 +27309,7 @@ lineshazares1 = { # daughter of Adya, founded tribe
 	}
 
 	6793.1.5 = {
-		death = { death_reason = death_murder killer = linedruages1 }
+		death = { death_reason = death_murder_known killer = linedruages1 }
 	}
 }
 
@@ -27543,7 +27569,7 @@ lineshazares12 = { #murdered by sister
 	}
 
 	6904.6.1 = {
-		death = { death_reason = death_murder killer = lineshazares16 }
+		death = { death_reason = death_murder_known killer = lineshazares16 }
 	}
 }
 
@@ -27591,7 +27617,7 @@ lineshazares14 = {
 	}
 
 	6901.8.17 = {
-		death = { death_reason = death_murder killer = lineshazares16 }
+		death = { death_reason = death_murder_known killer = lineshazares16 }
 	}
 }
 
@@ -28518,7 +28544,7 @@ linemirakes16 = {
 	}
 
 	7008.2.12 = {
-		death = { death_reason = death_murder killer = linemirakes46 }
+		death = { death_reason = death_murder_known killer = linemirakes46 }
 	}
 }
 
@@ -29265,7 +29291,7 @@ linemirakes47 = {
 	}
 
 	7028.12.3 = {
-		death = { death_reason = death_murder killer = linemirakes46 }
+		death = { death_reason = death_murder_known killer = linemirakes46 }
 	}
 }
 
@@ -31563,7 +31589,26 @@ lineoftralwaslw2 = {
         birth = yes
     }
 
+	6780.1.1 = {
+		add_spouse = lineoftralwaslw2wife
+	}
+
     6800.1.1 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+lineoftralwaslw2wife = {
+    name = Ti_i_mi_i_la
+	female = yes
+
+    religion = faith_ray
+    culture = bozishnarud
+	
+    6759.4.18 = {
+        birth = yes
+    }
+
+    6832.3.14 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -31583,7 +31628,26 @@ lineoftralwaslw3 = {
         birth = yes
     }
 
+	6780.1.1 = {
+		add_spouse = lineoftralwaslw3wife
+	}
+
     6809.1.1 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+lineoftralwaslw3wife = {
+    name = Se_e_mya
+	female = yes
+
+    religion = faith_jelut
+    culture = sand_people
+	
+    6756.4.13 = {
+        birth = yes
+    }
+
+    6832.2.23 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -31704,7 +31768,7 @@ lineofozren3 = {
     }
 
     5377.12.14 = {
-        death = { death_reason = death_murder killer = lineofozren6}
+        death = { death_reason = death_murder_known killer = lineofozren6}
     }
 }
 lineofozren4 = {
@@ -32120,7 +32184,7 @@ lineofozren15 = {
 #is not the only faith to have found a champion. popularised the faith of Gurzil at the oasis of Jetin.
 #However his family is on the decline, and his is not the only faith to have found it's champion.The
 #[REDACTED], who associate Gurzil with Vatra, the great enemy, are on the rise. Taking advantege of the 
-#collapse of the Peduages dynasty, [REDACTED] would sieze power for himself. He would send his warriors
+#collapse of the Peduages dynasty, [REDACTED] would seize power for himself. He would send his warriors
 #forth to battle against the Ozrenes in a rage of zealous fury, wiping them off of the face of the world.
 #This would cause a mass Gurzilite exodous into Narak, fleeing from [REDACTED]'s ire, which would give
 #rise to the Jelut people who would later go on to conquer Umbar. But in time, the [REDACTED] rule over
@@ -34653,6 +34717,41 @@ lineofsuabel6 = {
     }
 }
 
+lineofsuabel5a1 = {
+    name = Tua
+    female = yes
+
+    dynasty = dynasty_suabel
+    religion = faith_jelut
+    culture = jelut
+
+    father = lineofsuabel5
+    mother = lineofsuabel6
+
+    sexuality = heterosexual
+
+    trait = temperate
+    trait = fickle
+    trait = lustful
+
+    diplomacy = 5
+    martial = 5
+    stewardship = 9
+    intrigue = 4
+    learning = 4
+    prowess = 8
+
+    trait = education_stewardship_3
+
+    6749.10.19 = {
+        birth = yes
+    }
+
+    6829.3.14 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
 lineofsuabel7 = {
     name = Zae
     female = yes
@@ -34734,18 +34833,12 @@ lineofsuabel9 = {
 
     sexuality = heterosexual
 
-    trait = cynical
-    trait = sadistic
-    trait = lazy
-
     diplomacy = 3
     martial = 4
     stewardship = 3
     intrigue = 3
     learning = 5
     prowess = 5
-
-    trait = education_learning_4
 
     6774.2.11 = {
         birth = yes
@@ -34769,18 +34862,12 @@ lineofsuabel10 = {
 
     sexuality = heterosexual
 
-    trait = gregarious
-    trait = fickle
-    trait = paranoid
-
     diplomacy = 3
     martial = 9
     stewardship = 4
     intrigue = 7
     learning = 6
     prowess = 6
-
-    trait = education_martial_2
 
     6773.6.24 = {
         birth = yes
@@ -34803,18 +34890,12 @@ lineofsuabel11 = {
 
     sexuality = heterosexual
 
-    trait = paranoid
-    trait = calm
-    trait = lustful
-
     diplomacy = 4
     martial = 5
     stewardship = 6
     intrigue = 2
     learning = 7
     prowess = 4
-
-    trait = education_learning_1
 
     6775.5.27 = {
         birth = yes
@@ -34838,18 +34919,12 @@ lineofsuabel12 = {
 
     sexuality = heterosexual
 
-    trait = lazy
-    trait = paranoid
-    trait = ambitious
-
     diplomacy = 3
     martial = 5
     stewardship = 5
     intrigue = 6
     learning = 2
     prowess = 8
-
-    trait = education_intrigue_2
 
     6776.2.20 = {
         birth = yes
@@ -34873,18 +34948,12 @@ lineofsuabel13 = {
 
     sexuality = heterosexual
 
-    trait = generous
-    trait = compassionate
-    trait = diligent
-
     diplomacy = 4
     martial = 2
     stewardship = 6
     intrigue = 5
     learning = 4
     prowess = 4
-
-    trait = education_stewardship_1
 
     6777.8.18 = {
         birth = yes
@@ -34907,18 +34976,12 @@ lineofsuabel14 = {
 
     sexuality = heterosexual
 
-    trait = generous
-    trait = impatient
-    trait = chaste
-
     diplomacy = 6
     martial = 5
     stewardship = 6
     intrigue = 4
     learning = 2
     prowess = 6
-
-    trait = education_diplomacy_2
 
     6776.9.12 = {
         birth = yes
@@ -34942,18 +35005,12 @@ lineofsuabel15 = {
 
     sexuality = heterosexual
 
-    trait = cynical
-    trait = forgiving
-    trait = trusting
-
     diplomacy = 2
     martial = 5
     stewardship = 1
     intrigue = 6
     learning = 6
     prowess = 4
-
-    trait = education_intrigue_2
 
     6778.7.10 = {
         birth = yes
@@ -34976,18 +35033,12 @@ lineofsuabel16 = {
 
     sexuality = bisexual
 
-    trait = wrathful
-    trait = gluttonous
-    trait = craven
-
     diplomacy = 10
     martial = 6
     stewardship = 5
     intrigue = 3
     learning = 2
     prowess = 9
-
-    trait = education_diplomacy_3
 
     6779.11.14 = {
         birth = yes
@@ -35011,18 +35062,12 @@ lineofsuabel17 = {
 
     sexuality = heterosexual
 
-    trait = craven
-    trait = stubborn
-    trait = cynical
-
     diplomacy = 3
     martial = 6
     stewardship = 6
     intrigue = 2
     learning = 6
     prowess = 7
-
-    trait = education_martial_2
 
     6779.6.24 = {
         birth = yes
@@ -35045,18 +35090,12 @@ lineofsuabel18 = {
 
     sexuality = heterosexual
 
-    trait = arrogant
-    trait = gregarious
-    trait = callous
-
     diplomacy = 3
     martial = 6
     stewardship = 3
     intrigue = 4
     learning = 2
     prowess = 1
-
-    trait = education_martial_4
 
     6776.7.14 = {
         birth = yes
@@ -35319,6 +35358,41 @@ lineofhuagos7 = {
     }
 }
 
+lineofhuagos7sis = {
+    name = Maharre_e_na
+    female = yes
+
+    dynasty = dynasty_huagos
+    religion = faith_haruze
+    culture = jelut
+
+    father = lineofhuagos6
+    mother = lineofhuagos5
+
+    sexuality = bisexual
+
+    trait = brave
+    trait = stubborn
+    trait = lustful
+
+    diplomacy = 7
+    martial = 3
+    stewardship = 7
+    intrigue = 8
+    learning = 4
+    prowess = 6
+
+    trait = education_diplomacy_2
+
+    6740.12.18 = {
+        birth = yes
+    }
+
+    6829.3.20 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
 lineofhuagos8 = {
     name = Ostoa
 
@@ -35524,18 +35598,12 @@ lineofhuagos13 = {
 
     sexuality = heterosexual
 
-    trait = wrathful
-    trait = forgiving
-    trait = craven
-
     diplomacy = 10
     martial = 5
     stewardship = 1
     intrigue = 6
     learning = 5
     prowess = 4
-
-    trait = education_diplomacy_3
 
     6773.5.28 = {
         birth = yes
@@ -35564,18 +35632,12 @@ lineofhuagos14 = {
 
     sexuality = heterosexual
 
-    trait = humble
-    trait = paranoid
-    trait = deceitful
-
     diplomacy = 8
     martial = 4
     stewardship = 5
     intrigue = 3
     learning = 5
     prowess = 6
-
-    trait = education_diplomacy_4
 
     6772.11.17 = {
         birth = yes
@@ -35868,6 +35930,189 @@ lineofnatana8 = {
     }
 }
 
+lineofnatana7a1 = {
+    name = Aniri_i_k
+
+    dynasty = dynasty_natana
+    religion = faith_jelut
+    culture = jelut
+
+    father = lineofnatana7
+    mother = lineofnatana8
+
+    sexuality = heterosexual
+
+    trait = brave
+    trait = fickle
+    trait = just
+	trait = strong
+
+    diplomacy = 9
+    martial = 3
+    stewardship = 4
+    intrigue = 2
+    learning = 9
+    prowess = 10
+
+    trait = education_diplomacy_3
+
+    6714.3.19 = {
+        birth = yes
+    }
+
+    6742.4.8 = {
+        add_spouse = lineumbarclaimant84
+    }
+
+	6787.1.1 = {
+		set_relation_grudge = character:lineofnatana11
+	}
+
+    6792.3.13 = {
+        death = { death_reason = death_disappearance  } # Left to find brother?
+    }
+}
+lineofnatana7a2 = {
+    name = Ailuk
+
+    dynasty = dynasty_natana
+    religion = faith_jelut
+    culture = jelut
+
+    father = lineofnatana7a1
+    mother = lineumbarclaimant84
+
+    sexuality = heterosexual
+
+    trait = stubborn
+    trait = arrogant
+    trait = deceitful
+
+    diplomacy = 4
+    martial = 6
+    stewardship = 5
+    intrigue = 7
+    learning = 6
+    prowess = 9
+
+    trait = education_martial_2
+	trait = education_martial_prowess_3 # Good fighter, not so good at strategy
+
+    6743.1.14 = {
+        birth = yes
+    }
+
+    6812.3.13 = {
+        death = { death_reason = death_battle }
+    }
+}
+lineofnatana7a1a1 = {
+    name = Ozo
+
+    dynasty = dynasty_natana
+    religion = faith_jelut
+    culture = jelut
+
+    father = lineofnatana7a1
+    mother = lineumbarclaimant84
+
+    sexuality = heterosexual
+
+    trait = gregarious
+    trait = ambitious
+    trait = fickle
+
+    diplomacy = 9
+    martial = 3
+    stewardship = 2
+    intrigue = 4
+    learning = 7
+    prowess = 10
+
+    trait = education_diplomacy_3
+
+    6748.9.20 = {
+        birth = yes
+    }
+
+    6812.3.13 = {
+        death = { death_reason = death_battle } # Died w/ brother
+    }
+}
+lineofnatana7a1b1 = {
+    name = Akhubar # N. Apysaic named by mom
+
+    dynasty = dynasty_natana
+    religion = faith_jelut
+    culture = jelut
+
+    father = lineofnatana7a1
+    mother = lineumbarclaimant84
+
+    sexuality = heterosexual
+
+    trait = just
+    trait = diligent
+    trait = shy
+
+    diplomacy = 5
+    martial = 6
+    stewardship = 10
+    intrigue = 5
+    learning = 6
+    prowess = 8
+
+    trait = education_stewardship_3
+	trait = strategist
+
+    6752.3.18 = {
+        birth = yes
+    }
+
+	6779.3.14 = {
+		add_spouse = lineofsuabel5a1
+	}
+
+    6833.9.17 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+lineofnatana7a1b2 = {
+    name = Akubarh
+
+    dynasty = dynasty_natana
+    religion = faith_jelut
+    culture = jelut
+
+    father = lineofnatana7a1b1
+    mother = lineofsuabel5a1
+
+    sexuality = heterosexual
+
+    trait = paranoid
+    trait = deceitful
+    trait = shy
+	trait = pensive
+
+    diplomacy = 0
+    martial = 9
+    stewardship = 2
+    intrigue = 10
+    learning = 3
+    prowess = 12
+
+	disallow_random_traits = yes
+
+    trait = education_diplomacy_1 # To try and get him out of his shell
+	6782.3.14 = {
+		birth = yes
+	}
+
+    6848.9.13 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
 lineofnatana9 = {
     name = Yargize_e_n
 
@@ -35968,6 +36213,18 @@ lineofnatana11 = {
 
     6775.11.14 = {
         add_spouse = lineofnatana12
+		give_nickname = nick_the_lovestruck
+		effect ={
+			set_relation_soulmate = character:lineofnatana12
+			add_character_flag = {	
+				flag = had_nickname_event
+			}	
+			create_alliance = {			
+				target = character:lineofafalku11a	
+				allied_through_owner = character:lineofnatana11		
+				allied_through_target = character:lineofnatana12		
+			}
+		}
     }
 
 	6786.1.1 = {
@@ -35988,8 +36245,8 @@ lineofnatana12 = {
     female = yes
 
 	dynasty = dynasty_ayerikka
-    religion = faith_jelut
-    culture = jelut
+    religion = faith_haruze
+    culture = haruze
 
 	father = lineofafalku10
     mother = lineofyahyaka13sis
@@ -35999,6 +36256,8 @@ lineofnatana12 = {
     trait = brave
     trait = lazy
     trait = stubborn
+
+	trait = beauty_good_2
 
     diplomacy = 6
     martial = 8
@@ -36030,9 +36289,7 @@ lineofnatana13 = {
 
     sexuality = heterosexual
 
-    trait = sadistic
-    trait = arrogant
-    trait = honest
+	trait = beauty_good_1
 
     diplomacy = 4
     martial = 9
@@ -36040,8 +36297,6 @@ lineofnatana13 = {
     intrigue = 5
     learning = 3
     prowess = 5
-
-    trait = education_martial_3
 
     6777.11.18 = {
         birth = yes
@@ -36065,18 +36320,12 @@ lineofnatana14 = {
 
     sexuality = heterosexual
 
-    trait = calm
-    trait = vengeful
-    trait = paranoid
-
     diplomacy = 6
     martial = 3
     stewardship = 7
     intrigue = 8
     learning = 5
     prowess = 3
-
-    trait = education_intrigue_1
 
     6777.4.19 = {
         birth = yes
@@ -36100,9 +36349,7 @@ lineofnatana15 = {
 
     sexuality = heterosexual
 
-    trait = calm
-    trait = just
-    trait = stubborn
+	trait = beauty_good_1
 
     diplomacy = 1
     martial = 7
@@ -36110,8 +36357,6 @@ lineofnatana15 = {
     intrigue = 3
     learning = 6
     prowess = 7
-
-    trait = education_martial_4
 
     6778.1.10 = {
         birth = yes
@@ -36133,10 +36378,6 @@ lineofnatana16 = {
     culture = jelut
 
     sexuality = heterosexual
-
-    trait = just
-    trait = honest
-    trait = humble
 
     diplomacy = 3
     martial = 4
@@ -36169,9 +36410,7 @@ lineofnatana17 = {
 
     sexuality = heterosexual
 
-    trait = cynical
-    trait = callous
-    trait = arbitrary
+	trait = beauty_good_2
 
     diplomacy = 2
     martial = 6
@@ -36179,8 +36418,6 @@ lineofnatana17 = {
     intrigue = 8
     learning = 3
     prowess = 6
-
-    trait = education_intrigue_4
 
     6779.3.4 = {
         birth = yes
@@ -36203,18 +36440,12 @@ lineofnatana18 = {
 
     sexuality = heterosexual
 
-    trait = honest
-    trait = lustful
-    trait = callous
-
     diplomacy = 8
     martial = 8
     stewardship = 6
     intrigue = 2
     learning = 3
     prowess = 5
-
-    trait = education_diplomacy_4
 
     6779.7.9 = {
         birth = yes
@@ -36306,18 +36537,12 @@ lineofnatana21 = {
 
     sexuality = heterosexual
 
-    trait = forgiving
-    trait = callous
-    trait = just
-
     diplomacy = 3
     martial = 3
     stewardship = 5
     intrigue = 5
     learning = 3
     prowess = 4
-
-    trait = education_stewardship_4
 
     6773.9.27 = {
         birth = yes
@@ -36341,18 +36566,12 @@ lineofnatana22 = {
 
     sexuality = heterosexual
 
-    trait = vengeful
-    trait = sadistic
-    trait = just
-
     diplomacy = 6
     martial = 4
     stewardship = 7
     intrigue = 6
     learning = 2
     prowess = 3
-
-    trait = education_stewardship_3
 
     6775.2.16 = {
         birth = yes
@@ -36375,18 +36594,12 @@ lineofnatana23 = {
 
     sexuality = heterosexual
 
-    trait = impatient
-    trait = forgiving
-    trait = stubborn
-
     diplomacy = 6
     martial = 8
     stewardship = 5
     intrigue = 6
     learning = 1
     prowess = 4
-
-    trait = education_martial_4
 
     6774.11.5 = {
         birth = yes
@@ -36410,18 +36623,12 @@ lineofnatana24 = {
 
     sexuality = heterosexual
 
-    trait = patient
-    trait = paranoid
-    trait = compassionate
-
     diplomacy = 1
     martial = 6
     stewardship = 3
     intrigue = 4
     learning = 6
     prowess = 7
-
-    trait = education_martial_3
 
     6775.11.13 = {
         birth = yes
@@ -36445,18 +36652,12 @@ lineofnatana25 = {
 
     sexuality = heterosexual
 
-    trait = vengeful
-    trait = sadistic
-    trait = lazy
-
     diplomacy = 3
     martial = 8
     stewardship = 4
     intrigue = 4
     learning = 2
     prowess = 7
-
-    trait = education_martial_2
 
     6775.6.8 = {
         birth = yes
@@ -36479,18 +36680,12 @@ lineofnatana26 = {
 
     sexuality = heterosexual
 
-    trait = wrathful
-    trait = stubborn
-    trait = forgiving
-
     diplomacy = 7
     martial = 4
     stewardship = 7
     intrigue = 4
     learning = 3
     prowess = 4
-
-    trait = education_diplomacy_3
 
     6772.11.26 = {
         birth = yes
@@ -36512,10 +36707,6 @@ lineofnatana27 = {
     mother = lineofnatana20
 
     sexuality = heterosexual
-
-    trait = vengeful
-    trait = greedy
-    trait = gregarious
 
     diplomacy = 2
     martial = 7
@@ -36548,18 +36739,12 @@ lineofnatana28 = {
 
     sexuality = heterosexual
 
-    trait = content
-    trait = generous
-    trait = forgiving
-
     diplomacy = 5
     martial = 4
     stewardship = 1
     intrigue = 5
     learning = 3
     prowess = 9
-
-    trait = education_diplomacy_4
 
     6776.7.12 = {
         birth = yes
@@ -36583,18 +36768,12 @@ lineofnatana29 = {
 
     sexuality = heterosexual
 
-    trait = shy
-    trait = zealous
-    trait = sadistic
-
     diplomacy = 5
     martial = 6
     stewardship = 4
     intrigue = 5
     learning = 4
     prowess = 4
-
-    trait = education_martial_4
 
     6778.5.17 = {
         birth = yes
@@ -36617,18 +36796,12 @@ lineofnatana30 = {
 
     sexuality = heterosexual
 
-    trait = diligent
-    trait = craven
-    trait = paranoid
-
     diplomacy = 1
     martial = 5
     stewardship = 5
     intrigue = 6
     learning = 3
     prowess = 7
-
-    trait = education_intrigue_2
 
     6778.7.15 = {
         birth = yes
@@ -36721,18 +36894,12 @@ lineofnatana33 = {
 
     sexuality = heterosexual
 
-    trait = diligent
-    trait = ambitious
-    trait = gregarious
-
     diplomacy = 4
     martial = 4
     stewardship = 7
     intrigue = 4
     learning = 7
     prowess = 4
-
-    trait = education_stewardship_2
 
     6776.2.7 = {
         birth = yes
@@ -36755,18 +36922,12 @@ lineofnatana34 = {
 
     sexuality = homosexual
 
-    trait = ambitious
-    trait = chaste
-    trait = just
-
     diplomacy = 5
     martial = 6
     stewardship = 3
     intrigue = 3
     learning = 7
     prowess = 5
-
-    trait = education_learning_1
 
     6775.4.23 = {
         birth = yes
@@ -36789,18 +36950,12 @@ lineofnatana35 = {
 
     sexuality = heterosexual
 
-    trait = patient
-    trait = generous
-    trait = sadistic
-
     diplomacy = 5
     martial = 6
     stewardship = 6
     intrigue = 8
     learning = 3
     prowess = 8
-
-    trait = education_intrigue_3
 
     6778.12.17 = {
         birth = yes
@@ -36824,18 +36979,12 @@ lineofnatana36 = {
 
     sexuality = heterosexual
 
-    trait = brave
-    trait = arrogant
-    trait = sadistic
-
     diplomacy = 2
     martial = 2
     stewardship = 4
     intrigue = 6
     learning = 5
     prowess = 3
-
-    trait = education_intrigue_3
 
     6776.11.23 = {
         birth = yes
@@ -36859,18 +37008,12 @@ lineofnatana37 = {
 
     sexuality = heterosexual
 
-    trait = craven
-    trait = just
-    trait = greedy
-
     diplomacy = 5
     martial = 6
     stewardship = 6
     intrigue = 3
     learning = 1
     prowess = 2
-
-    trait = education_martial_3
 
     6779.4.13 = {
         birth = yes
@@ -36893,18 +37036,12 @@ lineofnatana38 = {
 
     sexuality = heterosexual
 
-    trait = ambitious
-    trait = chaste
-    trait = calm
-
     diplomacy = 6
     martial = 3
     stewardship = 5
     intrigue = 6
     learning = 2
     prowess = 3
-
-    trait = education_diplomacy_1
 
     6782.8.9 = {
         birth = yes
@@ -36928,18 +37065,12 @@ lineofnatana39 = {
 
     sexuality = heterosexual
 
-    trait = craven
-    trait = paranoid
-    trait = wrathful
-
     diplomacy = 5
     martial = 5
     stewardship = 4
     intrigue = 6
     learning = 4
     prowess = 6
-
-    trait = education_intrigue_4
 
     6781.10.20 = {
         birth = yes
@@ -36962,18 +37093,12 @@ lineofnatana40 = {
 
     sexuality = heterosexual
 
-    trait = ambitious
-    trait = humble
-    trait = gluttonous
-
     diplomacy = 2
     martial = 7
     stewardship = 5
     intrigue = 5
     learning = 2
     prowess = 4
-
-    trait = education_martial_1
 
     6783.6.5 = {
         birth = yes
@@ -36997,18 +37122,12 @@ lineofnatana41 = {
 
     sexuality = heterosexual
 
-    trait = deceitful
-    trait = gluttonous
-    trait = arrogant
-
     diplomacy = 5
     martial = 6
     stewardship = 5
     intrigue = 3
     learning = 9
     prowess = 6
-
-    trait = education_learning_2
 
     6782.8.18 = {
         birth = yes
@@ -37031,18 +37150,12 @@ lineofnatana42 = {
 
     sexuality = heterosexual
 
-    trait = patient
-    trait = forgiving
-    trait = just
-
     diplomacy = 5
     martial = 6
     stewardship = 5
     intrigue = 6
     learning = 6
     prowess = 5
-
-    trait = education_martial_3
 
     6783.5.13 = {
         birth = yes
@@ -37134,18 +37247,12 @@ lineofnatana45 = {
 
     sexuality = heterosexual
 
-    trait = chaste
-    trait = deceitful
-    trait = ambitious
-
     diplomacy = 2
     martial = 4
     stewardship = 5
     intrigue = 7
     learning = 5
     prowess = 6
-
-    trait = education_intrigue_3
 
     6772.6.26 = {
         birth = yes
@@ -37168,10 +37275,6 @@ lineofnatana46 = {
     culture = jelut
 
     sexuality = heterosexual
-
-    trait = trusting
-    trait = vengeful
-    trait = stubborn
 
     diplomacy = 3
     martial = 4
@@ -37205,18 +37308,12 @@ lineofnatana47 = {
 
     sexuality = heterosexual
 
-    trait = compassionate
-    trait = content
-    trait = lustful
-
     diplomacy = 3
     martial = 3
     stewardship = 5
     intrigue = 7
     learning = 4
     prowess = 4
-
-    trait = education_intrigue_1
 
     6776.5.16 = {
         birth = yes
@@ -37240,18 +37337,12 @@ lineofnatana48 = {
 
     sexuality = heterosexual
 
-    trait = compassionate
-    trait = honest
-    trait = trusting
-
     diplomacy = 5
     martial = 5
     stewardship = 4
     intrigue = 3
     learning = 7
     prowess = 6
-
-    trait = education_learning_1
 
     6777.3.21 = {
         birth = yes
@@ -37274,18 +37365,12 @@ lineofnatana49 = {
 
     sexuality = heterosexual
 
-    trait = diligent
-    trait = deceitful
-    trait = callous
-
     diplomacy = 5
     martial = 5
     stewardship = 3
     intrigue = 5
     learning = 4
     prowess = 6
-
-    trait = education_diplomacy_3
 
     6779.9.20 = {
         birth = yes
@@ -37309,18 +37394,12 @@ lineofnatana50 = {
 
     sexuality = heterosexual
 
-    trait = arrogant
-    trait = deceitful
-    trait = compassionate
-
     diplomacy = 6
     martial = 6
     stewardship = 1
     intrigue = 4
     learning = 8
     prowess = 8
-
-    trait = education_learning_3
 
     6781.5.5 = {
         birth = yes
@@ -37344,18 +37423,12 @@ lineofnatana51 = {
 
     sexuality = heterosexual
 
-    trait = lazy
-    trait = humble
-    trait = shy
-
     diplomacy = 6
     martial = 4
     stewardship = 3
     intrigue = 11
     learning = 3
     prowess = 3
-
-    trait = education_intrigue_3
 
     6780.10.2 = {
         birth = yes
@@ -37378,18 +37451,12 @@ lineofnatana52 = {
 
     sexuality = heterosexual
 
-    trait = deceitful
-    trait = shy
-    trait = compassionate
-
     diplomacy = 2
     martial = 5
     stewardship = 4
     intrigue = 3
     learning = 4
     prowess = 4
-
-    trait = education_martial_2
 
     6777.4.18 = {
         birth = yes
@@ -37413,18 +37480,12 @@ lineofnatana53 = {
 
     sexuality = heterosexual
 
-    trait = zealous
-    trait = compassionate
-    trait = humble
-
     diplomacy = 6
     martial = 3
     stewardship = 8
     intrigue = 10
     learning = 5
     prowess = 6
-
-    trait = education_intrigue_1
 
     6781.3.18 = {
         birth = yes
@@ -37447,18 +37508,12 @@ lineofnatana54 = {
 
     sexuality = bisexual
 
-    trait = patient
-    trait = cynical
-    trait = brave
-
     diplomacy = 4
     martial = 9
     stewardship = 5
     intrigue = 4
     learning = 6
     prowess = 5
-
-    trait = education_martial_1
 
     6780.12.19 = {
         birth = yes
@@ -39636,3 +39691,2835 @@ linesafarhiz8 = { # Stabby-stabby bastard lady
     }
 }
 
+######################
+### HOUSE OF RATKA ###
+######################
+
+lineofratka1 = {
+    name = Nurru
+
+    dynasty = dynasty_ratka
+    religion = faith_iunast
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = greedy
+    trait = trusting
+    trait = humble
+
+    diplomacy = 3
+    martial = 2
+    stewardship = 5
+    intrigue = 5
+    learning = 5
+    prowess = 4
+
+    trait = education_stewardship_3
+
+    6617.1.3 = {
+        birth = yes
+    }
+
+    6644.4.23 = {
+        add_spouse = lineofratka2
+    }
+
+    6690.2.22 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofratka2 = {
+    name = Quadi
+    female = yes
+
+    religion = faith_iunast
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = trusting
+    trait = lustful
+    trait = shy
+
+    diplomacy = 1
+    martial = 6
+    stewardship = 6
+    intrigue = 4
+    learning = 4
+    prowess = 5
+
+    trait = education_martial_1
+
+    6627.2.24 = {
+        birth = yes
+    }
+
+    6687.7.13 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofratka3 = {
+    name = Timbahr
+
+    dynasty = dynasty_ratka
+    religion = faith_iunast
+    culture = qarsag
+
+    father = lineofratka1
+    mother = lineofratka2
+
+    sexuality = heterosexual
+
+    trait = gluttonous
+    trait = craven
+    trait = callous
+
+    diplomacy = 5
+    martial = 6
+    stewardship = 2
+    intrigue = 3
+    learning = 8
+    prowess = 6
+
+    trait = education_learning_4
+
+    6661.3.20 = {
+        birth = yes
+    }
+
+    6689.7.22 = {
+        add_spouse = lineofratka4
+    }
+
+    6724.9.8 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofratka4 = {
+    name = Tarra
+    female = yes
+
+    religion = faith_iunast
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = craven
+    trait = stubborn
+    trait = cynical
+
+    diplomacy = 3
+    martial = 6
+    stewardship = 6
+    intrigue = 2
+    learning = 6
+    prowess = 7
+
+    trait = education_martial_2
+
+    6664.3.26 = {
+        birth = yes
+    }
+
+    6733.9.23 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofratka5 = {
+    name = Torna
+
+    dynasty = dynasty_ratka
+    religion = faith_iunast
+    culture = qarsag
+
+    father = lineofratka3
+    mother = lineofratka4
+
+    sexuality = heterosexual
+
+    trait = arrogant
+    trait = gregarious
+    trait = callous
+
+    diplomacy = 3
+    martial = 6
+    stewardship = 3
+    intrigue = 4
+    learning = 2
+    prowess = 1
+
+    trait = education_martial_4
+
+    6698.8.26 = {
+        birth = yes
+    }
+
+    6715.4.24 = {
+        add_spouse = lineofratka6
+    }
+
+    6771.4.12 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofratka6 = {
+    name = Be_e_lkis
+    female = yes
+
+    religion = faith_iunast
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = gregarious
+    trait = paranoid
+    trait = generous
+
+    diplomacy = 5
+    martial = 4
+    stewardship = 4
+    intrigue = 4
+    learning = 3
+    prowess = 2
+
+    trait = education_diplomacy_3
+
+    6695.2.22 = {
+        birth = yes
+    }
+
+    6775.2.8 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofratka7 = {
+    name = Pakirh
+
+    dynasty = dynasty_ratka
+    religion = faith_iunast
+    culture = qarsag
+
+    father = lineofratka5
+    mother = lineofratka6
+
+    sexuality = heterosexual
+
+    trait = sadistic
+    trait = patient
+    trait = shy
+
+    diplomacy = 3
+    martial = 3
+    stewardship = 7
+    intrigue = 5
+    learning = 6
+    prowess = 6
+
+    trait = education_stewardship_2
+
+    6718.11.16 = {
+        birth = yes
+    }
+
+    6744.5.6 = {
+        add_spouse = lineofratka8
+    }
+
+    6796.11.12 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofratka8 = {
+    name = Ze_e_nuab
+    female = yes
+
+    religion = faith_iunast
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = ambitious
+    trait = gluttonous
+    trait = cynical
+
+    diplomacy = 2
+    martial = 8
+    stewardship = 5
+    intrigue = 8
+    learning = 5
+    prowess = 4
+
+    trait = education_martial_2
+
+    6721.11.27 = {
+        birth = yes
+    }
+
+    6786.5.26 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofratka9 = {
+    name = Bogo
+
+    dynasty = dynasty_ratka
+    religion = faith_iunast
+    culture = qarsag
+
+    father = lineofratka7
+    mother = lineofratka8
+
+    sexuality = heterosexual
+
+    trait = deceitful
+    trait = calm
+    trait = craven
+
+    diplomacy = 9
+    martial = 1
+    stewardship = 5
+    intrigue = 9
+    learning = 2
+    prowess = 4
+
+    trait = education_diplomacy_2
+
+    6758.4.21 = {
+        birth = yes
+    }
+
+    6776.9.16 = {
+        add_spouse = lineofratka10
+    }
+
+    6827.7.24 = {
+        death = { death_reason = death_leper }
+    }
+}
+
+lineofratka10 = {
+    name = Qiyta
+    female = yes
+
+    religion = faith_iunast
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = just
+    trait = ambitious
+    trait = craven
+
+    diplomacy = 7
+    martial = 5
+    stewardship = 5
+    intrigue = 2
+    learning = 1
+    prowess = 9
+
+    trait = education_diplomacy_2
+
+    6755.10.5 = {
+        birth = yes
+    }
+
+    6839.10.10 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofratka11 = {
+    name = Ozo
+
+    dynasty = dynasty_ratka
+    religion = faith_iunast
+    culture = qarsag
+
+    father = lineofratka5
+    mother = lineofratka6
+
+    sexuality = heterosexual
+
+    trait = fickle
+    trait = temperate
+    trait = paranoid
+
+    diplomacy = 3
+    martial = 7
+    stewardship = 6
+    intrigue = 5
+    learning = 5
+    prowess = 3
+
+    trait = education_martial_4
+
+    6722.12.26 = {
+        birth = yes
+    }
+
+    6749.2.6 = {
+        add_spouse = lineofratka12
+    }
+
+    6786.11.7 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofratka12 = {
+    name = Lisha_a_n
+    female = yes
+
+    religion = faith_iunast
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = vengeful
+    trait = just
+    trait = impatient
+
+    diplomacy = 5
+    martial = 3
+    stewardship = 1
+    intrigue = 4
+    learning = 3
+    prowess = 9
+
+    trait = education_diplomacy_1
+
+    6720.12.20 = {
+        birth = yes
+    }
+
+    6779.2.23 = {
+        death = { death_reason = death_typhus }
+    }
+}
+
+lineofratka13 = {
+    name = Dobarruadish
+
+    dynasty = dynasty_ratka
+    religion = faith_iunast
+    culture = qarsag
+
+    father = lineofratka11
+    mother = lineofratka12
+
+    sexuality = heterosexual
+
+    trait = diligent
+    trait = temperate
+    trait = vengeful
+
+    diplomacy = 4
+    martial = 3
+    stewardship = 3
+    intrigue = 7
+    learning = 5
+    prowess = 5
+
+    trait = education_intrigue_3
+
+    6758.12.16 = {
+        birth = yes
+    }
+
+    6793.5.21 = {
+        add_spouse = lineofratka14
+    }
+
+    6819.7.6 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofratka14 = {
+    name = Tavarrich
+    female = yes
+
+    religion = faith_iunast
+    culture = qarsag
+
+    sexuality = bisexual
+
+    trait = craven
+    trait = paranoid
+    trait = calm
+
+    diplomacy = 5
+    martial = 4
+    stewardship = 7
+    intrigue = 2
+    learning = 5
+    prowess = 5
+
+    trait = education_stewardship_4
+
+    6756.3.23 = {
+        birth = yes
+    }
+
+    6803.5.18 = {
+        death = { death_reason = death_typhus }
+    }
+}
+
+lineofratka15 = {
+    name = Qiyta
+    female = yes
+
+    religion = faith_iunast
+    culture = qarsag
+
+    father = lineofratka5
+    mother = lineofratka6
+
+    sexuality = heterosexual
+
+    trait = calm
+    trait = humble
+    trait = shy
+
+    diplomacy = 6
+    martial = 5
+    stewardship = 8
+    intrigue = 3
+    learning = 5
+    prowess = 6
+
+    trait = education_stewardship_3
+
+    6723.8.19 = {
+        birth = yes
+    }
+
+    6783.12.9 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofratka16 = {
+    name = Lua_a_ma
+    female = yes
+
+    religion = faith_iunast
+    culture = qarsag
+
+    father = lineofratka5
+    mother = lineofratka6
+
+    sexuality = heterosexual
+
+    trait = content
+    trait = arbitrary
+    trait = lazy
+
+    diplomacy = 6
+    martial = 6
+    stewardship = 4
+    intrigue = 3
+    learning = 5
+    prowess = 3
+
+    trait = education_diplomacy_3
+
+    6726.10.17 = {
+        birth = yes
+    }
+
+    6792.3.7 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+#########################
+### HOUSE OF LAVORRES ###
+#########################
+
+lineoflavorres1 = {
+    name = Mek
+
+    dynasty = dynasty_lavorres
+    religion = faith_path_of_wisdom
+    culture = qarsag
+
+    sexuality = homosexual
+
+    trait = greedy
+    trait = humble
+    trait = stubborn
+
+    diplomacy = 2
+    martial = 7
+    stewardship = 4
+    intrigue = 5
+    learning = 3
+    prowess = 2
+
+    trait = education_martial_4
+
+    6683.11.20 = {
+        birth = yes
+    }
+
+    6702.11.14 = {
+        add_spouse = lineoflavorres2
+    }
+
+    6764.3.27 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoflavorres2 = {
+    name = Yehudit
+    female = yes
+
+    religion = faith_path_of_wisdom
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = stubborn
+    trait = paranoid
+    trait = patient
+
+    diplomacy = 6
+    martial = 3
+    stewardship = 2
+    intrigue = 5
+    learning = 2
+    prowess = 3
+
+    trait = education_diplomacy_2
+
+    6685.1.28 = {
+        birth = yes
+    }
+
+    6760.5.14 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoflavorres3 = {
+    name = Bogo
+
+    dynasty = dynasty_lavorres
+    religion = faith_path_of_wisdom
+    culture = qarsag
+
+    father = lineoflavorres1
+    mother = lineoflavorres2
+
+    sexuality = heterosexual
+
+    trait = craven
+    trait = diligent
+    trait = humble
+
+    diplomacy = 6
+    martial = 3
+    stewardship = 5
+    intrigue = 6
+    learning = 7
+    prowess = 5
+
+    trait = education_learning_2
+
+    6723.3.11 = {
+        birth = yes
+    }
+
+    6742.9.14 = {
+        add_spouse = lineoflavorres4
+    }
+
+    6806.7.27 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoflavorres4 = {
+    name = Fatu_u_mata
+    female = yes
+
+    religion = faith_path_of_wisdom
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = cynical
+    trait = arrogant
+    trait = callous
+
+    diplomacy = 2
+    martial = 8
+    stewardship = 7
+    intrigue = 4
+    learning = 8
+    prowess = 5
+
+    trait = education_martial_3
+
+    6725.10.17 = {
+        birth = yes
+    }
+
+    6807.7.14 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoflavorres5 = {
+    name = Qa_a_lfa_a_n
+
+    dynasty = dynasty_lavorres
+    religion = faith_path_of_wisdom
+    culture = qarsag
+
+    father = lineoflavorres3
+    mother = lineoflavorres4
+
+    sexuality = heterosexual
+
+    trait = temperate
+    trait = arbitrary
+    trait = honest
+
+    diplomacy = 10
+    martial = 12
+    stewardship = 10
+    intrigue = 10
+    learning = 15
+    prowess = 13
+
+    trait = education_learning_4
+
+    6744.10.2 = {
+        birth = yes
+    }
+
+    6776.11.6 = {
+        add_spouse = lineoflavorres6
+    }
+
+    6812.12.26 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoflavorres6 = {
+    name = Qe_e_lia
+    female = yes
+
+    religion = faith_path_of_wisdom
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = diligent
+    trait = shy
+    trait = temperate
+
+    diplomacy = 1
+    martial = 5
+    stewardship = 4
+    intrigue = 5
+    learning = 3
+    prowess = 6
+
+    trait = education_martial_2
+
+    6743.1.27 = {
+        birth = yes
+    }
+
+    6805.1.12 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoflavorres7 = {
+    name = Bozetye
+
+    dynasty = dynasty_lavorres
+    religion = faith_path_of_wisdom
+    culture = qarsag
+
+    father = lineoflavorres3
+    mother = lineoflavorres4
+
+    sexuality = heterosexual
+
+    trait = lazy
+    trait = chaste
+    trait = trusting
+
+    diplomacy = 5
+    martial = 4
+    stewardship = 4
+    intrigue = 7
+    learning = 3
+    prowess = 4
+
+    trait = education_intrigue_1
+
+    6750.11.26 = {
+        birth = yes
+    }
+
+    6779.3.16 = {
+        add_spouse = lineoflavorres8
+    }
+
+    6826.11.27 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoflavorres8 = {
+    name = Aiva_a_na
+    female = yes
+
+    religion = faith_path_of_wisdom
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = compassionate
+    trait = content
+    trait = arrogant
+
+    diplomacy = 3
+    martial = 6
+    stewardship = 4
+    intrigue = 4
+    learning = 2
+    prowess = 6
+
+    trait = education_martial_1
+
+    6751.5.10 = {
+        birth = yes
+    }
+
+    6815.1.25 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoflavorres9 = {
+    name = Ma_a_nderra
+    female = yes
+
+    religion = faith_path_of_wisdom
+    culture = qarsag
+
+    father = lineoflavorres3
+    mother = lineoflavorres4
+
+    sexuality = heterosexual
+
+    trait = shy
+    trait = just
+    trait = impatient
+
+    diplomacy = 4
+    martial = 4
+    stewardship = 5
+    intrigue = 11
+    learning = 4
+    prowess = 3
+
+    trait = education_intrigue_3
+
+    6754.10.10 = {
+        birth = yes
+    }
+
+    6783.6.12 = {
+        death = { death_reason = death_smallpox }
+    }
+}
+
+##########################
+### HOUSE OF TARRAUKIN ###
+##########################
+
+lineoftarraukin1 = {
+    name = Zete_e_limirh
+
+    dynasty = dynasty_tarraukin
+    religion = faith_garauda
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = impatient
+    trait = forgiving
+    trait = stubborn
+
+    diplomacy = 6
+    martial = 8
+    stewardship = 5
+    intrigue = 6
+    learning = 1
+    prowess = 4
+
+    trait = education_martial_4
+
+    6674.9.3 = {
+        birth = yes
+    }
+
+    6695.12.27 = {
+        add_spouse = lineoftarraukin2
+    }
+
+    6714.5.20 = {
+        death = { death_reason = death_battle }
+    }
+}
+
+lineoftarraukin2 = {
+    name = Zasarra
+    female = yes
+
+    religion = faith_garauda
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = patient
+    trait = paranoid
+    trait = compassionate
+
+    diplomacy = 1
+    martial = 6
+    stewardship = 3
+    intrigue = 4
+    learning = 6
+    prowess = 7
+
+    trait = education_martial_3
+
+    6678.8.14 = {
+        birth = yes
+    }
+
+    6752.2.11 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarraukin3 = {
+    name = Zevo_o_nko
+
+    dynasty = dynasty_tarraukin
+    religion = faith_garauda
+    culture = qarsag
+
+    father = lineoftarraukin1
+    mother = lineoftarraukin2
+
+    sexuality = heterosexual
+
+    trait = vengeful
+    trait = sadistic
+    trait = lazy
+
+    diplomacy = 7
+    martial = 5
+    stewardship = 3
+    intrigue = 2
+    learning = 6
+    prowess = 4
+
+    trait = education_diplomacy_2
+
+    6712.3.23 = {
+        birth = yes
+    }
+
+    6743.4.6 = {
+        add_spouse = lineoftarraukin4
+    }
+
+    6784.2.26 = {
+        death = { death_reason = death_raid }
+    }
+}
+
+lineoftarraukin4 = {
+    name = Sidibahr
+    female = yes
+
+    religion = faith_garauda
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    trait = wrathful
+    trait = stubborn
+    trait = forgiving
+
+    diplomacy = 6
+    martial = 8
+    stewardship = 3
+    intrigue = 8
+    learning = 4
+    prowess = 4
+
+    trait = education_martial_2
+
+    6711.11.28 = {
+        birth = yes
+    }
+
+    6777.1.16 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarraukin5 = {
+    name = Yasiko
+
+    dynasty = dynasty_tarraukin
+    religion = faith_garauda
+    culture = qarsag
+
+    father = lineoftarraukin3
+    mother = lineoftarraukin4
+
+    sexuality = heterosexual
+
+    trait = generous
+    trait = calm
+    trait = vengeful
+
+    diplomacy = 4
+    martial = 4
+    stewardship = 2
+    intrigue = 7
+    learning = 4
+    prowess = 4
+
+    trait = education_intrigue_2
+
+    6743.6.26 = {
+        birth = yes
+    }
+
+    6760.3.11 = {
+        add_spouse = lineoftarraukin6
+    }
+
+    6821.7.18 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarraukin6 = {
+    name = Qiyta
+    female = yes
+
+    religion = faith_garauda
+    culture = qarsag
+
+    sexuality = homosexual
+
+    trait = calm
+    trait = fickle
+    trait = brave
+
+    diplomacy = 2
+    martial = 5
+    stewardship = 3
+    intrigue = 6
+    learning = 3
+    prowess = 1
+
+    trait = education_intrigue_2
+
+    6742.11.8 = {
+        birth = yes
+    }
+
+    6805.9.8 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarraukin7 = {
+    name = Rase_e_liyka
+    female = yes
+
+    religion = faith_garauda
+    culture = qarsag
+
+    father = lineoftarraukin5
+    mother = lineoftarraukin6
+
+    sexuality = homosexual
+
+    diplomacy = 1
+    martial = 5
+    stewardship = 6
+    intrigue = 10
+    learning = 5
+    prowess = 6
+
+    6774.6.22 = {
+        birth = yes
+    }
+
+    6841.11.6 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarraukin8 = {
+    name = Be_e_lkis
+    female = yes
+
+    religion = faith_garauda
+    culture = qarsag
+
+    father = lineoftarraukin3
+    mother = lineoftarraukin4
+
+    sexuality = heterosexual
+
+    trait = compassionate
+    trait = just
+    trait = temperate
+
+    diplomacy = 5
+    martial = 4
+    stewardship = 1
+    intrigue = 1
+    learning = 6
+    prowess = 3
+
+    trait = education_learning_1
+
+    6744.12.24 = {
+        birth = yes
+    }
+
+    6806.9.18 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarraukin9 = {
+    name = Lua_a_ma
+    female = yes
+
+    religion = faith_garauda
+    culture = qarsag
+
+    father = lineoftarraukin3
+    mother = lineoftarraukin4
+
+    sexuality = heterosexual
+
+    trait = lazy
+    trait = trusting
+    trait = shy
+
+    diplomacy = 5
+    martial = 5
+    stewardship = 2
+    intrigue = 4
+    learning = 3
+    prowess = 6
+
+    trait = education_diplomacy_2
+
+    6745.1.6 = {
+        birth = yes
+    }
+
+    6813.6.28 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarraukin10 = {
+    name = Veas
+
+    dynasty = dynasty_tarraukin
+    religion = faith_garauda
+    culture = qarsag
+
+    father = lineoftarraukin3
+    mother = lineoftarraukin4
+
+    sexuality = heterosexual
+
+    trait = ambitious
+    trait = fickle
+    trait = zealous
+
+    diplomacy = 5
+    martial = 2
+    stewardship = 2
+    intrigue = 3
+    learning = 5
+    prowess = 5
+
+    trait = education_diplomacy_3
+
+    6747.6.1 = {
+        birth = yes
+    }
+
+    6777.2.23 = {
+        add_spouse = lineoftarraukin11
+    }
+
+    6822.8.24 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarraukin11 = {
+    name = Fa_a_lasha
+    female = yes
+
+    religion = faith_garauda
+    culture = qarsag
+
+    sexuality = bisexual
+
+    trait = shy
+    trait = cynical
+    trait = deceitful
+
+    diplomacy = 2
+    martial = 2
+    stewardship = 4
+    intrigue = 8
+    learning = 3
+    prowess = 3
+
+    trait = education_intrigue_2
+
+    6748.1.2 = {
+        birth = yes
+    }
+
+    6814.10.18 = {
+        death = { death_reason = death_typhus }
+    }
+}
+
+lineoftarraukin12 = {
+    name = Mirre_e_no
+
+    dynasty = dynasty_tarraukin
+    religion = faith_garauda
+    culture = qarsag
+
+    father = lineoftarraukin10
+    mother = lineoftarraukin11
+
+    sexuality = heterosexual
+
+    diplomacy = 1
+    martial = 3
+    stewardship = 2
+    intrigue = 8
+    learning = 3
+    prowess = 3
+
+    6777.10.21 = {
+        birth = yes
+    }
+
+    6801.10.6 = {
+        add_spouse = lineoftarraukin13
+    }
+
+    6849.10.21 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarraukin13 = {
+    name = Se_e_la_a_marrit
+    female = yes
+
+    religion = faith_garauda
+    culture = qarsag
+
+    sexuality = heterosexual
+
+    diplomacy = 4
+    martial = 2
+    stewardship = 3
+    intrigue = 8
+    learning = 3
+    prowess = 8
+
+    6775.8.23 = {
+        birth = yes
+    }
+
+    6847.4.22 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarraukin14 = {
+    name = Braika
+    female = yes
+
+    religion = faith_garauda
+    culture = qarsag
+
+    father = lineoftarraukin10
+    mother = lineoftarraukin11
+
+    sexuality = heterosexual
+
+    diplomacy = 7
+    martial = 4
+    stewardship = 7
+    intrigue = 7
+    learning = 5
+    prowess = 7
+
+    6778.5.2 = {
+        birth = yes
+    }
+
+    6841.2.2 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarraukin15 = {
+    name = Qiyta
+    female = yes
+
+    religion = faith_garauda
+    culture = qarsag
+
+    father = lineoftarraukin10
+    mother = lineoftarraukin11
+
+    sexuality = asexual
+
+    diplomacy = 5
+    martial = 5
+    stewardship = 2
+    intrigue = 6
+    learning = 2
+    prowess = 1
+
+    6782.6.26 = {
+        birth = yes
+    }
+
+    6856.1.19 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoftarraukin16 = {
+    name = Tua
+    female = yes
+
+    religion = faith_garauda
+    culture = qarsag
+
+    father = lineoftarraukin3
+    mother = lineoftarraukin4
+
+    sexuality = heterosexual
+
+    trait = arbitrary
+    trait = arrogant
+    trait = paranoid
+
+    diplomacy = 2
+    martial = 1
+    stewardship = 1
+    intrigue = 6
+    learning = 6
+    prowess = 6
+
+    trait = education_intrigue_3
+
+    6748.5.15 = {
+        birth = yes
+    }
+
+    6782.9.8 = {
+        death = { death_reason = death_cancer }
+    }
+}
+
+#########################
+### HOUSE OF ZALATKES ###
+#########################
+
+lineofzalatkes1 = {
+    name = Berrivoz
+
+    dynasty = dynasty_zalatkes
+    religion = faith_iunast
+    culture = aukuag
+
+    sexuality = homosexual
+
+    trait = greedy
+    trait = shy
+    trait = lazy
+
+    diplomacy = 6
+    martial = 7
+    stewardship = 4
+    intrigue = 4
+    learning = 5
+    prowess = 7
+
+    trait = education_martial_2
+
+    6694.10.8 = {
+        birth = yes
+    }
+
+    6714.12.28 = {
+        add_spouse = lineofzalatkes2
+    }
+
+    6770.6.14 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofzalatkes2 = {
+    name = Za_a_la
+    female = yes
+
+    religion = faith_iunast
+    culture = aukuag
+
+    sexuality = heterosexual
+
+    trait = fickle
+    trait = greedy
+    trait = impatient
+
+    diplomacy = 3
+    martial = 5
+    stewardship = 3
+    intrigue = 7
+    learning = 2
+    prowess = 5
+
+    trait = education_intrigue_4
+
+    6697.4.28 = {
+        birth = yes
+    }
+
+    6778.3.2 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofzalatkes3 = {
+    name = Sa_a_milya_a_n
+
+    dynasty = dynasty_zalatkes
+    religion = faith_iunast
+    culture = aukuag
+
+    father = lineofzalatkes1
+    mother = lineofzalatkes2
+
+    sexuality = heterosexual
+
+    trait = vengeful
+    trait = just
+    trait = gluttonous
+
+    diplomacy = 3
+    martial = 5
+    stewardship = 4
+    intrigue = 7
+    learning = 2
+    prowess = 4
+
+    trait = education_intrigue_3
+
+    6719.4.27 = {
+        birth = yes
+    }
+
+    6738.11.23 = {
+        add_spouse = lineofzalatkes4
+		create_alliance = {			
+				target = character:lineofratka7
+				allied_through_owner = character:lineofzalatkes3	
+				allied_through_target = character:lineofzalatkes4		
+			}
+    }
+
+    6800.9.7 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofzalatkes4 = {
+    name = Se_e_lasi
+    female = yes
+
+	dynasty = dynasty_ratka
+    religion = faith_iunast
+    culture = aukuag
+
+	father = lineofratka5
+    mother = lineofratka6
+
+    sexuality = heterosexual
+
+    trait = temperate
+    trait = paranoid
+    trait = vengeful
+
+    diplomacy = 1
+    martial = 3
+    stewardship = 5
+    intrigue = 4
+    learning = 6
+    prowess = 5
+
+    trait = education_learning_2
+
+    6720.11.15 = {
+        birth = yes
+    }
+
+    6787.3.8 = {
+        death = { death_reason = death_smallpox }
+    }
+}
+
+lineofzalatkes5 = {
+    name = Ima_a_n
+
+    dynasty = dynasty_zalatkes
+    religion = faith_iunast
+    culture = aukuag
+
+    father = lineofzalatkes3
+    mother = lineofzalatkes4
+
+    sexuality = heterosexual
+
+    trait = just
+    trait = trusting
+    trait = wrathful
+
+    diplomacy = 1
+    martial = 5
+    stewardship = 3
+    intrigue = 2
+    learning = 2
+    prowess = 8
+
+    trait = education_martial_2
+
+    6741.5.15 = {
+        birth = yes
+    }
+
+    6774.5.10 = {
+        add_spouse = lineofzalatkes6
+    }
+
+    6825.9.11 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+lineofzalatkes3a1 = {
+    name = Za_a_la
+	female = yes
+
+    dynasty = dynasty_zalatkes
+    religion = faith_infinite_wisdom
+    culture = aukuag
+
+    father = lineofzalatkes3
+    mother = lineofzalatkes4
+
+    sexuality = heterosexual
+
+    trait = just
+    trait = paranoid
+    trait = diligent
+
+    diplomacy = 5
+    martial = 3
+    stewardship = 4
+    intrigue = 8
+    learning = 9
+    prowess = 2
+
+    trait = education_learning_3
+
+    6746.5.15 = {
+        birth = yes
+    }
+
+    6834.4.18 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofzalatkes6 = {
+    name = Razia
+    female = yes
+
+    religion = faith_iunast
+    culture = aukuag
+
+    sexuality = heterosexual
+
+    trait = gregarious
+    trait = forgiving
+    trait = impatient
+
+    diplomacy = 3
+    martial = 5
+    stewardship = 2
+    intrigue = 5
+    learning = 7
+    prowess = 7
+
+    trait = education_learning_3
+
+    6740.11.2 = {
+        birth = yes
+    }
+
+    6811.5.11 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofzalatkes7 = {
+    name = Nediyko
+
+    dynasty = dynasty_zalatkes
+    religion = faith_iunast
+    culture = aukuag
+
+    father = lineofzalatkes5
+    mother = lineofzalatkes6
+
+    sexuality = heterosexual
+
+    diplomacy = 2
+    martial = 8
+    stewardship = 7
+    intrigue = 1
+    learning = 6
+    prowess = 4
+
+    6776.4.1 = {
+        birth = yes
+    }
+
+    6802.6.5 = {
+        add_spouse = lineofzalatkes8
+    }
+
+    6852.5.16 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofzalatkes8 = {
+    name = Da_a_nika
+    female = yes
+
+    religion = faith_iunast
+    culture = aukuag
+
+    sexuality = heterosexual
+
+    diplomacy = 2
+    martial = 4
+    stewardship = 3
+    intrigue = 4
+    learning = 6
+    prowess = 7
+
+    6774.9.25 = {
+        birth = yes
+    }
+
+    6852.11.4 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofzalatkes9 = {
+    name = Asu_u_ma_a_ni
+
+    dynasty = dynasty_zalatkes
+    religion = faith_iunast
+    culture = aukuag
+
+    father = lineofzalatkes5
+    mother = lineofzalatkes6
+
+    sexuality = heterosexual
+
+    diplomacy = 4
+    martial = 7
+    stewardship = 3
+    intrigue = 5
+    learning = 2
+    prowess = 10
+
+    6777.12.12 = {
+        birth = yes
+    }
+
+    6806.8.18 = {
+        add_spouse = lineofzalatkes10
+    }
+
+    6848.8.17 = {
+        death = { death_reason = death_battle }
+    }
+}
+
+lineofzalatkes10 = {
+    name = Davorka
+    female = yes
+
+    religion = faith_iunast
+    culture = aukuag
+
+    sexuality = heterosexual
+
+    diplomacy = 4
+    martial = 6
+    stewardship = 7
+    intrigue = 8
+    learning = 6
+    prowess = 5
+
+    6774.10.15 = {
+        birth = yes
+    }
+
+    6841.11.5 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofzalatkes11 = {
+    name = Me_e_leza
+    female = yes
+
+    religion = faith_iunast
+    culture = aukuag
+
+    father = lineofzalatkes5
+    mother = lineofzalatkes6
+
+    sexuality = heterosexual
+
+    diplomacy = 4
+    martial = 5
+    stewardship = 4
+    intrigue = 7
+    learning = 4
+    prowess = 6
+
+    6778.1.9 = {
+        birth = yes
+    }
+
+    6850.3.21 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+#######################
+### HOUSE OF KRAUKA ###
+#######################
+
+lineofkrauka1 = {
+    name = Sa_a_mirh
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    trait = content
+    trait = calm
+    trait = diligent
+
+    diplomacy = 8
+    martial = 3
+    stewardship = 5
+    intrigue = 8
+    learning = 3
+    prowess = 4
+
+    trait = education_diplomacy_3
+
+    6603.10.24 = {
+        birth = yes
+    }
+
+    6630.3.22 = {
+        add_spouse = lineofkrauka2
+    }
+
+    6668.9.27 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka2 = {
+    name = Divna
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    trait = deceitful
+    trait = chaste
+    trait = lazy
+
+    diplomacy = 6
+    martial = 6
+    stewardship = 4
+    intrigue = 5
+    learning = 3
+    prowess = 1
+
+    trait = education_diplomacy_2
+
+    6613.2.16 = {
+        birth = yes
+    }
+
+    6680.10.26 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka3 = {
+    name = Terko
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka1
+    mother = lineofkrauka2
+
+    sexuality = heterosexual
+
+    trait = impatient
+    trait = lazy
+    trait = cynical
+
+    diplomacy = 5
+    martial = 5
+    stewardship = 6
+    intrigue = 5
+    learning = 6
+    prowess = 7
+
+    trait = education_stewardship_1
+
+    6653.6.19 = {
+        birth = yes
+    }
+
+    6671.1.3 = {
+        add_spouse = lineofkrauka4
+    }
+
+    6732.11.2 = {
+        death = { death_reason = death_duel }
+    }
+}
+
+lineofkrauka4 = {
+    name = Quadi
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    trait = greedy
+    trait = sadistic
+    trait = chaste
+
+    diplomacy = 5
+    martial = 6
+    stewardship = 5
+    intrigue = 5
+    learning = 9
+    prowess = 7
+
+    trait = education_learning_1
+
+    6654.3.14 = {
+        birth = yes
+    }
+
+    6734.10.17 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka5 = {
+    name = Harsa_a_l
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka3
+    mother = lineofkrauka4
+
+    sexuality = heterosexual
+
+    trait = impatient
+    trait = vengeful
+    trait = wrathful
+
+    diplomacy = 2
+    martial = 6
+    stewardship = 3
+    intrigue = 2
+    learning = 5
+    prowess = 5
+
+    trait = education_martial_3
+
+    6674.12.6 = {
+        birth = yes
+    }
+
+    6697.10.15 = {
+        add_spouse = lineofkrauka6
+    }
+
+    6756.2.4 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka6 = {
+    name = Quadi
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    trait = lustful
+    trait = impatient
+    trait = trusting
+
+    diplomacy = 3
+    martial = 7
+    stewardship = 6
+    intrigue = 4
+    learning = 5
+    prowess = 4
+
+    trait = education_martial_2
+
+    6671.5.4 = {
+        birth = yes
+    }
+
+    6740.1.5 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka7 = {
+    name = Lavorraz
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka5
+    mother = lineofkrauka6
+
+    sexuality = heterosexual
+
+    trait = stubborn
+    trait = lazy
+    trait = zealous
+
+    diplomacy = 2
+    martial = 3
+    stewardship = 3
+    intrigue = 3
+    learning = 4
+    prowess = 9
+
+    trait = education_learning_2
+
+    6704.11.8 = {
+        birth = yes
+    }
+
+    6738.7.24 = {
+        add_spouse = lineofkrauka8
+    }
+
+    6779.8.7 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka8 = {
+    name = Yu_u_ma
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    trait = patient
+    trait = stubborn
+    trait = craven
+
+    diplomacy = 7
+    martial = 4
+    stewardship = 5
+    intrigue = 11
+    learning = 4
+    prowess = 4
+
+    trait = education_intrigue_2
+
+    6707.11.26 = {
+        birth = yes
+    }
+
+    6786.2.8 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka9 = {
+    name = Mo_o_mirh
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka7
+    mother = lineofkrauka8
+
+    sexuality = heterosexual
+
+    trait = gluttonous
+    trait = gregarious
+    trait = chaste
+
+	trait = blind
+
+    diplomacy = 3
+    martial = 11
+    stewardship = 1
+    intrigue = 4
+    learning = 5
+    prowess = 4
+
+    trait = education_martial_2
+
+    6738.3.9 = {
+        birth = yes
+    }
+
+    6763.10.14 = {
+        add_spouse = lineofkrauka10
+    }
+
+    6807.3.3 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka10 = {
+    name = Huabesha
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    trait = compassionate
+    trait = craven
+    trait = temperate
+
+    diplomacy = 2
+    martial = 6
+    stewardship = 5
+    intrigue = 7
+    learning = 4
+    prowess = 6
+
+    trait = education_intrigue_1
+
+    6740.1.4 = {
+        birth = yes
+    }
+
+    6821.9.8 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka11 = {
+    name = Ruado_o_mirh
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka9
+    mother = lineofkrauka10
+
+    sexuality = heterosexual
+
+    trait = fickle
+    trait = just
+    trait = lustful
+
+    diplomacy = 2
+    martial = 5
+    stewardship = 7
+    intrigue = 5
+    learning = 9
+    prowess = 5
+
+    trait = education_learning_3
+
+    6763.5.1 = {
+        birth = yes
+    }
+
+    6791.2.20 = {
+        add_spouse = lineofkrauka12
+    }
+
+    6841.11.1 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka12 = {
+    name = Lisha_a_n
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    trait = arbitrary
+    trait = sadistic
+    trait = gluttonous
+
+    diplomacy = 4
+    martial = 4
+    stewardship = 3
+    intrigue = 6
+    learning = 3
+    prowess = 6
+
+    trait = education_intrigue_3
+
+    6765.11.13 = {
+        birth = yes
+    }
+
+    6844.3.24 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka13 = {
+    name = Ba
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka9
+    mother = lineofkrauka10
+
+    sexuality = heterosexual
+
+    trait = arbitrary
+    trait = calm
+    trait = gregarious
+
+    diplomacy = 2
+    martial = 6
+    stewardship = 6
+    intrigue = 5
+    learning = 1
+    prowess = 5
+
+    trait = education_martial_3
+
+    6770.4.6 = {
+        birth = yes
+    }
+
+    6855.3.17 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka14 = {
+    name = Vise_e_lak
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka7
+    mother = lineofkrauka8
+
+    sexuality = heterosexual
+
+    trait = arrogant
+    trait = forgiving
+    trait = deceitful
+
+    diplomacy = 5
+    martial = 3
+    stewardship = 5
+    intrigue = 8
+    learning = 6
+    prowess = 8
+
+    trait = education_intrigue_1
+
+    6740.8.10 = {
+        birth = yes
+    }
+
+    6762.2.11 = {
+        add_spouse = lineofkrauka15
+    }
+
+    6825.9.25 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka15 = {
+    name = Cherre_e_n
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    trait = callous
+    trait = paranoid
+    trait = cynical
+
+    diplomacy = 3
+    martial = 8
+    stewardship = 2
+    intrigue = 7
+    learning = 5
+    prowess = 8
+
+    trait = education_martial_2
+
+    6742.6.17 = {
+        birth = yes
+    }
+
+    6824.10.2 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka16 = {
+    name = Peduag
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka14
+    mother = lineofkrauka15
+
+    sexuality = heterosexual
+
+    trait = humble
+    trait = craven
+    trait = forgiving
+
+    diplomacy = 2
+    martial = 4
+    stewardship = 2
+    intrigue = 7
+    learning = 3
+    prowess = 7
+
+    trait = education_intrigue_4
+
+    6767.12.1 = {
+        birth = yes
+    }
+
+    6789.3.24 = {
+        add_spouse = lineofkrauka17
+    }
+
+    6811.2.19 = {
+        death = { death_reason = death_consumption }
+    }
+}
+
+lineofkrauka17 = {
+    name = Shebahr
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    trait = lazy
+    trait = calm
+    trait = stubborn
+
+    diplomacy = 3
+    martial = 5
+    stewardship = 3
+    intrigue = 6
+    learning = 4
+    prowess = 7
+
+    trait = education_intrigue_2
+
+    6768.4.28 = {
+        birth = yes
+    }
+
+    6837.4.20 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka18 = {
+    name = Terru
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka14
+    mother = lineofkrauka15
+
+    sexuality = heterosexual
+
+    trait = sadistic
+    trait = craven
+    trait = deceitful
+
+    diplomacy = 1
+    martial = 6
+    stewardship = 2
+    intrigue = 5
+    learning = 4
+    prowess = 10
+
+    trait = education_martial_3
+
+    6769.1.19 = {
+        birth = yes
+    }
+
+    6846.3.18 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka19 = {
+    name = Timirh
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka14
+    mother = lineofkrauka15
+
+    sexuality = heterosexual
+
+    trait = paranoid
+    trait = stubborn
+    trait = zealous
+
+    diplomacy = 3
+    martial = 7
+    stewardship = 4
+    intrigue = 10
+    learning = 1
+    prowess = 9
+
+    trait = education_intrigue_4
+
+    6770.10.19 = {
+        birth = yes
+    }
+
+    6797.6.14 = {
+        add_spouse = lineofkrauka20
+    }
+
+    6839.2.8 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka20 = {
+    name = Vatraka
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    trait = arbitrary
+    trait = lazy
+    trait = callous
+
+    diplomacy = 2
+    martial = 6
+    stewardship = 1
+    intrigue = 7
+    learning = 1
+    prowess = 5
+
+    trait = education_intrigue_2
+
+    6767.7.20 = {
+        birth = yes
+    }
+
+    6844.5.22 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka21 = {
+    name = Nia_a_la
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka7
+    mother = lineofkrauka8
+
+    sexuality = heterosexual
+
+    trait = callous
+    trait = humble
+    trait = brave
+
+    diplomacy = 5
+    martial = 6
+    stewardship = 4
+    intrigue = 5
+    learning = 2
+    prowess = 6
+
+    trait = education_martial_2
+
+    6742.8.19 = {
+        birth = yes
+    }
+
+    6788.11.12 = {
+        death = { death_reason = death_typhus }
+    }
+}
+
+lineofkrauka22 = {
+    name = Torna
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka7
+    mother = lineofkrauka8
+
+    sexuality = heterosexual
+
+    trait = callous
+    trait = vengeful
+    trait = arrogant
+
+    diplomacy = 5
+    martial = 6
+    stewardship = 6
+    intrigue = 7
+    learning = 5
+    prowess = 4
+
+    trait = education_intrigue_2
+
+    6743.8.1 = {
+        birth = yes
+    }
+
+    6775.12.15 = {
+        add_spouse = lineofkrauka23
+    }
+
+    6823.4.19 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka23 = {
+    name = Ze_e_na
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = homosexual
+
+    trait = diligent
+    trait = zealous
+    trait = humble
+
+    diplomacy = 3
+    martial = 7
+    stewardship = 3
+    intrigue = 4
+    learning = 1
+    prowess = 5
+
+    trait = education_martial_2
+
+    6746.12.10 = {
+        birth = yes
+    }
+
+    6800.5.22 = {
+        death = { death_reason = death_smallpox }
+    }
+}
+
+lineofkrauka24 = {
+    name = Krauko
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka22
+    mother = lineofkrauka23
+
+    sexuality = homosexual
+
+    trait = impatient
+    trait = calm
+    trait = stubborn
+
+    diplomacy = 4
+    martial = 4
+    stewardship = 7
+    intrigue = 5
+    learning = 3
+    prowess = 8
+
+    trait = education_stewardship_3
+
+    6777.8.9 = {
+        birth = yes
+    }
+
+    6800.1.26 = {
+        add_spouse = lineofkrauka25
+    }
+
+    6862.3.6 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka25 = {
+    name = Nisha_a_n
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    diplomacy = 3
+    martial = 4
+    stewardship = 6
+    intrigue = 4
+    learning = 3
+    prowess = 4
+
+    6777.5.17 = {
+        birth = yes
+    }
+
+    6848.5.10 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka26 = {
+    name = Yasiko
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka22
+    mother = lineofkrauka23
+
+    sexuality = heterosexual
+
+    diplomacy = 3
+    martial = 5
+    stewardship = 1
+    intrigue = 7
+    learning = 4
+    prowess = 5
+
+    6778.11.23 = {
+        birth = yes
+    }
+
+    6794.9.25 = {
+        add_spouse = lineofkrauka27
+    }
+
+    6860.12.22 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka27 = {
+    name = Se_e_lasi
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    diplomacy = 6
+    martial = 8
+    stewardship = 4
+    intrigue = 7
+    learning = 4
+    prowess = 5
+
+    6777.12.15 = {
+        birth = yes
+    }
+
+    6861.7.28 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka28 = {
+    name = Dartoirh
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka22
+    mother = lineofkrauka23
+
+    sexuality = heterosexual
+
+    diplomacy = 5
+    martial = 4
+    stewardship = 5
+    intrigue = 5
+    learning = 3
+    prowess = 4
+
+    6780.4.6 = {
+        birth = yes
+    }
+
+    6803.7.11 = {
+        add_spouse = lineofkrauka29
+    }
+
+    6860.5.22 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka29 = {
+    name = Me_e_leza
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = asexual
+
+    diplomacy = 3
+    martial = 4
+    stewardship = 3
+    intrigue = 6
+    learning = 4
+    prowess = 8
+
+    6778.8.3 = {
+        birth = yes
+    }
+
+    6863.6.3 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka30 = {
+    name = Mile
+
+    dynasty = dynasty_krauka
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka22
+    mother = lineofkrauka23
+
+    sexuality = heterosexual
+
+    diplomacy = 3
+    martial = 2
+    stewardship = 8
+    intrigue = 6
+    learning = 3
+    prowess = 5
+
+    6781.10.19 = {
+        birth = yes
+    }
+
+    6800.10.3 = {
+        add_spouse = lineofkrauka31
+    }
+
+    6859.10.8 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka31 = {
+    name = Oa_a_nika
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    diplomacy = 2
+    martial = 3
+    stewardship = 4
+    intrigue = 7
+    learning = 5
+    prowess = 7
+
+    6783.6.8 = {
+        birth = yes
+    }
+
+    6847.6.3 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkrauka32 = {
+    name = Totit
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineofkrauka7
+    mother = lineofkrauka8
+
+    sexuality = asexual
+
+    diplomacy = 5
+    martial = 8
+    stewardship = 4
+    intrigue = 5
+    learning = 4
+    prowess = 5
+
+    6744.7.9 = {
+        birth = yes
+    }
+
+    6820.2.28 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
