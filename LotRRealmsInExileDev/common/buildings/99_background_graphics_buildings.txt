@@ -83,7 +83,7 @@ walls_01_tribal = {
 	### Ethiopian ###
 	asset = {
 		type = pdxmesh
-		names = { "ethiopian_walls_02_mesh" }
+		names = { "ethiopian_walls_01_mesh" }
 		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
 	}
 
@@ -540,7 +540,7 @@ walls_03 = {
 	### Ethiopian ###
 	asset = {
 		type = pdxmesh
-		names = { "ethiopian_walls_02_mesh" }
+		names = { "ethiopian_walls_03_mesh" }
 		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
 	}
 	# asset = {
@@ -722,7 +722,7 @@ walls_04 = {
 	### Ethiopian ###
 	asset = {
 		type = pdxmesh
-		names = { "ethiopian_walls_02_mesh" }
+		names = { "ethiopian_walls_04_mesh" }
 		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
 	}
 	# asset = {

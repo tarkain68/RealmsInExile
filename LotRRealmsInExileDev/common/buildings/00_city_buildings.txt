@@ -152,6 +152,7 @@ city_01 = {
 		illustration = @holding_illustration_india
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/indian_city" soundparameter = { "Tier" = 0 } }
 		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
+		graphical_regions = { graphical_western }
 	}
 
 	### FP3 Iranian ###
@@ -754,6 +755,7 @@ city_02 = {
 		illustration = @holding_illustration_india
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/indian_city" soundparameter = { "Tier" = 1 } }
 		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
+		graphical_regions = { graphical_western }
 	}
 
 	### FP3 Iranian ###
@@ -1348,6 +1350,7 @@ city_03 = {
 		illustration = @holding_illustration_india
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/indian_city" soundparameter = { "Tier" = 1 } }
 		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
+		graphical_regions = { graphical_western }
 	}
 
 	### FP3 Iranian ###
@@ -1929,6 +1932,7 @@ city_04 = {
 		illustration = @holding_illustration_india
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/indian_city" soundparameter = { "Tier" = 2 } }
 		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
+		graphical_regions = { graphical_western }
 	}
 
 	### FP3 Iranian ###

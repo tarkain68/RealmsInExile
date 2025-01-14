@@ -123,10 +123,11 @@ castle_01 = {
 	### Ethiopian ###
 	asset = {
 		type = pdxmesh
-		names = { "ethiopian_castle_01_mesh" }
+		name = "ethiopian_castle_01_mesh"
 		illustration = @holding_illustration_ethiopian
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
-		graphical_cultures = { adena_building_gfx }
+		graphical_cultures = { adena_building_gfx utter_south_building_gfx }
+		graphical_regions = { graphical_western }
 	}
 
 	### Germanic ###
@@ -703,10 +704,11 @@ castle_02 = {
 	### Ethiopian ###
 	asset = {
 		type = pdxmesh
-		names = { "ethiopian_castle_02_mesh" }
+		name = "ethiopian_castle_02_mesh"
 		illustration = @holding_illustration_ethiopian
-		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 1 } }
-		graphical_cultures = { adena_building_gfx }
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 2 } }
+		graphical_cultures = { adena_building_gfx utter_south_building_gfx }
+		graphical_regions = { graphical_western }
 	}
 	### Germanic ###
 	### Levantine ###
@@ -1263,10 +1265,11 @@ castle_03 = {
 	### Ethiopian ###
 	asset = {
 		type = pdxmesh
-		names = { "ethiopian_castle_03_mesh" }
+		name = "ethiopian_castle_03_mesh"
 		illustration = @holding_illustration_ethiopian
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 2 } }
-		graphical_cultures = { adena_building_gfx }
+		graphical_cultures = { adena_building_gfx utter_south_building_gfx }
+		graphical_regions = { graphical_western }
 	}
 	### Germanic ###
 	### Levantine ###
@@ -1815,10 +1818,11 @@ castle_04 = {
 	### Ethiopian ###
 	asset = {
 		type = pdxmesh
-		names = { "ethiopian_castle_04_mesh" }
+		name = "ethiopian_castle_04_mesh"
 		illustration = @holding_illustration_ethiopian
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 3 } }
-		graphical_cultures = { adena_building_gfx }
+		graphical_cultures = { adena_building_gfx utter_south_building_gfx }
+		graphical_regions = { graphical_western }
 	}
 	### Germanic ###
 	### Levantine ###
