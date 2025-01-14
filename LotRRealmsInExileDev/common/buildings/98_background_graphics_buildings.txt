@@ -23,7 +23,6 @@ gundabad_sprawl_lodges = {
 		exists = barony.holder barony = title:b_gundabad
 		barony.holder.culture = { OR = { has_cultural_pillar = heritage_orc has_cultural_pillar = heritage_undead } }
 		county = { development_level > terrible_development_level }
-#		has_building_or_higher = dwarven_depths_02
 	}
 }
 gundabad_sprawl_lodges_wargs = {
@@ -32,7 +31,6 @@ gundabad_sprawl_lodges_wargs = {
 	is_enabled = {
 		exists = barony.holder barony = title:b_gundabad
 		county = { development_level > bad_development_level }
-#		has_building_or_higher = dwarven_depths_04
 	}
 }
 gundabad_sprawl_lodges_wargs_trolls = {
@@ -41,13 +39,11 @@ gundabad_sprawl_lodges_wargs_trolls = {
 	is_enabled = {
 		exists = barony.holder barony = title:b_gundabad
 		county = { development_level > medium_development_level }
-#		has_building_or_higher = dwarven_depths_06
 	}
 }
 # Tower Hills
 tower_hills_walls = {
 	is_graphical_background = yes
-#	asset = { type = entity name = "tower_hills_walls_entity" }
 	is_enabled = {
 	exists = barony.holder
 		OR = {
@@ -55,7 +51,6 @@ tower_hills_walls = {
 			barony = title:b_harostirion
 			barony = title:b_forostirion
 		}
-#		has_building_or_higher = "wonder_elostirion_01"
 	}
 }
 

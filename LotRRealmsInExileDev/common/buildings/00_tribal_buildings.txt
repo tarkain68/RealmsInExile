@@ -34,6 +34,15 @@ tribe_01 = {
 		illustration = @holding_illustration_grass
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
 	}
+
+	### Ethiopian ###
+	asset = {
+		type = pdxmesh
+		names = { "ethiopian_tribe_mesh" }
+		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
+		illustration = @holding_illustration_sahelian
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
+	}
 	
 	asset = {
 		type = pdxmesh
@@ -143,7 +152,7 @@ tribe_01 = {
 		names = {
 			building_western_tribal_01_a_mesh
 		}
-		graphical_cultures = { "western_building_gfx" "mediterranean_building_gfx" "iberian_building_gfx" }
+		graphical_cultures = { "western_building_gfx" "mediterranean_building_gfx" "iberian_building_gfx" "kharadunai_building_gfx" }
 		# graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" }
 		illustration = @holding_illustration_grass
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
@@ -283,6 +292,15 @@ tribe_02 = {
 		illustration = @holding_illustration_grass
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
 	}
+
+	### Ethiopian ###
+	asset = {
+		type = pdxmesh
+		names = { "ethiopian_tribe_mesh" }
+		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
+		illustration = @holding_illustration_sahelian
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }
+	}
 	asset = {
 		type = pdxmesh
 		name = "fp1_building_norse_tribal_mesh" 
@@ -391,7 +409,7 @@ tribe_02 = {
 		names = {
 			building_western_tribal_01_a_mesh
 		}
-		graphical_cultures = { "western_building_gfx" "mediterranean_building_gfx" "iberian_building_gfx" }
+		graphical_cultures = { "western_building_gfx" "mediterranean_building_gfx" "iberian_building_gfx" "kharadunai_building_gfx" }
 		# graphical_regions = { "graphical_western" "graphical_mediterranean" "graphical_india" "graphical_mena" "graphical_steppe" }
 		illustration = @holding_illustration_grass
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/tribal_city" soundparameter = { "Tier" = 0 } }

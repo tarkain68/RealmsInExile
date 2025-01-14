@@ -18,6 +18,7 @@
 # By Scratch
 #@illustration_berber_islamic = "gfx/interface/illustrations/holding_types/holding_illustrations_by_scratch/temple_berber_islamic.dds"
 #@illustration_ethiopian_orthodox = "gfx/interface/illustrations/holding_types/holding_illustrations_by_scratch/temple_ethiopian_orthodox.dds"
+@holding_illustration_ethiopian = "gfx/interface/illustrations/holding_types/holding_illustrations_by_scratch/temple_sahelian_islamic.dds"
 @illustration_sahelian_islamic = "gfx/interface/illustrations/holding_types/holding_illustrations_by_scratch/temple_sahelian_islamic.dds"
 
 temple_01 = {
@@ -58,7 +59,7 @@ temple_01 = {
 		illustration = @illustration_numenorean
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/pagan_temple" soundparameter = { "Tier" = 0 } }
 		# graphical_faiths = { zoroastrian_gfx pagan_gfx dharmic_gfx orthodox_gfx catholic_gfx islamic_gfx }
-		graphical_cultures = { numenorean_building_gfx }
+		graphical_cultures = { numenorean_building_gfx kharadunai_building_gfx }
 		# graphical_regions = { graphical_western graphical_steppe }
 	}
 	asset = {
@@ -115,6 +116,15 @@ temple_01 = {
 			"western_building_gfx" "mediterranean_building_gfx" "indian_building_gfx" "mena_building_gfx" "steppe_building_gfx"
 			"norse_building_gfx" "iberian_building_gfx" "iranian_building_gfx"
 		}
+	}
+
+	### Ethiopian ###
+	asset = {
+		type = pdxmesh
+		name = "ethiopian_rock_church_01_mesh"
+		illustration = @illustration_generic_arid
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/mosque_temple" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
 	}
 	
 	### Pagan ###
@@ -987,7 +997,7 @@ temple_02 = {
 		illustration = @illustration_numenorean
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/pagan_temple" soundparameter = { "Tier" = 0 } }
 		# graphical_faiths = { zoroastrian_gfx pagan_gfx dharmic_gfx orthodox_gfx catholic_gfx islamic_gfx }
-		graphical_cultures = { numenorean_building_gfx }
+		graphical_cultures = { numenorean_building_gfx kharadunai_building_gfx }
 		# graphical_regions = { graphical_western graphical_steppe }
 	}
 	asset = {
@@ -1030,7 +1040,7 @@ temple_02 = {
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/pagan_temple" soundparameter = { "Tier" = 1 } }
 		# graphical_faiths = { "pagan_gfx" }
 		# graphical_regions = { "graphical_india" "graphical_mena" }
-		graphical_cultures = { "utter_south_building_gfx" }
+		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
 	}
 
 	
@@ -1765,7 +1775,7 @@ temple_03 = {
 		illustration = @illustration_numenorean
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/pagan_temple" soundparameter = { "Tier" = 1 } }
 		# graphical_faiths = { zoroastrian_gfx pagan_gfx dharmic_gfx orthodox_gfx catholic_gfx islamic_gfx }
-		graphical_cultures = { numenorean_building_gfx }
+		graphical_cultures = { numenorean_building_gfx kharadunai_building_gfx }
 		# graphical_regions = { graphical_western graphical_steppe }
 	}
 	asset = {
@@ -1803,12 +1813,12 @@ temple_03 = {
 	### Ethiopian ###
 	asset = {
 		type = pdxmesh
-		name = "ethiopian_rock_church_01_mesh"
+		name = "ethiopian_rock_church_02_mesh"
 		illustration = @illustration_generic_arid
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/pagan_temple" soundparameter = { "Tier" = 2 } }
 		# graphical_faiths = { "pagan_gfx" }
 		# graphical_regions = { "graphical_india" "graphical_mena" }
-		graphical_cultures = { "utter_south_building_gfx" }
+		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
 	}
 	
 	### Zoroastrian ###
@@ -2533,7 +2543,7 @@ temple_04 = {
 		illustration = @illustration_numenorean
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/pagan_temple" soundparameter = { "Tier" = 1 } }
 		# graphical_faiths = { zoroastrian_gfx pagan_gfx dharmic_gfx orthodox_gfx catholic_gfx islamic_gfx }
-		graphical_cultures = { numenorean_building_gfx }
+		graphical_cultures = { numenorean_building_gfx kharadunai_building_gfx }
 		# graphical_regions = { graphical_western graphical_steppe }
 	}
 	asset = {
@@ -2571,12 +2581,12 @@ temple_04 = {
 	### Ethiopian ###
 	asset = {
 		type = pdxmesh
-		name = "ethiopian_rock_church_01_mesh"
+		name = "ethiopian_rock_church_02_mesh"
 		illustration = @illustration_generic_arid
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Temples/pagan_temple" soundparameter = { "Tier" = 3 } }
 		# graphical_faiths = { "pagan_gfx" }
 		# graphical_regions = { "graphical_india" "graphical_mena" }
-		graphical_cultures = { "utter_south_building_gfx" }
+		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
 	}
 	
 	### Zoroastrian ###

@@ -151,7 +151,7 @@ city_01 = {
 		name = "ethiopian_city_01_mesh"
 		illustration = @holding_illustration_india
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/indian_city" soundparameter = { "Tier" = 0 } }
-		graphical_cultures = { utter_south_building_gfx }
+		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
 	}
 
 	### FP3 Iranian ###
@@ -195,6 +195,7 @@ city_01 = {
 		}
 		illustration = @holding_illustration_western
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { kharadunai_building_gfx }
 	}
 	asset = {
 		type = pdxmesh
@@ -752,7 +753,7 @@ city_02 = {
 		name = "ethiopian_city_01_mesh"
 		illustration = @holding_illustration_india
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/indian_city" soundparameter = { "Tier" = 1 } }
-		graphical_cultures = { utter_south_building_gfx }
+		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
 	}
 
 	### FP3 Iranian ###
@@ -796,7 +797,7 @@ city_02 = {
 		}
 		illustration = @holding_illustration_western
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 1 } }
-		graphical_cultures = { norse_building_gfx steppe_building_gfx western_building_gfx }
+		graphical_cultures = { norse_building_gfx steppe_building_gfx western_building_gfx kharadunai_building_gfx }
 		# graphical_regions = { graphical_western graphical_steppe }
 	}
 	asset = {
@@ -1346,7 +1347,7 @@ city_03 = {
 		name = "ethiopian_city_02_mesh"
 		illustration = @holding_illustration_india
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/indian_city" soundparameter = { "Tier" = 1 } }
-		graphical_cultures = { utter_south_building_gfx }
+		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
 	}
 
 	### FP3 Iranian ###
@@ -1388,7 +1389,7 @@ city_03 = {
 		}
 		illustration = @holding_illustration_western
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 1 } }
-		graphical_cultures = { norse_building_gfx steppe_building_gfx western_building_gfx }
+		graphical_cultures = { norse_building_gfx steppe_building_gfx western_building_gfx kharadunai_building_gfx }
 		# graphical_regions = { graphical_western graphical_steppe }
 	}
 	asset = {
@@ -1927,7 +1928,7 @@ city_04 = {
 		name = "ethiopian_city_02_mesh"
 		illustration = @holding_illustration_india
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/indian_city" soundparameter = { "Tier" = 2 } }
-		graphical_cultures = { utter_south_building_gfx }
+		graphical_cultures = { utter_south_building_gfx adena_building_gfx }
 	}
 
 	### FP3 Iranian ###
@@ -1969,7 +1970,7 @@ city_04 = {
 		}
 		illustration = @holding_illustration_western
 		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/City/western_city" soundparameter = { "Tier" = 2 } }
-		graphical_cultures = { norse_building_gfx steppe_building_gfx western_building_gfx }
+		graphical_cultures = { norse_building_gfx steppe_building_gfx western_building_gfx kharadunai_building_gfx }
 		# graphical_regions = { graphical_western graphical_steppe }
 	}
 	asset = {
