@@ -10,6 +10,7 @@
 # Realms
 @holding_illustration_numenorean = "gfx/interface/illustrations/holding_types/castle_numenorean.dds"
 @holding_illustration_hobbit = "gfx/interface/illustrations/holding_types/castle_hobbit.dds"
+@holding_illustration_sindarin = "gfx/interface/illustrations/holding_types/refuge_sindarin.dds"
 # Holding Sprawl
 @holding_illustration_celtic = "gfx/interface/illustrations/holding_types/castle_celtic.dds"
 @holding_illustration_cemanahuac = "gfx/interface/illustrations/holding_types/castle_india.dds"
@@ -24,7 +25,32 @@ castle_01 = {
 	construction_time = slow_construction_time
 
 	### Montane ###
+	### Elven ###
+	asset = {
+		type = pdxmesh
+		names = { "highelves_01_01_mesh" "highelves_01_02_mesh" }
+		illustration = @holding_illustration_sindarin
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { noldor_building_gfx }
+	}
 
+	asset = {
+		type = pdxmesh
+		name = sindarin_sanctuary_01_mesh
+		illustration = @holding_illustration_sindarin
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { elven_building_gfx }
+	}
+
+	### Orcish ###
+
+	asset = {
+		type = pdxmesh
+		names = { "building_orc_tower_dark_02_mesh" }
+		illustration = @holding_illustration_western
+		soundeffect = { soundeffect = "event:/SFX/Ambience/3DMapEmitters/Holdings/Castle/western_castle" soundparameter = { "Tier" = 0 } }
+		graphical_cultures = { orc_building_gfx }
+	}
 	### Númenórean ###
 	asset = {
 		type = pdxmesh
