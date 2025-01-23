@@ -1615,11 +1615,30 @@ seducer = {
 			triggered_desc = {
 				trigger = {
 					exists = this
+					is_elf = yes
+				}
+				desc = trait_seducer_elf
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
 					is_female = yes
 				}
 				desc = trait_seducer_female
 			}
 			desc = trait_seducer
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					exists = this
+					is_elf = yes
+				}
+				desc = trait_seducer_elf_desc
+			}
+			desc = trait_seducer_desc
 		}
 	}
 
@@ -1632,6 +1651,15 @@ seducer = {
 		torturer = @pos_compat_medium
 		deceitful = @pos_compat_low
 		honest = @neg_compat_low
+	}
+	
+	culture_modifier = { #LOTR Elven Perks - Minor extra buffs because this trait is useless
+		parameter = is_elven_heritage
+	
+
+		intrigue = 1
+		attraction_opinion = -40
+		fertility = -0.2
 	}
 }
 

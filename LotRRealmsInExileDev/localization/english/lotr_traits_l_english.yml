@@ -275,3 +275,6 @@
  trait_track_jewel_smith_desc:0 "Beauty is an ideal ever shifting, but ever sought regardless."
  trait_track_enchanting_smith:0 "Enchanting"
  trait_track_enchanting_smith_desc:0 "There are secrets hidden in metal which only fire may reveal."
+
+ trait_seducer_elf: "Infiltrator"
+ trait_seducer_elf_desc: "This character has mastered the art of walking another’s realm without their knowledge, and causing mischief while doing so"
