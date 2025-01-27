@@ -200,7 +200,8 @@ slave_expedition = {
 
 elven_government = {
 	parent = government
-	texture = "gfx/interface/icons/icon_holding_elven.dds"
+	alias = { elven_government_i }
+	texture = "gfx/interface/icons/government_types/elven_government.dds"
 }
 
 elven_homelands_conquest_casus_belli = {
@@ -1284,6 +1285,12 @@ stonefoots = {
 hobbits = {
 	parent = conceptrace
 	alias = { halfling halflings periannath hobbit }
+}
+
+hobbit_government = {
+	parent = government
+	alias = { hobbit_government_i }
+	texture = "gfx/interface/icons/government_types/hobbit_government.dds"
 }
 
 ### Creatures of Darkness ###

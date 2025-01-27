@@ -1,7 +1,11 @@
 ﻿########################################
 ################ GONDOR ################
 ########################################
-
+house_ciryaher = {
+	name = "dynn_ciryaher"
+	dynasty = dynasty_anarion
+	motto = dynn_ciryaher_motto
+}
 house_castamir = {
 	name = "dynn_castamir"
 	dynasty = dynasty_anarion
@@ -44,6 +48,12 @@ house_roquendilin = {
 	name = "dynn_roquendilin"
 	dynasty = dynasty_anarion
 	motto = dynn_roquendilin_motto
+}
+
+house_ambonturi = {
+	name = "dynn_ambonturi"
+	dynasty = dynasty_anarion
+	motto = dynn_ambonturi_motto
 }
 
 house_lebennivet = {

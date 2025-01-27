@@ -236,6 +236,7 @@ longbeard_cavalry = { #setfôn thârag
 			AND = {
 				culture = {
 					has_innovation = innovation_iron_hills_goat_domestication
+					has_innovation = innovation_longbeard_warfare
 				}
 				any_held_county = {
 					any_county_province = {

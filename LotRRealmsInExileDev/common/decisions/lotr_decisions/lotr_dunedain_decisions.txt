@@ -1303,6 +1303,16 @@ decision_calenardhon_claim = {
 						faith_is_evil = no
 						is_independent_ruler = yes
 					}
+					AND = {
+						exists = global_var:gondor_approves_of_wulf
+						global_var:gondor_approves_of_wulf = yes
+						faith_is_evil = no
+						is_independent_ruler = yes
+						OR = {
+							dynasty = dynasty:dynasty_eorl
+							dynasty = dynasty:dynasty_freca
+						}
+					}
 				}
 			}
 		}
@@ -1314,6 +1324,10 @@ decision_calenardhon_claim = {
 		is_at_war = no
 		NOT = {
 			has_truce = title:k_rohan.holder		
+		}
+		custom_tooltip = {
+			text = is_considering_wulf
+			NOT = { has_character_flag = considering_wulf }
 		}
 	}
 
@@ -1841,12 +1855,26 @@ decision_solidify_reunited_kingdom = {
 	# IS_VALID
 	is_valid = {
 		prestige_level >= 5
-		custom_tooltip = {
-			text = control_percentage_of_gondor_desc
-			title:e_gondor = {
-				any_de_jure_county = {
-					percent > 0.9
-					holder.top_liege = root
+		trigger_if = {
+			limit = { exists = title:e_castamir.holder }
+			custom_tooltip = {
+				text = control_percentage_of_castamiri_gondor_desc
+				title:e_castamir = {
+					any_de_jure_county = {
+						percent > 0.9
+						holder.top_liege = root
+					}
+				}
+			}
+		}
+		trigger_else = {
+			custom_tooltip = {
+				text = control_percentage_of_gondor_desc
+				title:e_gondor = {
+					any_de_jure_county = {
+						percent > 0.9
+						holder.top_liege = root
+					}
 				}
 			}
 		}
@@ -4446,9 +4474,19 @@ decision_claim_gondor_arassuil = {
 				has_dlc_feature = legends
 				is_ai = no
 			}
-			custom_tooltip = {
-				text = finished_isildur_legend_tt
-				house = { has_house_modifier = heirs_of_isildur_modifier }
+			OR = {
+				custom_tooltip = {
+					text = finished_isildur_legend_tt
+					house = { has_house_modifier = heirs_of_isildur_modifier }
+				}
+				AND = {
+					dynasty = dynasty:dynasty_elendil
+					house ?= house:house_aranbor
+				}
+				AND = {
+					dynasty = dynasty:dynasty_elendil
+					house ?= house:house_silivnir
+				}
 			}
 		}
 		OR = {
@@ -4761,10 +4799,13 @@ decision_restore_defeated_gondor = {
 				NOT = { exists = title:e_gondor_steward.holder }
 				title:e_gondor_steward.holder = { faith_is_evil = yes }
 			}
-			# OR = {
-				# NOT = { exists = title:e_reunitedkingdom.holder }
-				# title:e_reunitedkingdom = { faith_is_evil = yes }
-			# }
+		}
+		
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_liberate_gondor
+			}
 		}
 		
 		title:c_minas_tirith.holder = { faith_is_evil = yes }
@@ -4790,6 +4831,13 @@ decision_restore_defeated_gondor = {
 				is_independent_ruler = yes
 			}
 			is_landless_adventurer = yes 
+		}
+		custom_tooltip = {
+			text = IS_TRIBUTARY_OF_SAURON
+			NAND = {
+				exists = var:my_suzerain
+				var:my_suzerain = { is_maiar_fallen = yes }
+			}
 		}
 	}
 	
@@ -4841,19 +4889,18 @@ decision_calenardhon_calemmir = {
 		current_year >= 6580 # Only after the founding of Rohan
 		has_title = title:k_rohan
 		culture = { has_cultural_pillar = heritage_dunedain }
-	}
-	
-	# IS_VALID
-	is_valid = {
-		has_title = title:k_rohan
-		culture = { has_cultural_pillar = heritage_dunedain }
-				
 		NOT = {
 			is_target_in_global_variable_list = {
 				name = unavailable_unique_decisions
 				target = flag:decision_calenardhon_calemmir
 			}
 		}
+	}
+	
+	# IS_VALID
+	is_valid = {
+		has_title = title:k_rohan
+		culture = { has_cultural_pillar = heritage_dunedain }
 	}
 	
 	is_valid_showing_failures_only = {
@@ -4926,7 +4973,13 @@ decision_oath_of_eorl_gondor = {
 			}
 		}
 		religion = { is_in_family = rf_eruhini }
-		title:k_rohan.holder.religion = { is_in_family = rf_eruhini }	
+		OR = {
+			title:k_rohan.holder.religion = { is_in_family = rf_eruhini }
+			AND = {
+				exists = global_var:gondor_approves_of_wulf
+				global_var:gondor_approves_of_wulf = yes
+			}
+		}	
 	}
 
 	is_valid = {
@@ -4958,7 +5011,19 @@ decision_oath_of_eorl_gondor = {
 			lotr_armies_are_outnumbered = yes
 		}
 		title:k_rohan.holder = {
-			dynasty = dynasty:100 # An Eorling rules Rohan
+			trigger_if = {
+				limit = {
+					exists = global_var:gondor_approves_of_wulf
+					global_var:gondor_approves_of_wulf = yes
+				}
+				OR = {
+					dynasty = dynasty:dynasty_eorl
+					dynasty = dynasty:dynasty_freca
+				}
+			}
+			trigger_else = {
+				dynasty = dynasty:dynasty_eorl
+			}
 		}
 		custom_tooltip = {
 			text = "LOTR_NOT_CIVIL_WAR_TRIGGER"
@@ -4970,6 +5035,13 @@ decision_oath_of_eorl_gondor = {
 					}
 				}
 			}
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = is_considering_wulf
+			NOT = { has_character_flag = considering_wulf }
 		}
 	}
 	

@@ -12587,7 +12587,8 @@ character_view_bg = {
 			exists = primary_title
 			primary_title.tier >= tier_kingdom
 			capital_province = {
-				geographical_region = custom_greater_ray
+				# geographical_region = custom_greater_ray
+				empire = title:e_khy
 			}
 			is_elf = no
 			# primary_title.tier >= tier_empire #LotR
@@ -12602,7 +12603,8 @@ character_view_bg = {
 			exists = primary_title
 			primary_title.tier >= tier_kingdom
 			capital_province = {
-				geographical_region = custom_greater_ray
+				# geographical_region = custom_greater_ray
+				empire = title:e_khy
 			}
 			is_elf = no
 			# primary_title.tier >= tier_empire #LotR
@@ -12621,7 +12623,8 @@ character_view_bg = {
 						exists = primary_title
 						primary_title.tier >= tier_kingdom
 						capital_province = {
-							geographical_region = custom_greater_ray
+							# geographical_region = custom_greater_ray
+							empire = title:e_khy
 						}
 						is_elf = no
 						# primary_title.tier >= tier_empire #LotR
@@ -12634,7 +12637,8 @@ character_view_bg = {
 						exists = primary_title
 						primary_title.tier >= tier_kingdom
 						capital_province = {
-							geographical_region = custom_greater_ray
+							# geographical_region = custom_greater_ray
+							empire = title:e_khy
 						}
 						is_elf = no
 						# primary_title.tier >= tier_empire #LotR
@@ -12647,7 +12651,8 @@ character_view_bg = {
 						exists = primary_title
 						primary_title.tier >= tier_kingdom
 						capital_province = {
-							geographical_region = custom_greater_ray
+							# geographical_region = custom_greater_ray
+							empire = title:e_khy
 						}
 						is_elf = no
 						# primary_title.tier >= tier_empire #LotR
@@ -12666,7 +12671,11 @@ character_view_bg = {
 		reference = "character_view/india.dds"
 
 		trigger = {
-			has_graphical_india_region_trigger = yes
+			# has_graphical_india_region_trigger = yes
+			capital_province ?= {
+				# geographical_region = custom_greater_ray
+				empire = title:e_khy
+			}
 		}
 	}
 
@@ -12676,7 +12685,8 @@ character_view_bg = {
 		trigger = {
 			is_character_window_main_character = yes
 			capital_province ?= {
-				geographical_region = custom_greater_ray
+				# geographical_region = custom_greater_ray
+				empire = title:e_khy
 			}
 			is_elf = no
 			# has_graphical_india_region_trigger = yes
@@ -12692,9 +12702,10 @@ character_view_bg = {
 					exists = primary_spouse
 					primary_spouse = {
 						exists = primary_title
-						capital_province ?= {
-							geographical_region = custom_greater_ray
-						}
+						# capital_province ?= {
+						# 	geographical_region = custom_greater_ray
+						# }
+						empire = title:e_khy
 						is_elf = no
 						# has_graphical_india_region_trigger = yes
 					}
@@ -12704,7 +12715,8 @@ character_view_bg = {
 					betrothed = {
 						exists = primary_title
 						capital_province ?= {
-							geographical_region = custom_greater_ray
+							# geographical_region = custom_greater_ray
+							empire = title:e_khy
 						}
 						is_elf = no
 						# has_graphical_india_region_trigger = yes
@@ -12715,7 +12727,8 @@ character_view_bg = {
 					liege ?= {
 						exists = primary_title
 						capital_province ?= {
-							geographical_region = custom_greater_ray
+							# geographical_region = custom_greater_ray
+							empire = title:e_khy
 						}
 						is_elf = no
 						# has_graphical_india_region_trigger = yes

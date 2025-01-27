@@ -79,7 +79,7 @@ lotr_intro_events.0001 = { # Introduction to Galadriel
 	
 	option = { 		#The Shadow is rising. We must act. (Offer vassalage to Parth Celebrant)
 		name = lotr_intro_events.0001.a
-		custom_tooltip = lotr_intro_events.0001.att
+		custom_tooltip = lotr_intro_events.0001.a_tt
 			trigger = {
 				exists = title:d_parth_celebrant.holder
 			}
@@ -117,7 +117,7 @@ lotr_intro_events.0001 = { # Introduction to Galadriel
 	
 	option = { 		#The Shadow is rising ~ Long Winter Edition
 		name = lotr_intro_events.0001.b
-		custom_tooltip = lotr_intro_events.0001.btt
+		custom_tooltip = lotr_intro_events.0001.b_tt
 			trigger = {
 				exists = title:d_drownholt.holder
 			}
@@ -156,7 +156,7 @@ lotr_intro_events.0001 = { # Introduction to Galadriel
 	
 	option = { 		#Yup. Thats me.
 		name = lotr_intro_events.0001.c
-		custom_tooltip = lotr_intro_events.0001.ctt
+		custom_tooltip = lotr_intro_events.0001.c_tt
 		ai_chance = {
 			base = 0 # LotR: This should be tied to WotR mode.
 			modifier = { # Game Rule
@@ -1507,6 +1507,8 @@ lotr_intro_events.6007 = { # Introduction to Chieftain Arassuil - Long Winter St
 	
 	immediate = {
 		play_music_cue = mx_mood_call_24
+		character:lineofaranbor15 = { save_scope_as = carimir }
+		character:lineofsilivnir51 = { save_scope_as = silivnir }
 	}
 	
 	option = { # I shall take up the defence of Eriador
@@ -1541,6 +1543,32 @@ lotr_intro_events.6007 = { # Introduction to Chieftain Arassuil - Long Winter St
 					id = rangers.0101
 					days = 1
 				}
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					is_ai = yes
+					scope:carimir = { is_ai = yes }
+				}
+			}
+			make_tributary = { # To keep Arassuil from attacking him
+				TYPE = tributary_protectorate
+				SUZERAIN = root
+				TRIBUTARY = scope:carimir
+			}
+		}
+		if = {
+			limit = {
+				AND = {
+					is_ai = yes
+					scope:silivnir = { is_ai = yes }
+				}
+			}
+			make_tributary = { # To keep Arassuil from attacking him
+				TYPE = tributary_protectorate
+				SUZERAIN = root
+				TRIBUTARY = scope:silivnir
 			}
 		}
 	}
@@ -2020,6 +2048,13 @@ lotr_intro_events.6403 = { # Helm Hammerhand
 		character:6000028 = { save_scope_as = haleth }
 		character:6000029 = { save_scope_as = hama }
 		character:herahelm = { save_scope_as = hera }
+
+		hidden_effect = {
+			add_character_modifier = {
+				modifier = fp1_reprieve_from_sa_modifier
+				years = 10
+			}
+		}
 	}
 
 	option = {

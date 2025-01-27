@@ -6117,22 +6117,10 @@ restore_gondor_cb = { # Liberation of Gondor cb
         scope:defender = {
             trigger_event = gondor.6501
         }
-		# scope:attacker = { #For testing purposes. Don't judge me, I had to win the war somehow. ~Aerien
-			# spawn_army = {		 
-				# uses_supply = no
-				# inheritable = yes
-				# name = amrothian_reserves
-				# men_at_arms = {
-					# type = gondorian_bowmen
-					# stacks = 500
-				# }
-				# men_at_arms = {
-					# type = gondorian_footmen
-					# stacks = 800
-				# }
-				# location = capital_province
-			# }
-		# }
+		add_to_global_variable_list = { # This war can only be active one at a time
+			name = unavailable_unique_decisions
+			target = flag:decision_liberate_gondor
+		}
 	}	
 	
 	on_invalidated_desc = msg_invalidate_war_title
@@ -6149,6 +6137,11 @@ restore_gondor_cb = { # Liberation of Gondor cb
 	
 	on_victory = {
 		custom_tooltip = restore_gondor_cb_tt
+
+		remove_list_global_variable = {
+			name = unavailable_unique_decisions
+   			target = flag:decision_liberate_gondor
+		}
 		
 		# Legitimacy
 		add_legitimacy_attacker_victory_effect = yes
@@ -6213,6 +6206,10 @@ restore_gondor_cb = { # Liberation of Gondor cb
 				modifier = contributed_in_war
 			}
 		}
+		remove_list_global_variable = {
+			name = unavailable_unique_decisions
+   			target = flag:decision_liberate_gondor
+		}
 
 		# Prestige for the defender's war allies
 		add_from_contribution_defenders = {
@@ -6248,6 +6245,11 @@ restore_gondor_cb = { # Liberation of Gondor cb
 		add_legitimacy_attacker_defeat_effect = yes
 
 		scope:attacker = { show_pow_release_message_effect = yes }
+
+		remove_list_global_variable = {
+			name = unavailable_unique_decisions
+   			target = flag:decision_liberate_gondor
+		}
 
 		# Prestige loss for the attacker
 		scope:attacker = {
@@ -9421,17 +9423,110 @@ wulf_rohan_claim_cb = {
 		laamp_as_mercenary_payout_tooltip_effect = yes
 
 		# LOTR - WULF SPECIFIC STUFF
-		# Fate of Helm
+		scope:defender = {
+			if = {
+				limit = { has_character_modifier = helm_bracing_for_war_character_modifier }
+				remove_character_modifier = helm_bracing_for_war_character_modifier
+			}
+		}
 		scope:attacker = {
 			imprison = {
 				target = scope:defender
 				type = dungeon
 			}
+			if = {
+				limit = {
+					highest_held_title_tier = tier_kingdom
+				}
+				set_primary_title_to = title:k_rohan
+			}
+			if = {
+				limit = {
+					has_title = title:c_kingstead
+				}
+				set_realm_capital = title:c_kingstead
+			}
+			if = {
+				limit = {
+					faith = faith:faith_rohirric
+				}
+				add_legitimacy = 150
+			}
+
+			dynasty:dynasty_eorl = {
+				every_dynasty_member = {
+					limit = {
+						is_alive = yes
+						NOT = { this = scope:defender }
+					}
+					scope:attacker = {
+						add_opinion = {
+							target = prev
+							modifier = executed_close_family_crime
+						}
+					}
+				}
+			}
 			trigger_event = war_of_the_rohirrim.0420 # Fate of Helm
-			trigger_event = war_of_the_rohirrim.0348 # Promises to Thorne
+			if = {
+				limit = {
+					OR = {
+						has_character_flag = wulf_rohan_promise_pat_marriage
+						has_character_flag = wulf_rohan_promise_mat_marriage
+						has_character_flag = wulf_rohan_promise_land
+						has_character_flag = wulf_rohan_promise_vassal_contract
+						has_character_flag = wulf_rohan_promise_hook
+						has_character_flag = wulf_rohan_promise_co_monarch
+						has_character_flag = wulf_rohan_promise_independence
+					}
+				}
+				trigger_event = war_of_the_rohirrim.0348 # Promises to Thorne
+			}
+			if = {
+				limit = {
+					has_character_flag = wulf_hera_marriage_opportunity_taken
+					character:herahelm = { 
+						is_alive = yes
+						is_married = no
+					}
+				}
+				trigger_event = { # Held out for Hera
+					id = war_of_the_rohirrim.0430
+					days = 5
+				}
+			}
+			else_if = {
+				limit = {
+					has_character_flag = wulf_hera_marriage_opportunity_taken
+					has_trait = cannot_marry
+				}
+				remove_trait = cannot_marry
+			}
 		}
-		# Holding out for Hera
-		# A Herald from Gondor
+		if = { # Gondor considers sending a delegation
+			limit = {
+				exists = title:e_gondor_steward.holder
+			}
+			title:e_gondor_steward.holder = {
+				trigger_event = war_of_the_rohirrim.0440
+			}
+		}
+		else_if = {
+			limit = {
+				exists = title:e_gondor.holder
+			}
+			title:e_gondor.holder = {
+				trigger_event = war_of_the_rohirrim.0440
+			}
+		}
+		else_if = {
+			limit = {
+				exists = title:e_castamir.holder
+			}
+			title:e_castamir.holder = {
+				trigger_event = war_of_the_rohirrim.0440
+			}
+		}
 	}
 
 	on_defeat_desc = {
@@ -9533,6 +9628,10 @@ wulf_rohan_claim_cb = {
 			imprison = {
 				target = scope:attacker
 				type = dungeon
+			}
+			if = {
+				limit = { has_character_modifier = helm_bracing_for_war_character_modifier }
+				remove_character_modifier = helm_bracing_for_war_character_modifier
 			}
 			trigger_event = war_of_the_rohirrim.0410
 		}
@@ -9871,6 +9970,14 @@ bountig_and_khand_invasion_war = {
 	}
 	
 	on_defeat = {
+		if = {
+			limit = { # Major News
+				NOT = { has_game_rule = no_news }
+			}
+			every_player = { # Global News Announcement
+				trigger_event = news_event.0054
+			}
+		}
 		scope:defender = {
 			random_owned_story = {
 				limit = { story_type = story_cycle_bountig_medlokan }

@@ -927,3 +927,188 @@ decision_wulf_gather_oathsworn_warriors = {
 		base = 100
 	}
 }
+
+decision_wulf_affirm_descent_from_freawine = {
+	title = decision_wulf_affirm_descent_from_freawine
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_family_tree.dds"
+	}
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_goal = yes
+	selection_tooltip = decision_wulf_affirm_descent_from_freawine_tooltip
+	desc = decision_wulf_affirm_descent_from_freawine_desc
+	confirm_text = decision_wulf_affirm_descent_from_freawine_confirm
+	
+	is_shown = {
+		dynasty = dynasty:dynasty_freca
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_wulf_affirm_descent_from_freawine
+			}
+		}
+	}
+
+	is_valid = {
+		has_title = title:k_rohan
+		custom_tooltip = {
+			text = you_are_illustrious
+			prestige_level >= 3
+		}
+		custom_tooltip = {
+			text = your_dynasty_is_illustrious
+			dynasty = {
+				dynasty_prestige_level >= 3
+			}
+		}
+	}
+
+	cost = {
+		prestige = 500
+	}
+
+
+	effect = {
+		show_as_tooltip = {
+			character:lineprefreca2 = {
+				set_father = character:lineofeorl5
+				remove_trait = disputed_heritage
+			}
+			add_legitimacy = 250
+			custom_tooltip = decision_wulf_affirm_descent_from_freawine_effects1
+			custom_tooltip = decision_wulf_affirm_descent_from_freawine_effects2
+			
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_wulf_affirm_descent_from_freawine
+		}
+		trigger_event = war_of_the_rohirrim.0500
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}
+
+decision_invite_saruman_to_isengard = {
+	title = decision_invite_saruman_to_isengard
+	picture = {
+		reference = "gfx/interface/illustrations/decisions/decision_isengard_university.dds"
+	}
+
+	decision_group_type = realms_in_exile_major
+	
+	ai_goal = yes
+	selection_tooltip = decision_invite_saruman_to_isengard_tooltip
+	desc = decision_invite_saruman_to_isengard_desc
+	confirm_text = decision_invite_saruman_to_isengard_confirm
+	
+	is_shown = {
+		any_realm_county = {
+			this = title:c_isengard
+		}
+		NOT = {
+			is_target_in_global_variable_list = {
+				name = unavailable_unique_decisions
+				target = flag:decision_invite_saruman_to_isengard
+			}
+		}
+		OR = {
+			root = title:k_rohan.holder
+			root = title:c_minas_tirith.empire.holder
+			dynasty = dynasty:dynasty_eorl
+		}
+
+		game_start_date = 6787.1.1
+	}
+
+	is_valid = {
+		faith_is_good = yes
+		character:lineofsaruman = {
+			is_landed = no
+			faith_is_good = yes
+		}
+
+		OR = {
+			title:c_minas_tirith.empire.holder = { has_title = title:c_isengard }
+			title:k_rohan.holder = { #Rohan trigger
+				trigger_if = {
+					limit = {
+						exists = global_var:gondor_approves_of_wulf
+						global_var:gondor_approves_of_wulf = yes
+					}
+					has_title = title:c_isengard
+					OR = {
+						dynasty = dynasty:dynasty_eorl
+						dynasty = dynasty:dynasty_freca
+					}
+				}
+				trigger_else = {
+					has_title = title:c_isengard
+					dynasty = dynasty:dynasty_eorl
+				}
+			}
+		}
+	}
+
+
+	effect = {
+		show_as_tooltip = {
+			create_title_and_vassal_change = {
+				type = granted
+				save_scope_as = change
+			}
+			if = {
+				limit = {
+					root = { has_title = title:d_isengard }
+				}
+				title:d_isengard = {
+					change_title_holder = {
+						holder = character:lineofsaruman
+						change = scope:change
+					}
+				}
+			}
+			title:c_isengard = {
+				change_title_holder = {
+					holder = character:lineofsaruman
+					change = scope:change
+				}
+			}
+			character:lineofsaruman = {
+				change_liege = {
+					liege = root
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+			set_relation_friend = {
+				reason = friend_upgrade_generic
+				target = character:lineofsaruman
+			}
+			add_hook = {
+				target = character:lineofsaruman
+				type = favor_hook
+			}
+			add_piety = 100
+		}
+		add_to_global_variable_list = {
+			name = unavailable_unique_decisions
+			target = flag:decision_invite_saruman_to_isengard
+		}
+		trigger_event = war_of_the_rohirrim.0510
+	}
+	
+	ai_potential = {
+		always = yes
+	}
+	ai_will_do = {
+		base = 100
+	}
+}

@@ -3052,7 +3052,6 @@ wonder_baraddur_03 = {
 	flag = travel_point_of_interest_stewardship
 }
 
-
 # Orodruin
 wonder_orodruin = { #Mount Doom
 	type_icon = "icon_wonder_orodruin.dds"
@@ -3957,7 +3956,6 @@ wonder_umbar_citadel = {
 	type = special
 	flag = travel_point_of_interest_martial_minor
 }
-
 
 # Arminalêthôr (Son of Armenlos, IE New Armenelos)
 wonder_arminalethor_01 = {
@@ -4984,12 +4982,6 @@ wonder_abaraglareth = {
 			}
 		}
 	}
-	
-	# Matt note: I removed the duchy modifier because this is not a duchy building.
-#	duchy_capital_county_modifier = {
-#		levy_size = 0.15
-#		tax_mult = 0.15
-#	}
 	province_modifier = {
 		fort_level = 3
 		garrison_size = 1
@@ -5009,6 +5001,7 @@ wonder_abaraglareth = {
 		base = 100
 	}
 	type = special
+	flag = travel_point_of_interest_martial
 }
 
 ### Abrakhan Wonders ###
@@ -5020,7 +5013,7 @@ wonder_zekhetz_palace_complex_01 = {
 	can_construct_potential = {
 		OR = {
 			scope:holder ?= { lotr_haradrim_group_culture_trigger = yes }
-			scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
+			# scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
 		}
 		building_requirement_tribal = no
 	}
@@ -5029,7 +5022,7 @@ wonder_zekhetz_palace_complex_01 = {
 			scope:holder.culture ?= {
 				has_cultural_tradition = tradition_abrakhan_magic_cities
 			}
-			scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
+			# scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
 		}
 	}
 	max_garrison = good_building_max_garrison_tier_1
@@ -5068,7 +5061,7 @@ wonder_zekhetz_palace_complex_02 = {
 			scope:holder.culture ?= {
 				has_cultural_tradition = tradition_abrakhan_magic_cities
 			}
-			scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
+			# scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
 		}
 	}
 	max_garrison = good_building_max_garrison_tier_2
@@ -5109,7 +5102,7 @@ wonder_zekhetz_palace_complex_03 = {
 			scope:holder.culture ?= {
 				has_cultural_tradition = tradition_abrakhan_magic_cities
 			}
-			scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
+			# scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
 		}
 	}
 	max_garrison = good_building_max_garrison_tier_4
@@ -5146,7 +5139,7 @@ wonder_abrakhan_bazaar_complex_01 = {
 			scope:holder.culture ?= {
 				has_cultural_tradition = tradition_abrakhan_magic_cities
 			}
-			scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
+			# scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
 		}
 	}
 	max_garrison = good_building_max_garrison_tier_1
@@ -5177,7 +5170,7 @@ wonder_abrakhan_bazaar_complex_02 = {
 			scope:holder.culture ?= {
 				has_cultural_tradition = tradition_abrakhan_magic_cities
 			}
-			scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
+			# scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
 		}
 	}
 	max_garrison = good_building_max_garrison_tier_1
@@ -5211,7 +5204,7 @@ wonder_abrakhan_bazaar_complex_03 = {
 			scope:holder.culture ?= {
 				has_cultural_tradition = tradition_abrakhan_magic_cities
 			}
-			scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
+			# scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
 		}
 	}
 	max_garrison = good_building_max_garrison_tier_1
@@ -5245,7 +5238,7 @@ wonder_zaja_shar_noria_01 = {
 			scope:holder.culture ?= {
 				has_cultural_tradition = tradition_abrakhan_magic_cities
 			}
-			scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
+			# scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
 		}
 	}
 	levy = excellent_building_levy_tier_1
@@ -5280,7 +5273,7 @@ wonder_zaja_shar_noria_02 = {
 			scope:holder.culture ?= {
 				has_cultural_tradition = tradition_abrakhan_magic_cities
 			}
-			scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
+			# scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
 		}
 	}
 	levy = excellent_building_levy_tier_2
@@ -5316,7 +5309,7 @@ wonder_zaja_shar_noria_03 = {
 			scope:holder.culture ?= {
 				has_cultural_tradition = tradition_abrakhan_magic_cities
 			}
-			scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
+			# scope:holder ?= { character_is_valid_for_abrakhan_subjugation_mission_trigger = yes }
 		}
 	}
 	levy = excellent_building_levy_tier_3
@@ -5521,10 +5514,7 @@ wonder_melburg_walls = {
 	flag = travel_point_of_interest_martial_minor
 }
 
-
-
 #Framsburg
-
 wonder_framsburg_01 = { #Framsburg
 	type_icon = "icon_wonder_framsburg_ruins.dds"
 	asset = {
@@ -5656,7 +5646,6 @@ wonder_framsburg_03 = { #Great Stables of Fram
 	type = special
 	flag = travel_point_of_interest_martial
 }
-
 
 
 ###Greenwood###
@@ -5888,8 +5877,6 @@ wonder_amarthrynd_03 = { #Amarthrynd Renewed
 }
 
 
-
-
 wonder_aradhrynd = { #Aradhrynd - the Elvenking's Halls
 	type_icon = "icon_wonder_thranduil_hall.dds"
 	effect_desc = {
@@ -5972,7 +5959,6 @@ wonder_caras_galadhon = {
 	type = special
 	flag = travel_point_of_interest_learning
 }
-
 
 ### Rhovanion ###
 wonder_esgaroth = { # Lake-Town
@@ -7035,7 +7021,6 @@ wonder_athaircuile_01 = {
 }
 
 # The Barrow Downs (Tyrn Gorthad)
-
 wonder_barrow_downs_01 = {
 	type_icon = "icon_barrow_downs.dds"
 	
@@ -7944,7 +7929,6 @@ wonder_mistalonde_original = {
 	flag = travel_point_of_interest_diplomatic
 }
 
-
 # Nelvorin
 wonder_nelvorin_01 = {
 	type_icon = "icon_barrow_downs.dds"
@@ -8352,7 +8336,6 @@ wonder_fornost_original_02 = {
 }
 
 #The Prancing Pony
-
 wonder_prancing_pony = { #The Prancing Pony Inn
 	type_icon = "icon_building_inn.dds"
 	flag = fully_upgraded	
@@ -8883,6 +8866,7 @@ wonder_amon_ereb_01 = {
 	flag = travel_point_of_interest_martial
 }
 
+# The Last Homely House 
 wonder_house_of_elrond = {
 	type_icon = "icon_building_observatory.dds"
 	
@@ -11112,4 +11096,517 @@ wonder_sarul_rebuilt_02 = { #Sarul - Back to its former glory
 	type = special
 	flag = travel_point_of_interest_economic
 }
+
+##### SIRAYN WONDERS #########
+
+wonder_tul_isra_01 = { # Tul Isra - Central city of Sirayn
+	
+	asset = {
+		type = pdxmesh
+		name = "fp2_building_special_aljaferia_mesh"
+	}
+	
+	type_icon = "icon_structure_mahabodhi_temple.dds"
+
+	construction_time = very_slow_construction_time
+	effect_desc = feast_cost_discount_max_desc
+	
+	can_construct_potential = {
+		building_requirement_tribal = no
+	}
+	
+	cost_gold = 2000
+	
+	character_modifier = {
+		legitimacy_gain_mult = 0.05
+	}
+	
+	max_garrison = good_building_max_garrison_tier_1
+	province_modifier = {
+		fort_level = 2
+	}
+	county_modifier = {
+		tax_mult = 0.1
+		development_growth_factor = 0.1
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	type = special
+	next_building = wonder_tul_isra_02
+	flag = travel_point_of_interest_religious
+}
+
+wonder_tul_isra_02 = { # Tul Isra
+	asset = {
+		type = pdxmesh
+		name = "fp2_building_special_aljaferia_mesh"
+	}
+
+	type_icon = "icon_structure_mahabodhi_temple.dds"
+
+	construction_time = very_slow_construction_time
+	effect_desc = feast_cost_discount_max_desc
+	
+	can_construct = {	
+		OR = {
+			has_building_or_higher = elven_settlement_05
+			building_requirement_castle_city_church = { LEVEL = 03 }
+		}
+		culture = {
+			has_innovation = innovation_hoardings
+		}
+	}
+	
+	cost_gold = 2000
+
+	character_modifier = {
+		legitimacy_gain_mult = 0.05
+		vassal_levy_contribution_add = 0.05
+		vassal_tax_contribution_add = 0.05
+	}
+	
+	max_garrison = good_building_max_garrison_tier_1
+	province_modifier = {
+		fort_level = 4
+	}
+	county_modifier = {
+		tax_mult = 0.2
+		development_growth_factor = 0.15
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	type = special
+	next_building = wonder_tul_isra_03
+	flag = travel_point_of_interest_religious
+}
+
+wonder_tul_isra_03 = { # Tul Isra
+	flag = fully_upgraded
+	asset = {
+		type = pdxmesh
+		name = "fp2_building_special_aljaferia_mesh"
+	}
+
+	type_icon = "icon_structure_mahabodhi_temple.dds"
+
+	construction_time = very_slow_construction_time
+	effect_desc = feast_cost_discount_max_desc
+	
+	can_construct = {	
+		OR = {
+			has_building_or_higher = elven_settlement_05
+			building_requirement_castle_city_church = { LEVEL = 03 }
+		}
+		culture = {
+			has_innovation = innovation_hoardings
+		}
+	}
+	
+	cost_gold = 2500
+
+	character_modifier = {
+		vassal_opinion = 10
+		legitimacy_gain_mult = 0.1
+		monthly_dynasty_prestige_mult = 0.05
+		vassal_levy_contribution_add = 0.05
+		vassal_tax_contribution_add = 0.05
+	}
+	max_garrison = good_building_max_garrison_tier_3
+	province_modifier = {
+		fort_level = 6
+	}
+	county_modifier = {
+		tax_mult = 0.3
+		development_growth_factor = 0.2
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	type = special
+	flag = travel_point_of_interest_religious
+}
+
+wonder_carnesra_01 = { # Carnesra - original
+	flag = fully_upgraded
+	type_icon = "icon_structure_khajuraho_temples.dds"
+
+	ai_value = {
+		base = 100
+	}
+	province_modifier = {
+		fort_level = good_building_fort_level_tier_1
+        supply_limit_mult = 0.3
+        tax_mult = 0.3
+	}
+	
+	county_modifier = {
+        development_growth_factor = 0.2
+	}			
+
+	type = special
+	next_building = wonder_carnesra_02
+	flag = travel_point_of_interest_economic
+}
+wonder_carnesra_02 = { # Carnesra - in ruins
+	type_icon = "icon_wonder_framsburg_ruins.dds"
+	
+	ai_value = {
+		base = 100
+	}
+	character_modifier = {
+		dread_gain_mult = 0.1
+		dread_baseline_add = 10
+	}
+	type = special
+	next_building = wonder_carnesra_03
+	flag = travel_point_of_interest_economic
+}
+wonder_carnesra_03 = { #Carnesra - Rebuilt
+	flag = fully_upgraded
+	type_icon = "icon_structure_khajuraho_temples.dds"
+
+	cost_gold = 1500
+	construction_time = slow_construction_time
+	
+	can_construct = {	
+		OR = {
+			has_building_or_higher = elven_settlement_05
+			building_requirement_castle_city_church = { LEVEL = 03 }
+		}
+		culture = {
+			has_innovation = innovation_hoardings
+		}
+	}
+
+	ai_value = {
+		base = 100
+	}
+	province_modifier = {
+		fort_level = good_building_fort_level_tier_1
+        supply_limit_mult = 0.25
+        tax_mult = 0.3
+	}
+	
+	character_modifier = {
+		dread_gain_mult = 0.1
+		dread_baseline_add = 10
+	}
+	
+	county_modifier = {
+        development_growth_factor = 0.2
+	}	
+	type = special
+	flag = travel_point_of_interest_economic
+}
+
+wonder_tul_harar_01 = { # Tul Harar - Eastern Port in Sirayn
+	type_icon = "mezquita_cordoba.dds"
+
+	ai_value = {
+		base = 100
+	}
+	province_modifier = {
+		fort_level = good_building_fort_level_tier_1
+        supply_limit_mult = 0.3
+        tax_mult = 0.3
+	}
+	
+	province_modifier = {
+		monthly_income = 1
+	}
+	county_modifier = {
+		tax_mult = 0.2
+		supply_limit_mult = 0.25
+	}
+	
+	character_modifier = {
+		different_culture_opinion = 5
+	}
+	type = special
+	next_building = wonder_tul_harar_02
+	flag = travel_point_of_interest_economic
+}
+wonder_tul_harar_02 = { # Tul Hurar
+	flag = fully_upgraded
+	type_icon = "mezquita_cordoba.dds"
+	
+	construction_time = very_slow_construction_time
+	cost_gold = 1500
+	
+	ai_value = {
+		base = 100
+	}
+	province_modifier = {
+		monthly_income = 2
+	}
+	county_modifier = {
+		tax_mult = 0.4
+		supply_limit_mult = 0.25
+	}
+	character_modifier = {
+		different_culture_opinion = 10
+	}
+	
+	type = special
+	flag = travel_point_of_interest_economic
+}
+
+wonder_ny_chennacatt_01 = { # Ny Chennacatt - original fortress of Khorahil
+	flag = fully_upgraded
+	type_icon = "icon_structure_shwedagon_pagoda.dds"
+
+	ai_value = {
+		base = 100
+	}
+	
+	province_modifier = {
+		defender_holding_advantage = 8
+		fort_level = 6
+		stationed_maa_damage_mult = normal_maa_damage_tier_2
+		stationed_maa_toughness_mult = normal_maa_toughness_tier_2
+		garrison_size = 0.5
+	}
+	
+	character_modifier = {
+		dread_baseline_add = 10
+		intimidated_vassal_tax_contribution_mult = 0.125
+		intimidated_vassal_levy_contribution_mult = 0.1
+		cowed_vassal_tax_contribution_mult = 0.25
+		cowed_vassal_levy_contribution_mult = 0.2		
+		men_at_arms_maintenance_per_dread_mult = -0.005
+	}	
+
+	is_enabled = {
+		scope:holder ?= {
+			faith_is_evil = yes 
+		}
+	}
+	
+	type = special
+	next_building = wonder_ny_chennacatt_02
+	flag = travel_point_of_interest_martial
+}
+wonder_ny_chennacatt_02 = { # Ny Chennacatt - Ruins of Ny Chennacatt
+	type_icon = "icon_structure_shwedagon_pagoda.dds"
+	
+	ai_value = {
+		base = 100
+	}
+	
+	character_modifier = {
+		dread_baseline_add = 20
+		intimidated_vassal_tax_contribution_mult = 0.125
+		intimidated_vassal_levy_contribution_mult = 0.1
+	}
+	
+	province_modifier = {
+		defender_holding_advantage = 4
+		fort_level = 2
+		garrison_size = 0.25
+	}
+	
+	type = special
+	next_building = wonder_ny_chennacatt_03
+	flag = travel_point_of_interest_martial
+}
+wonder_ny_chennacatt_03 = { #Ny Chennacatt - rebuilt
+	flag = fully_upgraded
+	type_icon = "icon_structure_shwedagon_pagoda.dds"
+
+	cost_gold = 1500
+	construction_time = slow_construction_time
+	
+	can_construct = {	
+		OR = {
+			has_building_or_higher = elven_settlement_05
+			building_requirement_castle_city_church = { LEVEL = 03 }
+		}
+		culture = {
+			has_innovation = innovation_hoardings
+		}
+		scope:holder ?= {
+			faith_is_evil = yes 
+		}	
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	province_modifier = {
+		defender_holding_advantage = 8
+		fort_level = 6
+		stationed_maa_damage_mult = normal_maa_damage_tier_2
+		stationed_maa_toughness_mult = normal_maa_toughness_tier_2
+		garrison_size = 0.5
+	}
+	
+	character_modifier = {
+		dread_baseline_add = 20
+		intimidated_vassal_tax_contribution_mult = 0.125
+		intimidated_vassal_levy_contribution_mult = 0.1
+		cowed_vassal_tax_contribution_mult = 0.25
+		cowed_vassal_levy_contribution_mult = 0.2		
+		men_at_arms_maintenance_per_dread_mult = -0.005
+	}
+	is_enabled = {
+		scope:holder ?= {
+			faith_is_evil = yes 
+		}
+	}	
+	type = special
+	flag = travel_point_of_interest_martial
+}
+
+wonder_krythan = { #Krythan - Garden-Fortress of the Tayb
+	flag = fully_upgraded
+	type_icon = "icon_structure_cathedral_indian.dds"
+
+	cost_gold = 1500
+	construction_time = slow_construction_time
+	
+	can_construct = {	
+		OR = {
+			has_building_or_higher = elven_settlement_05
+			building_requirement_castle_city_church = { LEVEL = 03 }
+		}
+		culture = {
+			has_innovation = innovation_hoardings
+		}	
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	province_modifier = {
+		defender_holding_advantage = 6
+		fort_level = 4
+	}
+	
+	character_modifier = {
+		hostile_scheme_phase_duration_add = -5
+		monthly_prestige = 0.2
+		intrigue = 2
 		
+	}
+
+	type = special
+	flag = travel_point_of_interest_religious
+}
+
+wonder_tarnet_barzain = { #Tarnet Barzain - Holy Oasis in Poa
+	flag = fully_upgraded
+	type_icon = "icon_structure_nalanda.dds"
+
+	cost_gold = 1500
+	construction_time = slow_construction_time
+	
+	can_construct = {	
+		OR = {
+			has_building_or_higher = elven_settlement_05
+			building_requirement_castle_city_church = { LEVEL = 03 }
+		}
+		culture = {
+			has_innovation = innovation_hoardings
+		}	
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	county_modifier = {
+		development_growth_factor = 0.1
+	}
+	
+	character_modifier = {
+		monthly_learning_lifestyle_xp_gain_mult = 0.1
+		monthly_piety = 0.3
+	}
+
+	type = special
+	flag = travel_point_of_interest_religious
+}
+
+wonder_tyarrett = { #Tyarrett- Most ancient city in Sirayn 
+	flag = fully_upgraded
+	type_icon = "icon_structure_great_mosque_of_djenne.dds"
+
+	cost_gold = 1500
+	construction_time = slow_construction_time
+	
+	can_construct = {	
+		OR = {
+			has_building_or_higher = elven_settlement_05
+			building_requirement_castle_city_church = { LEVEL = 03 }
+		}
+		culture = {
+			has_innovation = innovation_hoardings
+		}	
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	province_modifier = {
+		supply_limit_mult = 0.25
+		tax_mult = 0.1
+	}
+	county_modifier = {
+		development_growth_factor = 0.1
+	}
+	
+	character_modifier = {
+		health = 0.2
+		stress_loss_mult = 0.1
+	}
+
+	type = special
+	flag = travel_point_of_interest_diplomatic
+}
+
+wonder_tartaust = { #Tartaust- Center of Textiles in Chennacatt with defensive walls 
+	flag = fully_upgraded
+	type_icon = "icon_structure_great_mosque_of_djenne.dds"
+
+	cost_gold = 1500
+	construction_time = slow_construction_time
+	
+	can_construct = {	
+		OR = {
+			has_building_or_higher = elven_settlement_05
+			building_requirement_castle_city_church = { LEVEL = 03 }
+		}
+		culture = {
+			has_innovation = innovation_hoardings
+		}	
+	}
+
+	ai_value = {
+		base = 100
+	}
+
+	province_modifier = {
+		fort_level = 2
+		defender_holding_advantage = 4
+		tax_mult = 0.15
+		stationed_maa_toughness_mult = 0.1
+	}
+	county_modifier = {
+		development_growth_factor = 0.1
+	}
+
+
+	type = special
+	flag = travel_point_of_interest_diplomatic
+}

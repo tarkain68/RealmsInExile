@@ -60,6 +60,7 @@
  dynn_toraz_motto: "Forget Not Your Origins"
  dynn_kharol_motto: "Prosperity in places unexpected"
  dynn_noiling_motto: "Ever Onward"
+ dynn_nain_motto: "In Nain's Name"
  
  ## Hobbits ##
  dynn_baggins_motto: "The deal's in the bag"
@@ -259,7 +260,9 @@
  dynn_amdirach_motto: "The Honour of the West, the Strength of the Hills"
  dynn_numendilion_motto: "Friends of the West"
  dynn_roquendilin_motto: "Knights of the line of [GetScriptedCharacterByHistoryID( 'lineofanarion1' ).GetFirstName]"
+ dynn_ambonturi_motto: "Lords of [gondor|E]"
  dynn_ionnath_eredor_motto: "Lords of the mountains and hills"
+ dynn_ciryaher_motto: "Lions of the sea"
 
  ### Gondor Ithilien Houses ###
  dynn_arandal_motto: "Proudly at the feet of the Kings"

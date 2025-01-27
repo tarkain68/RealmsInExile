@@ -3787,6 +3787,8 @@
  Electhel:0 "Electhel" # Dunedain Unsorted
  Eledhser:0 "Eledhser" # Sindarin Male
  Eledhwen:0 "Eledhwen" # Sindarin Male
+ Faedor: "Faedor"
+ Gonhir: "Faedor"
  Eledrial:0 "Eledrial" # Sindarin Male
  Elefandil:0 "Elefandil" # Sindarin Male
  Elegar:0 "Elegar" # Sindarin Male
@@ -7668,6 +7670,7 @@
  Mahtan:0 "Mahtan" # Quenya Male
  Mahtan_Urunw_e_e:0 "Mahtan Urunwë" # Unsorted Unsorted
  Mahtarion:0 "Mahtarion" # Quenya Male
+ Mahtariel:0 "Mahtariel" # Quenya Female
  Mahto:0 "Mahto" # Quenya Male
  Mahzarin:0 "Mahzarin" # Khyan Female
  Maia:0 "Maia" # Quenya Female

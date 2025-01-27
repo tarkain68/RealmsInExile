@@ -6,17 +6,94 @@ k_rohan = {
 	3911.1.1 = {
 		de_jure_liege = e_gondor
 	}
-	4516.6.30 = { # Granted to Turambar's second son on his 100th birthday
-		holder = lineofroquendil1
+	4616.6.30 = { # Granted to Turambar's second son on his 100th birthday
+		holder = lineofroquendil1 #Roquendil
+		liege = e_gondor
+	}
+	4780.1.16 = {
+        holder = lineofroquendil2 #Numellote
+    }
+    4844.5.6 = {
+        holder = lineofroquendil4 #Ingoldo
+    }
+	4940.6.23 = {
+        holder = lineofroquendil6 #Agathor
+    }
+    5005.1.23 = {
+        holder = lineofroquendil8 #Amrothos
+    }
+	5142.1.19 = {
+        holder = lineofroquendil10 #Edhelion
+    }
+    5190.12.11 = {
+        holder = lineofroquendil12 #Tarion
+    }
+	5310.7.4 = {
+        holder = lineofroquendil14 #Hirgon
+    }
+    5378.3.12 = {
+        holder = lineofroquendil16 #Roquendil II
+    }
+	5495.12.5 = {
+		holder = lineofroquendil21 
+	}
+	5556.11.28 = {
+		holder = lineofroquendil23
 	}
 	5668.02.16 = { 
 		change_development_level = 5 # The great plague
 	} 
+	5676.11.24 = {
+		holder = lineofroquendil25
+	}
+	5700.5.5 = {
+		holder = lineofroquendil27
+	}
+	5883.8.3 = {
+        holder = lineofroquendil29 #Ragnir
+    }
+    5896.11.4 = {
+        holder = lineofroquendil31 #Valandil
+    }
+	5977.1.1 = {
+        holder = lineofroquendil33 #Anducal
+    }
+    6008.1.1 = {
+        holder = lineofroquendil35 #Tiliondur
+    }
 	6083.1.1 = { # The Stewards of Gondor take over rule of the Kingdom
 		de_jure_liege = e_gondor_steward
+		holder = lineofroquendil37 #Aldanilme inherits Calenardhom after her father dies as one of the knighs of Eärnur
+		liege = e_gondor_steward
 	}
+	6220.8.13 = {
+        holder = lineofroquendil39 #Electele
+    }
+    6260.1.21 = {
+        holder = lineofroquendil41 #Vingidur
+    }
+	6322.7.11 = {
+        holder = lineofroquendil43 #Arador
+    }
+    6361.8.20 = {
+        holder = lineofroquendil45 #Falassion
+    }
+	6485.5.20 = {
+        holder = lineofroquendil47 #Laurendil
+    }
+    6510.4.13 = {
+        holder = lineofroquendil49 #Dior
+    }
+	6530.1.2 = {
+		holder = lineofroquendil51 #Huor
+	}
+	6543.4.15 = { # Last Roquendilioni lord of Calenardhon dies during the battle of Celebrant Fields at the age of 33
+		holder = 0
+	}
+
 	6543.10.20 = { 
 		change_development_level = 7 
+		liege = 0
 	}
 	6543.11.11 = {
 		holder = lineofeorl1 #Eorl the Young
@@ -380,6 +457,7 @@ c_helmsdeep = {
 	6543.11.11 = { # Founding of Rohan
 		holder = linefeorthwine3 #Ingar
 		liege = d_westfold
+		name = SUTHBURG
 		change_development_level = 9
 	}
     6547.6.5 = {
@@ -409,6 +487,7 @@ c_helmsdeep = {
     6807.12.1 = {
 		holder = linefeorthwine23 # Thorburn
 		change_development_level = 10 # Rebuilding of Helm's Deep after the Long Winter
+		name = c_helmsdeep
 	}
 	7032.7.22 = { # Erkenbrand
 		holder = 6000039

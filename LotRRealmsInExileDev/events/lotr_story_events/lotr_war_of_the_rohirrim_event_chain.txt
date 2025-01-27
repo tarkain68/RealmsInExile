@@ -134,6 +134,7 @@ war_of_the_rohirrim.0101 = {
 		}
 	}
 	theme = realm
+	override_background = { reference = throne_room_hadorim }
 	
 	left_portrait = {
 		character = root
@@ -2863,6 +2864,12 @@ war_of_the_rohirrim.0344 = {
 		custom_tooltip = war_of_the_rohirrim.0344.a.effect
 		custom_tooltip = war_of_the_rohirrim.0344.a.effect2
 		remove_character_flag = decision_wulf_marriage_pursuing_goal
+		hidden_effect = {
+			random = {
+				chance = 50
+				trigger_event = war_of_the_rohirrim.0349
+			}
+		}
 	}
 
 	option = {
@@ -3070,6 +3077,39 @@ war_of_the_rohirrim.0348 = {
 	option = {
 		name = war_of_the_rohirrim.0348.a
 		wulf_rohan_victory_thorne_commitments_effect = yes
+	}
+
+}
+
+# Wulf Rohan Marriage Decision - Failed Negotiation - Thorne Lives and Tells the King
+war_of_the_rohirrim.0349 = {
+	content_source = realms_dlc
+	type = character_event
+	title =  war_of_the_rohirrim.0349.t
+	desc =  war_of_the_rohirrim.0349.desc
+	theme = realm
+	
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	right_portrait = {
+		character = character:linethorne5
+		animation = personality_honorable
+	}
+
+	option = {
+		name = war_of_the_rohirrim.0349.a
+		add_character_modifier = {
+			modifier = helm_bracing_for_war_character_modifier
+		}
+		character:linethorne5 = {
+			add_hook = {
+				type = favor_hook
+				target = root
+			}
+		}
 	}
 
 }
@@ -4900,6 +4940,7 @@ war_of_the_rohirrim.0370 = {
 		custom_tooltip = war_of_the_rohirrim.0370.a.detail2
 		custom_tooltip = war_of_the_rohirrim.0370.a.detail3
 		custom_tooltip = war_of_the_rohirrim.0370.a.detail4
+		add_character_flag = wulf_sought_help_from_southrons
 	}
 
 	option = {
@@ -4998,7 +5039,7 @@ war_of_the_rohirrim.0372 = {
 						stacks = 4
 					}
 					inheritable = yes
-					location = root.location
+					location = scope:employer.location
 					name = Raiders
 				}
 			}
@@ -5448,7 +5489,7 @@ war_of_the_rohirrim.0411 = {
 		depose = yes
 		create_landless_adventurer_title_effect = {
 			REASON = flag:exile
-			FLAVOR_CHAR = root
+			FLAVOR_CHAR = scope:defender
 		}
 	}
 
@@ -5497,6 +5538,9 @@ war_of_the_rohirrim.0420 = {
 			}
 		}
 		save_scope_as = wulf_decision_imprison
+		stress_impact = {
+			vengeful = minor_stress_impact_gain
+		}
 		ai_chance = {
 			base = 0
 		}
@@ -5512,6 +5556,16 @@ war_of_the_rohirrim.0420 = {
 				}
 			}
 		}
+		add_character_modifier = {
+			modifier = wulf_the_merciful_character_modifier
+			years = 10
+		}
+		if = {
+			limit = {
+				has_any_nickname = no
+			}
+			give_nickname = nick_the_merciful
+		}
 		show_as_tooltip = {
 			scope:defender = {
 				release_from_prison = yes
@@ -5523,6 +5577,9 @@ war_of_the_rohirrim.0420 = {
 			}
 		}
 		save_scope_as = wulf_decision_release
+		stress_impact = {
+			vengeful = massive_stress_impact_gain
+		}
 		ai_chance = {
 			base = 25
 		}
@@ -5621,9 +5678,1351 @@ war_of_the_rohirrim.0421 = {
 		depose = yes
 		create_landless_adventurer_title_effect = {
 			REASON = flag:exile
-			FLAVOR_CHAR = root
+			FLAVOR_CHAR = scope:attacker
 		}
 		add_realm_law = camp_purpose_legitimists
 	}
 
+	after = {
+		scope:attacker = {
+			if = {
+				limit = {
+					any_vassal_or_below = {
+						dynasty = dynasty:dynasty_eorl
+						NOT = { this = scope:defender }
+						OR = {
+							is_ai = yes
+							has_dlc_feature = landless_playable
+						}
+					}
+				}
+				trigger_event = war_of_the_rohirrim.0450
+			}
+		}
+	}
+
 }
+
+# War for Rohan - Wulf Victory - Held Out for Hera - Asking the Question
+war_of_the_rohirrim.0430 = {
+	content_source = realms_dlc
+	type = character_event
+	title = war_of_the_rohirrim.0430.t
+	desc = war_of_the_rohirrim.0430.desc
+	theme = love
+	
+	left_portrait = {
+		character = root
+		animation = flirtation
+	}
+
+	right_portrait = {
+		character = scope:hera
+		animation = personality_cynical
+	}
+
+	immediate = {
+		character:herahelm = { save_scope_as = hera }
+		remove_trait = cannot_marry
+		scope:hera = {
+			remove_trait = cannot_marry
+		}
+	}
+
+	option = { # Ask Hera once more
+		name = war_of_the_rohirrim.0430.a
+		random_list = {
+			35 = {
+				desc = war_of_the_rohirrim.0430.a.success
+				trigger_event = war_of_the_rohirrim.0431
+				show_as_tooltip = {
+					marry = scope:hera
+					add_legitimacy = 250
+				}
+				modifier = { # Hera will despise Wulf for killing anyone in her close family
+					any_killed_character = {
+						is_close_family_of = scope:hera
+					}
+					add = -35
+				}
+				modifier = { # Hera will dislike Wulf for imprisoning anyone in her close family
+					scope:hera = {
+						any_close_family_member = {
+							is_imprisoned_by = root
+						}
+					}
+					add = -15
+				}
+				modifier = { # Hera will frown upon Wulf making secret deals with Thorne
+					OR = {
+						has_character_flag = wulf_rohan_promise_pat_marriage
+						has_character_flag = wulf_rohan_promise_mat_marriage
+						has_character_flag = wulf_rohan_promise_land
+						has_character_flag = wulf_rohan_promise_vassal_contract
+						has_character_flag = wulf_rohan_promise_hook
+						has_character_flag = wulf_rohan_promise_co_monarch
+						has_character_flag = wulf_rohan_promise_independence
+					}
+					add = -10
+				}
+				modifier = { # Hera will distrust Wulf for adopting another faith
+					NOT = { has_faith = faith:faith_rohirric }
+					add = -5
+				}
+				if = {
+					limit = {
+						has_faith = faith:faith_rohirric
+					}
+					custom_tooltip = war_of_the_rohirrim.0430.a.rohirric_faith
+				}
+				modifier = { # Hera will value Wulf retaining his Rohirric faith
+					has_faith = faith:faith_rohirric
+					add = 10
+				}
+				if = {
+					limit = {
+						scope:hera.father = { 
+							NOR = { 
+								is_imprisoned_by = root
+								is_alive = no
+								root = {
+									any_killed_character = {
+										this = scope:hera.father
+									}
+								}
+							}
+						}
+					}
+					custom_tooltip = war_of_the_rohirrim.0430.a.freed_father
+				}
+				modifier = { # Hera will value Wulf freeing her father
+					scope:hera.father = { 
+						NOR = { 
+							is_imprisoned_by = root
+							is_alive = no
+							root = {
+								any_killed_character = {
+									this = scope:hera.father
+								}
+							}
+						}
+					}
+					add = 30
+				}
+				min = 1
+			}
+			65 = {
+				desc = war_of_the_rohirrim.0430.a.failure
+				trigger_event = war_of_the_rohirrim.0432
+				show_as_tooltip = {
+					set_relation_grudge = scope:hera
+					scope:hera = { 
+						set_relation_grudge = root
+						add_opinion = {
+							modifier = annoyed_opinion
+							opinion = -50
+							target = root
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_killed_character = {
+							is_close_family_of = scope:hera
+						}
+					}
+					custom_tooltip = war_of_the_rohirrim.0430.a.killed_close_family
+				}
+				modifier = { # Hera will despise Wulf for killing anyone in her close family
+					any_killed_character = {
+						is_close_family_of = scope:hera
+					}
+					add = 35
+				}
+				if = {
+					limit = {
+						scope:hera = {
+							any_close_family_member = {
+								is_imprisoned_by = root
+							}
+						}
+					}
+					custom_tooltip = war_of_the_rohirrim.0430.a.imprisoned_close_family
+				}
+				modifier = { # Hera will dislike Wulf for imprisoning anyone in her close family
+					scope:hera = {
+						any_close_family_member = {
+							is_imprisoned_by = root
+						}
+					}
+					add = 15
+				}
+				if = {
+					limit = {
+						OR = {
+							has_character_flag = wulf_rohan_promise_pat_marriage
+							has_character_flag = wulf_rohan_promise_mat_marriage
+							has_character_flag = wulf_rohan_promise_land
+							has_character_flag = wulf_rohan_promise_vassal_contract
+							has_character_flag = wulf_rohan_promise_hook
+							has_character_flag = wulf_rohan_promise_co_monarch
+							has_character_flag = wulf_rohan_promise_independence
+						}
+					}
+					custom_tooltip = war_of_the_rohirrim.0430.a.deal_with_thorne
+				}
+				modifier = { # Hera will frown upon Wulf making secret deals with Thorne
+					OR = {
+						has_character_flag = wulf_rohan_promise_pat_marriage
+						has_character_flag = wulf_rohan_promise_mat_marriage
+						has_character_flag = wulf_rohan_promise_land
+						has_character_flag = wulf_rohan_promise_vassal_contract
+						has_character_flag = wulf_rohan_promise_hook
+						has_character_flag = wulf_rohan_promise_co_monarch
+						has_character_flag = wulf_rohan_promise_independence
+					}
+					add = 10
+				}
+				if = {
+					limit = {
+						NOT = { has_faith = faith:faith_rohirric }
+					}
+					custom_tooltip = war_of_the_rohirrim.0430.a.abandoned_faith
+				}
+				modifier = { # Hera will distrust Wulf for adopting another faith
+					NOT = { has_faith = faith:faith_rohirric }
+					add = 5
+				}
+				modifier = { # Hera will value Wulf retaining his Rohirric faith
+					has_faith = faith:faith_rohirric
+					add = -10
+				}
+				modifier = { # Hera will value Wulf freeing her father
+					scope:hera.father = { 
+						NOR = { 
+							is_imprisoned_by = root
+							is_alive = no
+							root = {
+								any_killed_character = {
+									this = scope:hera.father
+								}
+							}
+						}
+					}
+					add = -30
+				}
+				max = 99
+			}
+		}
+	}
+
+	option = { # Forcibly wed
+		name = war_of_the_rohirrim.0430.b
+		trigger_event = war_of_the_rohirrim.0433
+		show_as_tooltip = {
+			add_tyranny = 20
+			marry = scope:hera
+			scope:hera = { 
+				set_relation_grudge = root
+				add_opinion = {
+					modifier = angry_opinion
+					opinion = -100
+					target = root
+				}
+			}
+			add_legitimacy = 100
+		}
+	}
+
+}
+
+# War for Rohan - Wulf Victory - Held Out for Hera - Hera Accepts
+war_of_the_rohirrim.0431 = {
+	content_source = realms_dlc
+	type = character_event
+	title = war_of_the_rohirrim.0431.t
+	desc = war_of_the_rohirrim.0431.desc
+	theme = marriage
+	
+	left_portrait = {
+		character = root
+		animation = sad
+	}
+
+	right_portrait = {
+		character = scope:hera
+		animation = personality_content
+	}
+
+	option = {
+		name = war_of_the_rohirrim.0431.a
+		marry = scope:hera
+		add_legitimacy = 250
+	}
+
+}
+
+# War for Rohan - Wulf Victory - Held Out for Hera - Hera Rejects
+war_of_the_rohirrim.0432 = {
+	content_source = realms_dlc
+	type = character_event
+	title = war_of_the_rohirrim.0432.t
+	desc = war_of_the_rohirrim.0432.desc
+	theme = unfriendly
+	
+	left_portrait = {
+		character = root
+		animation = sadness
+	}
+
+	right_portrait = {
+		character = scope:hera
+		animation = anger
+	}
+
+	option = {
+		name = war_of_the_rohirrim.0432.a
+		set_relation_grudge = scope:hera
+		scope:hera = { 
+			set_relation_grudge = root
+			add_opinion = {
+				modifier = annoyed_opinion
+				opinion = -50
+				target = root
+			}
+		}
+	}
+
+}
+
+# War for Rohan - Wulf Victory - Held Out for Hera - Hera is Forced
+war_of_the_rohirrim.0433 = {
+	content_source = realms_dlc
+	type = character_event
+	title = war_of_the_rohirrim.0433.t
+	desc = war_of_the_rohirrim.0433.desc
+	theme = marriage
+	
+	left_portrait = {
+		character = root
+		animation = dismissal
+	}
+
+	right_portrait = {
+		character = character:herahelm
+		animation = disapproval
+	}
+
+	immediate = {
+		character:herahelm = {
+			add_character_flag = wedding_outfit
+		}
+	}
+
+	option = {
+		name = war_of_the_rohirrim.0433.a
+		add_tyranny = 20
+		marry = character:herahelm
+		character:herahelm = { 
+			set_relation_grudge = root
+			add_opinion = {
+				modifier = angry_opinion
+				opinion = -100
+				target = root
+			}
+		}
+		add_legitimacy = 100
+	}
+
+	after = {
+		character:herahelm = {
+			remove_character_flag = wedding_outfit
+		}
+	}
+
+}
+
+# War for Rohan - Wulf Victory - Event for Gondor - Vetting Wulf
+war_of_the_rohirrim.0440 = {
+	content_source = realms_dlc
+	type = character_event
+	title = war_of_the_rohirrim.0440.t
+	desc = war_of_the_rohirrim.0440.desc
+	theme = diplomacy
+	
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	right_portrait = {
+		character = scope:attacker
+		animation = personality_bold
+	}
+
+	lower_center_portrait = scope:defender
+
+	immediate = {
+		add_character_flag = considering_wulf
+		save_scope_as = gondor_ruler
+	}
+
+	option = { # Send a delegation to Edoras
+		name = war_of_the_rohirrim.0440.a
+		custom_tooltip = war_of_the_rohirrim.0440.a.effect
+		scope:attacker = {
+			trigger_event = {
+				id = war_of_the_rohirrim.0441
+				months = 4
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { # Do not bother
+		name = war_of_the_rohirrim.0440.b
+		ai_chance = {
+			base = 0
+		}
+		remove_character_flag = considering_wulf
+	}
+
+}
+
+# War for Rohan - Wulf Victory - Oath of Cirion - Gondorian Delegation Arrives
+war_of_the_rohirrim.0441 = {
+	content_source = realms_dlc
+	type = character_event
+	title = war_of_the_rohirrim.0441.t
+	desc = war_of_the_rohirrim.0441.desc
+	theme = diplomacy
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+
+	right_portrait = {
+		character = scope:envoy
+		animation = personality_rational
+	}
+
+	lower_center_portrait = scope:gondor_ruler
+
+	immediate = {
+		scope:gondor_ruler = {
+			ordered_knight = {
+				order_by = diplomacy
+				save_scope_as = envoy
+			}
+		}
+	}
+
+	option = {
+		name = war_of_the_rohirrim.0441.a
+		add_dynasty_prestige = 800
+		if = {
+			limit = {
+				scope:gondor_ruler = { is_ai = yes }
+			}
+			random_list = {
+				60 = {
+					desc = war_of_the_rohirrim.0441.a.success
+					trigger_event = war_of_the_rohirrim.0442
+					show_as_tooltip = {
+						custom_tooltip = war_of_the_rohirrim.0441.a.success.effect1
+						add_legitimacy = 100
+						add_opinion = {
+							modifier = pleased_opinion
+							opinion = 20
+							target = scope:gondor_ruler
+						}
+					}
+					# Faith Hostility
+					modifier = { # Righteous
+						scope:gondor_ruler.faith = {
+							faith_hostility_level = {
+								target = root.faith
+								value = 0
+							}
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							is_married = yes
+							primary_spouse = character:herahelm
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.faith_righteous
+					}
+					modifier = { # Astray
+						scope:gondor_ruler.faith = {
+							faith_hostility_level = {
+								target = root.faith
+								value = 1
+							}
+						}
+						add = -10
+					}
+					modifier = { # Hostile
+						scope:gondor_ruler.faith = {
+							faith_hostility_level = {
+								target = root.faith
+								value = 2
+							}
+						}
+						add = -20
+					}
+					modifier = { # Evil
+						scope:gondor_ruler.faith = {
+							faith_hostility_level = {
+								target = root.faith
+								value = 3
+							}
+						}
+						add = -50
+					}
+					# Got help from the Southrons
+					modifier = {
+						has_character_flag = wulf_sought_help_from_southrons
+						add = -30
+					}
+					# Made a deal with Thorne
+					modifier = {
+						OR = {
+							has_character_flag = wulf_rohan_promise_pat_marriage
+							has_character_flag = wulf_rohan_promise_mat_marriage
+							has_character_flag = wulf_rohan_promise_land
+							has_character_flag = wulf_rohan_promise_vassal_contract
+							has_character_flag = wulf_rohan_promise_hook
+							has_character_flag = wulf_rohan_promise_co_monarch
+							has_character_flag = wulf_rohan_promise_independence
+						}
+						add = -10
+					}
+					# Released Helm
+					modifier = {
+						character:herahelm.father = { 
+							NOR = { 
+								is_imprisoned_by = root
+								is_alive = no
+								root = {
+									any_killed_character = {
+										this = character:herahelm.father
+									}
+								}
+							}
+						}
+						add = 20
+					}
+					if = {
+						limit = {
+							character:herahelm.father = { 
+								NOR = { 
+									is_imprisoned_by = root
+									is_alive = no
+									root = {
+										any_killed_character = {
+											this = character:herahelm.father
+										}
+									}
+								}
+							}
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.released_helm
+					}
+					# Married Hera
+					modifier = {
+						is_married = yes
+						primary_spouse = character:herahelm
+						add = 15
+					}
+					if = {
+						limit = {
+							is_married = yes
+							primary_spouse ?= character:herahelm
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.married_hera
+					}
+					# Married a Rohirrim
+					modifier = {
+						is_married = yes
+						primary_spouse = {
+							NOT = { this = character:herahelm }
+							culture = culture:rohirrim
+						}
+						add = 5
+					}
+					if = {
+						limit = {
+							is_married = yes
+							primary_spouse = {
+								NOT = { this = character:herahelm }
+								culture = culture:rohirrim
+							}
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.married_rohirrim
+					}
+					# Wulf killed Helm's Family Members
+					modifier = {
+						any_killed_character = {
+							is_close_family_of = character:herahelm
+						}
+						add = -10
+					}
+					# Wulf imprisoned Helm's Family Members
+					modifier = {
+						character:herahelm = {
+							any_close_family_member = {
+								is_imprisoned_by = root
+							}
+						}
+						add = -5
+					}
+					# Wulf's Diplomacy is Poor
+					modifier = {
+						diplomacy < 9
+						add = -5
+					}
+					# Wulf's Diplomacy is Good
+					modifier = {
+						diplomacy > 12
+						diplomacy < 17
+						add = 5
+					}
+					if = {
+						limit = {
+							diplomacy > 12
+							diplomacy < 17
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.good_diplomacy
+					}
+					# Wulf's Diplomacy is Excellent
+					modifier = {
+						diplomacy > 16
+						add = 10
+					}
+					if = {
+						limit = {
+							diplomacy > 16
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.excellent_diplomacy
+					}
+					min = 1
+				}
+				40 = {
+					desc = war_of_the_rohirrim.0441.a.failure
+					trigger_event = war_of_the_rohirrim.0443
+					show_as_tooltip = {
+						custom_tooltip = war_of_the_rohirrim.0441.a.failure.effect
+						add_legitimacy = -50
+						add_opinion = {
+							modifier = disappointed_opinion
+							opinion = -20
+							target = scope:gondor_ruler
+						}
+					}
+					# Faith Hostility
+					modifier = { # Righteous
+						scope:gondor_ruler.faith = {
+							faith_hostility_level = {
+								target = root.faith
+								value = 0
+							}
+						}
+						add = -10
+					}
+					modifier = { # Astray
+						scope:gondor_ruler.faith = {
+							faith_hostility_level = {
+								target = root.faith
+								value = 1
+							}
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							scope:gondor_ruler.faith = {
+								faith_hostility_level = {
+									target = root.faith
+									value = 1
+								}
+							}
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.faith_astray
+					}
+					modifier = { # Hostile
+						scope:gondor_ruler.faith = {
+							faith_hostility_level = {
+								target = root.faith
+								value = 2
+							}
+						}
+						add = 20
+					}
+					if = {
+						limit = {
+							scope:gondor_ruler.faith = {
+								faith_hostility_level = {
+									target = root.faith
+									value = 2
+								}
+							}
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.faith_hostile
+					}
+					modifier = { # Evil
+						scope:gondor_ruler.faith = {
+							faith_hostility_level = {
+								target = root.faith
+								value = 3
+							}
+						}
+						add = 50
+					}
+					if = {
+						limit = {
+							scope:gondor_ruler.faith = {
+								faith_hostility_level = {
+									target = root.faith
+									value = 3
+								}
+							}
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.faith_evil
+					}
+					# Got help from the Southrons
+					modifier = {
+						has_character_flag = wulf_sought_help_from_southrons
+						add = 30
+					}
+					if = {
+						limit = {
+							has_character_flag = wulf_sought_help_from_southrons
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.aided_by_enemies
+					}
+					# Made a deal with Thorne
+					modifier = {
+						OR = {
+							has_character_flag = wulf_rohan_promise_pat_marriage
+							has_character_flag = wulf_rohan_promise_mat_marriage
+							has_character_flag = wulf_rohan_promise_land
+							has_character_flag = wulf_rohan_promise_vassal_contract
+							has_character_flag = wulf_rohan_promise_hook
+							has_character_flag = wulf_rohan_promise_co_monarch
+							has_character_flag = wulf_rohan_promise_independence
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							has_character_flag = wulf_sought_help_from_southrons
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.deal_with_thorne
+					}
+					# Released Helm
+					modifier = {
+						character:herahelm.father = { 
+							NOR = { 
+								is_imprisoned_by = root
+								is_alive = no
+								root = {
+									any_killed_character = {
+										this = character:herahelm.father
+									}
+								}
+							}
+						}
+						add = -20
+					}
+					# Married Hera
+					modifier = {
+						is_married = yes
+						primary_spouse = character:herahelm
+						add = -15
+					}
+					# Married a Rohirrim
+					modifier = {
+						is_married = yes
+						primary_spouse = character:herahelm
+						add = -5
+					}
+					# Wulf killed Helm's Family Members
+					modifier = {
+						any_killed_character = {
+							is_close_family_of = character:herahelm
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							any_killed_character = {
+								is_close_family_of = character:herahelm
+							}
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.killed_eorlings
+					}
+					# Wulf imprisoned Helm's Family Members
+					modifier = {
+						character:herahelm = {
+							any_close_family_member = {
+								is_imprisoned_by = root
+							}
+						}
+						add = 5
+					}
+					if = {
+						limit = {
+							character:herahelm = {
+								any_close_family_member = {
+									is_imprisoned_by = root
+								}
+							}
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.imprisoned_eorlings
+					}
+					# Wulf's Diplomacy is Poor
+					modifier = {
+						diplomacy < 9
+						add = -5
+					}
+					if = {
+						limit = {
+							diplomacy < 9
+						}
+						custom_tooltip = war_of_the_rohirrim.0441.a.poor_diplomacy
+					}
+					# Wulf's Diplomacy is Good
+					modifier = {
+						diplomacy > 12
+						diplomacy < 17
+						add = 5
+					}
+					# Wulf's Diplomacy is Excellent
+					modifier = {
+						diplomacy > 16
+						add = 10
+					}
+					max = 99
+				}
+			}
+		}
+		else = {
+			scope:gondor_ruler = { trigger_event = war_of_the_rohirrim.0444 }
+		}
+		add_character_modifier = {
+			modifier = wulf_oathkeeper_character_modifier
+			years = 10
+		}
+	}
+	option = {
+		name = war_of_the_rohirrim.0441.b
+		add_legitimacy = -50
+		scope:gondor_ruler = {
+			trigger_event = war_of_the_rohirrim.0445
+		}
+		show_as_tooltip = {
+			scope:gondor_ruler = {
+				add_opinion = {
+					modifier = annoyed_opinion
+					opinion = -40
+					target = scope:attacker
+				}
+			}
+		}
+		add_character_modifier = {
+			modifier = wulf_defier_of_the_white_city_character_modifier
+			years = 10
+		}
+	}
+
+}
+
+# War for Rohan - Wulf Victory - Oath of Cirion - Wulf Proves his Loyalty
+war_of_the_rohirrim.0442 = {
+	content_source = realms_dlc
+	type = character_event
+	title = war_of_the_rohirrim.0442.t
+	desc = war_of_the_rohirrim.0442.desc
+	theme = diplomacy
+	
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+
+	right_portrait = {
+		character = scope:envoy
+		animation = personality_honorable
+	}
+
+	lower_center_portrait = scope:gondor_ruler
+
+	option = {
+		name = war_of_the_rohirrim.0442.a
+		custom_tooltip = war_of_the_rohirrim.0441.a.success.effect1
+		add_legitimacy = 100
+		add_opinion = {
+			modifier = pleased_opinion
+			opinion = 20
+			target = scope:gondor_ruler
+		}
+		set_global_variable = {
+			name = gondor_approves_of_wulf
+			value = yes
+		}
+	}
+
+	after = {
+		scope:gondor_ruler = {
+			remove_character_flag = considering_wulf
+		}
+	}
+
+}
+
+# War for Rohan - Wulf Victory - Oath of Cirion - Wulf Fails to prove his Loyalty
+war_of_the_rohirrim.0443 = {
+	content_source = realms_dlc
+	type = character_event
+	title = war_of_the_rohirrim.0443.t
+	desc = war_of_the_rohirrim.0443.desc
+	theme = diplomacy
+	
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+
+	right_portrait = {
+		character = scope:envoy
+		animation = disapproval
+	}
+
+	lower_center_portrait = scope:gondor_ruler
+
+	option = {
+		name = war_of_the_rohirrim.0443.a
+		custom_tooltip = war_of_the_rohirrim.0441.a.failure.effect
+		add_legitimacy = -50
+		add_opinion = {
+			modifier = disappointed_opinion
+			opinion = -20
+			target = scope:gondor_ruler
+		}
+	}
+
+	after = {
+		scope:gondor_ruler = {
+			remove_character_flag = considering_wulf
+		}
+	}
+
+}
+
+# War for Rohan - Wulf Victory - Oath of Cirion - Human Gondor Decision
+war_of_the_rohirrim.0444 = {
+	content_source = realms_dlc
+	type = character_event
+	title = war_of_the_rohirrim.0444.t
+	desc = war_of_the_rohirrim.0444.desc
+	theme = diplomacy
+	
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	right_portrait = {
+		character = scope:attacker
+		animation = personality_bold
+	}
+
+	option = {
+		name = war_of_the_rohirrim.0444.a
+		custom_tooltip = war_of_the_rohirrim.0441.a.success.effect2
+		custom_tooltip = war_of_the_rohirrim.0441.a.success.effect3
+		custom_tooltip = war_of_the_rohirrim.0441.a.success.effect4
+		scope:attacker = {
+			trigger_event = war_of_the_rohirrim.0442
+			add_opinion = {
+				modifier = pleased_opinion
+				opinion = 20
+				target = root
+			}
+		}
+	}
+
+	option = {
+		name = war_of_the_rohirrim.0444.a
+		scope:attacker = {
+			trigger_event = war_of_the_rohirrim.0443
+			add_opinion = {
+				modifier = disappointed_opinion
+				opinion = -20
+				target = root
+			}
+		}
+	}
+
+	after = {
+		scope:gondor_ruler = {
+			remove_character_flag = considering_wulf
+		}
+	}
+
+}
+
+# War for Rohan - Wulf Victory - Oath of Cirion - Gondor - Envoys Sent Home
+war_of_the_rohirrim.0445 = {
+	content_source = realms_dlc
+	type = character_event
+	title = war_of_the_rohirrim.0445.t
+	desc = war_of_the_rohirrim.0445.desc
+	theme = diplomacy
+	
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	right_portrait = {
+		character = scope:attacker
+		animation = personality_bold
+	}
+
+	option = {
+		name = war_of_the_rohirrim.0445.a
+		scope:gondor_ruler = {
+			remove_character_flag = considering_wulf
+		}
+		add_opinion = {
+			modifier = annoyed_opinion
+			opinion = -40
+			target = scope:attacker
+		}
+	}
+
+}
+
+# War for Rohan - Wulf Victory - What to do with these damned Eorlings?
+war_of_the_rohirrim.0450 = {
+	content_source = realms_dlc
+	type = character_event
+	title = war_of_the_rohirrim.0450.t
+	desc = war_of_the_rohirrim.0450.desc
+	theme = realm
+	
+	left_portrait = {
+		character = root
+		animation = personality_cynical
+	}
+
+	right_portrait = {
+		character = scope:eorling
+		animation = personality_callous
+	}
+
+	immediate = {
+		ordered_vassal_or_below = {
+			limit = {
+				dynasty = dynasty:dynasty_eorl
+				NOT = { this = scope:defender }
+				OR = {
+					is_ai = yes
+					has_dlc_feature = landless_playable
+				}
+			}
+			order_by = current_military_strength
+			save_scope_as = eorling
+		}
+	}
+
+	option = { # Let them keep their titles
+		name = war_of_the_rohirrim.0450.a
+		add_legitimacy = 50
+	}
+
+	option = { # Banish them from the realm
+		name = war_of_the_rohirrim.0450.b
+		add_legitimacy = -150
+		every_vassal_or_below = {
+			limit = {
+				dynasty = dynasty:dynasty_eorl
+				NOT = { this = scope:defender }
+				OR = {
+					is_ai = yes
+					has_dlc_feature = landless_playable
+				}
+			}
+			create_title_and_vassal_change = {
+				type = revoked
+				save_scope_as = change
+			}
+			every_held_title = {
+				change_title_holder = {
+					holder = root
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+			create_landless_adventurer_title_effect = {
+				REASON = flag:exile
+				FLAVOR_CHAR = scope:attacker
+			}
+			add_realm_law = camp_purpose_legitimists
+		}
+	}
+
+	option = { # Kill them all
+		name = war_of_the_rohirrim.0450.c
+		add_legitimacy = -300
+		add_tyranny = 50
+		every_courtier = {
+			limit = {
+				dynasty = dynasty:dynasty_eorl
+				NOT = { this = scope:defender }
+				is_ai = yes
+			}
+			death = {
+				death_reason = death_execution
+				killer = root
+			}
+		}
+		every_vassal_or_below = {
+			every_courtier = {
+				limit = {
+					dynasty = dynasty:dynasty_eorl
+					NOT = { this = scope:defender }
+					is_ai = yes
+				}
+				death = {
+					death_reason = death_execution
+					killer = root
+				}
+			}
+		}
+		every_vassal_or_below = {
+			limit = {
+				dynasty = dynasty:dynasty_eorl
+				NOT = { this = scope:defender }
+				is_ai = yes
+			}
+			create_title_and_vassal_change = {
+				type = revoked
+				save_scope_as = change
+			}
+			every_held_title = {
+				change_title_holder = {
+					holder = root
+					change = scope:change
+				}
+			}
+			resolve_title_and_vassal_change = scope:change
+			death = {
+				death_reason = death_execution
+				killer = root
+			}
+		}
+	}
+
+}
+
+# Affirm Descent from Freawine Decision Event
+war_of_the_rohirrim.0500 = {
+	content_source = realms_dlc
+	type = character_event
+	title = war_of_the_rohirrim.0500.t
+	desc = war_of_the_rohirrim.0500.desc
+	theme = dynasty
+	
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	right_portrait = {
+		character = character:lineofeorl5
+		animation = personality_honorable
+	}
+
+	immediate = {
+		character:lineprefreca2 = {
+			set_father = character:lineofeorl5
+			remove_trait = disputed_heritage
+		}
+		add_legitimacy = 250
+	}
+
+	option = { # Adopt the Eorl Dynasty
+		name = war_of_the_rohirrim.0500.a
+		character:lineprefreca2 = {
+			add_trait_force_tooltip = legitimized_bastard
+		}
+		## EVERY FRECALING BECOMES EORLING
+
+		every_ancestor = { #5 generations deep
+			even_if_dead = yes
+			limit = {
+				NOT = { house = character:lineofeorl9.house }
+				dynasty = root.dynasty
+			}
+			set_house = character:lineofeorl9.house
+			every_ancestor = { #10 generations deep
+				even_if_dead = yes
+				limit = {
+					NOT = { house = character:lineofeorl9.house }
+					dynasty = root.dynasty
+				}
+				set_house = character:lineofeorl9.house
+				every_ancestor = { #15 generations deep
+					even_if_dead = yes
+					limit = {
+						NOT = { house = character:lineofeorl9.house }
+						dynasty = root.dynasty
+					}
+					set_house = character:lineofeorl9.house
+				}
+			}
+		}
+		dynasty = { # Current alive members #Do NOT use .dynasty! It throws errors in the error.log
+			every_dynasty_member = {
+				limit = { NOT = { house = title:k_rohan.holder.house } }
+				set_house = character:lineofeorl9.house
+				every_ancestor = { #5 generations deep
+					even_if_dead = yes
+					limit = {
+						NOT = { house = character:lineofeorl9.house }
+						dynasty = root.dynasty
+					}
+					set_house = character:lineofeorl9.house
+					every_ancestor = { #10 generations deep
+						even_if_dead = yes
+						limit = {
+							NOT = { house = character:lineofeorl9.house }
+							dynasty = root.dynasty
+						}
+						set_house = character:lineofeorl9.house
+						every_ancestor = { #15 generations deep
+							even_if_dead = yes
+							limit = {
+								NOT = { house = character:lineofeorl9.house }
+								dynasty = root.dynasty
+							}
+							set_house = character:lineofeorl9.house
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = { # Keep the Frecaling Dynasty
+		name = war_of_the_rohirrim.0500.b
+		character:lineprefreca2 = {
+			add_trait_force_tooltip = bastard
+		}
+		dynasty = {
+			add_dynasty_prestige = 500
+		}
+	}
+
+}
+
+# Grant Saruman the Keys to Isengard Decision Event
+war_of_the_rohirrim.0510 = {
+	content_source = realms_dlc
+	type = character_event
+	title = war_of_the_rohirrim.0510.t
+	desc = war_of_the_rohirrim.0510.desc
+	theme = diplomacy
+	
+	left_portrait = {
+		character = root
+		animation = personality_honorable
+	}
+
+	right_portrait = {
+		character = character:lineofsaruman
+		animation = personality_zealous
+	}
+
+	override_background = {
+		reference = throne_room_orthanc
+	}
+
+	option = {
+		name = war_of_the_rohirrim.0510.a
+		create_title_and_vassal_change = {
+			type = granted
+			save_scope_as = change
+		}
+		if = {
+			limit = {
+				root = { has_title = title:d_isengard }
+			}
+			title:d_isengard = {
+				change_title_holder = {
+					holder = character:lineofsaruman
+					change = scope:change
+				}
+			}
+		}
+		title:c_isengard = {
+			change_title_holder = {
+				holder = character:lineofsaruman
+				change = scope:change
+			}
+		}
+		character:lineofsaruman = {
+			change_liege = {
+				liege = root
+				change = scope:change
+			}
+		}
+		resolve_title_and_vassal_change = scope:change
+		
+		set_relation_friend = {
+			reason = friend_upgrade_generic
+			target = character:lineofsaruman
+		}
+		add_hook = {
+			target = character:lineofsaruman
+			type = favor_hook
+	    }
+		add_piety = 100
+	}
+	after = { 
+		character:lineofsaruman = { trigger_event = { id = war_of_the_rohirrim.0511 days = 1} }
+	}
+}
+
+war_of_the_rohirrim.0511 = {
+	hidden = yes
+
+	immediate = {
+		title:c_isengard.holder = {
+			vassal_contract_set_obligation_level = {
+				type = title_revocation_rights
+				level = 1
+			}
+			vassal_contract_set_obligation_level = { 
+				type = feudal_government_taxes 
+				level = 0
+			}
+			vassal_contract_set_obligation_level = { 
+				type = feudal_government_levies 
+				level = 0
+			}
+			vassal_contract_set_obligation_level = {
+				type = fortification_rights
+				level = 1
+			}
+		}
+	}
+}
+
