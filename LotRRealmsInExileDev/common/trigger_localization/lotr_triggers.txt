@@ -350,6 +350,11 @@ gondor_kingship_tt_parents_dynasty = {
 	first = gondor_kingship_tt_parents_dynasty
 }
 
+lotr_elven_already_has_an_alliance_deal = {
+	first = ALREADY_HAS_AN_ALLIANCE_DEAL
+	first_not = NOT_ALREADY_HAS_AN_ALLIANCE_DEAL
+}
+
 # Wulf Content Trigger Loc
 
 war_of_the_rohirrim_pat_marriage_promised = {

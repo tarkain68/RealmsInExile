@@ -445,14 +445,18 @@ is_alliance_valid = {
 		is_nibling_of = scope:second
 		scope:second = {
 			OR = {
-			has_opinion_modifier = {
-				modifier = perk_negotiated_alliance_opinion
-				target = root
-			}
-			has_opinion_modifier = {
+				has_opinion_modifier = {
+					modifier = perk_negotiated_alliance_opinion
+					target = root
+				}
+				has_opinion_modifier = {
 					modifier = event_negotiated_alliance_opinion
 					target = root
-			}
+				}
+				has_opinion_modifier = {
+					modifier = lotr_elven_perk_negotiated_alliance_opinion
+					target = root
+				}
 			}
 		}
 		#childhood friendship with hostage event, where they swear to be friends forever

@@ -2749,6 +2749,10 @@ incite_revolts_interaction = {
 		NOT = { scope:actor = { has_culture = culture:wastelands } } #LotR
 		NOT = { scope:recipient = scope:actor }
 		OR = {
+			scope:actor = { #Write our own version of this
+				is_elf = yes
+				has_perk = subtle_desire_perk
+			}
 			scope:actor = {
 				is_landless_adventurer = yes
 				OR = {

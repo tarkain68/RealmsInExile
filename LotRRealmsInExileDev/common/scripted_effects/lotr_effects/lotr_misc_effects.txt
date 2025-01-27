@@ -1306,3 +1306,18 @@ lotr_recovering_from_long_winter_effects = {
 		years = 2
 	}
 }
+
+lotr_try_remove_elven_perk_alliance_opinion_effect = {
+	if = {
+		limit = {
+			has_opinion_modifier = {
+				modifier = lotr_elven_perk_negotiated_alliance_opinion
+				target = $TARGET$
+			}
+		}
+		remove_opinion = {
+			modifier = lotr_elven_perk_negotiated_alliance_opinion
+			target = $TARGET$
+		}
+	}
+}

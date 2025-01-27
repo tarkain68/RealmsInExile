@@ -1015,6 +1015,7 @@ negotiate_alliance_interaction = {
 			is_ruler = yes
 			is_in_valinor = no			
 		}
+		
 		scope:actor = {
 			is_ruler = yes
 			is_in_valinor = no
@@ -1023,14 +1024,39 @@ negotiate_alliance_interaction = {
 				highest_held_title_tier >= 2
 			}
 			#childhood friendship with hostage event, where they swear to be friends forever
-			OR = {
-			is_any_family_relation_or_spouse_trigger = { CHARACTER = scope:recipient }
-				hostage_oath_of_friendship_trigger = yes
+			trigger_if = { #LotR
+				limit = {
+					is_elf = yes
+					has_perk = mortal_adoration_perk
+				}
+				any_relation = {
+					type = rival
+					has_relation_rival = scope:recipient
+				}
+			} trigger_else = {
+				OR = {
+					is_any_family_relation_or_spouse_trigger = { CHARACTER = scope:recipient }
+					hostage_oath_of_friendship_trigger = yes
+				}
 			}
 		}
 	}
 	
 	is_valid_showing_failures_only = {
+		custom_description = {
+			text = "lotr_elven_already_has_an_alliance_deal"
+			subject = scope:recipient
+			scope:actor = {
+				NOT = {
+					any_ally = {
+						has_opinion_modifier = {
+							modifier = lotr_elven_perk_negotiated_alliance_opinion
+							target = scope:actor
+						}
+					}
+				}
+			}
+		}
 		scope:recipient = {
 			is_playable_character = yes
 			is_imprisoned = no
@@ -1060,6 +1086,18 @@ negotiate_alliance_interaction = {
 	is_valid = { #To give some clarity to the tooltip that states "blood ties"
 
 		OR = {
+			scope:actor = { #LotR
+				trigger_if = {
+					limit = {
+						is_elf = yes
+						has_perk = mortal_adoration_perk
+					}
+					any_relation = {
+						type = rival
+						has_relation_rival = scope:recipient
+					}
+				}
+			}
 			#Ruler has the defensive negotiations perk
 			scope:actor = { has_perk = defensive_negotiations_perk }
 			#Ruler is married to other ruler.
@@ -1407,6 +1445,31 @@ negotiate_alliance_interaction = {
 						target = scope:recipient
 						allied_through_owner = scope:actor
 						allied_through_target = scope:recipient
+					}
+				}
+			}
+			else_if = { #LotR
+				limit = {
+					scope:actor = {
+						is_elf = yes
+						has_perk = mortal_adoration_perk
+						any_relation = {
+							type = rival
+							has_relation_rival = scope:recipient
+						}
+					}
+				}
+				scope:actor = {
+					create_alliance = {
+						target = scope:recipient
+						allied_through_owner = scope:actor
+						allied_through_target = scope:recipient
+					}
+				}
+				scope:recipient = {
+					add_opinion = {
+						modifier = lotr_elven_perk_negotiated_alliance_opinion
+						target = scope:actor
 					}
 				}
 			}
@@ -2329,7 +2392,7 @@ perk_alliance_interaction = {
 			}
 			#Sauron and the Nazgûl ( MP Khamûl excepted ) do not enter alliances
 			is_sauron = no
-			or = {
+			OR = {
 				is_nazgul = no
 				has_character_flag = khamul
 			}

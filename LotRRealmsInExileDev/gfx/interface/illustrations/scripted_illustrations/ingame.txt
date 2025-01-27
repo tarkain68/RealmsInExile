@@ -12702,10 +12702,9 @@ character_view_bg = {
 					exists = primary_spouse
 					primary_spouse = {
 						exists = primary_title
-						# capital_province ?= {
-						# 	geographical_region = custom_greater_ray
-						# }
-						empire = title:e_khy
+						capital_province ?= {
+							geographical_region = middlearth_bay_of_ormal_khy
+						}
 						is_elf = no
 						# has_graphical_india_region_trigger = yes
 					}
@@ -12715,8 +12714,7 @@ character_view_bg = {
 					betrothed = {
 						exists = primary_title
 						capital_province ?= {
-							# geographical_region = custom_greater_ray
-							empire = title:e_khy
+							geographical_region = middlearth_bay_of_ormal_khy
 						}
 						is_elf = no
 						# has_graphical_india_region_trigger = yes
@@ -12727,8 +12725,7 @@ character_view_bg = {
 					liege ?= {
 						exists = primary_title
 						capital_province ?= {
-							# geographical_region = custom_greater_ray
-							empire = title:e_khy
+							geographical_region = middlearth_bay_of_ormal_khy
 						}
 						is_elf = no
 						# has_graphical_india_region_trigger = yes
