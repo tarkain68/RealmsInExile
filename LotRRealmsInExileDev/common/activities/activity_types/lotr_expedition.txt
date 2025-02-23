@@ -120,6 +120,13 @@
 				}
 			}
 		}
+		trigger_if = {
+			limit = { title:c_throne_of_erebor.title_province = { has_building = smaug } }
+			custom_tooltip = {
+				text = block_settlement_smaug_tooltip
+				NOT = { scope:wastelands.county.title_province = { has_building = smaug_desolation } }
+			}				
+		}
 		custom_tooltip = {
 			text = activity_expedition_valid_location_occupied
 			surrounding_lands_empty = yes
@@ -803,7 +810,7 @@
 			scope:host.location = {
 				graphical_wilderness_mountains_trigger = yes
 				exists = province_owner
-				is_dwarf = no
+				NOT = { is_dwarf = yes }
 			}
 		}
 		texture = "gfx/interface/illustrations/event_scenes/dwarven_gate.dds"
@@ -915,7 +922,7 @@
 			scope:host.location = {
 				graphical_hills_trigger = yes
 				exists = province_owner
-				is_dwarf = no
+				NOT = { is_dwarf = yes }
 			}
 		}
 		texture = "gfx/interface/illustrations/event_scenes/ep2_travel_hills.dds"

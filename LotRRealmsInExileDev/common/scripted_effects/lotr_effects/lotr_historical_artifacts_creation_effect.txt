@@ -1483,12 +1483,16 @@ create_artifact_glamdring_effect = {
 		equip_artifact_to_owner = yes 
 		save_scope_as = epic
 
-		add_artifact_history = {
-			type = discovered
-			date = 6974.5.1
-			location = province:4469 #Ettenmoors
-			actor = character:lineofgandalf
-			recipient = character:lineofgandalf
+
+		if = {
+			limit = { game_start_date >= 6974.5.1 }
+			add_artifact_history = {
+				type = discovered
+				date = 6974.5.1
+				location = province:4469 #Ettenmoors
+				actor = character:lineofbaggins12 # Bilbo Baggins
+				recipient = character:lineofgandalf
+			}
 		}
 	}
 }
@@ -3330,12 +3334,6 @@ create_artifact_arkenstone_effect = {
 		set_variable = arkenstone
 		set_variable = relic 
 		save_scope_as = epic
-		
-		if = {
-			limit = { game_start_date > 6974.11.30 } #Death of Thorin
-			add_artifact_modifier = arkenstone_thorin_modifier
-			set_variable = thorins_tomb
-		}
 
 		add_artifact_history = { # Thorin I
 			type = inherited
@@ -3366,22 +3364,18 @@ create_artifact_arkenstone_effect = {
 			type = inherited
 			date = 6622.1.6
 			recipient = character:lineofdurin81
+		}	
+		add_artifact_history = { # Bilbo
+			type = discovered
+			date = 6974.10.21
+			location = province:4408 #Throne of Erebor
+			actor = character:lineofbaggins12
+			recipient = character:lineofbaggins12
 		}
-		if = {
-			limit = { game_start_date > 6787.1.1 } # Long Winter BM
-			
-			add_artifact_history = { # Bilbo
-				type = discovered
-				date = 6974.10.21
-				location = province:4408 #Throne of Erebor
-				actor = character:lineofbaggins12
-				recipient = character:lineofbaggins12
-			}
-			add_artifact_history = { # Bard I of Dale
-				type = given
-				date = 6974.10.25
-				recipient = character:lineofdale46
-			}
+		add_artifact_history = { # Bard I of Dale
+			type = given
+			date = 6974.10.25
+			recipient = character:lineofdale46
 		}
 	}
 }
@@ -3549,12 +3543,15 @@ create_artifact_orcrist_effect = {
 			set_variable = thorins_tomb
 		}
 		
-		add_artifact_history = {
-			type = discovered
-			date = 6974.5.1
-			location = province:4469 #Ettenmoors
-			actor = character:lineofdurin83 # Thorin II Oakenshield
-			recipient = character:lineofdurin83 # Thorin II Oakenshield
+		if = {
+			limit = { game_start_date >= 6974.5.1 }
+			add_artifact_history = {
+				type = discovered
+				date = 6974.5.1
+				location = province:4469 #Ettenmoors
+				actor = character:lineofbaggins12 # Bilbo Baggins
+				recipient = character:lineofdurin83 # Thorin II Oakenshield
+			}
 		}
 	}
 }
@@ -3575,7 +3572,7 @@ create_artifact_axe_of_durin_effect = {
 				desc = axe_of_durin_description_balrog
 			}
 		}
-		type = axe
+		type = longaxe
 		visuals = axe_of_durin
 		template = axe_of_durin_template
 		wealth = scope:wealth
@@ -4282,7 +4279,16 @@ create_artifact_sting_effect = {
 	# Create the artifact
 	create_artifact = {
 		name = sting_name
-		description = sting_description
+		description = {
+			triggered_desc = {
+				trigger = { game_start_date < 6974.5.1 }
+				desc = sting_description_preBilbo
+			}
+			triggered_desc = {
+				trigger = { game_start_date >= 6974.5.1 }
+				desc = sting_description_Bilbo
+			}
+		} 
 		type = dagger
 		visuals = sting
 		wealth = scope:wealth
@@ -4305,12 +4311,15 @@ create_artifact_sting_effect = {
 		equip_artifact_to_owner = yes 
 		save_scope_as = epic
 
-		add_artifact_history = {
-			type = discovered
-			date = 6974.5.1
-			location = province:4469 #Ettenmoors
-			actor = character:lineofbaggins12 # Bilbo Baggins
-			recipient = character:lineofbaggins12 # Bilbo Baggins
+		if = {
+			limit = { game_start_date >= 6974.5.1 }
+			add_artifact_history = {
+				type = discovered
+				date = 6974.5.1
+				location = province:4469 #Ettenmoors
+				actor = character:lineofbaggins12 # Bilbo Baggins
+				recipient = character:lineofbaggins12 # Bilbo Baggins
+			}
 		}
 	}
 }
@@ -5957,7 +5966,7 @@ create_artifact_watch_chronicle_effect = {
 			type = created
 			date = 4036.3.7
 			actor = character:lineofanarion5 #Meneldil, son of Anárion
-			recipient = character:predolamroth441 # First Commander of the Watch
+			recipient = character:predolamroth5brother # First Commander of the Watch
 			location = province:614 #Morannon
 		}
 		modifier = watch_chronicle_modifier
@@ -5973,7 +5982,7 @@ create_artifact_watch_chronicle_effect = {
 		add_artifact_history = { # Meneldil orders his realm after Isildur's departure
 			type = given
 			date = 4036.3.7
-			recipient = character:predolamroth441
+			recipient = character:predolamroth5brother
 		}
 		add_artifact_history = { # 
 			type = inherited
@@ -8071,7 +8080,13 @@ create_artifact_wulf_fang_effect = {
 	# Create the artifact
 	create_artifact = {
 		name = wulf_fang_name
-		description = wulf_fang_description
+		description = {
+			desc = wulf_fang_description
+			triggered_desc = {
+				trigger = { game_start_date > 6792.4.5 }
+				desc = wulf_fang_description_post_LW
+			}
+		}
 		type = sword
 		visuals = wulf_fang
 		template = wulf_fang_template
@@ -9090,33 +9105,6 @@ create_artifact_the_grand_concordant_effect = {
 	}
 }
 
-create_artifact_crown_of_imrazor_II_effect = {
-	# Get the character the artifact is being made for.
-	$OWNER$ = { save_scope_as = owner }
-	# Not really used, but if we don't set the scopes we get errors in the feature selection
-	set_artifact_rarity_illustrious = yes
-
-	# Create the artifact
-	create_artifact = {
-		name = crown_of_imrazor_II_name
-		description = crown_of_imrazor_II_description
-		type = miscellaneous
-		visuals = crown_of_imrazor_II
-		wealth = scope:wealth
-		quality = scope:quality
-		modifier = crown_of_imrazor_II_modifier
-		save_scope_as = newly_created_artifact
-		decaying = no
-	}
-
-	scope:newly_created_artifact = {
-		set_variable = { name = historical_unique_artifact value = yes }
-		set_variable = crown_of_imrazor_II
-		set_variable = relic 
-		save_scope_as = epic
-	}
-}
-
 
 ### ADVENTURE ARTIFACTS ###
 
@@ -9781,7 +9769,7 @@ create_artifact_windlance_bolt_effect = {
 	create_artifact = {
 		name = windlance_bolt_name
 		description = windlance_bolt_description
-		type = book
+		type = pedestal
 		visuals = windlance_bolt
 		wealth = scope:wealth
 		quality = scope:quality
@@ -10303,7 +10291,21 @@ create_artifact_black_arrow_effect = {
 	# Create the artifact
 	create_artifact = {
 		name = black_arrow_name
-		description = black_arrow_description
+		description = {
+			triggered_desc = {
+				trigger = { 
+					game_start_date > 6785.1.1 
+					game_start_date < 6977.1.1 #death of Smaug
+				}
+				desc = black_arrow_description_LW
+			}
+			triggered_desc = {
+				trigger = { 
+					game_start_date > 6977.1.1 #death of Smaug
+				}
+				desc = black_arrow_description_WotR
+			}
+		}
 		type = pedestal
 		visuals = black_arrow
 		template = general_unique_template
@@ -10312,7 +10314,7 @@ create_artifact_black_arrow_effect = {
 		history = {
 			type = created
 			date = 6785.1.1
-			recipient = character:lineofdale36 #Girion
+			recipient = character:lineofdale35 #Girion's father
 			location = province:3390 #Dale
 
 		}
@@ -11802,6 +11804,34 @@ create_artifact_statue_of_oropher_effect = {
 	scope:newly_created_artifact = {
 		set_variable = { name = historical_unique_artifact value = yes }
 		set_variable = statue_of_oropher
+		set_variable = relic 
+		save_scope_as = epic
+	}
+}
+
+
+create_artifact_crown_of_imrazor_II_effect = {
+	# Get the character the artifact is being made for.
+	$OWNER$ = { save_scope_as = owner }
+	# Not really used, but if we don't set the scopes we get errors in the feature selection
+	set_artifact_rarity_illustrious = yes
+
+	# Create the artifact
+	create_artifact = {
+		name = crown_of_imrazor_II_name
+		description = crown_of_imrazor_II_description
+		type = miscellaneous
+		visuals = crown_of_imrazor_II
+		wealth = scope:wealth
+		quality = scope:quality
+		modifier = crown_of_imrazor_II_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+
+	scope:newly_created_artifact = {
+		set_variable = { name = historical_unique_artifact value = yes }
+		set_variable = crown_of_imrazor_II
 		set_variable = relic 
 		save_scope_as = epic
 	}

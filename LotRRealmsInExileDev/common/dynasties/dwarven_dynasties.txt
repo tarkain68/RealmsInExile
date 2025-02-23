@@ -154,7 +154,7 @@ dynasty_brogur = {
 
 dynasty_marin = {
 	name = "dynn_marin"
-	culture = longbeards
+	culture = "longbeards"
 	motto = dynn_marin_motto
 }
 
@@ -180,6 +180,12 @@ dynasty_sogin = {
 	name = "dynn_sogin"
 	culture = "longbeards"
 	motto = dynn_sogin_motto
+}
+
+dynasty_uthakmesem = { # Balfor dynasty
+	name = "dynn_uthakmesem"
+	culture = "longbeards"
+	motto = dynn_uthakmesem_motto
 }
 
 ####################
@@ -342,7 +348,7 @@ dynasty_grasil = {
 	motto = dynn_grasil_motto
 }
 dynasty_goat = {
-	name = "dynn_Payne"
+	name = "dynn_gul"
 	culture = "blacklocks"
 	motto = dynn_goat_motto
 }

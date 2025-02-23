@@ -1,29 +1,39 @@
 ﻿activity_sailing = {
-
 	is_shown = {
 		is_playable_character = yes
 		is_in_valinor = no
 		is_ai = no
+		
 		NOR = {
 			is_undead = yes 
 			is_maiar_fallen = yes
+			is_nazgul = yes
 			is_orc = yes # Orcs hate water
-			is_dwarf = yes # What will we do with the Dwarven sailor ? Early in the morning !
+			is_hobbit = yes # Most hobbits aren't fond of boating
+			is_druedain = yes # They don't build ships
+			trigger_if = {
+				limit = { is_dwarf = yes }
+				NOT = { has_title = title:c_kheledul }
+			}
 		}
+		
 		OR = {
 			any_realm_county = {
 				title_province = { 
-					is_coastal = yes
-					NOT = { geographical_region = middleearth_rhun } # Inland sea
+					OR = {
+						is_coastal = yes
+						AND = { 
+							has_building_or_higher = common_tradeport_01 
+							geographical_region = middleearth_rhun # Inland sea
+						}
+					}
 				}
 			}
 			is_landless_ruler = yes
-			# domicile ?= {
-				# domicile_location = {
-					# is_coastal = yes 
-					# NOT = { geographical_region = middleearth_rhun } # Inland sea
-				# }
-			# }
+			AND = {
+				is_dwarf = yes
+				has_title = title:c_kheledul
+			}
 		}
 	}
 
@@ -41,10 +51,7 @@
 			is_imprisoned = no
 			is_playable_character = yes 
 			NOT = { is_incapable = yes }
-			# OR = {
-				# owns_a_boat = yes
-				# can_afford_a_boat = yes
-			# }
+	
 		}
 	}
 
@@ -195,6 +202,292 @@
 						desc = activity_sailing_province_desc_special_building_major
 					}
 				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_port_of_hyarpende_01
+						}
+					}
+					multiply = {
+						value = 0.9
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_edhellond_01
+						}
+					}
+					multiply = {
+						value = 0.85
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_mirlond
+						}
+					}
+					multiply = {
+						value = 0.85
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_umbar_01
+						}
+					}
+					multiply = {
+						value = 0.75
+						desc = activity_sailing_province_desc_special_building_major
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_shipyards_nykkea
+						}
+					}
+					multiply = {
+						value = 0.8
+						desc = activity_sailing_province_desc_special_building_major
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_haven_korlea
+						}
+					}
+					multiply = {
+						value = 0.8
+						desc = activity_sailing_province_desc_special_building_major
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_bozisha_dar_port_01
+						}
+					}
+					multiply = {
+						value = 0.85
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_esgaroth
+						}
+					}
+					multiply = {
+						value = 0.85
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_lond_daer_01
+						}
+					}
+					multiply = {
+						value = 0.9
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_mistalonde_01
+						}
+					}
+					multiply = {
+						value = 0.85
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_mistalonde_original
+						}
+					}
+					multiply = {
+						value = 0.8
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_mithlond_north_01
+						}
+					}
+					multiply = {
+						value = 0.7
+						desc = activity_sailing_province_desc_special_building_major
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_mithlond_south_01
+						}
+					}
+					multiply = {
+						value = 0.7
+						desc = activity_sailing_province_desc_special_building_major
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_harlond_01
+						}
+					}
+					multiply = {
+						value = 0.85
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_forlond_01
+						}
+					}
+					multiply = {
+						value = 0.85
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_tradeport_of_kheledul
+						}
+					}
+					multiply = {
+						value = 0.8
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_caras_celairnen_01
+						}
+					}
+					multiply = {
+						value = 0.9
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_haven_of_inzilloni
+						}
+					}
+					multiply = {
+						value = 0.85
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_mispir
+						}
+					}
+					multiply = {
+						value = 0.75
+						desc = activity_sailing_province_desc_special_building_major
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_ardinak_01
+						}
+					}
+					multiply = {
+						value = 0.9
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_tul_harar_01
+						}
+					}
+					multiply = {
+						value = 0.85
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				} 
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_serelond
+						}
+					}
+					multiply = {
+						value = 0.85
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_annondrun
+						}
+					}
+					multiply = {
+						value = 0.9
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_arpel_01
+						}
+					}
+					multiply = {
+						value = 0.85
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_beacon_sornomar
+						}
+					}
+					multiply = {
+						value = 0.9
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
+				if = {
+					limit = {
+						scope:province ?= { 
+							has_building_or_higher = wonder_lighthouse_of_adunazain
+						}
+					}
+					multiply = {
+						value = 0.85
+						desc = activity_sailing_province_desc_special_building_minor
+					}
+				}
 			}
 		}
 	}
@@ -233,26 +526,6 @@
 	is_location_valid = {
 		trigger_if = {
 			limit = {
-				scope:host = { 
-					is_ai = no 
-					OR = {
-						is_landless_adventurer = yes
-						is_landed = no
-					}
-				}
-				this = scope:host.location
-			}
-			custom_tooltip = {
-				text = sailing_province_requirement_landless
-				scope:host.location = {
-					is_coastal = yes
-					has_holding = yes
-					barony = { is_capital_barony = yes }
-				}
-			}
-		}
-		trigger_else_if = {
-			limit = {
 				scope:host = {
 					is_ai = no
 					is_landless_adventurer = no
@@ -264,16 +537,40 @@
 					any_realm_province = {
 						this = root
 						has_holding = yes
-						is_coastal = yes
+						OR = { 
+							is_coastal = yes 
+							AND = {
+								has_building_or_higher = common_tradeport_01 
+								geographical_region = middleearth_rhun
+							}
+							has_building_or_higher = wonder_tradeport_of_kheledul
+							has_building_or_higher = wonder_caras_celairnen_01
+						}
 						barony = { is_capital_barony = yes }
 					}
 				}
 			}
 		}
+		trigger_else_if = {
+			limit = { 
+				is_sea_province = no 
+				is_river_province = no
+				exists = root.county
+				NOT = { root.county.holder = { opposite_alignment = { TARGET = scope:host } } } #LotR
+				is_coastal = yes
+				has_holding = yes
+				NOT = { has_holding_type = wastelands_holding }
+				#barony = { is_capital_barony = yes }
+				scope:host = { in_diplomatic_range = root.county.holder }
+				#NOT = { geographical_region = middleearth_rhun }
+				NOT = { geographical_region = middleearth_valinor }
+			}
+		}
 		trigger_else = {
-			is_coastal = yes
-			has_holding = yes
-			barony = { is_capital_barony = yes }
+			custom_tooltip = {
+				text = sailing_province_requirement_landless
+				always = no 
+			}
 		}
 	}
 
@@ -289,7 +586,7 @@
 		desc = activity_sailing_guest_desc
 	}
 	
-	cooldown = { years = 5 } 
+	cooldown = { years = 2 } 
 
 	conclusion_description = {
 		desc = activity_sailing_conclusion_desc
@@ -380,6 +677,162 @@
 				has_building_or_higher = wonder_port_of_pelargir_01
 			}
 			desc = activity_sailing_province_desc_special_building_major
+		}
+		triggered_desc = {
+			trigger = {
+				has_building_or_higher = wonder_port_of_hyarpende_01
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = { 
+			trigger = {
+				has_building_or_higher = wonder_edhellond_01
+			}
+			desc = activity_sailing_province_desc_special_building_major
+		}
+		triggered_desc = { 
+			trigger = {
+				has_building_or_higher = wonder_mirlond
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = { 
+			trigger = {
+				has_building_or_higher = wonder_umbar_01
+			}
+			desc = activity_sailing_province_desc_special_building_major
+		}
+		triggered_desc = {  
+			trigger = {
+				has_building_or_higher = wonder_shipyards_nykkea
+			}
+			desc = activity_sailing_province_desc_special_building_major
+		}
+		triggered_desc = {  
+			trigger = {
+				has_building_or_higher = wonder_haven_korlea
+			}
+			desc = activity_sailing_province_desc_special_building_major
+		}
+		triggered_desc = { 
+			trigger = {
+				has_building_or_higher = wonder_bozisha_dar_port_01
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = { 
+			trigger = {
+				has_building_or_higher = wonder_esgaroth
+			}
+			desc = activity_sailing_province_desc_special_building_major
+		}
+		triggered_desc = {  
+			trigger = {
+				has_building_or_higher = wonder_lond_daer_01
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = { 
+			trigger = {
+				has_building_or_higher = wonder_mistalonde_01
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = {  
+			trigger = {
+				has_building_or_higher = wonder_mistalonde_original
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = { 
+			trigger = {
+				has_building_or_higher = wonder_mithlond_north_01
+			}
+			desc = activity_sailing_province_desc_special_building_major
+		}
+		triggered_desc = {  
+			trigger = {
+				has_building_or_higher = wonder_mithlond_south_01
+			}
+			desc = activity_sailing_province_desc_special_building_major
+		}
+		triggered_desc = { 
+			trigger = {
+				has_building_or_higher = wonder_harlond_01
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = { 
+			trigger = {
+				has_building_or_higher = wonder_forlond_01
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = { 
+			trigger = {
+				has_building_or_higher = wonder_tradeport_of_kheledul
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = { 
+			trigger = {
+				has_building_or_higher = wonder_caras_celairnen_01
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = {  
+			trigger = {
+				has_building_or_higher = wonder_haven_of_inzilloni
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = { 
+			trigger = {
+				has_building_or_higher = wonder_mispir
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = {  
+			trigger = {
+				has_building_or_higher = wonder_ardinak_01
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = {  
+			trigger = {
+				has_building_or_higher = wonder_tul_harar_01
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = {  
+			trigger = {
+				has_building_or_higher = wonder_serelond
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = {  
+			trigger = {
+				has_building_or_higher = wonder_annondrun
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = {  
+			trigger = {
+				has_building_or_higher = wonder_arpel_01
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = {  
+			trigger = {
+				has_building_or_higher = wonder_beacon_sornomar
+			}
+			desc = activity_sailing_province_desc_special_building_minor
+		}
+		triggered_desc = {  
+			trigger = {
+				has_building_or_higher = wonder_lighthouse_of_adunazain
+			}
+			desc = activity_sailing_province_desc_special_building_minor
 		}
 	}
 
@@ -521,6 +974,18 @@
 			}
 			add = 5
 		}
+		if = { 
+			limit = {
+				has_building_or_higher = wonder_tradeport_of_kheledul
+			}
+			add = 5
+		}
+		if = { 
+			limit = {
+				has_building_or_higher = wonder_caras_celairnen_01
+			}
+			add = 5
+		}
 		if = {  
 			limit = {
 				has_building_or_higher = wonder_haven_of_inzilloni
@@ -542,6 +1007,36 @@
 		if = {  
 			limit = {
 				has_building_or_higher = wonder_tul_harar_01
+			}
+			add = 5
+		}
+		if = {  
+			limit = {
+				has_building_or_higher = wonder_serelond
+			}
+			add = 5
+		}
+		if = {  
+			limit = {
+				has_building_or_higher = wonder_annondrun
+			}
+			add = 5
+		}
+		if = {  
+			limit = {
+				has_building_or_higher = wonder_arpel_01
+			}
+			add = 5
+		}
+		if = {  
+			limit = {
+				has_building_or_higher = wonder_beacon_sornomar
+			}
+			add = 5
+		}
+		if = {  
+			limit = {
+				has_building_or_higher = wonder_lighthouse_of_adunazain
 			}
 			add = 5
 		}
@@ -568,17 +1063,18 @@
 						OR = {
 							culture = { has_cultural_tradition = tradition_corsairs_of_umbar }
 							culture = { has_cultural_tradition = tradition_seafaring }
+							faith = { has_doctrine = tenet_corsairs } 
+							has_trait = lifestyle_hunter
 						}
-						# can_raid_across_water = yes
+					}
+					custom_tooltip = {
+						text = SAILING_RAID_NO_RHUN
+						NOT = { capital_province = { geographical_region = middleearth_rhun } }# Inland sea
 					}
 				}
 				cost = {
 					gold = {
 						add = {
-							add = {
-								value = sailing_base_cost
-								desc = hunt_type_falconry
-							}
 							if = {
 								limit = {
 									dynasty ?= {
@@ -608,20 +1104,19 @@
 				is_valid = { 
 					custom_tooltip = {
 						text = SAILING_MENELTARMA_ENABLED
-						has_trait = lifestyle_mariner 
+						has_trait_xp = {
+							trait = lifestyle_mariner
+							value >= 50
+						}
 					}
 					custom_tooltip = {
-						text = SAILING_FAILED_NAVIGATION
-						NOT = { has_character_flag = failed_to_navigate_towards_numenor }
+						text = SAILING_MENELTARMA_NO_RHUN
+						NOT = { capital_province = { geographical_region = middleearth_rhun } }
 					}
 				}
 				cost = {
 					gold = {
 						add = {
-							add = {
-								value = sailing_base_cost
-								desc = hunt_type_legendary
-							}
 							if = {
 								limit = {
 									dynasty ?= {
@@ -655,7 +1150,12 @@
 		sailing_option_ship_choice = {
 			sailing_charter = {
 				default = yes
-				
+				is_valid = {
+					NOR = { 
+						this.house ?= { has_house_modifier = owns_small_ship }
+						this.house ?= { has_house_modifier = owns_big_ship }
+					}
+				}
 				# desc is only shown in debug AI watch window
 				ai_will_do = { value = 100 }
 			}
@@ -664,8 +1164,10 @@
 					can_make_expensive_purchase_trigger = {
 						PRICE = root.sailing_small_ship_cost
 					}
+					NOT = { 
+						this.house ?= { has_house_modifier = owns_big_ship }
+					}
 				}
-
 				cost = {
 					gold = {
 						add = {
@@ -675,9 +1177,7 @@
 							}
 							if = {
 								limit = {
-									dynasty ?= {
-										has_dynasty_modifier = owns_small_ship
-									}
+									this.house ?= { has_house_modifier = owns_small_ship }
 								}
 								subtract = {
 									value = sailing_small_ship_cost
@@ -707,9 +1207,7 @@
 							}
 							if = {
 								limit = {
-									dynasty ?= {
-										has_dynasty_modifier = owns_big_ship
-									}
+									this.house ?= { has_house_modifier = owns_big_ship }
 								}
 								subtract = {
 									value = sailing_big_ship_cost
@@ -731,10 +1229,11 @@
 		sailing_option_guests = {
 			sailing_guests_none = {
 				#Alone or just one or two guests
-				travel_entourage_selection = { 
-					weight = hunt_entourage_base_set_weighting_value
-					max = 3
-   					invite_rule_order = 2
+				default = yes
+				travel_entourage_selection = {
+					weight = standard_travel_entourage_additions
+					max = 5
+					invite_rule_order = 1
 				}
 				ai_will_do = {
 					value = 20
@@ -747,7 +1246,6 @@
 				}
 			}
 			sailing_guests_few = {
-				default = yes
 				cost = { 
 					gold = {
 						add = {
@@ -761,10 +1259,7 @@
 					}
 				}	
 				travel_entourage_selection = {
-					weight = {
-						add = hunt_entourage_base_set_weighting_value
-						add = hunt_entourage_extras_set_weighting_value
-					}
+					weight = standard_travel_entourage_additions
 					max = 10
    					invite_rule_order = 2
 				}				
@@ -812,12 +1307,7 @@
 					}
 				}		
 				travel_entourage_selection = {
-					weight = {
-						add = hunt_entourage_base_set_weighting_value
-						add = hunt_entourage_extras_set_weighting_value
-						add = hunt_entourage_sodding_everyone_set_weighting_value
-					}
-
+					weight = standard_travel_entourage_additions
 					max = 20
    					invite_rule_order = 2
 				}				
@@ -865,24 +1355,35 @@
 			is_predefined = yes
 
 			on_phase_active = {
-				create_character = { # Make sure we have at least one crewmate
-					employer = scope:host
-					gender_female_chance = 30
-					template = new_commander_character
-					faith = scope:host.faith
-					culture = scope:host.culture
-					trait = lifestyle_mariner
-					save_scope_as = new_cremwmate
-				}
-				
-				scope:new_cremwmate = { add_to_activity = scope:activity }
-				
 				scope:activity = { 
 					random_attending_character = { 
 						limit = { is_ai = yes }
 						save_scope_as = first_mate 
 					} 
 				}
+				
+				if = {
+					limit = {
+						NOT = { exists = scope:first_mate }
+					}
+					create_character = { # Make sure we have at least one crewmate
+						employer = scope:host
+						gender_female_chance = 30
+						template = new_commander_character
+						faith = scope:host.faith
+						culture = scope:host.culture
+						trait = lifestyle_mariner
+						save_scope_as = new_cremwmate
+					}
+					scope:new_cremwmate = { add_to_activity = scope:activity }
+					scope:activity = {
+						random_attending_character = { 
+							limit = { is_ai = yes }
+							save_scope_as = first_mate 
+						} 
+					}
+				}
+				
 				if = {
 					limit = {
 						this = scope:host
@@ -926,18 +1427,19 @@
 
 	guest_invite_rules = { # Done
 		rules = {
+			2 = activity_invite_rule_friends
 			2 = activity_invite_rule_lovers
 			3 = activity_invite_rule_close_family
 			3 = activity_invite_rule_extended_family
-			3 = activity_invite_rule_knights
+			#3 = activity_invite_rule_knights
 			#4 = activity_invite_rule_courtiers
 			4 = activity_invite_rule_guests
 			
 			# MP 
-			6 = activity_invite_mp
+			#6 = activity_invite_mp
 		}
 		defaults = {
-			1 = activity_invite_rule_friends
+			1 = activity_invite_rule_knights
 			4 = activity_invite_rule_courtiers
 		}
 	}
@@ -946,6 +1448,7 @@
 
 	can_be_activity_guest = { # DONE
 		is_lotr_adult = yes
+		is_ai = yes
 		NOT = { has_trait = incapable }
 		lotr_can_be_activity_guest = yes
 	}
@@ -962,13 +1465,12 @@
 		player_defaults = { reduce_stress_intent }
 	}
 
-	guest_join_chance = { # DONE
+	guest_join_chance = {
 		base = 10
 		base_activity_modifier = yes
 
 		# Scripted Modifiers
 		activity_guest_shared_ai_accept_modifier = yes 
-		activity_guest_hunt_ai_accept_modifier = yes
 	}
 
 	###################
@@ -986,9 +1488,9 @@
 					scope:activity = {
 						has_activity_option = { category = sailing_option_ship_choice option = sailing_small_ship }
 					}
-					dynasty = { NOT = { has_dynasty_modifier = owns_small_ship } }
+					this.house ?= { NOT = { has_house_modifier = owns_small_ship } }
 				}
-				dynasty = { add_dynasty_modifier = owns_small_ship }
+				this.house ?= { add_house_modifier = owns_small_ship }
 			}
 		}
 		scope:host = {
@@ -997,9 +1499,9 @@
 					scope:activity = {
 						has_activity_option = { category = sailing_option_ship_choice option = sailing_big_ship }
 					}
-					dynasty = { NOT = { has_dynasty_modifier = owns_big_ship } }
+					this.house ?= { NOT = { has_house_modifier = owns_big_ship } }
 				}
-				dynasty = { add_dynasty_modifier = owns_big_ship }
+				this.house ?= { add_house_modifier = owns_big_ship }
 			}
 		}
 	}

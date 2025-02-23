@@ -11682,15 +11682,15 @@ e_calenardhon = {
 			c_helmsdeep = {
 				color = { 80 100 50 }
 				cultural_names = {
-					# name_list_dunedain = b_aglarond
-					# name_list_ranger = b_aglarond
-				    # name_list_quenya = b_aglarond
-			        # name_list_sindarin = b_aglarond
-			        # name_list_nandorin = b_aglarond
-			        # name_list_elven = b_aglarond
-					name_list_rohirrim = cn_helmsdeep_rohirric
-					name_list_leofring = cn_helmsdeep_rohirric
-					name_list_framling = cn_helmsdeep_rohirric
+					name_list_dunedain = cn_helmsdeep_sindarin
+					name_list_ranger = cn_helmsdeep_sindarin
+				    name_list_quenya = cn_helmsdeep_sindarin
+			        name_list_sindarin = cn_helmsdeep_sindarin
+			        name_list_nandorin = cn_helmsdeep_sindarin
+			        name_list_elven = cn_helmsdeep_sindarin
+					# name_list_rohirrim = cn_helmsdeep_rohirric
+					# name_list_leofring = cn_helmsdeep_rohirric
+					# name_list_framling = cn_helmsdeep_rohirric
 				}
 				b_helmsdeep = {
 					province = 46
@@ -13648,7 +13648,7 @@ e_mordor = {
 		capital = c_thaurband
 		
 		d_nurn = {
-			color = { 181 70 31 }
+			color = { 160 50 20 }
 			
 			capital = c_thaurband
 			
@@ -31750,7 +31750,7 @@ e_greenwood = {
 	can_create = {
 		custom_description = { # Greenwood can only be (re)formed via decision!
 			text = greenwood_cannot_form_trigger
-			is_elf = no
+			NOT = { is_elf = yes }
 			is_nazgul = no
 		}
 		custom_description = {
@@ -46966,7 +46966,7 @@ e_forodwaith = {
 				b_kuollutsotu = {
 					province = 5186
 					
-					color = { 193 175 29 }
+					color = { 5 202 247 } #Teallakar Color
 					
 				}
 				
@@ -53231,10 +53231,20 @@ e_khy = {
             
             c_west_samarth = {
 				color = { 235 115 61 }
-                
+                cultural_names = {
+					name_list_adunaic = cn_samarth_adunaic_west
+					name_list_umbarean = cn_samarth_adunaic_west
+					name_list_mardrukan = cn_samarth_adunaic_west
+					name_list_south_adunaic = cn_samarth_adunaic_west
+				}
                 b_west_samarth = {
                     province = 6461
-                    
+                    cultural_names = {
+						name_list_adunaic = cn_samarth_adunaic_west
+						name_list_umbarean = cn_samarth_adunaic_west
+						name_list_mardrukan = cn_samarth_adunaic_west
+						name_list_south_adunaic = cn_samarth_adunaic_west
+					} 
                     color = { 43 206 42 }
                     
                 }
@@ -53545,10 +53555,20 @@ e_khy = {
             
             c_east_samarth = {
 				color = { 254 1 1 }
-                
+				cultural_names = {
+					name_list_adunaic = cn_samarth_adunaic_east
+					name_list_umbarean = cn_samarth_adunaic_east
+					name_list_mardrukan = cn_samarth_adunaic_east
+					name_list_south_adunaic = cn_samarth_adunaic_east
+				}                 
                 b_east_samarth = {
                     province = 6495
-                    
+					cultural_names = {
+						name_list_adunaic = cn_samarth_adunaic_east
+						name_list_umbarean = cn_samarth_adunaic_east
+						name_list_mardrukan = cn_samarth_adunaic_east
+						name_list_south_adunaic = cn_samarth_adunaic_east
+					}                   
                     color = { 157 138 66 }
                     
                 }
@@ -59208,6 +59228,7 @@ e_shayn = {
 		color = { 220 230 183 }
         
         capital = c_lyneria
+		definite_form = yes
         
         d_meloria = {
 			color = { 238 254 195 }

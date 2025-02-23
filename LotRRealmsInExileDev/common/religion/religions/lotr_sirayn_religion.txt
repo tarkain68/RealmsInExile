@@ -48,7 +48,7 @@ sirayn_religion = {
 	doctrine = doctrine_pilgrimage_encouraged
 
 	#Funeral tradition
-	doctrine = doctrine_funeral_bewailment
+	doctrine = doctrine_funeral_mummification
 	
 	traits = {
 		virtues = { humble just }
@@ -231,7 +231,7 @@ sirayn_religion = {
 	faiths = {
 		faith_taimaraud = {
 			color = { 54 54 54 }
-			icon = custom_black_numenorean_03
+			icon = custom_sauron_01
 			religious_head = d_tayb_manfas	
 
 			holy_site = tul_isra
@@ -267,7 +267,7 @@ sirayn_religion = {
 			doctrine = doctrine_spiritual_head
 			doctrine = doctrine_divorce_allowed
 			doctrine = doctrine_dominion_of_the_dark
-			doctrine = doctrine_bastardry_all
+			doctrine = doctrine_bastardry_legitimization
 			doctrine = doctrine_kinslaying_accepted
 			doctrine = doctrine_clerical_function_recruitment
 			doctrine = doctrine_pilgrimage_mandatory
@@ -276,8 +276,8 @@ sirayn_religion = {
 		}
 
 		faith_shyra = {
-			color = { 36 60 64 }
-			icon = custom_black_numenorean_03
+			color = { 36 60 84 }
+			icon = custom_ulukai
 
 			holy_site = junvar 
 			holy_site = tul_askar
@@ -314,8 +314,8 @@ sirayn_religion = {
 		}
 
 		faith_lalit = {
-			color = { 149 167 122 }
-			icon = viking_04
+			color = { 195 220 110 }
+			icon = rrmeaism
 
 			holy_site = tul_harar
 			holy_site = tul_isra
@@ -345,8 +345,8 @@ sirayn_religion = {
 		}
 		
 		faith_markur = {
-			color = { 53 61 41 }
-			icon = viking_04
+			color = { 70 80 40 }
+			icon = custom_deer
 			
 			holy_site = tul_isra
 			holy_site = tyarrett
@@ -372,11 +372,12 @@ sirayn_religion = {
 			#Doctrines
 			doctrine = doctrine_clerical_gender_male_only
 			doctrine = doctrine_echoes_of_the_ainur
+			doctrine = doctrine_funeral_bewailment
 		}
 
 		faith_vinaleem = {
-			color = { 118 61 64 }
-			icon = viking_04
+			color = {164 70 88 } #118 61 64
+			icon = custom_faith_lotus
 			
 			holy_site = tul_harar
 			holy_site = tul_isra
@@ -407,6 +408,7 @@ sirayn_religion = {
 			doctrine = doctrine_adultery_men_accepted
 			doctrine = doctrine_adultery_women_accepted
 			doctrine = doctrine_deviancy_virtuous
+			doctrine = doctrine_funeral_bewailment
 
 		}
 
@@ -473,8 +475,8 @@ sirayn_religion = {
 		}
 	
 		faith_mirsaya = {
-			color = { 118 117 34 }
-			icon = viking_04
+			color = { 90 160 110 }
+			icon = custom_water_lily
 
 			holy_site = tul_harar
 			holy_site = tul_isra
@@ -499,12 +501,13 @@ sirayn_religion = {
 			
 			#Doctrines
 			doctrine = doctrine_clerical_gender_female_only
+			doctrine = doctrine_funeral_bewailment
 			
 		}
 
 		faith_yom = {
-			color = { 70 70 40 }
-			icon = custom_black_numenorean_03
+			color = { 70 40 40 }
+			icon = kiratism
 
 			holy_site = tul_askar 
 			holy_site = tul_harar
@@ -538,8 +541,8 @@ sirayn_religion = {
 		}
 
 		faith_num = {
-			color = { 80 100 100 }
-			icon = viking_04
+			color = { 70 140 140 }
+			icon = custom_faith_aum_tibetan
 			religious_head = d_gabbaz_balahask
 			
 			holy_site = tul_harar
@@ -568,6 +571,38 @@ sirayn_religion = {
 			doctrine = doctrine_pluralism_righteous
 			doctrine = doctrine_spiritual_head
 			doctrine = doctrine_clerical_function_taxation
+		}
+		
+		faith_ulokan = {
+			color = { 131 198 236 }
+			icon = wave_hand_icon
+
+			holy_site = tul_harar
+			holy_site = lyneria
+			holy_site = lynhar
+			holy_site = junvar #PLACEHOLDER until Mumakan
+			holy_site = carnesra
+			
+			localization = {
+				HighGodName = sirayn_god_ulokan
+				HighGodNamePossessive = sirayn_god_ulokan_possessive
+				HighGodNameSheHe = CHARACTER_SHEHE_SHE
+				HighGodHerselfHimself = CHARACTER_HERSELF
+				HighGodHerHis = CHARACTER_HERHIS_HER
+				HighGodNameAlternate = sirayn_god_ulokan
+				HighGodNameAlternatePossessive = sirayn_god_ulokan_possessive
+			}
+			
+			# Tenets
+			doctrine = tenet_sirayn_syncretism
+			doctrine = tenet_astrology
+			doctrine = tenet_adaptive
+			
+			#Doctrines
+			doctrine = doctrine_clerical_gender_male_only
+			doctrine = doctrine_funeral_bewailment
+			doctrine = doctrine_concubines
+			
 		}
 	}
 }

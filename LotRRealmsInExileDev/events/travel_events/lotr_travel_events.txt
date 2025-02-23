@@ -21,6 +21,8 @@ namespace = lotr_travel_events
 # lotr_travel_events.0015		- Flies and Spiders
 # lotr_travel_events.0016       - Haunted Ruins
 # lotr_travel_events.0017       - Shuddering Earth
+# lotr_travel_events.0018		- A Gruesome Cave
+# lotr_travel_events.0019		- Follow-up to #18
 
 ############################################
 
@@ -1064,7 +1066,7 @@ lotr_travel_events.0007 = { # Travelling past Fangorn
 			location = province:176
 			location = province:175
 		}
-		is_elf = no
+		NOT = { is_elf = yes }
 	}
 	immediate = {
 		mp_delay_travel_plan = { DAYS = 90 }
@@ -2141,6 +2143,13 @@ lotr_travel_events.0011 = { # Troll Attack!
 			lotr_travel_events_snow_troll_trigger = yes
 			lotr_travel_events_hill_troll_trigger = yes
 		}
+		current_travel_plan = {
+			#Potential troll fodder ?
+			any_entourage_character = {
+				cannot_be_killed = no
+				NOT = { is_elf = yes }
+			}
+		}
 	}
 	weight_multiplier = {
 		base = 1
@@ -2292,9 +2301,8 @@ lotr_travel_events.0011 = { # Troll Attack!
 			random_entourage_character = {
 				limit = {
 					cannot_be_killed = no #lotr
-					is_elf = no
+					NOT = { is_elf = yes }
 				}
-				alternative_limit = { always = yes }
 				weight = {
 					base = 1
 					#modifier = { add = prowess }
@@ -2395,12 +2403,11 @@ lotr_travel_events.0011 = { # Troll Attack!
 				is_orc = yes
 				faith.religion = { is_in_family = rf_forcesofevil }
 			}
-			scope:troll_fodder ?= { cannot_be_killed = no }
-			is_elf = no
+			NOT = { is_elf = yes }
 			NOT = { # We dont want too many options
 				AND = {
 					has_trait = poet
-					is_orc = no
+					NOT = { is_orc = yes }
 				}
 			}
 		}
@@ -2519,40 +2526,32 @@ lotr_travel_events.0011 = { # Troll Attack!
 					title = lotr_travel_events.0011.b.failure.tt
 					right_icon = scope:troll
 					increase_wounds_effect = { REASON = fight }
-					if = {
-						limit = {
-							scope:troll_fodder ?= { cannot_be_killed = no }
-						}
-						scope:troll_fodder = {
-							death = {
-								death_reason = death_eaten
-								killer = scope:troll
-							}
+					scope:troll_fodder = {
+						death = {
+							death_reason = death_eaten
+							killer = scope:troll
 						}
 					}
 				}
 			}
 			5 = {
 				desc = lotr_travel_events.0011.b.critical_failure.tt
-				trigger = {
-					cannot_be_killed = no
-					is_elf = no
-				}
 				send_interface_toast = {
 					type = event_toast_effect_bad
 					title = lotr_travel_events.0011.b.critical_failure.tt
 					right_icon = scope:troll
-					death = {
-						death_reason = death_eaten
-						killer = scope:troll
-					}
 					if = {
 						limit = {
-							scope:troll_fodder ?= { cannot_be_killed = no }
+							NOT = { is_elf = yes }
+							cannot_be_killed = no
 						}
-						scope:troll_fodder = {
-							increase_wounds_effect = { REASON = fight }
+						death = {
+							death_reason = death_eaten
+							killer = scope:troll
 						}
+					}
+					scope:troll_fodder = {
+						increase_wounds_effect = { REASON = fight }
 					}
 				}
 				modifier = { # Make AI die less
@@ -2667,15 +2666,10 @@ lotr_travel_events.0011 = { # Troll Attack!
 					title = lotr_travel_events.0011.wound
 					right_icon = scope:troll
 					increase_wounds_effect = { REASON = fight }
-					if = {
-						limit = {
-							scope:troll_fodder ?= { cannot_be_killed = no }
-						}
-						scope:troll_fodder = {
-							death = {
-								death_reason = death_eaten
-								killer = scope:troll
-							}
+					scope:troll_fodder = {
+						death = {
+							death_reason = death_eaten
+							killer = scope:troll
 						}
 					}
 				}
@@ -2686,10 +2680,6 @@ lotr_travel_events.0011 = { # Troll Attack!
 			}
 			7 = {
 				desc = lotr_travel_events.0011.failure
-				trigger = {
-					cannot_be_killed = no #lotr
-					is_elf = no
-				}
 				compare_modifier = {
 					value = scope:duel_value
 					multiplier = -3.5
@@ -2698,17 +2688,18 @@ lotr_travel_events.0011 = { # Troll Attack!
 				send_interface_toast = {
 					title = lotr_travel_events.0011.failure
 					right_icon = scope:troll
-					death = {
-						death_reason = death_eaten
-						killer = scope:troll
-					}
 					if = {
 						limit = {
-							scope:troll_fodder ?= { cannot_be_killed = no }
+							cannot_be_killed = no #lotr
+							NOT = { is_elf = yes }
 						}
-						scope:troll_fodder = {
-							increase_wounds_effect = { REASON = fight }
+						death = {
+							death_reason = death_eaten
+							killer = scope:troll
 						}
+					}
+					scope:troll_fodder = {
+						increase_wounds_effect = { REASON = fight }
 					}
 				}
 				current_travel_plan = { 
@@ -2807,7 +2798,7 @@ lotr_travel_events.0011 = { # Troll Attack!
 			}
 			3 = {
 				trigger = {
-					is_elf = no
+					NOT = { is_elf = yes }
 					cannot_be_killed = no
 				}
 				compare_modifier = {
@@ -2846,7 +2837,6 @@ lotr_travel_events.0011 = { # Troll Attack!
 				diplomacy >= 18
 			}
 		}
-		
 	}
 	
 	option = { #Distract it with a riddle (Always succeeds)
@@ -2857,7 +2847,7 @@ lotr_travel_events.0011 = { # Troll Attack!
 				diplomacy >= 10
 			}
 			has_trait = poet
-			is_orc = no
+			NOT = { is_orc = yes }
 		}
 		custom_tooltip = lotr_travel_events.0011.e.success.tt
 		show_as_tooltip = {
@@ -2943,7 +2933,7 @@ lotr_travel_events.0011 = { # Troll Attack!
 			}
 			2 = {
 				trigger = {
-					is_elf = no
+					NOT = { is_elf = yes }
 					cannot_be_killed = no
 				}
 				compare_modifier = {
@@ -3010,15 +3000,10 @@ lotr_travel_events.0011 = { # Troll Attack!
 					title = lotr_travel_events.0011.h.failure.tt
 					right_icon = scope:troll
 					increase_wounds_effect = { REASON = fight }
-					if = {
-						limit = {
-							scope:troll_fodder ?= { cannot_be_killed = no }
-						}
-						scope:troll_fodder = {
-							death = {
-								death_reason = death_eaten
-								killer = scope:troll
-							}
+					scope:troll_fodder = {
+						death = {
+							death_reason = death_eaten
+							killer = scope:troll
 						}
 					}
 				}
@@ -3027,7 +3012,7 @@ lotr_travel_events.0011 = { # Troll Attack!
 				desc = lotr_travel_events.0011.h.critical_failure.tt
 				trigger = {
 					cannot_be_killed = no
-					is_elf = no
+					NOT = { is_elf = yes }
 				}
 				send_interface_toast = {
 					type = event_toast_effect_bad
@@ -3095,7 +3080,7 @@ lotr_travel_events.0012 = { # Wonders of the Mallorn Forest
 		location = { terrain = mallorn_forest }
 		faith_is_good = yes
 		NOT = { location.county.holder = root }
-		is_elf = no
+		NOT = { is_elf = yes }
 	}
 	
 	immediate = {
@@ -3451,7 +3436,6 @@ lotr_travel_events.0015 = { # Flies and Spiders
 			OR = {
 				is_orc = yes
 				is_nazgul = yes
-				is_orc_culture = yes
 			}
 		}
 		stress_impact = {
@@ -4099,10 +4083,224 @@ lotr_travel_events.0017 = {
 				has_trait = cynical
 			}
 		}
-
 	}
-
-
 }
 
+##########################################
+# A Gruesome Cave
+# by Aerien
+# 0018
+# Very rare event for travelling in the North
+##########################################
 
+lotr_travel_events.0018 = {
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_events.0018.t
+	desc = lotr_travel_events.0018.desc
+	theme = travel
+	override_background = {
+		reference = wilderness_forest_deep
+	}
+	left_portrait = {
+		character = root
+	   	animation = thinking
+	}
+	cooldown = { years = 25 }
+	trigger = {
+		is_available_travelling = yes
+		is_landed = yes
+		is_location_valid_for_travel_event_on_land = yes
+		location = {
+			OR = {
+				geographical_region = middleearth_west_rhovanion
+				geographical_region = middleearth_west_arnor
+				geographical_region = middleearth_misty_mountains
+			}
+			NOT = { terrain = halls }
+		}
+		NOR = {
+			is_maiar_fallen = yes
+			is_nazgul = yes
+		}
+	}
+	immediate = {
+		traveler_danger_xp_effect = {
+			MIN = 3
+			MAX = 7
+		}
+	}
+	option = { # Uh, best leave that scary cave be
+		name = lotr_travel_events.0018.a
+		stress_impact = {
+			base = minor_stress_impact_loss
+			craven = major_stress_impact_loss
+			brave = minor_stress_impact_gain
+			shy = major_stress_impact_loss
+			lazy = major_stress_impact_loss
+		}
+		
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_trait = lazy
+				has_trait = craven
+				has_trait = shy
+			}
+			modifier = {
+				factor = 0
+				has_trait = diligent
+				has_trait = brave
+			}
+		}
+		
+	}
+	option = { # Bury the dead
+		name = lotr_travel_events.0018.b
+		trigger = { faith_is_evil = no }
+		add_piety = medium_piety_gain
+		stress_impact = {
+			zealous = medium_stress_impact_loss
+			cynical = medium_stress_impact_gain
+			diligent = minor_stress_impact_loss
+			lazy = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_trait = zealous
+				has_trait = diligent
+			}
+			modifier = {
+				factor = 0
+				has_trait = cynical
+				has_trait = lazy
+			}
+		}
+	}
+
+	option = { # Loot and desecrate the corpses
+		name = lotr_travel_events.0018.c
+		trigger = {
+			faith_is_evil = yes
+		}
+		add_gold = medium_gold_value
+		add_piety = medium_piety_gain
+		stress_impact = {
+			compassionate = major_stress_impact_gain
+			forgiving = major_stress_impact_gain
+			zealous = medium_stress_impact_loss
+			sadistic = major_stress_impact_loss
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_trait = sadistic
+				has_trait = zealous
+			}
+			modifier = {
+				factor = 0
+				has_trait = compassionate
+				has_trait = forgiving
+			}
+		}
+	}
+
+	option = { # Investigate the cave!
+		name = lotr_travel_events.0018.d
+		trigger = {
+			NOT = { is_orc = yes }
+		}
+		custom_tooltip = lotr_travel_events.0018.d.tt
+		current_travel_plan = {
+			delay_travel_plan = { days = 5 }
+		}
+		trigger_event = {
+			id = lotr_travel_events.0019
+			days = 1 
+		}
+		stress_impact = {
+			brave = medium_stress_impact_loss
+			diligent = medium_stress_impact_loss
+			lazy = medium_stress_impact_gain
+			craven = medium_stress_impact_gain
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				add = 50
+				has_trait = brave
+				has_trait = diligent
+			}
+			modifier = {
+				factor = 0
+				has_trait = lazy
+				has_trait = craven
+			}
+		}
+	}
+}
+
+##########################################
+# A Gruesome Cave - Follow-up: investigate
+# by Aerien
+# 0019
+# Very rare event for travelling in the North
+##########################################
+
+lotr_travel_events.0019 = {
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_travel_events.0019.t
+	desc = lotr_travel_events.0019.desc
+	theme = travel
+	override_background = {
+		reference = wilderness_underground
+	}
+	left_portrait = {
+		character = root
+	   	animation = personality_callous
+	}
+	right_portrait = {
+		character = scope:cavechild
+		animation = stayback
+	}
+	immediate = {
+		create_character = {
+			location = root.location
+			dynasty = none
+			culture = culture:hithaeglirim
+			faith = faith:faith_nefrea
+			template = peasant_character
+			gender_female_chance = 50
+			age = 6
+			after_creation = {
+				#set_to_lowborn = yes
+				add_trait = skinchanger
+				add_trait = physique_good_2
+				remove_trait = peasant_leader
+			}
+			save_scope_as = cavechild
+		}
+	}
+	option = { # Leave it be 
+		name = lotr_travel_events.0019.a 
+		add_gold = minor_gold_value
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			sadistic = medium_stress_impact_loss
+		}
+	}
+	option = { # Take the child with you
+		name = lotr_travel_events.0019.b 
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = medium_stress_impact_gain
+		}
+		add_gold = minor_gold_value
+		add_courtier = scope:cavechild
+	}
+}

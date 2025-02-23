@@ -93,8 +93,8 @@
  PORTRAIT_MODIFIER_custom_clothes_male_clothes_secular_northern_nobility_01_high:0 "Northmen High Nobility Clothing 1"
  PORTRAIT_MODIFIER_custom_clothes_male_clothes_secular_northern_nobility_02_high:0 "Northmen High Nobility Clothing 2"
 
- PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_northern_war_nob_01_lo:0 "Northmen Armor Low"
- PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_northern_war_nob_01_hi:0 "Northmen Armor High"
+ PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_northern_war_nob_01_lo:0 "Daen Armor Low" 
+ PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_northern_war_nob_01_hi:0 "Daen Armor High"
 
 ### Female ###
  PORTRAIT_MODIFIER_custom_clothes_female_clothes_secular_northern_nobility_01_common:0 "Northmen Commoner Clothing 1"
@@ -104,8 +104,8 @@
  PORTRAIT_MODIFIER_custom_clothes_female_clothes_secular_northern_nobility_01_high:0 "Northmen High Nobility Clothing 1"
  PORTRAIT_MODIFIER_custom_clothes_female_clothes_secular_northern_nobility_02_high:0 "Northmen High Nobility Clothing 2"
 
- PORTRAIT_MODIFIER_custom_clothes_f_clothes_sec_northern_war_nob_01_lo:0 "Northmen Armor Low"
- PORTRAIT_MODIFIER_custom_clothes_f_clothes_sec_northern_war_nob_01_hi:0 "Northmen Armor High"
+ PORTRAIT_MODIFIER_custom_clothes_f_clothes_sec_northern_war_nob_01_lo:0 "Daen Armor Low"
+ PORTRAIT_MODIFIER_custom_clothes_f_clothes_sec_northern_war_nob_01_hi:0 "Daen Armor High"
 
 ###############
 ### Byzantine ###
@@ -319,7 +319,7 @@
  PORTRAIT_MODIFIER_custom_clothes_male_clothes_secular_fp1_nobility_02_low:0 "@wrath_icon! Dunlending Low Nobility Clothing 2"
  PORTRAIT_MODIFIER_custom_clothes_male_clothes_secular_fp1_nobility_01_high:0 "@wrath_icon! Dunlending High Nobility Clothing 1"
  PORTRAIT_MODIFIER_custom_clothes_male_clothes_secular_fp1_nobility_02_high:0 "@wrath_icon! Dunlending High Nobility Clothing 2"
- PORTRAIT_MODIFIER_custom_clothes_male_clothes_secular_fp1_war_nobility_01:0 "@wrath_icon! Daen Armor"
+ PORTRAIT_MODIFIER_custom_clothes_male_clothes_secular_fp1_war_nobility_01:0 "@wrath_icon! Woodmen Armor"
 
 ### Female ###
  PORTRAIT_MODIFIER_custom_clothes_female_clothes_secular_fp1_common_01:0 "@wrath_icon! Dunlending Commoner Clothing 1"
@@ -328,8 +328,7 @@
  PORTRAIT_MODIFIER_custom_clothes_female_clothes_secular_fp1_nobility_02_low:0 "@wrath_icon! Dunlending Low Nobility Clothing 2"
  PORTRAIT_MODIFIER_custom_clothes_female_clothes_secular_fp1_nobility_01_high:0 "@wrath_icon! Dunlending High Nobility Clothing 1"
  PORTRAIT_MODIFIER_custom_clothes_female_clothes_secular_fp1_nobility_02_high:0 "@wrath_icon! Dunlending High Nobility Clothing 2"
-
- PORTRAIT_MODIFIER_custom_clothes_female_clothes_secular_fp1_war_nobility_01:0 "@wrath_icon! Daen Armor"
+ PORTRAIT_MODIFIER_custom_clothes_female_clothes_secular_fp1_war_nobility_01:0 "@wrath_icon! Woodmen Armor"
 
 
 ############################
@@ -1349,19 +1348,19 @@
 
  ## Pilgrim Clothing ##
 
- PORTRAIT_MODIFIER_custom_clothes_m_clothes_religious_ep2_muslim_hajj_01:0 "@toursandtournaments_icon! Not Used Pilgrim's Clothes 1"
- PORTRAIT_MODIFIER_custom_clothes_m_clothes_religious_ep2_muslim_hajj_02:0 "@toursandtournaments_icon! Not Used Pilgrim's Clothes 2"
+ PORTRAIT_MODIFIER_custom_clothes_m_clothes_religious_ep2_muslim_hajj_01:0 "@toursandtournaments_icon! Gai Clothes 1"
+ PORTRAIT_MODIFIER_custom_clothes_m_clothes_religious_ep2_muslim_hajj_02:0 "@toursandtournaments_icon! Pilgrim's Clothes 1"
  PORTRAIT_MODIFIER_custom_clothes_f_clothes_religious_ep2_muslim_hajj_01:0 "$PORTRAIT_MODIFIER_custom_clothes_m_clothes_religious_ep2_muslim_hajj_01$"
 
  ###### MENA Armor ######
 
  ## Male ##
- PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_ep2_mena_war_nob_01_lo:0 "@toursandtournaments_icon! Not Used Arabic Armor Low 1"
- PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_ep2_mena_war_nob_01_hi:0 "@toursandtournaments_icon! Not Used Arabic Armor High 1"
+ #PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_ep2_mena_war_nob_01_lo:0 "@toursandtournaments_icon! Not Used Arabic Armor Low 1" # Duplicate key
+ #PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_ep2_mena_war_nob_01_hi:0 "@toursandtournaments_icon! Not Used Arabic Armor High 1" # Duplicate key
 
  ## Female ##
- PORTRAIT_MODIFIER_custom_clothes_f_clothes_sec_ep2_mena_war_nob_01_lo:0 "$PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_ep2_mena_war_nob_01_lo$"
- PORTRAIT_MODIFIER_custom_clothes_f_clothes_sec_ep2_mena_war_nob_01_hi:0 "$PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_ep2_mena_war_nob_01_hi$"
+ #PORTRAIT_MODIFIER_custom_clothes_f_clothes_sec_ep2_mena_war_nob_01_lo:0 "$PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_ep2_mena_war_nob_01_lo$" # Duplicate key
+ #PORTRAIT_MODIFIER_custom_clothes_f_clothes_sec_ep2_mena_war_nob_01_hi:0 "$PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_ep2_mena_war_nob_01_hi$" # Duplicate key
 
  ###### Steppe Armor ###### 
 
@@ -1540,7 +1539,8 @@
  PORTRAIT_MODIFIER_custom_clothes_f_clothes_sec_ep3_byzantine_era2_nob_01_hi: "@roadstopower_icon! Bellakari High Nobility Dress 1"
  PORTRAIT_MODIFIER_custom_clothes_f_clothes_sec_ep3_byzantine_era2_nob_02_hi: "@roadstopower_icon! Bellakari High Nobility Dress 2"
  PORTRAIT_MODIFIER_custom_clothes_f_clothes_sec_ep3_byzantine_era2_nob_03_hi: "@roadstopower_icon! Bellakari High Nobility Dress 3"
-
+ PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_ep3_byzantine_era2_roy_01: "@roadstopower_icon! Bellakari Royal Robe"
+ PORTRAIT_MODIFIER_custom_clothes_f_clothes_sec_ep3_byzantine_era2_roy_01: "@roadstopower_icon! Bellakari Royal Gown"
  # Imperial
  PORTRAIT_MODIFIER_custom_clothes_m_clothes_sec_ep3_byzantine_era1_imp_01: "@roadstopower_icon! Anbalukkhori Emperor's Regalia Robe"
  PORTRAIT_MODIFIER_custom_clothes_f_clothes_sec_ep3_byzantine_era1_imp_01: "@roadstopower_icon! Anbalukkhori Empress' Regalia Gown"

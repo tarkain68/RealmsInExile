@@ -299,7 +299,6 @@ harondorim_palace_guards = { #  Elite Armored Horsemen From Harondor
 		}
 	}
 	type = heavy_cavalry
-	max_sub_regiments = 5
 
 	damage = 120
 	toughness = 40
@@ -622,6 +621,50 @@ caledhrim_cavalry = {
 	icon = light_cavalry
 }
 
+caledhrim_footmen = {
+	can_recruit = {
+		OR = {
+			culture = { has_innovation = innovation_caledhrim_soldiers }
+			AND = {
+				is_human = yes
+				is_landless_adventurer = yes
+				has_perk = planned_cultivation_perk
+				location.culture ?= { has_innovation = innovation_caledhrim_soldiers }
+			}
+		}
+	}
+
+	type = skirmishers
+	
+	damage = 16
+	toughness = 18
+	pursuit = 0
+	screen = 15
+	
+	terrain_bonus = {
+		hills = { damage = 6 toughness = 6 }
+		mountains = { damage = 4 toughness = 4 }
+		forest = { damage = 6 toughness = 6 }
+	}
+
+	counters = {
+		heavy_infantry = 1
+	}
+
+	winter_bonus = {
+		normal_winter = { damage = 4 toughness = 4 }
+	}
+
+	buy_cost = { gold = 50 }
+	low_maintenance_cost = { gold = 0.15 }
+	high_maintenance_cost = { gold = 0.45 }
+
+	provision_cost = @provisions_cost_cavalry_moderate
+
+	stack = 100
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = skirmishers
+}
 
 #Others
 # fountain_guard = { # Praetorian, edited.
@@ -998,7 +1041,7 @@ numenorean_soldiers = {
 	
 	stack = 50
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = dunedain_sword
+	icon = numenorean_soldiers
 }
 
 numenorean_archers = {
@@ -1038,7 +1081,7 @@ numenorean_archers = {
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = bowmen
+	icon = numenorean_archers
 }
 
 #numenorean_crossbowmen = {
@@ -1119,7 +1162,7 @@ numenorean_knights = {
 
 	allowed_in_hired_troops = no
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = dunedain_horse
+	icon = numenorean_knights
 }
 
 #numenorean_pikemen = {
@@ -1157,7 +1200,6 @@ numenorean_knights = {
 numenorean_elites = {
 	# can_recruit = { culture = { has_innovation = innovation_numenorean_warriors } }
 	type = heavy_infantry
-	max_sub_regiments = 5
 
 	can_recruit = {
 		OR = {
@@ -1188,7 +1230,7 @@ numenorean_elites = {
 
 	stack = 75
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = dunedain_sword
+	icon = numenorean_elites
 }
 
 ### DUNEDAIN ###
@@ -1333,7 +1375,6 @@ dunedain_elites = {
 		}
 	}
 	type = heavy_infantry
-	max_sub_regiments = 5
 
 	damage = 100
 	toughness = 80

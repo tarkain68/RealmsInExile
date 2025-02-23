@@ -220,6 +220,7 @@ lineofanballukkhorohin2 = { # Dâirukhôr the Rebuilder, who saw the recover of 
 }
 lineofanballukkhorohin3 = { # Pharazbâr the Golden, king during the second rise of Akhôrahil the Storm King and the war of the Thôn an-Khârlôkh, agreed to align with Akhôrahil in return for the annexation of Tulwang, which had been lost
 	name = Pharazba_a_r
+    dna = pharazbar_anbaluk_roa_king_dna
 				
 	dynasty = dynasty_anballukkhorohin
 	religion = faith_anballukhor
@@ -244,8 +245,9 @@ lineofanballukkhorohin3 = { # Pharazbâr the Golden, king during the second rise
 		}	
 	}
 }
-lineofanballukkhorohin4 = { # Son of Pharazbâr, Sakulbâr the Daring	#juke note: angmar start date ruler
+lineofanballukkhorohin4 = { # Son of Pharazbâr, Sakulbâr the Daring	#juke note: angmar start date ruler # Alrain note: it looks like they're brothers atm? 
 	name = Sakulba_a_r
+    dna = sakulbar_anbaluk_roa_dna
 				
 	dynasty = dynasty_anballukkhorohin
 	religion = faith_anballukhor
@@ -4157,6 +4159,7 @@ lineofbelphazan16 = {
 # Line of Zimrakhôr, Lord of the Upper Rivers
 lineofzimrakhor1 = {
     name = Zimrakho_o_r
+    dna = zimrakhor_khor_an_zimraim_roa_dna
 
     dynasty = dynasty_zimrakhor
     religion = faith_anballukhor
@@ -19296,7 +19299,7 @@ lineofmanaman22 = {
     trait = sadistic
     trait = temperate
     trait = patient
-    trait = legitimized_bastard
+    trait = wild_oat
 
     diplomacy = 10
     martial = 3
@@ -22224,6 +22227,8 @@ lineofinzilloni34wife = {
 	religion = faith_thani_hazad
 	culture = kharadunaim
 	
+	trait = blood_of_numenor_1
+	
 	6560.12.18 = {
 		birth = yes
 	}
@@ -22292,6 +22297,8 @@ lineofinzilloni35wife = {
     female = yes
 	religion = faith_thani_hazad
 	culture = kharadunaim
+
+	trait = blood_of_numenor_1
 	
 	6620.12.18 = {
 		birth = yes
@@ -22301,10 +22308,22 @@ lineofinzilloni35wife = {
 	}
 }
 lineofinzilloni35conc = {
-	name = Inwa
+	name = Mo_o_rbe_e_hil
+	dynasty = dynasty_anballukkhorohin
     female = yes
-	religion = faith_sederi
-	culture = sederi
+	religion = faith_anballukhor
+	culture = anbalukkhori
+	
+	sexuality = heterosexual
+	
+	trait = blood_of_numenor_1
+	trait = humble
+	trait = trusting
+	trait = depressed_1
+	trait = beauty_good_2
+	
+	father = lineofanballukkhorohin22a1
+	mother = lineofurduzir13a1
 	
 	6672.12.18 = {
 		birth = yes
@@ -22816,6 +22835,8 @@ lineofinzillonitwo1wife = {
 	religion = faith_thani_hazad
 	culture = kharadunaim
 	
+	trait = blood_of_numenor_1
+
 	6695.3.20 = {
 		birth = yes
 	}
@@ -36975,15 +36996,25 @@ linegimilthanibastard1 = {
 	culture = kharadunaim
 	
 	father = lineofgimilthani44
-	
+
+    trait = education_martial_3
+
+    trait = ambitious
+    trait = stubborn
+	trait = gregarious
+
     trait = blood_of_numenor_2
 	
 	6744.1.1 = {
 		birth = yes
+        effect = {
+            add_pressed_claim = title:k_gimilthani
+            add_pressed_claim = title:d_kor_bawiba
+        }
 	}
-    6787.1.1 = {
-        employer = lineofgimilthani45
-    }
+    #6787.1.1 = {
+    #    employer = lineofgimilthani45
+    #}
 	6874.1.1 = {
 		death = { death_reason = death_natural_causes }
 	}
@@ -57022,14 +57053,14 @@ lineofzaradancadet7 = {
 
     trait = patient
     trait = honest
-    trait = compassionate
+    trait = just
     trait = loyal
 
-    diplomacy = 7
+    diplomacy = 10
     martial = 4
-    stewardship = 4
+    stewardship = 10
     intrigue = 3
-    learning = 5
+    learning = 7
     prowess = 6
 
     trait = education_diplomacy_4
@@ -57084,15 +57115,16 @@ lineofzaradancadet8 = {
     trait = honest
     trait = brave
     trait = patient
+    trait = loyal
 
     diplomacy = 1
     martial = 6
-    stewardship = 5
+    stewardship = 10
     intrigue = 6
     learning = 9
     prowess = 3
 
-    trait = education_learning_3
+    trait = education_stewardship_4
 
     6747.9.21 = {
         birth = yes
@@ -58477,6 +58509,10 @@ linegimilurush1 = { # First Lord, claims to be a son of Prince Imrazor with Xarb
 	trait = blood_of_numenor_5
 	trait = deceitful
 	trait = disputed_heritage
+	trait = gregarious
+	trait = callous
+	trait = strategist
+	trait = forder
 	
 	3872.6.13 = {
 		birth = yes
@@ -59795,7 +59831,7 @@ linegimilazaribastard1 = { # Line of the Bastard
 	
 	father = linegimilazari18
 	
-	trait = bastard
+	trait = bastard_founder
 	
 	6959.9.3 = {
 		birth = yes

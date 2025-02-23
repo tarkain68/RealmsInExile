@@ -265,6 +265,7 @@ heritage_quendi = {
 	parameters = {
 		heritage_group_elven = yes
 		is_elven_heritage = yes
+		ai_romance_scheme_increase = yes #Need to romance to marry
 	}
 	character_modifier = {
 		life_expectancy = 28000
@@ -304,6 +305,7 @@ heritage_calaquendi = {
 	parameters = {
 		heritage_group_elven = yes
 		is_elven_heritage = yes
+		ai_romance_scheme_increase = yes #Need to romance to marry
 	}
 	character_modifier = {
 		life_expectancy = 28000
@@ -347,6 +349,7 @@ heritage_lomiquendi = {
 	parameters = {
 		heritage_group_elven = yes
 		is_elven_heritage = yes
+		ai_romance_scheme_increase = yes #Need to romance to marry
 	}
 	character_modifier = {
 		life_expectancy = 28000
@@ -390,6 +393,7 @@ heritage_moriquendi = {
 	parameters = {
 		heritage_group_elven = yes
 		is_elven_heritage = yes
+		ai_romance_scheme_increase = yes #Need to romance to marry
 	}
 	character_modifier = {
 		life_expectancy = 28000
@@ -605,24 +609,6 @@ heritage_new_sirayni = {
 	is_shown = {
 		heritage_is_shown_trigger = {
 			HERITAGE = heritage_new_sirayni
-		}
-	}
-	audio_parameter = mena
-}
-
-heritage_tazinain = {
-	type = heritage
-	parameters = {
-		heritage_group_apysaic = yes
-		heritage_family_haradrim = yes
-		is_human_heritage = yes
-	}
-	character_modifier  = {
-		halls_advantage = -10
-	}
-	is_shown = {
-		heritage_is_shown_trigger = {
-			HERITAGE = heritage_tazinain
 		}
 	}
 	audio_parameter = mena
@@ -845,7 +831,23 @@ heritage_southern_adunaic = {
 	}
 	audio_parameter = european
 }
-
+heritage_eastern_adunaic = {
+	type = heritage
+	parameters = {
+		heritage_group_numenorean = yes
+		heritage_family_edain = yes
+		is_human_heritage = yes
+	}
+	character_modifier  = {
+		halls_advantage = -10
+	}
+	is_shown = {
+		heritage_is_shown_trigger = {
+			HERITAGE = heritage_eastern_adunaic
+		}
+	}
+	audio_parameter = european
+}
 heritage_troll = {
 	type = heritage
 	parameters = {

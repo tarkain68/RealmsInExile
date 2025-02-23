@@ -13,13 +13,14 @@
 		tradition_agrarian
 		tradition_religious_patronage
 		tradition_mendicant_mystics
+		tradition_brewery
 	}
 	
 	name_list = name_list_khyan
 	
 	coa_gfx = { rhun_group_coa_gfx }
 	building_gfx = { steppe_building_gfx rhun_building_gfx western_building_gfx }
-	clothing_gfx = { east_haradrim_clothing_gfx }
+	clothing_gfx = { khailuza_clothing_gfx }
 	unit_gfx = { mongol_unit_gfx }
 	
 	ethnicities = {
@@ -33,8 +34,8 @@ mejhanian = { # Hybrid culture of Khyan and Muranian that has emerged after many
 	created = 4158.6.6
 
 	ethos = ethos_communal
-	heritage = heritage_harshandatt
-	language = language_khyan
+	heritage = heritage_south_khailuza
+	language = language_tazinain
 	martial_custom = martial_custom_male_only
 	traditions = {
 		tradition_warriors_of_the_dry
@@ -42,13 +43,14 @@ mejhanian = { # Hybrid culture of Khyan and Muranian that has emerged after many
 		tradition_dryland_dwellers
 		tradition_forbearing
 		tradition_philosopher_culture
+		tradition_brewery
 	}
 	
 	name_list = name_list_khyan
 	
 	coa_gfx = { rhun_group_coa_gfx }
 	building_gfx = { steppe_building_gfx rhun_building_gfx western_building_gfx }
-	clothing_gfx = { east_haradrim_clothing_gfx }
+	clothing_gfx = { khailuza_clothing_gfx }
 	unit_gfx = { mongol_unit_gfx }
 	
 	ethnicities = {

@@ -1268,7 +1268,7 @@ lotr_on_title_gain = {
 		else_if = {
 			limit = {
 				is_ai = yes
-				is_elf = no
+				NOT = { is_elf = yes }
 				highest_held_title_tier > tier_county
 				scope:title ?= {
 					tier <= tier_county
@@ -1359,6 +1359,15 @@ lotr_on_title_gain = {
 					NOT = { this = scope:title }
 					tier = scope:title.tier
 				}
+			}
+			trigger_event = dwarven.9810
+		}
+		else_if = {
+			limit = {
+				scope:title.tier = tier_kingdom
+				scope:title = { is_dwarven_dynasty_title = yes }
+				primary_title.tier = tier_empire
+				is_dwarven_dynast = yes
 			}
 			trigger_event = dwarven.9810
 		}
@@ -1578,7 +1587,7 @@ lotr_on_title_gain_inheritance = {
 		else_if = {
 			limit = {
 				is_ai = yes
-				is_elf = no
+				NOT = { is_elf = yes }
 				highest_held_title_tier > tier_county
 				scope:title ?= {
 					tier <= tier_county
@@ -1857,7 +1866,7 @@ lotr_on_title_gain_usurpation = {
 		else_if = {
 			limit = {
 				is_ai = yes
-				is_elf = no
+				NOT = { is_elf = yes }
 				highest_held_title_tier > tier_county
 				scope:title ?= {
 					tier <= tier_county
@@ -2085,10 +2094,10 @@ lotr_on_rank_up = {# Will not fire during history execution or for dying charact
 			}
 			var:my_suzerain = {
 				send_interface_toast = {
-						left_icon = prev
-						right_icon = root
-						title = rank_up_protector.toast
-						custom_tooltip = rank_up_protector.tt
+					left_icon = prev
+					right_icon = root
+					title = rank_up_protector.toast
+					custom_tooltip = rank_up_protector.tt
 				}
 			}
 			free_tributary = yes

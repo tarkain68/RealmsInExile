@@ -59,7 +59,7 @@ character_view_bg = {
 		reference = "event_scenes/temple.dds"
 		trigger = {
 			is_alive = no
-			is_elf = no
+			NOT = { is_elf = yes }
 		}
 	}
 
@@ -8434,7 +8434,7 @@ character_view_bg = {
 		reference = "event_scenes/throneroom_evil_high.dds"
 
 		trigger = {
-			is_orc = no
+			NOT = { is_orc = yes }
 			OR = {
 				AND = {
 					exists = capital_province
@@ -8475,7 +8475,7 @@ character_view_bg = {
 
 		trigger = {
 			NOT = { is_maiar_fallen = yes } # Not for Sauron
-			is_orc = no
+			NOT = { is_orc = yes }
 			OR = {
 				AND = {
 					exists = capital_province
@@ -8516,7 +8516,7 @@ character_view_bg = {
 		reference = "event_scenes/throneroom_evil_mid.dds"
 
 		trigger = {
-			is_orc = no
+			NOT = { is_orc = yes }
 			OR = {
 				AND = {
 					exists = capital_province
@@ -8556,7 +8556,7 @@ character_view_bg = {
 		reference = "environment_evil_mid_throneroom"
 
 		trigger = {
-			is_orc = no
+			NOT = { is_orc = yes }
 			OR = {
 				AND = {
 					exists = capital_province
@@ -8597,7 +8597,7 @@ character_view_bg = {
 		reference = "event_scenes/throneroom_evil_low.dds"
 
 		trigger = {
-			is_orc = no
+			NOT = { is_orc = yes }
 			OR = {
 				AND = {
 					exists = capital_province
@@ -8637,7 +8637,7 @@ character_view_bg = {
 		reference = "environment_event_fp1_throneroom_tribal"
 
 		trigger = {
-			is_orc = no
+			NOT = { is_orc = yes }
 			OR = {
 				AND = {
 					exists = capital_province
@@ -12588,9 +12588,13 @@ character_view_bg = {
 			primary_title.tier >= tier_kingdom
 			capital_province = {
 				# geographical_region = custom_greater_ray
-				empire = title:e_khy
+				OR = {
+					empire = title:e_khy
+					empire = title:e_sirayn
+					empire = title:e_shayn
+				}
 			}
-			is_elf = no
+			NOT = { is_elf = yes }
 			# primary_title.tier >= tier_empire #LotR
 			# has_graphical_india_region_trigger = yes
 		}
@@ -12604,9 +12608,13 @@ character_view_bg = {
 			primary_title.tier >= tier_kingdom
 			capital_province = {
 				# geographical_region = custom_greater_ray
-				empire = title:e_khy
+				OR = {
+					empire = title:e_khy
+					empire = title:e_sirayn
+					empire = title:e_shayn
+				}
 			}
-			is_elf = no
+			NOT = { is_elf = yes }
 			# primary_title.tier >= tier_empire #LotR
 			# has_graphical_india_region_trigger = yes
 		}
@@ -12624,9 +12632,13 @@ character_view_bg = {
 						primary_title.tier >= tier_kingdom
 						capital_province = {
 							# geographical_region = custom_greater_ray
-							empire = title:e_khy
+							OR = {
+								empire = title:e_khy
+								empire = title:e_sirayn
+								empire = title:e_shayn
+							}
 						}
-						is_elf = no
+						NOT = { is_elf = yes }
 						# primary_title.tier >= tier_empire #LotR
 						# has_graphical_india_region_trigger = yes
 					}
@@ -12638,9 +12650,13 @@ character_view_bg = {
 						primary_title.tier >= tier_kingdom
 						capital_province = {
 							# geographical_region = custom_greater_ray
-							empire = title:e_khy
+							OR = {
+								empire = title:e_khy
+								empire = title:e_sirayn
+								empire = title:e_shayn
+							}
 						}
-						is_elf = no
+						NOT = { is_elf = yes }
 						# primary_title.tier >= tier_empire #LotR
 						# has_graphical_india_region_trigger = yes
 					}
@@ -12652,9 +12668,13 @@ character_view_bg = {
 						primary_title.tier >= tier_kingdom
 						capital_province = {
 							# geographical_region = custom_greater_ray
-							empire = title:e_khy
+							OR = {
+								empire = title:e_khy
+								empire = title:e_sirayn
+								empire = title:e_shayn
+							}
 						}
-						is_elf = no
+						NOT = { is_elf = yes }
 						# primary_title.tier >= tier_empire #LotR
 						# has_graphical_india_region_trigger = yes
 					}
@@ -12674,7 +12694,11 @@ character_view_bg = {
 			# has_graphical_india_region_trigger = yes
 			capital_province ?= {
 				# geographical_region = custom_greater_ray
-				empire = title:e_khy
+				OR = {
+					empire = title:e_khy
+					empire = title:e_sirayn
+					empire = title:e_shayn
+				}
 			}
 		}
 	}
@@ -12686,9 +12710,13 @@ character_view_bg = {
 			is_character_window_main_character = yes
 			capital_province ?= {
 				# geographical_region = custom_greater_ray
-				empire = title:e_khy
+				OR = {
+					empire = title:e_khy
+					empire = title:e_sirayn
+					empire = title:e_shayn
+				}
 			}
-			is_elf = no
+			NOT = { is_elf = yes }
 			# has_graphical_india_region_trigger = yes
 		}
 	}
@@ -12702,10 +12730,15 @@ character_view_bg = {
 					exists = primary_spouse
 					primary_spouse = {
 						exists = primary_title
-						capital_province ?= {
-							geographical_region = middlearth_bay_of_ormal_khy
+						# capital_province ?= {
+						# 	geographical_region = custom_greater_ray
+						# }
+						OR = {
+							empire = title:e_khy
+							empire = title:e_sirayn
+							empire = title:e_shayn
 						}
-						is_elf = no
+						NOT = { is_elf = yes }
 						# has_graphical_india_region_trigger = yes
 					}
 				}
@@ -12714,9 +12747,14 @@ character_view_bg = {
 					betrothed = {
 						exists = primary_title
 						capital_province ?= {
-							geographical_region = middlearth_bay_of_ormal_khy
+							# geographical_region = custom_greater_ray
+							OR = {
+								empire = title:e_khy
+								empire = title:e_sirayn
+								empire = title:e_shayn
+							}
 						}
-						is_elf = no
+						NOT = { is_elf = yes }
 						# has_graphical_india_region_trigger = yes
 					}
 				}
@@ -12725,9 +12763,14 @@ character_view_bg = {
 					liege ?= {
 						exists = primary_title
 						capital_province ?= {
-							geographical_region = middlearth_bay_of_ormal_khy
+							# geographical_region = custom_greater_ray
+							OR = {
+								empire = title:e_khy
+								empire = title:e_sirayn
+								empire = title:e_shayn
+							}
 						}
-						is_elf = no
+						NOT = { is_elf = yes }
 						# has_graphical_india_region_trigger = yes
 					}
 				}
@@ -14170,6 +14213,20 @@ character_private = {
 
 culture_levy_big_illustration = {
 
+	### Elven Heritages/Cultures ###
+	texture = { #Avarin Elves	
+		reference = "men_at_arms_big/grey_elven_pikemen.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_calaquendi } }
+	}
+	texture = { #Grey Elves	
+		reference = "men_at_arms_big/grey_elven_pikemen.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_lomiquendi } }
+	}
+	texture = { #High Elves	
+		reference = "men_at_arms_big/grey_elven_pikemen.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_moriquendi } }
+	}
+
 	####################
 	# Basic Triggers ###
 	####################
@@ -14194,7 +14251,7 @@ culture_levy_big_illustration = {
 		trigger = { is_hobbit = yes }
 	}
 	texture = {
-		reference = "men_at_arms_big/levies.dds"
+		reference = "men_at_arms_big/grey_elven_pikemen.dds"
 		trigger = { is_elf = yes }
 	}
 	texture = {
@@ -14216,6 +14273,116 @@ culture_knight_big_illustration = {
 			culture = { has_cultural_pillar = heritage_hadorim }
 		}
 	}
+	### Numenorean Heritage ###
+	texture = { #Bellakari
+		reference = "men_at_arms_big/heavy_infantry.dds"
+		trigger = { 
+			OR = {
+				culture = culture:bellakarani
+				culture = { any_parent_culture_or_above = { this = culture:bellakarani } }
+			}
+		}
+	}
+	texture = { #umbaredain
+		reference = "men_at_arms_big/heavy_infantry.dds"
+		trigger = { 
+			OR = {
+				culture = culture:umbaredain
+				culture = { any_parent_culture_or_above = { this = culture:umbaredain } }
+			}
+		}
+	}
+	texture = { #Dunedain Rangers
+		reference = "men_at_arms_big/dunedain_sword.dds"
+		trigger = { 
+			OR = {
+				culture = culture:dunedain_ranger
+				culture = culture:uialdain
+				culture = culture:caledhrim
+				culture = { any_parent_culture_or_above = { this = culture:dunedain_ranger } }
+				culture = { any_parent_culture_or_above = { this = culture:uialdain } }
+				culture = { any_parent_culture_or_above = { this = culture:caledhrims } }
+			}
+		}
+	}
+	texture = { #Orobedhrim
+		reference = "men_at_arms_big/hillmen_heavy_infantry_unlock.dds"
+		trigger = { 
+			OR = {
+				culture = culture:orodbedhrim
+				culture = { any_parent_culture_or_above = { this = culture:orodbedhrim } }
+			}
+		}
+	}
+	texture = { #Gondorian
+		reference = "men_at_arms_big/citadel_guard.dds"
+		trigger = { 
+			OR = {
+				culture = culture:gondorian
+				culture = culture:belfalathrim
+				culture = culture:dunedain
+				culture = { any_parent_culture_or_above = { this = culture:gondorian } }
+				culture = { any_parent_culture_or_above = { this = culture:belfalathrim } }
+				culture = { any_parent_culture_or_above = { this = culture:dunedain } }
+			}
+		}
+	}
+	texture = { #Arnorian
+		reference = "men_at_arms_big/arnorian_soldiers.dds"
+		trigger = { 
+			OR = {
+				culture = culture:arnorian
+				culture = { any_parent_culture_or_above = { this = culture:arnorian } }
+			}
+		}
+	}
+	texture = { #Numenorean
+		reference = "men_at_arms_big/numenorean_elites.dds"
+		trigger = { 
+			OR = {
+				culture = culture:numenorean
+				culture = { any_parent_culture_or_above = { this = culture:numenorean } }
+			}
+		}
+	}
+	
+	### Iorag Heritage ###
+	texture = { #Asdriag/Odhriag/Magriag
+		reference = "men_at_arms_big/easterling_swordsmen.dds"
+		trigger = { 
+			OR = {
+				culture = culture:asdriag
+				culture = culture:odhriag
+				culture = culture:magriag
+				culture = { any_parent_culture_or_above = { this = culture:asdriag } }
+				culture = { any_parent_culture_or_above = { this = culture:odhriag } }
+				culture = { any_parent_culture_or_above = { this = culture:magriag } }
+			}
+		}
+	}
+
+	### Elven Heritages/Cultures ###
+	texture = { #Lasgalendrim	
+		reference = "men_at_arms_big/grey_elven_heavy_infantry.dds"
+		trigger = { 
+			OR = {
+				culture = culture:lasgalendrim
+				culture = { any_parent_culture_or_above = { this = culture:lasgalendrim } }
+			}
+		}
+	}
+	texture = { #Avarin Elves	
+		reference = "men_at_arms_big/grey_elven_heavy_infantry.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_calaquendi } }
+	}
+	texture = { #Grey Elves	
+		reference = "men_at_arms_big/grey_elven_heavy_infantry.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_lomiquendi } }
+	}
+	texture = { #High Elves	
+		reference = "men_at_arms_big/nelyarin_swordsmen.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_moriquendi } }
+	}
 
 	####################
 	# Basic Triggers ###
@@ -14225,6 +14392,12 @@ culture_knight_big_illustration = {
 	texture = {
 		reference = "men_at_arms_big/heavy_infantry.dds"
 		trigger = { is_human = yes }
+	}
+	texture = {
+		reference = "men_at_arms_big/orc_warriors.dds"
+		trigger = { 
+			is_goblin = yes
+		}
 	}
 	texture = {
 		reference = "men_at_arms_big/urukhai_swordsmen.dds"
@@ -14241,7 +14414,7 @@ culture_knight_big_illustration = {
 		trigger = { is_hobbit = yes }
 	}
 	texture = {
-		reference = "men_at_arms_big/heavy_infantry.dds"
+		reference = "men_at_arms_big/high_elven_heavy_infantry.dds"
 		trigger = { is_elf = yes }
 	}
 	texture = {
@@ -14426,6 +14599,36 @@ lotr_bountig_contract_illustrations = {
 	texture = {
 		reference = "event_scenes/docks_adunai.dds"
 		trigger = { has_variable = umbar_contract }
+	}
+
+	### Mirlond Contract ###
+	texture = {
+	    reference = "event_scenes/docks_adunai.dds"
+	    trigger = { has_variable = mirlond_contract }
+	}
+
+	### Harfalas Contract ###
+	texture = {
+	    reference = "event_scenes/docks_dunedain.dds"
+	    trigger = { has_variable = harfalas_contract }
+	}
+	
+	### Linhir Contract ###
+	texture = {
+	    reference = "event_scenes/ep3_holysite_gondor.dds"
+	    trigger = { has_variable = linhir_contract }
+	}
+	
+	### Ramlond Contract ###
+	texture = {
+	    reference = "decisions/decision_near_harad_01.dds"
+	    trigger = { has_variable = ramlond_contract }
+	}
+
+	### Tolfalas Contract ###
+	texture = {
+	    reference = "event_scenes/black_ship.dds"
+	    trigger = { has_variable = tolfalas_contract }
 	}
 
 	## Default Contract - Backup ###

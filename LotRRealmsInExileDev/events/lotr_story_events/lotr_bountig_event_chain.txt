@@ -325,7 +325,7 @@ scripted_effect bountig_convince_easterling_lord_effect = {
 			send_interface_toast = {
 				type = event_toast_effect_good
 				title = bountig_event_chain.0050.duel_win_effect
-				var:selected_character = { add_character_modifier = { modifier = lotr_bountig_convinced_easterling_lord years = 8 } }
+				var:selected_character = { add_character_modifier = { modifier = lotr_bountig_convinced_easterling_lord years = 15 } }
 				var:selected_character = { create_story = story_cycle_convinced_easterling_lord }
 			}
 		}
@@ -339,7 +339,7 @@ scripted_effect bountig_convince_easterling_lord_effect = {
 			send_interface_toast = {
 				type = event_toast_effect_bad
 				title = bountig_event_chain.0050.duel_fail_effect
-				var:selected_character = { add_character_modifier = { modifier = lotr_bountig_failed_to_convince_easterling_lord years = 8 } }
+				var:selected_character = { add_character_modifier = { modifier = lotr_bountig_failed_to_convince_easterling_lord years = 15 } }
 			}
 		}
 	}
@@ -501,13 +501,19 @@ bountig_event_chain.0003 = { #Bountig accepts the contract in the East
 				domicile = { add_domicile_building = supply_tent_01 }
 			}
 		}
-		start_travel_plan = {
-			destination = scope:task_contract_destination
-			travel_with_domicile = yes
-			return_trip = no
-			players_use_planner = no
-			on_arrival_event = bountig_event_chain.0004
-			on_arrival_destinations = all
+		if = {
+			limit = { is_ai = no }
+			start_travel_plan = {
+				destination = scope:task_contract_destination
+				travel_with_domicile = yes
+				return_trip = no
+				players_use_planner = no
+				on_arrival_event = bountig_event_chain.0004
+				on_arrival_destinations = all
+			}
+		} else = {
+			domicile ?= { move_domicile = scope:task_contract_destination }
+			trigger_event = bountig_event_chain.0004
 		}
 	}
 	after = { hidden_effect = { fill_provisions_effect = yes } }
@@ -547,41 +553,65 @@ bountig_event_chain.0004 = {
 						holder = { is_at_war = no }
 						NOT = { holder = scope:employer }
 					}
-					alternative_limit = {
-						is_wastelands = no
-						culture = { has_cultural_pillar = heritage_ioriag }
-						holder = { highest_held_title_tier > tier_barony }
-						holder = { is_at_war = no }
-						NOT = { holder = scope:employer }
+					holder = { save_scope_as = employer }
+				}
+				if = { #Fallback #1
+					limit = { NOT = { exists = scope:employer } }
+					random_de_jure_county = {
+						limit = {
+							is_wastelands = no
+							culture = { has_cultural_pillar = heritage_ioriag }
+							holder = { highest_held_title_tier > tier_barony }
+							holder = { is_at_war = no }
+							NOT = { holder = scope:employer }
+						}
+						holder = { save_scope_as = employer }
 					}
-					alternative_limit = {
-						is_wastelands = no
-						culture = { has_cultural_pillar = heritage_ioriag }
-						holder = { highest_held_title_tier > tier_county }
-						NOT = { holder = scope:employer }
+				}
+				if = { #Fallback #2
+					limit = { NOT = { exists = scope:employer } }
+					random_de_jure_county = {
+						limit = {
+							is_wastelands = no
+							culture = { has_cultural_pillar = heritage_ioriag }
+							holder = { highest_held_title_tier > tier_county }
+							NOT = { holder = scope:employer }
+						}
+						holder = { save_scope_as = employer }
 					}
-					holder = { save_scope_as = war_target }
 				}
 			}
-			scope:employer = {
-				start_war = {
-					casus_belli = bountig_special_raid_for_captives_cb
-					target = scope:war_target
-					target_title = scope:war_target.primary_title
+			
+			if = {
+				limit = { NOT = { scope:employer = { is_at_war_with = scope:war_target } } }
+				scope:employer = {
+					start_war = {
+						casus_belli = bountig_special_raid_for_captives_cb
+						target = scope:war_target
+						target_title = scope:war_target.primary_title
+					}
 				}
 			}
 		}
 
 		scope:employer = {
 			random_character_war = {
-				limit = { primary_defender = scope:war_target }
-				set_called_to = scope:bountig
+				limit = {
+					primary_defender = scope:war_target
+					NOT = { is_attacker = scope:bountig }
+				}
 				add_attacker = scope:bountig
-				save_scope_as = story_war
 			}
 			set_variable = {
 				name = bountig
 				value = scope:bountig 
+			}
+			random_character_war = {
+				limit = {
+					primary_defender = scope:war_target
+					is_attacker = scope:bountig
+				}
+				save_scope_as = story_war
 			}
 		}
 		scope:war_target = {
@@ -592,6 +622,7 @@ bountig_event_chain.0004 = {
 		}
 	}
 }
+
 
 bountig_event_chain.0005 = { # Bountig gets offered land or gold, either ending or boosting his story line
 	content_source = realms_dlc
@@ -620,13 +651,20 @@ bountig_event_chain.0005 = { # Bountig gets offered land or gold, either ending 
 		add_gold = 500
 		add_prestige = 500
 		set_laamp_variables_for_contracts_to_spawn_effect = yes
-		start_travel_plan = {
-			destination = title:b_pelannor.title_province
-			travel_with_domicile = yes
-			return_trip = no
-			players_use_planner = no
-			on_arrival_event = bountig_event_chain.0012
-			on_arrival_destinations = all
+		
+		if = {
+			limit = { is_ai = no }
+			start_travel_plan = {
+				destination = title:b_pelannor.title_province
+				travel_with_domicile = yes
+				return_trip = no
+				players_use_planner = no
+				on_arrival_event = bountig_event_chain.0012
+				on_arrival_destinations = all
+			}
+		} else = {
+			domicile ?= { move_domicile = title:b_pelannor.title_province }
+			trigger_event = bountig_event_chain.0012
 		}
 		hidden_effect = { fill_provisions_effect = yes }
 		ai_chance = { base = 100 }
@@ -685,6 +723,8 @@ bountig_event_chain.0010 = { # Eastern Rohan vassals get opportunity to join war
 	title = bountig_event_chain.0010.t
 	desc = bountig_event_chain.0010.desc
 	theme = martial
+
+	cooldown = { days = 5 }
 	
 	right_portrait = {
 		character = root
@@ -773,14 +813,21 @@ bountig_event_chain.0011 = { #Bountig is forced to travel southwards
 		set_variable = cannot_cancel_travel
 		custom_tooltip = bountig_event_chain.0011.a.tt
 		set_laamp_variables_for_contracts_to_spawn_effect = yes
-		start_travel_plan = {
-			destination = title:b_pelannor.title_province
-			travel_with_domicile = yes
-			return_trip = no
-			players_use_planner = no
-			on_arrival_event = bountig_event_chain.0012
-			on_arrival_destinations = all
+		if = {
+			limit = { is_ai = no }
+			start_travel_plan = {
+				destination = title:b_pelannor.title_province
+				travel_with_domicile = yes
+				return_trip = no
+				players_use_planner = no
+				on_arrival_event = bountig_event_chain.0012
+				on_arrival_destinations = all
+			}
+		} else = {
+			domicile ?= { move_domicile = title:b_pelannor.title_province }
+			trigger_event = bountig_event_chain.0012
 		}
+		
 		hidden_effect = { fill_provisions_effect = yes }
 	}
 }
@@ -790,7 +837,10 @@ bountig_event_chain.0012 = { #Bountig arrives in Pelennor
 	type = character_event
 	title = bountig_event_chain.0012.t
 	desc = bountig_event_chain.0012.desc
-	theme = martial
+	theme = laamp
+	override_background = {
+		reference = minas_tirith
+	}
 	
 	right_portrait = {
 		character = root
@@ -824,13 +874,19 @@ bountig_event_chain.0013 = { #Generic Event for Bountig choosing to visit a spec
 		name = bountig_event_chain.0013.a
 		set_variable = cannot_cancel_travel
 		location = { save_scope_as = curr_domicile_location }
-		start_travel_plan = {
-			destination = root.var:gondor_target_province
-			travel_with_domicile = no
-			return_trip = yes
-			players_use_planner = no
-			on_arrival_event = bountig_event_chain.0014
-			on_arrival_destinations = all_but_last
+		if = {
+			limit = { is_ai = no }
+			start_travel_plan = {
+				destination = root.var:gondor_target_province
+				travel_with_domicile = no
+				return_trip = yes
+				players_use_planner = no
+				on_arrival_event = bountig_event_chain.0014
+				on_arrival_destinations = all_but_last
+			}
+		} else = {
+			domicile ?= { move_domicile = root.var:gondor_target_province }
+			trigger_event = bountig_event_chain.0014
 		}
 	}
 }
@@ -1019,14 +1075,23 @@ bountig_event_chain.0020 = { #Bountig heads for Amrun
 		name = bountig_event_chain.0020.a
 		set_variable = cannot_cancel_travel
 		custom_tooltip = bountig_event_chain.0020.a.tt
-		start_travel_plan = {
-			destination = title:c_harnen.title_province
-			travel_with_domicile = yes
-			return_trip = no
-			players_use_planner = no
-			on_arrival_event = bountig_event_chain.0021
-			on_arrival_destinations = all
+
+		if = {
+			limit = { is_ai = no }
+			start_travel_plan = {
+				destination = title:c_harnen.title_province
+				travel_with_domicile = yes
+				return_trip = no
+				players_use_planner = no
+				on_arrival_event = bountig_event_chain.0021
+				on_arrival_destinations = all
+			}
+		} else = {
+			domicile ?= { move_domicile = title:c_harnen.title_province }
+			trigger_event = bountig_event_chain.0021
+			every_character_active_contract = { complete_task_contract = success_standard }
 		}
+
 		every_task_contract = {
 			limit = { has_task_contract_type = lotr_bountig_story_gondor_cities }
 			complete_task_contract = failure_standard
@@ -1063,7 +1128,10 @@ bountig_event_chain.0021 = { #Bountig arrives in Amrun
 	type = character_event
 	title = bountig_event_chain.0021.t
 	desc = bountig_event_chain.0021.desc
-	theme = martial
+	theme = laamp
+	override_background = {
+		reference = harad_drylands
+	}
 	
 	right_portrait = {
 		character = root
@@ -1097,13 +1165,19 @@ bountig_event_chain.0022 = { #Generic Event for Bountig choosing to visit a spec
 		name = bountig_event_chain.0022.a
 		set_variable = cannot_cancel_travel
 		location = { save_scope_as = curr_domicile_location }
-		start_travel_plan = {
-			destination = var:harwan_target_province
-			travel_with_domicile = no
-			return_trip = yes
-			players_use_planner = no
-			on_arrival_event = bountig_event_chain.0023
-			on_arrival_destinations = all_but_last
+		if = {
+			limit = { is_ai = no }
+			start_travel_plan = {
+				destination = var:harwan_target_province
+				travel_with_domicile = no
+				return_trip = yes
+				players_use_planner = no
+				on_arrival_event = bountig_event_chain.0023
+				on_arrival_destinations = all_but_last
+			}
+		} else = {
+			domicile ?= { move_domicile = var:harwan_target_province }
+			trigger_event = bountig_event_chain.0023
 		}
 	}
 }
@@ -1184,13 +1258,19 @@ bountig_event_chain.0030 = { #Bountig heads for Umbar
 		name = bountig_event_chain.0030.a
 		set_variable = cannot_cancel_travel
 		custom_tooltip = bountig_event_chain.0030.a.tt
-		start_travel_plan = {
-			destination = title:b_minasthalion.title_province
-			travel_with_domicile = yes
-			return_trip = no
-			players_use_planner = no
-			on_arrival_event = bountig_event_chain.0031
-			on_arrival_destinations = all
+		if = {
+			limit = { is_ai = no }
+			start_travel_plan = {
+				destination = title:b_minasthalion.title_province
+				travel_with_domicile = yes
+				return_trip = no
+				players_use_planner = no
+				on_arrival_event = bountig_event_chain.0031
+				on_arrival_destinations = all
+			}
+		} else = {
+			domicile ?= { move_domicile = title:b_minasthalion.title_province }
+			trigger_event = bountig_event_chain.0031
 		}
 
 		every_task_contract = {
@@ -1226,8 +1306,10 @@ bountig_event_chain.0031 = { #Bountig arrives in Umbar
 	type = character_event
 	title = bountig_event_chain.0031.t
 	desc = bountig_event_chain.0031.desc
-	theme = martial
-	
+	theme = laamp
+	override_background = {
+		reference = umbar
+	}
 	right_portrait = {
 		character = root
 		animation = personality_rational
@@ -1255,17 +1337,25 @@ bountig_event_chain.0032 = { #Generic Event for Bountig choosing to visit a spec
 		animation = personality_rational
 	}
 
+	trigger = { has_variable = umbar_target_province }
+
 	option = {
 		name = bountig_event_chain.0032.a
 		set_variable = cannot_cancel_travel
 		location = { save_scope_as = curr_domicile_location }
-		start_travel_plan = {
-			destination = var:umbar_target_province
-			travel_with_domicile = no
-			return_trip = yes
-			players_use_planner = no
-			on_arrival_event = bountig_event_chain.0033
-			on_arrival_destinations = all_but_last
+		if = {
+			limit = { is_ai = no }
+			start_travel_plan = {
+				destination = var:umbar_target_province
+				travel_with_domicile = no
+				return_trip = yes
+				players_use_planner = no
+				on_arrival_event = bountig_event_chain.0033
+				on_arrival_destinations = all_but_last
+			}
+		} else = {
+			domicile ?= { move_domicile = var:umbar_target_province }
+			trigger_event = bountig_event_chain.0033
 		}
 	}
 }
@@ -1307,7 +1397,10 @@ bountig_event_chain.0033 = { #Arrives in a Umbar city
 			}
 		}
 	}
-	theme = martial
+	theme = laamp
+	override_background = {
+		reference = docks_adunai
+	}
 	
 	right_portrait = {
 		character = root
@@ -1350,7 +1443,10 @@ bountig_event_chain.0040 = { #Bountig arrives in Mistrand
 	type = character_event
 	title = bountig_event_chain.0040.t
 	desc = bountig_event_chain.0040.desc
-	theme = martial
+	theme = diplomacy
+	override_background = {
+		reference = rhun
+	}
 	
 	right_portrait = {
 		character = root
@@ -1362,7 +1458,7 @@ bountig_event_chain.0040 = { #Bountig arrives in Mistrand
 		remove_variable = cannot_cancel_travel
 		custom_tooltip = bountig_event_chain.0040.a.tt
 		trigger_event = bountig_event_chain.5000 #Triggers Khand uniting
-		location.county.holder = { add_character_modifier = { modifier = lotr_bountig_convinced_easterling_lord years = 15 } }
+		location.county.holder = { add_character_modifier = { modifier = lotr_bountig_convinced_easterling_lord years = 20 } }
 
 		every_task_contract = {
 			limit = {
@@ -1445,102 +1541,6 @@ bountig_event_chain.0050 = { #Bountig arrives at court of an Easterling lord he 
 	}
 
 	after = { remove_variable = selected_character }
-}
-
-bountig_event_chain.0054 = { #Bountig arrives at court of an Easterling lord he wants to convince - last trip
-	content_source = realms_dlc
-	type = character_event
-	title = bountig_event_chain.0054.t
-	desc = bountig_event_chain.0054.desc
-	theme = martial
-	
-	right_portrait = {
-		character = root
-		animation = personality_rational
-	}
-	
-	left_portrait = {
-		character = var:selected_character
-		animation = personality_rational
-	}
-
-	immediate = {
-		if = {
-			limit = {
-				exists = scope:easterling_ruler_1
-				root.location.county.holder = scope:easterling_ruler_1
-			}
-			set_variable = {
-				name = selected_character
-				value = scope:easterling_ruler_1
-			}
-		}
-		if = {
-			limit = {
-				exists = scope:easterling_ruler_2
-				root.location.county.holder = scope:easterling_ruler_2
-			}
-			set_variable = {
-				name = selected_character
-				value = scope:easterling_ruler_2
-			}
-		}
-		if = {
-			limit = {
-				exists = scope:easterling_ruler_3
-				root.location.county.holder = scope:easterling_ruler_3
-			}
-			set_variable = {
-				name = selected_character
-				value = scope:easterling_ruler_3
-			}
-		}
-	}
-
-	option = {
-		name = {
-			text = {
-				first_valid = {
-					triggered_desc = { #Diplomacy
-						trigger = { var:selected_character = { has_trait = education_diplomacy } }
-						desc =  bountig_event_chain.0054.a
-					}
-					triggered_desc = { #Martial
-						trigger = { var:selected_character = { has_trait = education_martial } }
-						desc =  bountig_event_chain.0054.b
-					}
-					triggered_desc = { #Learning
-						trigger = { var:selected_character = { has_trait = education_learning } }
-						desc =  bountig_event_chain.0054.c
-					}
-					triggered_desc = { #Intrigue
-						trigger = { var:selected_character = { has_trait = education_intrigue } }
-						desc =  bountig_event_chain.0054.d
-					}
-					triggered_desc = { #Stewardship
-						trigger = { var:selected_character = { has_trait = education_stewardship } }
-						desc =  bountig_event_chain.0054.e
-					}
-				}
-			}
-		}
-		if = {
-			limit = { var:selected_character = { has_trait = education_diplomacy } }
-			bountig_convince_easterling_lord_effect = { SKILL = diplomacy }
-		} else_if = {
-			limit = { var:selected_character = { has_trait = education_martial } }
-			bountig_convince_easterling_lord_effect = { SKILL = martial }
-		} else_if = {
-			limit = { var:selected_character = { has_trait = education_learning } }
-			bountig_convince_easterling_lord_effect = { SKILL = learning }
-		} else_if = {
-			limit = { var:selected_character = { has_trait = education_intrigue } }
-			bountig_convince_easterling_lord_effect = { SKILL = intrigue }
-		} else_if = {
-			limit = { var:selected_character = { has_trait = education_stewardship } }
-			bountig_convince_easterling_lord_effect = { SKILL = stewardship }
-		}
-	}
 }
 
 bountig_event_chain.0051 = { #Bountig gets one last chance to convince any remaining easterling lords
@@ -1684,15 +1684,31 @@ bountig_event_chain.0051 = { #Bountig gets one last chance to convince any remai
 				exists = scope:easterling_ruler_2
 				exists = scope:easterling_ruler_3
 			}
-			start_travel_plan = {
-				destination = scope:easterling_ruler_1.capital_province
-				destination = scope:easterling_ruler_2.capital_province
-				destination = scope:easterling_ruler_3.capital_province
-				travel_with_domicile = no
-				return_trip = yes
-				players_use_planner = no
-				on_arrival_event = bountig_event_chain.0054
-				on_arrival_destinations = all_but_last
+			if = {
+				limit = { is_ai = no }
+				start_travel_plan = {
+					destination = scope:easterling_ruler_1.capital_province
+					destination = scope:easterling_ruler_2.capital_province
+					destination = scope:easterling_ruler_3.capital_province
+					travel_with_domicile = no
+					return_trip = yes
+					players_use_planner = no
+					on_arrival_event = bountig_event_chain.0054
+					on_arrival_destinations = all_but_last
+				}
+			} else = {
+				trigger_event = {
+					id = bountig_event_chain.0054
+					days = 1
+				}
+				trigger_event = {
+					id = bountig_event_chain.0054
+					days = 5
+				}
+				trigger_event = {
+					id = bountig_event_chain.0054
+					days = 9
+				}
 			}
 		} else_if = {
 			limit = {
@@ -1700,14 +1716,26 @@ bountig_event_chain.0051 = { #Bountig gets one last chance to convince any remai
 				exists = scope:easterling_ruler_1
 				exists = scope:easterling_ruler_3
 			}
-			start_travel_plan = {
-				destination = scope:easterling_ruler_1.capital_province
-				destination = scope:easterling_ruler_3.capital_province
-				travel_with_domicile = no
-				return_trip = yes
-				players_use_planner = no
-				on_arrival_event = bountig_event_chain.0054
-				on_arrival_destinations = all_but_last
+			if = {
+				limit = { is_ai = no }
+				start_travel_plan = {
+					destination = scope:easterling_ruler_1.capital_province
+					destination = scope:easterling_ruler_3.capital_province
+					travel_with_domicile = no
+					return_trip = yes
+					players_use_planner = no
+					on_arrival_event = bountig_event_chain.0054
+					on_arrival_destinations = all_but_last
+				}
+			} else = {
+				trigger_event = {
+					id = bountig_event_chain.0054
+					days = 1
+				}
+				trigger_event = {
+					id = bountig_event_chain.0054
+					days = 5
+				}
 			}
 		} else_if = {
 			limit = {
@@ -1715,14 +1743,26 @@ bountig_event_chain.0051 = { #Bountig gets one last chance to convince any remai
 				exists = scope:easterling_ruler_1
 				exists = scope:easterling_ruler_2
 			}
-			start_travel_plan = {
-				destination = scope:easterling_ruler_1.capital_province
-				destination = scope:easterling_ruler_2.capital_province
-				travel_with_domicile = no
-				return_trip = yes
-				players_use_planner = no
-				on_arrival_event = bountig_event_chain.0054
-				on_arrival_destinations = all_but_last
+			if = {
+				limit = { is_ai = no }
+				start_travel_plan = {
+					destination = scope:easterling_ruler_1.capital_province
+					destination = scope:easterling_ruler_2.capital_province
+					travel_with_domicile = no
+					return_trip = yes
+					players_use_planner = no
+					on_arrival_event = bountig_event_chain.0054
+					on_arrival_destinations = all_but_last
+				}
+			} else = {
+				trigger_event = {
+					id = bountig_event_chain.0054
+					days = 1
+				}
+				trigger_event = {
+					id = bountig_event_chain.0054
+					days = 5
+				}
 			}
 		} else_if = {
 			limit = {
@@ -1730,28 +1770,48 @@ bountig_event_chain.0051 = { #Bountig gets one last chance to convince any remai
 				exists = scope:easterling_ruler_2
 				exists = scope:easterling_ruler_3
 			}
-			start_travel_plan = {
-				destination = scope:easterling_ruler_2.capital_province
-				destination = scope:easterling_ruler_3.capital_province
-				travel_with_domicile = no
-				return_trip = yes
-				players_use_planner = no
-				on_arrival_event = bountig_event_chain.0054
-				on_arrival_destinations = all_but_last
-			} 
+			if = {
+				limit = { is_ai = no }
+				start_travel_plan = {
+					destination = scope:easterling_ruler_2.capital_province
+					destination = scope:easterling_ruler_3.capital_province
+					travel_with_domicile = no
+					return_trip = yes
+					players_use_planner = no
+					on_arrival_event = bountig_event_chain.0054
+					on_arrival_destinations = all_but_last
+				}
+			} else = {
+				trigger_event = {
+					id = bountig_event_chain.0054
+					days = 1
+				}
+				trigger_event = {
+					id = bountig_event_chain.0054
+					days = 5
+				}
+			}
 		} else_if = {
 			limit = {
 				NOT = { exists = scope:easterling_ruler_3 }
 				NOT = { exists = scope:easterling_ruler_2 }
 				exists = scope:easterling_ruler_1
 			}
-			start_travel_plan = {
-				destination = scope:easterling_ruler_1.capital_province
-				travel_with_domicile = no
-				return_trip = yes
-				players_use_planner = no
-				on_arrival_event = bountig_event_chain.0054
-				on_arrival_destinations = all_but_last
+			if = {
+				limit = { is_ai = no }
+				start_travel_plan = {
+					destination = scope:easterling_ruler_1.capital_province
+					travel_with_domicile = no
+					return_trip = yes
+					players_use_planner = no
+					on_arrival_event = bountig_event_chain.0054
+					on_arrival_destinations = all_but_last
+				}
+			} else = {
+				trigger_event = {
+					id = bountig_event_chain.0054
+					days = 1
+				}
 			}
 		} else_if = {
 			limit = {
@@ -1759,13 +1819,21 @@ bountig_event_chain.0051 = { #Bountig gets one last chance to convince any remai
 				NOT = { exists = scope:easterling_ruler_1 }
 				exists = scope:easterling_ruler_2
 			}
-			start_travel_plan = {
-				destination = scope:easterling_ruler_2.capital_province
-				travel_with_domicile = no
-				return_trip = yes
-				players_use_planner = no
-				on_arrival_event = bountig_event_chain.0054
-				on_arrival_destinations = all_but_last
+			if = {
+				limit = { is_ai = no }
+				start_travel_plan = {
+					destination = scope:easterling_ruler_2.capital_province
+					travel_with_domicile = no
+					return_trip = yes
+					players_use_planner = no
+					on_arrival_event = bountig_event_chain.0054
+					on_arrival_destinations = all_but_last
+				}
+			} else = {
+				trigger_event = {
+					id = bountig_event_chain.0054
+					days = 1
+				}
 			}
 		} else_if = {
 			limit = {
@@ -1773,14 +1841,22 @@ bountig_event_chain.0051 = { #Bountig gets one last chance to convince any remai
 				NOT = { exists = scope:easterling_ruler_2 }
 				exists = scope:easterling_ruler_3
 			}
-			start_travel_plan = {
-				destination = scope:easterling_ruler_3.capital_province
-				travel_with_domicile = no
-				return_trip = yes
-				players_use_planner = no
-				on_arrival_event = bountig_event_chain.0054
-				on_arrival_destinations = all_but_last
-			} 
+			if = {
+				limit = { is_ai = no }
+				start_travel_plan = {
+					destination = scope:easterling_ruler_3.capital_province
+					travel_with_domicile = no
+					return_trip = yes
+					players_use_planner = no
+					on_arrival_event = bountig_event_chain.0054
+					on_arrival_destinations = all_but_last
+				} 
+			} else = {
+				trigger_event = {
+					id = bountig_event_chain.0054
+					days = 1
+				}
+			}
 		}
 		ai_chance = { base = 100 }
 	}
@@ -2024,18 +2100,29 @@ bountig_event_chain.0053 = { #Bountig kills Ovatha in duel
 
 	option = {
 		name = bountig_event_chain.0053.a
-
-		scope:attacker = {
-			give_nickname = nick_the_defeated_khand
-			death = {
-				death_reason = death_duel
-				killer = scope:defender
+		if = {
+			limit = { this = scope:defender }
+			scope:attacker = {
+				every_vassal = {
+					if = {
+						limit = { highest_held_title_tier > tier_duchy }
+						every_held_title = {
+							limit = { tier > tier_duchy }
+							scope:defender = { destroy_title = prev }
+						}
+					}
+				}
 			}
-		}
-		scope:attacker = {
-			every_vassal = {
-				if = {
-					limit = { highest_held_title_tier > tier_duchy }
+			scope:attacker = {
+				give_nickname = nick_the_defeated_khand
+				death = {
+					death_reason = death_duel
+					killer = scope:defender
+				}
+			}
+			if = { #Destroy all empire/kingdom tiers of the attacker
+				limit = { exists = title:e_khand.holder }
+				title:e_khand.holder = {
 					every_held_title = {
 						limit = { tier > tier_duchy }
 						scope:defender = { destroy_title = prev }
@@ -2043,15 +2130,106 @@ bountig_event_chain.0053 = { #Bountig kills Ovatha in duel
 				}
 			}
 		}
-		scope:attacker = { #Destroy all empire/kingdom tiers of the attacker
-			every_held_title = {
-				limit = { tier > tier_duchy }
-				scope:defender = { destroy_title = prev }
+		
+	}
+
+	after = { trigger_event = bountig_event_chain.0055 }
+}
+
+bountig_event_chain.0054 = { #Bountig arrives at court of an Easterling lord he wants to convince - last trip
+	content_source = realms_dlc
+	type = character_event
+	title = bountig_event_chain.0054.t
+	desc = bountig_event_chain.0054.desc
+	theme = martial
+	
+	right_portrait = {
+		character = root
+		animation = personality_rational
+	}
+	
+	left_portrait = {
+		character = var:selected_character
+		animation = personality_rational
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				exists = scope:easterling_ruler_1
+				root.location.county.holder = scope:easterling_ruler_1
+			}
+			set_variable = {
+				name = selected_character
+				value = scope:easterling_ruler_1
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:easterling_ruler_2
+				root.location.county.holder = scope:easterling_ruler_2
+			}
+			set_variable = {
+				name = selected_character
+				value = scope:easterling_ruler_2
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:easterling_ruler_3
+				root.location.county.holder = scope:easterling_ruler_3
+			}
+			set_variable = {
+				name = selected_character
+				value = scope:easterling_ruler_3
 			}
 		}
 	}
 
-	after = { trigger_event = bountig_event_chain.0055 }
+	option = {
+		name = {
+			text = {
+				first_valid = {
+					triggered_desc = { #Diplomacy
+						trigger = { var:selected_character = { has_trait = education_diplomacy } }
+						desc =  bountig_event_chain.0054.a
+					}
+					triggered_desc = { #Martial
+						trigger = { var:selected_character = { has_trait = education_martial } }
+						desc =  bountig_event_chain.0054.b
+					}
+					triggered_desc = { #Learning
+						trigger = { var:selected_character = { has_trait = education_learning } }
+						desc =  bountig_event_chain.0054.c
+					}
+					triggered_desc = { #Intrigue
+						trigger = { var:selected_character = { has_trait = education_intrigue } }
+						desc =  bountig_event_chain.0054.d
+					}
+					triggered_desc = { #Stewardship
+						trigger = { var:selected_character = { has_trait = education_stewardship } }
+						desc =  bountig_event_chain.0054.e
+					}
+				}
+			}
+		}
+		if = {
+			limit = { var:selected_character = { has_trait = education_diplomacy } }
+			bountig_convince_easterling_lord_effect = { SKILL = diplomacy }
+		} else_if = {
+			limit = { var:selected_character = { has_trait = education_martial } }
+			bountig_convince_easterling_lord_effect = { SKILL = martial }
+		} else_if = {
+			limit = { var:selected_character = { has_trait = education_learning } }
+			bountig_convince_easterling_lord_effect = { SKILL = learning }
+		} else_if = {
+			limit = { var:selected_character = { has_trait = education_intrigue } }
+			bountig_convince_easterling_lord_effect = { SKILL = intrigue }
+		} else_if = {
+			limit = { var:selected_character = { has_trait = education_stewardship } }
+			bountig_convince_easterling_lord_effect = { SKILL = stewardship }
+		}
+	}
 }
 
 #Finale event, Bountig crowned Lôke-Kân
@@ -2274,11 +2452,17 @@ bountig_event_chain.0060 = { #Bountigs long awaited reunion (with Asterel)
 			employer = root
 			save_scope_as = bountig_betrothed
 		}
+		remove_trait = cannot_marry
+		set_global_variable = {
+			name = bountig_found_asterel
+			value = yes
+		}
 	}
 
 	option = {
 		name = bountig_event_chain.0060.a
 		marry = scope:bountig_betrothed
+		set_relation_soulmate = scope:bountig_betrothed
 	}
 }
 
@@ -2396,7 +2580,7 @@ bountig_event_chain.5000 = {
 				ordered_de_jure_county_holder = {
 					limit = {
 						is_independent_ruler = yes
-						NOT = { kingdom = title:k_lurmsakun }
+						culture = culture:variag
 					}
 					order_by = {
 						value = 1
@@ -2830,6 +3014,7 @@ bountig_event_chain.5009 = { # All khandish rulers receive Ovatha's demand
 	desc = bountig_event_chain.5009.desc
 
 	trigger = {
+		exists = title:e_khand.holder
 		NOT = { is_at_war_with = title:e_khand.holder }
 		NOT = { root = title:e_khand.holder }
 		NOT = { is_vassal_or_below_of = title:e_khand.holder }
@@ -3120,7 +3305,13 @@ bountig_event_chain.9995 = {
 
 bountig_event_chain.9996 = {
 	hidden = yes
-	trigger = { is_ai = yes }
+	trigger = {
+		is_ai = yes
+		has_title = title:d_gap_of_khand
+		is_independent_ruler = yes 
+		culture = { has_cultural_tradition = tradition_variag_succession }
+		prestige_level >= 3
+	}
 	immediate = {
 		execute_decision = decision_unite_upper_khand_ovatha
 	}

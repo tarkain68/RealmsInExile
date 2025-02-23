@@ -1097,6 +1097,10 @@ k_isengard = {
 	item = {
 		trigger = { coa_switch_to_dunlending_trigger = yes}
 		coat_of_arms = k_isengeard
+	}
+	item = {
+		trigger = {coa_switch_to_dunedain_trigger = yes}
+		coat_of_arms = k_angrenost
 	}	
 }
 
@@ -1104,14 +1108,22 @@ d_isengard = {
 	item = {
 		trigger = { coa_switch_to_dunlending_trigger = yes}
 		coat_of_arms = d_isengeard
-	}	
+	}
+	item = {
+		trigger = {coa_switch_to_dunedain_trigger = yes}
+		coat_of_arms = d_angrenost
+	}		
 }
 
 c_isengard = {
 	item = {
 		trigger = { coa_switch_to_dunlending_trigger = yes}
 		coat_of_arms = c_isengeard
-	}	
+	}
+	item = {
+		trigger = {coa_switch_to_dunedain_trigger = yes}
+		coat_of_arms = c_angrenost
+	}		
 }
 
 e_dunland = {
@@ -1120,8 +1132,6 @@ e_dunland = {
 		coat_of_arms = e_dunland_freca
 	}	
 }	
-
-
 
 #Donan/Daen Dynamic Coas#
 
@@ -1426,9 +1436,66 @@ k_cardolan = {
 
 k_rhudaur = {
 	item = {
+		trigger = {coa_switch_to_hillmen_trigger = yes}
+		coat_of_arms = k_hillmen_rhudaur
+	}
+	item = {
+		trigger = {coa_switch_to_gobbo_trigger = yes}
+		coat_of_arms = k_orc_rhudaur
+	}
+	item = {
 		trigger = {coa_switch_to_native_trigger = yes}
 		coat_of_arms = k_native_rhudaur
-	}		
+	}	
+}
+
+d_dor_en_egladil = {
+	item = {
+		trigger = {coa_switch_to_gobbo_trigger = yes}
+		coat_of_arms = d_orc_dor_en_egladil
+	}
+}
+
+d_hithaeglir_harad = {
+	item = {
+		trigger = {coa_switch_to_gobbo_trigger = yes}
+		coat_of_arms = d_orc_hithaeglir_harad
+	}
+}
+
+d_cameth_brin = {
+	item = {
+		trigger = {coa_switch_to_gobbo_trigger = yes}
+		coat_of_arms = d_orc_cameth_brin
+	}
+}
+
+d_dul_glandagol = {
+	item = {
+		trigger = {coa_switch_to_gobbo_trigger = yes}
+		coat_of_arms = d_orc_dul_glandagol
+	}
+}
+
+d_dyr_eldanaryon = {
+	item = {
+		trigger = {coa_switch_to_gobbo_trigger = yes}
+		coat_of_arms = d_orc_dyr_eldanaryon
+	}
+}
+
+d_dol_tiriamon = {
+	item = {
+		trigger = {coa_switch_to_gobbo_trigger = yes}
+		coat_of_arms = d_orc_dol_tiriamon
+	}
+}
+
+d_hithaeglir_forn = {
+	item = {
+		trigger = {coa_switch_to_gobbo_trigger = yes}
+		coat_of_arms = d_orc_hithaeglir_forn
+	}
 }
 
 d_nan_turath = {
@@ -1631,5 +1698,13 @@ e_numenor_in_exile = {
 	item = {
 		trigger = {coa_switch_to_adunai_trigger = yes}
 		coat_of_arms = e_numenor_in_exile_adunai
+	}
+}
+
+# Enedhwaith
+k_enedhwaith = {
+	item = {
+		trigger = { coa_switch_to_dunedain_trigger = yes }
+		coat_of_arms = k_enedhwaith_dunedain
 	}
 }

@@ -1,30 +1,12 @@
 ﻿lotr_bountig_story_eastern_rhovanion_war = {
 	# for grouping together contract types, e.g. mercenary, potentially determines map icon
 	group = lotr_story_group
-
-	# Icon used in the UI
 	icon = "gfx/interface/icons/activities/activity_lore.dds"
-
-	# Description or 'back-story' of the task contract, defaults to "<key>_desc"
-	# root = task_contract_type
-	# desc = ""
-
-	# Description for request telling 'what to do' in order to complete the contract, defaults to "<key>_request"
-	# root = task_contract_type
-	# task_contract_request = ""
-
-	# Contract owner should travel to contract location to accept and stay there for the duration of the contract
-	# travel = yes
-
-	# Contract is of a criminal nature
 	is_criminal = no
-
-	# Range setting
-	# yes - uses diplomatic range to contract employer
-	# no - uses ADVENTURER_DISTANCE_RESTRICTION define as radius
+	travel = no
 	use_diplomatic_range = no
 
-	weight = { value = 1000000 }
+	weight = { value = 0 }
 
 	# Validity Triggers
 	valid_to_create = {
@@ -247,6 +229,14 @@ lotr_bountig_story_harwan_cities = {
 			title:c_minas_tirith.empire = { is_de_jure_liege_or_above_target = root.domicile.domicile_location.county }
 			has_character_flag = gondor_amrun_flag
 		}
+		trigger_if = {
+			limit = { is_ai = yes }
+			has_trait_xp = {
+				trait = bountig_story_trait
+				track = gondor_cities
+				value >= 50
+			}
+		}
 		# Standard triggers.
 		
 		valid_laamp_basic_accept_only_trigger = yes
@@ -360,6 +350,14 @@ lotr_bountig_story_umbar_cities = {
 			title:c_umbar.kingdom = { is_de_jure_liege_or_above_target = root.domicile.domicile_location.county }
 			has_character_flag = gondor_amrun_flag
 		}
+		trigger_if = {
+			limit = { is_ai = yes }
+			has_trait_xp = {
+				trait = bountig_story_trait
+				track = haruzan_cities
+				value >= 50
+			}
+		}
 		# Standard triggers.
 		
 		valid_laamp_basic_accept_only_trigger = yes
@@ -422,6 +420,433 @@ lotr_bountig_story_umbar_cities = {
 			effect = {
 				task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_failure_on_contract" }
 				
+			}
+		}
+	}
+}
+
+### Arphazel Contracts ###
+
+lotr_arphazel_contract_mirlond = {
+	# for grouping together contract types, e.g. mercenary, potentially determines map icon
+	group = lotr_story_group
+	icon = "gfx/interface/icons/culture_tradition/4-items/blacknumenorean.dds"
+	is_criminal = no
+	travel = yes
+	use_diplomatic_range = no
+
+	weight = { value = 0 }
+
+	# Validity Triggers
+	valid_to_create = {
+		# Standard triggers.
+		valid_laamp_basic_trigger = {
+			EMPLOYER = scope:employer
+			LAAMP = root
+		}
+	}
+	valid_to_accept = {
+		# Standard triggers.
+		scope:employer = { is_landed = yes }
+		valid_laamp_basic_accept_only_trigger = yes
+		valid_laamp_basic_trigger = {
+			EMPLOYER = scope:employer
+			LAAMP = root
+		}
+	}
+	valid_to_continue = {
+		# Standard triggers.
+		valid_laamp_basic_trigger = {
+			EMPLOYER = root.task_contract_employer
+			LAAMP = root.task_contract_taker
+		}
+	}
+	valid_to_keep = {
+	}
+
+	# On_actions
+	on_accepted = {
+		save_scope_as = task_contract
+		task_contract_employer = { save_scope_as = employer }
+		
+		set_variable = {
+			name = task_contract_destination
+			value = title:c_mirlond.title_province
+		}
+		task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_accept_contract" }
+		
+		task_contract_taker = {
+			trigger_event = umbar.0154
+		}
+	}
+	on_create = {
+		scope:contract = {
+			set_variable = no_success_or_failure
+			set_variable = mirlond_contract
+		}
+	}
+
+	# Rewards root - task_contract
+	task_contract_reward = { #
+		success_standard = {
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = {
+					play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract"
+					add_gold = 200
+				}
+			}
+		}
+		failure_standard = {
+			positive = no
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { 
+					play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_failure_on_contract"
+					add_prestige = minor_prestige_loss
+				}
+			}
+		}
+	}
+}
+
+lotr_arphazel_contract_harfalas = {
+	# for grouping together contract types, e.g. mercenary, potentially determines map icon
+	group = lotr_story_group
+	icon = "gfx/interface/icons/culture_tradition/4-items/blacknumenorean.dds"
+	is_criminal = no
+	travel = yes
+	use_diplomatic_range = no
+
+	weight = { value = 0 }
+
+	# Validity Triggers
+	valid_to_create = {
+		# Standard triggers.
+		valid_laamp_basic_trigger = {
+			EMPLOYER = scope:employer
+			LAAMP = root
+		}
+	}
+	valid_to_accept = {
+		# Standard triggers.
+		scope:employer = { is_landed = yes }
+		valid_laamp_basic_accept_only_trigger = yes
+		valid_laamp_basic_trigger = {
+			EMPLOYER = scope:employer
+			LAAMP = root
+		}
+	}
+	valid_to_continue = {
+		# Standard triggers.
+		valid_laamp_basic_trigger = {
+			EMPLOYER = root.task_contract_employer
+			LAAMP = root.task_contract_taker
+		}
+	}
+	valid_to_keep = {
+	}
+
+	# On_actions
+	on_accepted = {
+		save_scope_as = task_contract
+		task_contract_employer = { save_scope_as = employer }
+		
+		set_variable = {
+			name = task_contract_destination
+			value = title:c_harfalas.title_province
+		}
+		task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_accept_contract" }
+		
+		task_contract_taker = {
+			trigger_event = umbar.0157
+		}
+	}
+	on_create = {
+		scope:contract = {
+			set_variable = no_success_or_failure
+			set_variable = harfalas_contract
+		}
+	}
+
+	# Rewards root - task_contract
+	task_contract_reward = { #
+		success_standard = {
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = {
+					play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract"
+					add_gold = 200
+				}
+			}
+		}
+		failure_standard = {
+			positive = no
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { 
+					play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_failure_on_contract"
+					add_prestige = minor_prestige_loss
+				}
+			}
+		}
+	}
+}
+
+lotr_arphazel_contract_linhir = {
+	# for grouping together contract types, e.g. mercenary, potentially determines map icon
+	group = lotr_story_group
+	icon = "gfx/interface/icons/culture_tradition/4-items/blacknumenorean.dds"
+	is_criminal = no
+	travel = yes
+	use_diplomatic_range = no
+
+	weight = { value = 0 }
+
+	# Validity Triggers
+	valid_to_create = {
+		# Standard triggers.
+		valid_laamp_basic_trigger = {
+			EMPLOYER = scope:employer
+			LAAMP = root
+		}
+	}
+	valid_to_accept = {
+		# Standard triggers.
+		scope:employer = { is_landed = yes }
+		valid_laamp_basic_accept_only_trigger = yes
+		valid_laamp_basic_trigger = {
+			EMPLOYER = scope:employer
+			LAAMP = root
+		}
+	}
+	valid_to_continue = {
+		# Standard triggers.
+		valid_laamp_basic_trigger = {
+			EMPLOYER = root.task_contract_employer
+			LAAMP = root.task_contract_taker
+		}
+	}
+	valid_to_keep = {
+	}
+
+	# On_actions
+	on_accepted = {
+		save_scope_as = task_contract
+		task_contract_employer = { save_scope_as = employer }
+		
+		set_variable = {
+			name = task_contract_destination
+			value = title:c_linhir.title_province
+		}
+		task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_accept_contract" }
+		
+		task_contract_taker = {
+			trigger_event = umbar.0161
+		}
+	}
+	on_create = {
+		scope:contract = {
+			set_variable = no_success_or_failure
+			set_variable = linhir_contract
+		}
+	}
+
+	# Rewards root - task_contract
+	task_contract_reward = { #
+		success_standard = {
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = {
+					play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract"
+					domicile = {
+						add_domicile_building = barber_tent_01
+						add_domicile_building = barber_tent_02
+					}
+				}
+			}
+		}
+		failure_standard = {
+			positive = no
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { 
+					play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_failure_on_contract"
+					add_prestige = minor_prestige_loss
+				}
+			}
+		}
+	}
+}
+
+lotr_arphazel_contract_ramlond = {
+	# for grouping together contract types, e.g. mercenary, potentially determines map icon
+	group = lotr_story_group
+	icon = "gfx/interface/icons/culture_tradition/4-items/blacknumenorean.dds"
+	is_criminal = no
+	travel = yes
+	use_diplomatic_range = no
+
+	weight = { value = 0 }
+
+	# Validity Triggers
+	valid_to_create = {
+		# Standard triggers.
+		valid_laamp_basic_trigger = {
+			EMPLOYER = scope:employer
+			LAAMP = root
+		}
+	}
+	valid_to_accept = {
+		# Standard triggers.
+		scope:employer = { is_landed = yes }
+		valid_laamp_basic_accept_only_trigger = yes
+		valid_laamp_basic_trigger = {
+			EMPLOYER = scope:employer
+			LAAMP = root
+		}
+	}
+	valid_to_continue = {
+		# Standard triggers.
+		valid_laamp_basic_trigger = {
+			EMPLOYER = root.task_contract_employer
+			LAAMP = root.task_contract_taker
+		}
+	}
+	valid_to_keep = {
+	}
+
+	# On_actions
+	on_accepted = {
+		save_scope_as = task_contract
+		task_contract_employer = { save_scope_as = employer }
+		
+		set_variable = {
+			name = task_contract_destination
+			value = title:c_ramlond.title_province
+		}
+		task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_accept_contract" }
+		
+		task_contract_taker = {
+			trigger_event = umbar.165
+		}
+	}
+	on_create = {
+		scope:contract = {
+			set_variable = no_success_or_failure
+			set_variable = ramlond_contract
+		}
+	}
+
+	# Rewards root - task_contract
+	task_contract_reward = { #
+		success_standard = {
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = {
+					play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract"
+					add_gold = 250
+					if = {
+						limit = { domicile = { has_domicile_building = camp_main_02 } }
+						domicile = { change_provisions = medium_provisions_gain }
+					}
+					else = { domicile = { add_domicile_building = camp_main_02 } }
+				}
+			}
+		}
+		failure_standard = {
+			positive = no
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { 
+					play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_failure_on_contract"
+					add_prestige = minor_prestige_loss
+				}
+			}
+		}
+	}
+}
+
+lotr_arphazel_contract_tolfalas = {
+	# for grouping together contract types, e.g. mercenary, potentially determines map icon
+	group = lotr_story_group
+	icon = "gfx/interface/icons/culture_tradition/4-items/blacknumenorean.dds"
+	is_criminal = no
+	travel = yes
+	use_diplomatic_range = no
+
+	weight = { value = 0 }
+
+	# Validity Triggers
+	valid_to_create = {
+		# Standard triggers.
+		valid_laamp_basic_trigger = {
+			EMPLOYER = scope:employer
+			LAAMP = root
+		}
+	}
+	valid_to_accept = {
+		# Standard triggers.
+		scope:employer = { is_landed = yes }
+		valid_laamp_basic_accept_only_trigger = yes
+		valid_laamp_basic_trigger = {
+			EMPLOYER = scope:employer
+			LAAMP = root
+		}
+	}
+	valid_to_continue = {
+		# Standard triggers.
+		valid_laamp_basic_trigger = {
+			EMPLOYER = root.task_contract_employer
+			LAAMP = root.task_contract_taker
+		}
+	}
+	valid_to_keep = {
+	}
+
+	# On_actions
+	on_accepted = {
+		save_scope_as = task_contract
+		task_contract_employer = { save_scope_as = employer }
+		
+		set_variable = {
+			name = task_contract_destination
+			value = title:c_hartolfalas.title_province
+		}
+		task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_accept_contract" }
+		
+		task_contract_taker = {
+			trigger_event = umbar.169
+		}
+	}
+	on_create = {
+		scope:contract = {
+			set_variable = no_success_or_failure
+			set_variable = tolfalas_contract
+		}
+	}
+
+	# Rewards root - task_contract
+	task_contract_reward = { #
+		success_standard = {
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = {
+					play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract"
+					add_gold = 250
+					add_prestige = medium_prestige_gain
+					domicile = { change_provisions = medium_provisions_gain }
+				}
+			}
+		}
+		failure_standard = {
+			positive = no
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { 
+					play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_failure_on_contract"
+					add_prestige = minor_prestige_loss
+				}
 			}
 		}
 	}

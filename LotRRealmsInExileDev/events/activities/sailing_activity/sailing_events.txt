@@ -74,6 +74,15 @@ sailing.0800 = {
 			on_action = sailing_dockyard_events
 		}
 	}
+	after = {
+		if = {
+			limit = { involved_activity.activity_location = { geographical_region = middleearth_rhun } }
+			add_character_flag = { 
+				flag = sailing_inland_sea
+				days = 50
+			}
+		}
+	}			
 }
 
 #Character does not own a boat - charter or buy?
@@ -106,14 +115,14 @@ sailing.1001 = {
 		show_as_unavailable = {
 			short_term_gold <= small_boat_cost
 		}
-		if = {
-			limit = {
-				root.culture = {
-					has_cultural_parameter = lotr_sailing_boats_cheaper
-				}
-			}
-			custom_tooltip = sailing_boat_cost_reduction_desc
-		}
+		# if = {
+			# limit = {
+				# root.culture = {
+					# has_cultural_parameter = lotr_sailing_boats_cheaper
+				# }
+			# }
+			# custom_tooltip = sailing_boat_cost_reduction_desc
+		# }
 		trigger_event = sailing.1003
 		ai_chance = {
 			base = 30
@@ -366,7 +375,7 @@ sailing.1005 = {
 	}
 	
 	trigger = {
-		is_elf = no
+		NOT = { is_elf = yes }
 		cannot_be_killed = no
 		is_lotr_adult = yes
 		is_eunuch_trigger = no
@@ -1463,7 +1472,10 @@ sailing.1013 = {
 				desc = sailing.1013.a.success
 				send_interface_toast = {
 					title = sailing.1013.a.success
-					scope:recruit = { set_employer = root }
+					add_courtier = scope:recruit
+					scope:recruit = {
+						add_to_activity = scope:activity 
+					}
 					reverse_add_opinion = {
 						target = scope:recruit
 						modifier = respect_opinion
@@ -1499,7 +1511,10 @@ sailing.1013 = {
 	
 	option = { # Bribe - Pay the to join
 		name = sailing.1013.b
-		scope:recruit = { set_employer = root }
+		add_courtier = scope:recruit
+		scope:recruit = {
+			add_to_activity = scope:activity 
+		}
 		if = {
 			limit = {
 				scope:recruit = {
@@ -1678,7 +1693,7 @@ sailing.1015 = {
 	}
 	right_portrait = {
 		character = scope:dockyard_beggar 
-		animation = throne_room_conversation_1
+		animation = obsequious_bow
 		#camera = camera_activity_right
 	}
 	immediate = {
@@ -1842,6 +1857,11 @@ sailing.1990 = {
 		name = sailing.1990.b
 		trigger = {
 			scope:activity = { has_activity_option = { category = special_type option = sailing_type_raid } }
+			OR = {
+				culture = { has_cultural_tradition = tradition_corsairs_of_umbar }
+				culture = { has_cultural_tradition = tradition_seafaring }
+				faith = { has_doctrine = tenet_corsairs }
+			}
 		}
 		trigger_event = {
 			on_action = sailing_at_sea_events
@@ -1867,6 +1887,20 @@ sailing.1990 = {
 			days = 1
 		}
 	}
+	
+	option = { # Hunt a sea-creature
+		name = sailing.1990.d 
+		trigger = {
+			scope:activity = { has_activity_option = { category = special_type option = sailing_type_raid } }
+			scope:host = { has_trait = lifestyle_hunter }
+		}
+		add_character_flag = sailing_hunt_a_creature
+		#show_as_unavailable = { NOT = { has_trait = lifestyle_hunter } }
+		trigger_event = {
+			on_action = sailing_at_sea_events
+			days = 15
+		}
+	}
 }
 
 #Exploring where?
@@ -1876,6 +1910,8 @@ sailing.1991 = {
 	title = sailing.1991.t
 	desc = sailing.1991.desc
 	theme = sailing_activity
+	trigger = { NOT = { has_character_flag = sailing_inland_sea } }
+	on_trigger_fail = { trigger_event = sailing.1993 }
 	override_background = {
 		reference = ocean
 	}
@@ -1887,7 +1923,6 @@ sailing.1991 = {
 		character = scope:first_mate
 		animation = personality_cynical
 	}
-
 	option = { # Coastal exploration 
 		name = sailing.1991.a
 		add_character_flag = {
@@ -1899,19 +1934,7 @@ sailing.1991 = {
 			days = 15
 		}
 	}
-	
-	# option = { # Meneltarma
-		# name = sailing.1991.c
-		# trigger = {
-			# NOT = { has_character_flag = failed_to_navigate_towards_numenor }
-		# }
-		# trigger_event = {
-			# id = sailing.3100
-			# days = 1
-		# }
-		# ai_chance = { base = 0 }
-	# }
-	
+
 	option = { # River Sailing
 		name = sailing.1991.d
 		add_character_flag = {
@@ -1969,12 +1992,57 @@ sailing.1992 = {
 		}
 	}	
 	
-	# option = { # I changed my mind 
-		# name = sailing.8888.a
-		# trigger_event = {
-			# id = sailing.1991
+	option = { # Lune 
+		name = sailing.1992.d
+		trigger_event = {
+			id = sailing.5100
+			days = 15
+		}
+	}	
+}
+
+#Sea of Rhun - where to?
+sailing.1993 = {
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.1993.t
+	desc = sailing.1993.desc
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = scope:first_mate
+		animation = personality_cynical
+	}
+	option = { # Coastal exploration 
+		name = sailing.1993.a
+		add_character_flag = {
+			flag = sailing_seaofrhun
+			years = 2
+		}
+		trigger_event = {
+			on_action = sailing_at_sea_events
+			days = 15
+		}
+	}
+
+	# option = { # Celduin
+		# name = sailing.1991.d
+		# add_character_flag = {
+			# flag = river_sailing_exploration
+			# years = 4
 		# }
-	# }	
+		# trigger_event = {
+			# on_action = sailing_at_sea_events
+			# days = 15
+		# }
+	# }
+	
 }
 
 
@@ -2081,7 +2149,7 @@ sailing.2002 = {
 	desc = sailing.2002.desc
 	theme = sailing_activity
 	override_background = {
-		reference = ocean
+		reference = black_ship
 	}
 	left_portrait = {
 		character = root
@@ -2550,7 +2618,7 @@ sailing.2004 = {
 	desc = sailing.2004.desc
 	theme = sailing_activity
 	override_background = {
-		reference = ocean
+		reference = black_ship
 	}
 	left_portrait = {
 		character = root
@@ -2649,7 +2717,8 @@ sailing.2004 = {
 	}
 }
 
-sailing.2005 = { # Crewmate overboard
+# Crewmate overboard
+sailing.2005 = {
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.2005.t
@@ -2657,6 +2726,9 @@ sailing.2005 = { # Crewmate overboard
 	theme = sailing_activity
 	override_background = {
 		reference = ocean
+	}
+	override_effect_2d = {
+		reference = rain
 	}
 	left_portrait = {
 		character = root
@@ -3045,7 +3117,8 @@ sailing.2006 = {
 	}
 }	
 	
-sailing.2007 = { # Insufferable Discord by RedArkady
+# Insufferable Discord by RedArkady
+sailing.2007 = { 
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.2007.t
@@ -3472,7 +3545,7 @@ sailing.2010 = {
 	}
 	theme = sailing_activity
 	override_background = {
-		reference = ocean
+		reference = black_ship
 	}
 	left_portrait = {
 		character = root
@@ -3598,6 +3671,138 @@ sailing.2010 = {
 	}
 }
 
+# Sudden Fog ~by Aerien
+sailing.2011 = {
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.2011.t
+	desc = sailing.2011.desc
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	override_effect_2d = {
+		reference = fog
+	}
+	left_portrait = {
+		character = root
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:first_mate
+		animation = survey
+	}
+	immediate = {
+	}
+	option = { #Keep your heading
+		name = sailing.2011.a
+		stress_impact = {
+			craven = medium_stress_impact_gain
+			brave = minor_stress_impact_loss
+			impatient = medium_stress_impact_loss
+			patient = minor_stress_impact_gain
+		}
+		duel = {
+			skill = stewardship
+			value = high_skill_rating
+			60 = { # Find a swift path through the fog
+				desc = sailing.2011.a.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2
+				}
+				send_interface_toast = {
+					title = sailing.2011.a.success
+					left_icon = root
+					add_prestige = medium_prestige_gain
+					add_stress = -25
+				}		
+				trigger_event = {
+					id = sailing.2099
+					days = 5 
+				}
+				# Mariner skill
+				if = {
+					limit = { has_trait = lifestyle_mariner }
+					scope:activity = {
+						add_activity_log_entry = {
+							key = sailing_completed_log
+							tags = { good }
+							# this line below adds the entry to the Effects section of the conclusion UI
+							show_in_conclusion = yes
+							character = root
+							
+							root = {
+								add_trait_xp = {
+									trait = lifestyle_mariner
+									value = 5
+								}
+							}
+						}
+					}
+				}	
+				else = {
+					scope:activity = {
+						add_activity_log_entry = {
+							key = sailing_completed_log
+							tags = { good }
+							# this line below adds the entry to the Effects section of the conclusion UI
+							show_in_conclusion = yes
+							character = root
+							
+							root = { add_trait = lifestyle_mariner }
+						}
+					}
+				} 
+			}
+			40 = { # Get lost in the fog
+				desc = sailing.2011.a.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2
+				}
+				send_interface_toast = {
+					title = sailing.2011.a.failure
+					left_icon = root
+					add_stress = minor_stress_impact_gain
+					add_prestige = minor_prestige_loss
+				}
+				trigger_event = {
+					id = sailing.2099
+					days = 25 
+				}
+			}
+		}
+	}
+	
+	option = { #Turn the ship
+		name = sailing.2011.b
+		stress_impact = {
+			brave = medium_stress_impact_gain
+			impatient = medium_stress_impact_gain
+			craven = minor_stress_impact_loss
+			patient = minor_stress_impact_loss
+		}
+		trigger_event = {
+			id = sailing.2099
+			days = 20 
+		}
+	}
+	
+	option = { #I'm a mariner, I know what to do
+		name = sailing.2011.c
+		trigger = { has_trait = lifestyle_mariner }
+		show_as_unavailable = {
+			always = yes
+		}
+		add_prestige = medium_prestige_gain
+		trigger_event = {
+			id = sailing.2099
+			days = 5 
+		}
+	}
+}
+
 #####################################
 #	INTENT EVENTS	                #
 #	2099 - 2999						#
@@ -3651,6 +3856,13 @@ sailing.2100 = {
 	}
 	after = {
 		if = {
+			limit = { has_character_flag = sailing_seaofrhun }
+			trigger_event = {
+				id = sailing.6400 
+				days = 15 
+			}
+		}
+		else_if = {
 			limit = { has_character_flag = sailing_exploration }
 			trigger_event = {
 				on_action = sailing_exploration_events
@@ -3675,6 +3887,13 @@ sailing.2100 = {
 			limit = { has_character_flag = sailing_piracy_mission }
 			trigger_event = {
 				id = sailing.9100
+				days = 10
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = sailing_hunt_a_creature }
+			trigger_event = {
+				id = sailing.5500
 				days = 10
 			}
 		}
@@ -4275,6 +4494,13 @@ sailing.2104 = {
 	
 	after = {
 		if = {
+			limit = { has_character_flag = sailing_seaofrhun }
+			trigger_event = {
+				id = sailing.6400 
+				days = 15 
+			}
+		}
+		else_if = {
 			limit = { has_character_flag = sailing_exploration }
 			trigger_event = {
 				on_action = sailing_exploration_events
@@ -4299,6 +4525,13 @@ sailing.2104 = {
 			limit = { has_character_flag = sailing_piracy_mission }
 			trigger_event = {
 				id = sailing.9100
+				days = 10
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = sailing_hunt_a_creature }
+			trigger_event = {
+				id = sailing.5500
 				days = 10
 			}
 		}
@@ -4380,6 +4613,13 @@ sailing.2105 = {
 	
 	after = {
 		if = {
+			limit = { has_character_flag = sailing_seaofrhun }
+			trigger_event = {
+				id = sailing.6400 
+				days = 15 
+			}
+		}
+		else_if = {
 			limit = { has_character_flag = sailing_exploration }
 			trigger_event = {
 				on_action = sailing_exploration_events
@@ -4407,6 +4647,13 @@ sailing.2105 = {
 				days = 10
 			}
 		}
+		else_if = {
+			limit = { has_character_flag = sailing_hunt_a_creature }
+			trigger_event = {
+				id = sailing.5500
+				days = 10
+			}
+		}
 		else = {
 			trigger_event = {
 				id = sailing.9002
@@ -4417,7 +4664,6 @@ sailing.2105 = {
 }
 
 ## Murder
-
 # scripted_trigger sailing_hostile_scheme_target_trigger = {
 	# NOT = { this = root }
 	# is_alive = yes
@@ -4432,7 +4678,7 @@ sailing.2105 = {
 	# }
 # }
 
-sailing.2201 = {
+sailing.2201 = { # Murder: final prep
 	type = activity_event
 	title = sailing.2201.t
 	desc = {
@@ -4468,28 +4714,6 @@ sailing.2201 = {
 	# }
 	# lower_left_portrait = scope:accomplice_2
 	# cooldown = { years = 1 }
-
-	# widget = {
-		# gui = "event_window_widget_scheme"
-		# container = "custom_widgets_container"
-	# }
-
-	# trigger = {
-		# scope:activity ?= {
-			# any_attending_character = {
-				# sailing_hostile_scheme_target_trigger = { TYPE = murder }
-			# }
-		# }
-	# }
-
-	# weight_multiplier = {
-		# base = 1
-		# modifier = {
-			# factor = 2
-			# scope:host.court_position:overseer_of_the_mines_court_position ?= this
-			# mining_murder_risk_trigger = yes
-		# }
-	# }
 
 	immediate = {
 		if = {
@@ -4552,6 +4776,13 @@ sailing.2201 = {
 				days = 10
 			}
 		}
+		else_if = {
+			limit = { has_character_flag = sailing_hunt_a_creature }
+			trigger_event = {
+				id = sailing.5500
+				days = 10
+			}
+		}
 		else = {
 			trigger_event = {
 				id = sailing.9002
@@ -4561,7 +4792,7 @@ sailing.2201 = {
 	}
 }
 
-sailing.2202 = {
+sailing.2202 = { # Murder: do the deed
 	type = activity_event
 	title = sailing.2201.t
 	desc = {
@@ -4592,24 +4823,7 @@ sailing.2202 = {
 		# character = scope:accomplice
 		# animation = schadenfreude
 	# }
-	# lower_center_portrait = scope:accomplice_2
-	# cooldown = { years = 1 }
 
-	# trigger = {
-		# OR = {
-			# mining_murder_intent_target_trigger = yes
-			# mining_murder_target_trigger = yes
-		# }
-	# }
-
-	# weight_multiplier = {
-		# base = 1
-		# modifier = {
-			# factor = 2
-			# scope:host.court_position:overseer_of_the_mines_court_position ?= this
-			# mining_murder_risk_trigger = yes
-		# }
-	# }
 
 	immediate = {
 		save_scope_as = murder_actor
@@ -4620,11 +4834,7 @@ sailing.2202 = {
 		name = sailing.2202.a
 		flavor = sailing.2202.a.tt
 		reason = activity_intent
-		# set_variable = {
-			# name = sailing_murder_attempt
-			# value = scope:murder_target
-		# }
-		# mining_increment_murder_accident_attempt = yes #So it doesn't get silly, we track attempts and make chance to succeed lower for each recent one
+
 		duel = {
 			skills = { intrigue prowess }
 			target = scope:murder_target		
@@ -4718,7 +4928,7 @@ sailing.2202 = {
 	}
 }
 
-# Outcome 
+# Murder: Outcome 
 sailing.2203 = {
 	type = activity_event
 	title = sailing.2201.t
@@ -4864,6 +5074,13 @@ sailing.2203 = {
 		name = sailing.2203.a
 		trigger = { exists = scope:murder_success }
 		if = {
+			limit = { has_character_flag = sailing_seaofrhun }
+			trigger_event = {
+				id = sailing.6400 
+				days = 15 
+			}
+		}
+		else_if = {
 			limit = { has_character_flag = sailing_exploration }
 			trigger_event = {
 				on_action = sailing_exploration_events
@@ -4891,6 +5108,13 @@ sailing.2203 = {
 				days = 10
 			}
 		}
+		else_if = {
+			limit = { has_character_flag = sailing_hunt_a_creature }
+			trigger_event = {
+				id = sailing.5500
+				days = 10
+			}
+		}
 		else = {
 			trigger_event = {
 				id = sailing.9002
@@ -4910,46 +5134,9 @@ sailing.2203 = {
 			invalidate_activity = scope:activity
 		}
 	}
-	
-	# after = {
-		# if = {
-			# limit = { has_character_flag = sailing_exploration }
-			# trigger_event = {
-				# on_action = sailing_exploration_events
-				# days = 15
-			# }
-		# }		
-		# else_if = {
-			# limit = { has_character_flag = river_sailing_exploration }
-			# trigger_event = {
-				# id = sailing.1992
-				# days = 15
-			# }
-		# }
-		# else_if = {
-			# limit = { has_character_flag = sailing_piracy_mission }
-			# trigger_event = {
-				# id = sailing.9100
-				# days = 10
-			# }
-		# }
-		# else_if = {
-			# limit = { has_character_flag = meneltarma_on_course }
-			# trigger_event = {
-				# id = sailing.3200
-				# days = 10
-			# }
-		# }
-		# else = {
-			# trigger_event = {
-				# id = sailing.9002
-				# days = 1
-			# }
-		# }
-	# }
 }
 
-# Target
+# Murder: Target
 sailing.2204 = { 
 	type = activity_event
 	title = sailing.2204.t
@@ -5123,9 +5310,7 @@ sailing.2204 = {
 	}
 }
 
-
 ## Befriend
-
 sailing.2301 = {
 	type = activity_event
 	title = sailing.2301.t
@@ -5179,7 +5364,7 @@ sailing.2301 = {
 	}
 
 	immediate = {
-		save_scope_as = befriend_actor
+		root = { save_scope_as = befriend_actor }
 		if = {
 			limit = {
 				has_activity_intent = befriend_attendee_intent
@@ -5322,7 +5507,7 @@ sailing.2301 = {
 					progress_towards_friend_effect = {
 						CHARACTER = scope:befriend_target
 						OPINION = 15
-						REASON =  lover_miner_conversation_impressed
+						REASON = friend_hunt_conversation_impressed
 					}
 				}
 				10 = {
@@ -5597,6 +5782,10 @@ sailing.2304 = {
 		character = scope:befriend_target
 		animation = admiration
 	}
+	right_portrait = {
+		character = root
+		animation = happiness 
+	}
 	theme = befriend_scheme
 	override_background = {
 		reference = ocean
@@ -5633,6 +5822,13 @@ sailing.2304 = {
 	
 	after = {
 		if = {
+			limit = { has_character_flag = sailing_seaofrhun }
+			trigger_event = {
+				id = sailing.6400 
+				days = 15 
+			}
+		}
+		else_if = {
 			limit = { has_character_flag = sailing_exploration }
 			trigger_event = {
 				on_action = sailing_exploration_events
@@ -5657,6 +5853,13 @@ sailing.2304 = {
 			limit = { has_character_flag = meneltarma_on_course }
 			trigger_event = {
 				id = sailing.3200
+				days = 10
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = sailing_hunt_a_creature }
+			trigger_event = {
+				id = sailing.5500
 				days = 10
 			}
 		}
@@ -5743,6 +5946,13 @@ sailing.2305 = {
 	
 	after = {
 		if = {
+			limit = { has_character_flag = sailing_seaofrhun }
+			trigger_event = {
+				id = sailing.6400 
+				days = 15 
+			}
+		}
+		else_if = {
 			limit = { has_character_flag = sailing_exploration }
 			trigger_event = {
 				on_action = sailing_exploration_events
@@ -5767,6 +5977,13 @@ sailing.2305 = {
 			limit = { has_character_flag = meneltarma_on_course }
 			trigger_event = {
 				id = sailing.3200
+				days = 10
+			}
+		}
+		else_if = {
+			limit = { has_character_flag = sailing_hunt_a_creature }
+			trigger_event = {
+				id = sailing.5500
 				days = 10
 			}
 		}
@@ -5937,10 +6154,10 @@ sailing.3102 = {
 
 	option = { # Failure
 		name = sailing.3102.a
-		add_character_flag = {
-			flag = failed_to_navigate_towards_numenor
-			years = 3
-		}
+		#add_character_flag = {
+		#	flag = failed_to_navigate_towards_numenor
+		#	years = 3
+		#}
 		trigger_event = sailing.1991
 	}
 }	
@@ -5997,11 +6214,11 @@ sailing.3200 = {
 				}
 				modifier = {
 					add = 20
-					dynasty ?= { has_dynasty_modifier = owns_big_ship }
+					root.house ?= { has_house_modifier = owns_big_ship }
 				}
 				modifier = {
 					add = 10
-					dynasty ?= { has_dynasty_modifier = owns_small_ship }
+					root.house ?= { has_house_modifier = owns_small_ship }
 				}
 				desc = sailing.3200.a.success
 				custom_tooltip = sailing.3200.a.success.tt
@@ -6165,7 +6382,7 @@ sailing.3202 = {
 
 	option = { # Failure - ship is undamaged
 		name = sailing.3202.a
-		trigger = { owns_an_undamaged_boat = yes }
+		#trigger = { owns_an_undamaged_boat = yes }
 		random_list = {
 			20 = { #Ship is damaged - escape
 				modifier = {
@@ -6190,7 +6407,7 @@ sailing.3202 = {
 						value >= 100
 					}
 				}
-				damage_ship = yes
+				#damage_ship = yes
 				increase_wounds_no_death_effect = { REASON = duel }
 				custom_tooltip = sailing.3202.a.success.tt
 				trigger_event = {
@@ -6254,7 +6471,7 @@ sailing.3202 = {
 						value >= 100
 					}
 				}
-				damage_ship = yes
+				#damage_ship = yes
 				increase_wounds_no_death_effect = { REASON = duel }
 				custom_tooltip = sailing.3202.a.success.tt
 				trigger_event = {
@@ -6301,6 +6518,9 @@ sailing.3300 = {
 	theme = sailing_activity
 	override_background = {
 		reference = ocean
+	}
+	override_effect_2d = {
+		reference = fog
 	}
 	left_portrait = {
 		character = root
@@ -6811,6 +7031,9 @@ sailing.3500 = {
 	override_background = {
 		reference = ulmo	
 	}
+	override_effect_2d = {
+		reference = rain
+	}
 	left_portrait = {
 		character = root
 		animation = disbelief
@@ -6842,11 +7065,11 @@ sailing.3500 = {
 				}
 				modifier = {
 					add = 30
-					dynasty ?= { has_dynasty_modifier = owns_big_ship }
+					root.house ?= { has_house_modifier = owns_big_ship }
 				}
 				modifier = {
 					add = 20
-					dynasty ?= { has_dynasty_modifier = owns_small_ship }
+					root.house ?= { has_house_modifier = owns_small_ship }
 				}
 				modifier = {
 					add = 10
@@ -6905,11 +7128,11 @@ sailing.3500 = {
 				}
 				modifier = {
 					add = -30
-					dynasty ?= { has_dynasty_modifier = owns_big_ship }
+					root.house ?= { has_house_modifier = owns_big_ship }
 				}
 				modifier = {
 					add = -20
-					dynasty ?= { has_dynasty_modifier = owns_small_ship }
+					root.house ?= { has_house_modifier = owns_small_ship }
 				}
 				modifier = {
 					add = -10
@@ -7053,6 +7276,9 @@ sailing.3900 = {
 	override_background = {
 		reference = meneltarma	
 	}
+	override_effect_2d = {
+		reference = legend_glow
+	}
 	left_portrait = {
 		character = root
 		animation = happiness
@@ -7158,13 +7384,14 @@ sailing.3900 = {
 				faith = faith:faith_kings_men_castamir
 				faith = faith:faith_anballukhor
 				faith = faith:path_of_zigur
+				faith = faith:faith_corsair
+				has_religion = religion:adunai_religion
 			}
 		}
 		trigger_event = sailing.3904
 	}
 
 }
-
 
 # Admiring The Meneltarma From Afar
 sailing.3901 = {
@@ -7175,6 +7402,9 @@ sailing.3901 = {
 	theme = sailing_activity
 	override_background = {
 		reference = meneltarma	
+	}
+	override_effect_2d = {
+		reference = legend_glow
 	}
 	left_portrait = {
 		character = root
@@ -7242,8 +7472,8 @@ sailing.3902 = {
 	override_background = {
 		reference = meneltarma	
 	}
-	override_background = {
-		reference = meneltarma
+	override_effect_2d = {
+		reference = legend_glow
 	}
 	left_portrait = {
 		character = root
@@ -7349,8 +7579,8 @@ sailing.3903 = {
 	override_background = {
 		reference = meneltarma	
 	}
-	override_background = {
-		reference = meneltarma
+	override_effect_2d = {
+		reference = fog
 	}
 	left_portrait = {
 		character = root
@@ -7373,7 +7603,10 @@ sailing.3904 = {
 	override_background = {
 		reference = meneltarma	
 	}
-	left_portrait = {
+	override_effect_2d = {
+		reference = legend_glow
+	}
+	right_portrait = {
 		character = root
 		animation = personality_zealous
 	}
@@ -7481,7 +7714,7 @@ sailing.3904 = {
 ## Coast Exploration
 ## 4000-4999
 ## by Jamie-san
-## 5000-8000
+## 6000-8000
 ## by ispanets
 ############################
 
@@ -8541,6 +8774,7 @@ sailing.4027 = {
 		custom_tooltip = sailing.4027.b.tt
 		trigger = {
 			is_landed = yes
+			any_player = { count > 1 } # Locked in MP as per hendrix's request
 			title:c_aeluin = {
 				any_county_province = { has_holding_type = wastelands_holding }
 			}
@@ -8688,396 +8922,1408 @@ sailing.4999 = { # Fallback event if all explorations have been completed
 	}
 }
 
+##########################
+## SEA CREATURE HUNTING ##
+####### by Aerien ########
+
+sailing.5500 = { # Setting out for the hunt
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5500.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = sailing_looking_new_prey }
+				}
+				desc = sailing.5500.desc.a
+			}
+			desc = sailing.5500.desc
+		}
+	}
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+	right_portrait = {
+		character = scope:first_mate
+		animation = throne_room_two_handed_passive_1
+	}
+	immediate = {
+		if = {
+			limit = { has_character_flag = sailing_turtle_sighted }
+			remove_character_flag = sailing_turtle_sighted
+		}
+		if = {
+			limit = { has_character_flag = sailing_seal_sighted }
+			remove_character_flag = sailing_seal_sighted
+		}
+		if = {
+			limit = { has_character_flag = sailing_dolphin_sighted }
+			remove_character_flag = sailing_dolphin_sighted
+		}
+		if = {
+			limit = { has_character_flag = sailing_walrus_sighted }
+			remove_character_flag = sailing_walrus_sighted
+		}
+		if = {
+			limit = { has_character_flag = sailing_orca_sighted }
+			remove_character_flag = sailing_orca_sighted
+		}
+		if = {
+			limit = { has_character_flag = sailing_humpback_sighted }
+			remove_character_flag = sailing_humpback_sighted
+		}
+		if = {
+			limit = { has_character_flag = sailing_spermwhale_sighted }
+			remove_character_flag = sailing_spermwhale_sighted
+		}
+		if = {
+			limit = { has_character_flag = sailing_bluewhale_sighted }
+			remove_character_flag = sailing_bluewhale_sighted
+		}
+		if = {
+			limit = { has_character_flag = sailing_seadrake_sighted }
+			remove_character_flag = sailing_seadrake_sighted
+		}
+		if = {
+			limit = { has_character_flag = sailing_whitedread_sighted }
+			remove_character_flag = sailing_whitedread_sighted
+		}
+	}
+	option = { # All right, let's keep our eyes open!
+		name = sailing.5500.a
+		custom_tooltip = sailing.5500.a.tt 
+		hidden_effect = {
+			random_list = {
+				15 = { # A turtle
+					#custom_tooltip = sailing.5000.a.tt.a
+					add_character_flag = sailing_turtle_sighted
+					trigger_event = { id = sailing.5501 days = 5 }
+				}
+				10 = { # A seal
+					#custom_tooltip = sailing.5000.a.tt.b
+					add_character_flag = sailing_seal_sighted
+					trigger_event = { id = sailing.5501 days = 5 }
+				}
+				10 = { # A dolphin
+					#custom_tooltip = sailing.5000.a.tt.c
+					add_character_flag = sailing_dolphin_sighted
+					trigger_event = { id = sailing.5501 days = 5 }
+				}
+				10 = { # A walrus
+					#custom_tooltip = sailing.5000.a.tt.d
+					add_character_flag = sailing_walrus_sighted
+					trigger_event = { id = sailing.5501 days = 5 }
+				}
+				10 = { # An orca
+					#custom_tooltip = sailing.5000.a.tt.e
+					add_character_flag = sailing_orca_sighted
+					trigger_event = { id = sailing.5501 days = 5 }
+				}
+				10 = { # A humpback whale
+					#custom_tooltip = sailing.5000.a.tt.f
+					add_character_flag = sailing_humpback_sighted
+					trigger_event = { id = sailing.5501 days = 5 }
+				}
+				10 = { # A sperm whale
+					#custom_tooltip = sailing.5000.a.tt.g
+					add_character_flag = sailing_spermwhale_sighted
+					trigger_event = { id = sailing.5501 days = 5 }
+				}
+				10 = { # A blue whale
+					#custom_tooltip = sailing.5000.a.tt.h
+					add_character_flag = sailing_bluewhale_sighted
+					trigger_event = { id = sailing.5501 days = 5 }
+				}
+				10 = { # A sea drake
+					#custom_tooltip = sailing.5000.a.tt.i
+					add_character_flag = sailing_seadrake_sighted
+					trigger_event = { id = sailing.5501 days = 5 }
+				}
+				5 = { # The legendary White Dread!
+					#custom_tooltip = sailing.5000.a.tt.j
+					if = {
+						limit = { has_character_flag = white_dread_slain }
+						add_character_flag = sailing_spermwhale_sighted
+						trigger_event = { id = sailing.5501 days = 5 }
+					}
+					else = {
+						add_character_flag = sailing_whitedread_sighted
+						trigger_event = { id = sailing.5501 days = 5 }
+					}
+				}
+			}
+		}
+	}
+}
+
+sailing.5501 = { # Look for signs of a creature!
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5501.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = sailing_turtle_sighted }
+				}
+				desc = sailing.5501.desc.a
+			}
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = sailing_seal_sighted }
+				}
+				desc = sailing.5501.desc.b
+			}
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = sailing_dolphin_sighted }
+				}
+				desc = sailing.5501.desc.c
+			}
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = sailing_walrus_sighted }
+				}
+				desc = sailing.5501.desc.d
+			}
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = sailing_orca_sighted }
+				}
+				desc = sailing.5501.desc.e
+			}
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = sailing_humpback_sighted }
+				}
+				desc = sailing.5501.desc.f
+			}
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = sailing_spermwhale_sighted }
+				}
+				desc = sailing.5501.desc.g
+			}
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = sailing_bluewhale_sighted }
+				}
+				desc = sailing.5501.desc.h
+			}
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = sailing_seadrake_sighted }
+				}
+				desc = sailing.5501.desc.i
+			}
+			triggered_desc = {
+				trigger = {
+					root = { has_character_flag = sailing_whitedread_sighted }
+					NOT = { root = { has_character_modifier = the_white_beast_modifier } } 
+				}
+				desc = sailing.5501.desc.j
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						root = { 
+							has_character_flag = sailing_whitedread_sighted
+							has_character_modifier = the_white_beast_modifier
+						}
+					}
+				}
+				desc = sailing.5501.desc.k
+			}
+		}
+	}
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	left_portrait = {
+		character = root
+		animation = throne_room_two_handed_passive_1
+	}
+	right_portrait = {
+		character = scope:first_mate
+		animation = throne_room_one_handed_passive_1
+	}
+	option = { # After it! Harpoons at the ready!
+		name = sailing.5501.a 
+		custom_tooltip = sailing.5501.a.tt 
+		trigger = { has_character_flag = sailing_turtle_sighted }
+		trigger_event = sailing.5502
+	}
+	option = { # After it! Harpoons at the ready!
+		name = sailing.5501.b 
+		custom_tooltip = sailing.5501.b.tt 
+		trigger = { has_character_flag = sailing_seal_sighted }
+		trigger_event = sailing.5503
+	}
+	option = { # After it! Harpoons at the ready!
+		name = sailing.5501.c 
+		custom_tooltip = sailing.5501.c.tt 
+		trigger = { has_character_flag = sailing_dolphin_sighted }
+		trigger_event = sailing.5504
+	}
+	option = { # After it! Harpoons at the ready!
+		name = sailing.5501.d 
+		custom_tooltip = sailing.5501.d.tt 
+		trigger = { has_character_flag = sailing_walrus_sighted }
+		trigger_event = sailing.5505
+	}
+	option = { # After it! Harpoons at the ready!
+		name = sailing.5501.e 
+		custom_tooltip = sailing.5501.e.tt 
+		trigger = { has_character_flag = sailing_orca_sighted }
+		trigger_event = sailing.5506
+	}	
+	option = { # After it! Harpoons at the ready!
+		name = sailing.5501.f 
+		custom_tooltip = sailing.5501.f.tt 
+		trigger = { has_character_flag = sailing_humpback_sighted }
+		trigger_event = sailing.5507
+	}
+	option = { # After it! Harpoons at the ready!
+		name = sailing.5501.g
+		custom_tooltip = sailing.5501.g.tt 
+		trigger = { has_character_flag = sailing_spermwhale_sighted }
+		trigger_event = sailing.5508
+	}
+	option = { # After it! Harpoons at the ready!
+		name = sailing.5501.h
+		custom_tooltip = sailing.5501.h.tt 
+		trigger = { has_character_flag = sailing_bluewhale_sighted }
+		trigger_event = sailing.5509
+	}
+	option = { # After it! Harpoons at the ready!
+		name = sailing.5501.i
+		custom_tooltip = sailing.5501.i.tt 
+		trigger = { has_character_flag = sailing_seadrake_sighted }
+		trigger_event = sailing.5510
+	}
+	option = { # After it! Harpoons at the ready!
+		name = sailing.5501.j
+		custom_tooltip = sailing.5501.j.tt 
+		trigger = { has_character_flag = sailing_whitedread_sighted }
+		trigger_event = sailing.5511
+	}
+	option = { # We'll look for better prey.
+		name = sailing.5501.k
+		custom_tooltip = sailing.5501.k.tt
+		add_character_flag = sailing_looking_new_prey
+		trigger_event = { id = sailing.5500 days = 15 }
+	}
+}
+
+sailing.5502 = { # Try to catch the turtle
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5502.t
+	desc = sailing.5502.desc 
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	right_portrait = {
+		character = root
+		animation = aggressive_spear
+	}
+	left_portrait = {
+		character = scope:first_mate
+		animation = throne_room_cheer_1
+	}
+	option = { # Ready, aim, and...
+		name = sailing.5502.a 
+		random_list = {
+			75 = {
+				modifier = {
+					add = 10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = 20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = 25
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.5502.a.success
+				trigger_event = { id = sailing.9001 days = 5 }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5502.a.success
+					custom_tooltip = sailing.hunt.success
+					add_gold = minor_gold_value
+					add_prestige = minor_prestige_gain
+				}
+				if = {
+					limit = { scope:host = { is_landless_adventurer = yes } }
+					scope:host = {
+						domicile = { change_provisions = miniscule_provisions_gain }
+					}
+				}
+			}
+			25 = {
+				modifier = {
+					add = -10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = -20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = -25
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.hunt.failure.tt
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.hunt.failure.tt
+					custom_tooltip = sailing.hunt.failure
+				}
+				trigger_event = { id = sailing.9002 days = 5 }
+			}
+		}
+	}
+}
+
+sailing.5503 = { # Try to catch the seal
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5503.t
+	desc = sailing.5503.desc 
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	right_portrait = {
+		character = root
+		animation = hunting_longbow_aim_arrow_default 
+	}
+	left_portrait = {
+		character = scope:first_mate
+		animation = throne_room_cheer_1
+	}
+	option = { # Ready, aim, and...
+		name = sailing.5503.a 
+		random_list = {
+			70 = {
+				modifier = {
+					add = 10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = 20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = 30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.5503.a.success
+				trigger_event = { id = sailing.9001 days = 5 }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5503.a.success
+					custom_tooltip = sailing.hunt.success
+					add_gold = minor_gold_value
+					add_prestige = medium_prestige_gain
+				}
+				if = {
+					limit = { scope:host = { is_landless_adventurer = yes } }
+					scope:host = {
+						domicile = { change_provisions = miniscule_provisions_gain }
+					}
+				}
+			}
+			30 = {
+				modifier = {
+					add = -10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = -20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = -30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.hunt.failure.tt
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.hunt.failure.tt
+					custom_tooltip = sailing.hunt.failure
+				}
+				trigger_event = { id = sailing.9002 days = 5 }
+			}
+		}
+	}
+}
+
+sailing.5504 = { # Try to catch the dolphin
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5504.t
+	desc = sailing.5504.desc 
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	right_portrait = {
+		character = root
+		animation = aggressive_spear 
+	}
+	left_portrait = {
+		character = scope:first_mate
+		animation = personality_compassionate
+	}
+	option = { # Ready, aim, and...
+		name = sailing.5504.a 
+		random_list = {
+			60 = {
+				modifier = {
+					add = 10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = 20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = 30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.5504.a.success
+				trigger_event = { id = sailing.9001 days = 5 }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5504.a.success
+					custom_tooltip = sailing.hunt.success
+					add_gold = medium_gold_value
+					add_prestige = medium_prestige_gain
+				}
+				if = {
+					limit = { scope:host = { is_landless_adventurer = yes } }
+					scope:host = {
+						domicile = { change_provisions = minor_provisions_gain }
+					}
+				}
+			}
+			40 = {
+				modifier = {
+					add = -10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = -20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = -30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.hunt.failure.tt
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.hunt.failure.tt
+					custom_tooltip = sailing.hunt.failure
+				}
+				trigger_event = { id = sailing.9002 days = 5 }
+			}
+		}
+	}
+}
+
+sailing.5505 = { # Try to catch the walrus
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5505.t
+	desc = sailing.5505.desc 
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	right_portrait = {
+		character = root
+		animation = aggressive_spear 
+	}
+	left_portrait = {
+		character = scope:first_mate
+		animation = personality_compassionate
+	}
+	option = { # Ready, aim, and...
+		name = sailing.5505.a 
+		random_list = {
+			60 = {
+				modifier = {
+					add = 10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = 20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = 30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.5505.a.success
+				trigger_event = { id = sailing.9001 days = 5 }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5505.a.success
+					custom_tooltip = sailing.hunt.success
+					add_gold = major_gold_value
+					add_prestige = medium_prestige_gain
+				}
+				if = {
+					limit = { scope:host = { is_landless_adventurer = yes } }
+					scope:host = {
+						domicile = { change_provisions = medium_provisions_gain }
+					}
+				}
+			}
+			40 = {
+				modifier = {
+					add = -10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = -20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = -30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.hunt.failure.tt
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.hunt.failure.tt
+					custom_tooltip = sailing.hunt.failure
+				}
+				random = {
+					chance = 50
+					increase_wounds_no_death_effect = { REASON = fight}
+				}
+				trigger_event = { id = sailing.9002 days = 5 }
+			}
+		}
+	}
+}
+
+sailing.5506 = { # Try to catch the orca
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5506.t
+	desc = sailing.5506.desc 
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	right_portrait = {
+		character = root
+		animation = aggressive_spear 
+	}
+	left_portrait = {
+		character = scope:first_mate
+		animation = personality_compassionate
+	}
+	option = { # Ready, aim, and...
+		name = sailing.5506.a 
+		random_list = {
+			50 = {
+				modifier = {
+					add = 10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = 20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = 30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.5506.a.success
+				trigger_event = { id = sailing.9001 days = 5 }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5506.a.success
+					custom_tooltip = sailing.hunt.success
+					add_gold = major_gold_value
+					add_prestige = major_prestige_gain
+				}
+				if = {
+					limit = { scope:host = { is_landless_adventurer = yes } }
+					scope:host = {
+						domicile = { change_provisions = medium_provisions_gain }
+					}
+				}
+			}
+			50 = {
+				modifier = {
+					add = -10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = -20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = -30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.hunt.failure.tt
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.hunt.failure.tt
+					custom_tooltip = sailing.hunt.failure
+				}
+				random = {
+					chance = 50
+					increase_wounds_no_death_effect = { REASON = fight}
+				}
+				trigger_event = { id = sailing.9002 days = 5 }
+			}
+		}
+	}
+}
+
+sailing.5507 = { # Try to catch the humpback whale
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5507.t
+	desc = sailing.5507.desc 
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	right_portrait = {
+		character = root
+		animation = aggressive_spear 
+	}
+	left_portrait = {
+		character = scope:first_mate
+		animation = personality_callous
+	}
+	option = { # Ready, aim, and...
+		name = sailing.5507.a 
+		random_list = {
+			40 = {
+				modifier = {
+					add = 10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = 20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = 30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.5507.a.success
+				trigger_event = { id = sailing.9001 days = 5 }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5507.a.success
+					custom_tooltip = sailing.hunt.success
+					add_gold = massive_gold_value
+					add_prestige = major_prestige_gain
+				}
+				if = {
+					limit = { scope:host = { is_landless_adventurer = yes } }
+					scope:host = {
+						domicile = { change_provisions = massive_provisions_gain }
+					}
+				}
+			}
+			60 = {
+				modifier = {
+					add = -10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = -20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = -30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.hunt.failure.tt
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.hunt.failure.tt
+					custom_tooltip = sailing.hunt.failure
+				}
+				random = {
+					chance = 25
+					increase_wounds_no_death_effect = { REASON = fight}
+				}
+				trigger_event = { id = sailing.9002 days = 5 }
+			}
+		}
+	}
+}
+
+sailing.5508 = { # Try to catch the sperm whale
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5508.t
+	desc = sailing.5508.desc 
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	right_portrait = {
+		character = root
+		animation = aggressive_spear 
+	}
+	left_portrait = {
+		character = scope:first_mate
+		animation = personality_callous
+	}
+	option = { # Ready, aim, and...
+		name = sailing.5508.a 
+		random_list = {
+			40 = {
+				modifier = {
+					add = 10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = 20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = 30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.5508.a.success
+				trigger_event = { id = sailing.9001 days = 5 }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5508.a.success
+					custom_tooltip = sailing.hunt.success
+					add_gold = massive_gold_value
+					add_prestige = massive_prestige_gain
+				}
+				if = {
+					limit = { scope:host = { is_landless_adventurer = yes } }
+					scope:host = {
+						domicile = { change_provisions = massive_provisions_gain }
+					}
+				}
+			}
+			60 = {
+				modifier = {
+					add = -10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = -20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = -30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.hunt.failure.tt
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.hunt.failure.tt
+					custom_tooltip = sailing.hunt.failure
+				}
+				random = {
+					chance = 50
+					increase_wounds_effect = { REASON = fight}
+				}
+				trigger_event = { id = sailing.9002 days = 5 }
+			}
+		}
+	}
+}
+
+sailing.5509 = { # Try to catch the blue whale
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5509.t
+	desc = sailing.5509.desc 
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	right_portrait = {
+		character = root
+		animation = aggressive_spear 
+	}
+	left_portrait = {
+		character = scope:first_mate
+		animation = personality_callous
+	}
+	option = { # Ready, aim, and...
+		name = sailing.5509.a 
+		random_list = {
+			30 = {
+				modifier = {
+					add = 10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = 20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = 30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.5509.a.success
+				trigger_event = { id = sailing.9001 days = 5 }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5509.a.success
+					custom_tooltip = sailing.hunt.success
+					add_gold = massive_gold_value
+					add_prestige = massive_prestige_gain
+					add_legitimacy = minor_legitimacy_gain
+				}
+				if = {
+					limit = { scope:host = { is_landless_adventurer = yes } }
+					scope:host = {
+						domicile = { change_provisions = massive_provisions_gain }
+					}
+				}
+			}
+			70 = {
+				modifier = {
+					add = -10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = -20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = -30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.hunt.failure.tt
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.hunt.failure.tt
+					custom_tooltip = sailing.hunt.failure
+				}
+				random = {
+					chance = 25
+					increase_wounds_no_death_effect = { REASON = fight}
+				}
+				trigger_event = { id = sailing.9002 days = 5 }
+			}
+		}
+	}
+}
+
+sailing.5510 = { # Try to catch the sea drake
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5510.t
+	desc = sailing.5510.desc 
+	theme = skull
+	override_background = {
+		reference = ocean
+	}
+	right_portrait = {
+		character = root
+		animation = aggressive_spear 
+	}
+	left_portrait = {
+		character = scope:first_mate
+		animation = fear
+	}
+	override_effect_2d = {
+		reference = rain
+	}
+	option = { # Ready, aim, and...
+		name = sailing.5510.a 
+		random_list = {
+			20 = {
+				modifier = {
+					add = 10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = 20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = 30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.5510.a.success
+				trigger_event = { id = sailing.9001 days = 5 }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5510.a.success
+					custom_tooltip = sailing.hunt.success
+					add_gold = monumental_gold_value
+					add_prestige = massive_prestige_gain
+					add_legitimacy = medium_legitimacy_gain
+				}
+				if = {
+					limit = { scope:host = { is_landless_adventurer = yes } }
+					scope:host = {
+						domicile = { change_provisions = massive_provisions_gain }
+					}
+				}
+			}
+			80 = {
+				modifier = {
+					add = -10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = -20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = -30
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				custom_tooltip = sailing.5510.a.failure
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.hunt.failure.tt
+					custom_tooltip = sailing.hunt.failure
+				}
+				random = {
+					chance = 80
+					increase_wounds_no_death_effect = { REASON = fight}
+				}
+				random = {
+					chance = 30 
+					scope:activity = {
+						random_attending_character = {
+							limit = { NOT = { this = scope:host } }
+							death = { death_reason = death_drowned }
+						}
+					}
+				}
+				trigger_event = { id = sailing.9002 days = 5 }
+			}
+		}
+	}
+}
+
+sailing.5511 = { # Try to catch the legendary White Dread
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5511.t
+	theme = dread
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { has_character_modifier = the_white_beast_modifier }
+				desc = sailing.5511.desc.a
+			}
+			desc = sailing.5511.desc
+		}
+	}	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	right_portrait = {
+		character = root
+		animation = aggressive_spear 
+	}
+	left_portrait = {
+		character = scope:first_mate
+		animation = fear
+	}
+	override_effect_2d = {
+		reference = rain
+	}
+	widgets = {
+		widget = {
+			gui = "event_window_widget_vfx_lightning_storm"
+			container = "foreground_shader_vfx_container"
+		}
+	}
+	option = { # Ready, aim, and...
+		name = sailing.5511.a 
+		random_list = {
+			5 = {
+				modifier = {
+					add = 10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = 20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = 35
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				modifier = {
+					add = 5 
+					has_character_modifier = the_white_beast_modifier
+				}
+				custom_tooltip = sailing.5511.a.success
+				trigger_event = { id = sailing.9001 days = 5 }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5511.a.success
+					custom_tooltip = sailing.hunt.success
+					add_gold = monumental_gold_value
+					add_prestige = massive_prestige_gain
+					add_legitimacy = major_legitimacy_gain
+					give_nickname = nick_the_white_dread
+					add_character_flag = had_nickname_event
+				}
+				if = {
+					limit = { scope:host = { is_landless_adventurer = yes } }
+					scope:host = {
+						domicile = { change_provisions = massive_provisions_gain }
+					}
+				}
+				if = {
+					limit = { has_character_modifier = the_white_beast_modifier }
+					remove_character_modifier = the_white_beast_modifier
+				}
+				add_character_flag = white_dread_slain
+			}
+			95 = {
+				modifier = {
+					add = -10
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value < 50
+					}
+				}		
+				modifier = {
+					add = -20
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 50
+						value < 100
+					}
+				}	
+				modifier = {
+					add = -35
+					has_trait_xp = {
+						trait = lifestyle_mariner
+						value >= 100
+					}
+				}
+				modifier = {
+					add = -5 
+					has_character_modifier = the_white_beast_modifier
+				}
+				custom_tooltip = sailing.5511.a.failure
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5511.a.failure
+					custom_tooltip = sailing.hunt.failure
+				}
+				random = {
+					chance = 95
+					increase_wounds_no_death_effect = { REASON = fight}
+				}
+				random = {
+					chance = 50 
+					scope:activity = {
+						random_attending_character = {
+							limit = { NOT = { this = scope:host } }
+							death = { death_reason = death_drowned }
+						}
+					}
+				}
+				trigger_event = { id = sailing.5512 days = 5 }
+			}
+		}
+	}
+}
+
+sailing.5512 = { # the White Dread escapes you
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5512.t
+	desc = sailing.5512.desc 
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	right_portrait = {
+		character = root
+		animation = rage 
+	}
+	left_portrait = {
+		character = scope:first_mate
+		animation = fear
+	}
+	override_effect_2d = {
+		reference = fog
+	}
+	option = { # I MUST SLAY IT!
+		name = sailing.5512.a 
+		trigger = { NOT = { has_character_modifier = the_white_beast_modifier } }
+		add_character_modifier = the_white_beast_modifier
+		stress_impact = {
+			ambitious = minor_stress_impact_loss 
+			brave = minor_stress_impact_loss
+			wrathful = minor_stress_impact_loss
+			shy = medium_stress_impact_gain
+			craven = major_stress_impact_gain
+			lazy = medium_stress_impact_gain
+			compassionate = minor_stress_impact_gain
+		}
+	}
+	
+	option = { # I MUST SLAY IT!
+		name = sailing.5512.a 
+		trigger = { has_character_modifier = the_white_beast_modifier } 
+		stress_impact = {
+			ambitious = minor_stress_impact_loss 
+			brave = minor_stress_impact_loss
+			wrathful = minor_stress_impact_loss
+			shy = medium_stress_impact_gain
+			craven = major_stress_impact_gain
+			lazy = medium_stress_impact_gain
+			compassionate = minor_stress_impact_gain
+		}
+	}
+	
+	option = { # No... I have to let go!
+		name = sailing.5512.b 
+		stress_impact = {
+			base = minor_stress_impact_gain
+			ambitious = major_stress_impact_gain
+			brave = medium_stress_impact_gain
+			wrathful = medium_stress_impact_gain
+			compassionate = minor_stress_impact_loss
+			craven = minor_stress_impact_loss
+		}
+	}
+	after = {
+		trigger_event = {
+			id = sailing.9002 
+			days = 5 
+		}
+	}
+}
+
 ############################
 ## More Coast Exploration
-## 5000-7999
+## 6000-7999
 ## by ispanets
 ############################
 # 5001 - The White Hills
-# 6001 - Ras Morthil and Druwaith Laur
-
-sailing.5000 = { # Introduction to the White Hills (1/3): Gulf of Lune
-	type = activity_event
-	content_source = realms_dlc
-	title = sailing.5000.t
-	desc = sailing.5000.desc
-	theme = sailing_activity
-	override_background = {
-		reference = ocean
-	}
-	override_background = {
-		reference = docks_elven
-	}
-	left_portrait = {
-		character = root
-		animation = happiness
-	}	
-	right_portrait = {
-		character = scope:first_mate
-		animation = happiness
-	}
-	
-	#Temporary trigger, until we have reworked this one for Elves
-	trigger = { 
-		is_elf = no 
-		NOT = { has_character_flag = has_explored_lhune_gulf }
-	}
-	
-	option = {
-		name = sailing.5000.a
-	}
-	
-	after = {
-		trigger_event = {
-			id = sailing.5001
-			days = 15
-		}
-	}
-}
-
-sailing.5001 = { # The White Hills 2/3: Elves encounter near White Towers http://tolkiengateway.net/wiki/Tower_Hills
-	type = activity_event
-	content_source = realms_dlc
-	title = sailing.5001.t
-	desc = sailing.5001.desc
-	theme = sailing_activity
-	override_background = {
-		reference = eregion_ruins	
-	}
-	left_portrait = {
-		character = root
-		animation = personality_vengeful
-	}		
-	right_portrait = {
-		character = scope:first_mate
-		animation = worry
-	}
-	
-	option = { # Encounter with the Elves solved with diplomacy
-		name = sailing.5001.a
-		trigger = {
-			NOR = {
-				has_character_flag = diplomacy_at_whitetowers
-			}
-		}
-		duel = {
-			skill = diplomacy
-			value = very_high_skill_rating
-			50 = {		
-				compare_modifier = {					
-					value = scope:duel_value
-					multiplier = 3.5
-					min = -49
-				}
-				desc = sailing.5001.a.success
-
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.5001.toast.a.success	
-					add_prestige = medium_prestige_gain
-					
-					add_character_flag = {
-						flag = diplomacy_at_whitetowers
-						years = 3
-					}		
-					trigger_event = {
-						id = sailing.5002
-						days = 15
-					}
-				}
-			}
-			50 = {		
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -3.5
-					min = -49
-				}						
-				desc = sailing.5001.a.failure
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.5001.toast.a.failure
-					add_prestige = minor_prestige_loss					
-					add_character_flag = {
-						flag = diplomacy_at_whitetowers
-						years = 3
-					}
-					trigger_event = { # Try sneaking!
-						id = sailing.5003
-						days = 15
-					}
-				}
-			}
-		}
-	}
-	
-	option = { # Trying to sneak in
-		name = sailing.5001.b
-		trigger = {
-			NOR = {
-				has_character_flag = sneaking_to_whitetowers
-			}
-		}
-		duel = {
-			skill = intrigue
-			value = high_skill_rating
-			50 = {		
-				compare_modifier = {					
-					value = scope:duel_value
-					multiplier = 3.5
-					min = -49
-				}
-				desc = sailing.5001.b.success
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.5001.toast.b.success						
-					add_character_flag = {
-						flag = sneaking_to_whitetowers
-						years = 3
-					}
-					trigger_event = {
-						id = sailing.5004
-						days = 15
-					}
-				}
-			}
-			50 = {		
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -3.5
-					min = -49
-				}
-				desc = sailing.5001.b.failure			
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.5001.toast.b.failure
-					add_dread = minor_dread_loss
-					add_prestige = minor_prestige_loss	
-					add_character_flag = {
-						flag = sneaking_to_whitetowers
-						years = 3
-					}
-					trigger_event = {
-						id = sailing.5005
-						days = 15
-					}
-				}
-			}
-		}
-	}	
-	
-	option = { # Go back home without experience
-		name = sailing.6010.a
-		trigger_event = {
-			id = sailing.9002
-			days = 15
-		}
-	}
-}
-
-sailing.5002 = { # The White Hills 2/3: Elves encounter near White Towers http://tolkiengateway.net/wiki/Tower_Hills
-	type = activity_event
-	content_source = realms_dlc
-	title = sailing.5002.t
-	desc = sailing.5002.desc
-	theme = sailing_activity
-	override_background = {
-		reference = eregion_ruins	
-	}
-	left_portrait = {
-		character = root
-		animation = beg
-	}	
-	option = {
-		name = sailing.5002.a
-		trigger_event = {			
-			id = sailing.5006
-			days = 15
-		}
-	}
-}
-
-sailing.5003 = { # The White Hills 2/3: Elves encounter near White Towers http://tolkiengateway.net/wiki/Tower_Hills
-	type = activity_event
-	content_source = realms_dlc
-	title = sailing.5003.t
-	desc = sailing.5003.desc
-	theme = sailing_activity
-	override_background = {
-		reference = eregion_ruins	
-	}
-	left_portrait = {
-		character = root
-		animation = anger
-	}	
-	option = {
-		name = sailing.5003.a
-		trigger_event = {			
-			id = sailing.5001
-			days = 15
-		}
-	}
-}
-
-sailing.5004 = { # The White Hills 2/3: Elves encounter near White Towers http://tolkiengateway.net/wiki/Tower_Hills
-	type = activity_event
-	content_source = realms_dlc
-	title = sailing.5004.t
-	desc = sailing.5004.desc
-	theme = sailing_activity
-	override_background = {
-		reference = eregion_ruins	
-	}
-	left_portrait = {
-		character = root
-		animation = personality_callous
-	}
-		
-	right_portrait = {
-		character = scope:first_mate
-		animation = personality_callous
-	}
-	option = {
-		name = sailing.5004.a
-		trigger_event = {			
-			id = sailing.5006
-			days = 15
-		}
-	}
-}
-
-sailing.5005 = { # The White Hills 2/3: Elves encounter near White Towers http://tolkiengateway.net/wiki/Tower_Hills
-	type = activity_event
-	content_source = realms_dlc
-	title = sailing.5005.t
-	desc = sailing.5005.desc
-	theme = sailing_activity
-	override_background = {
-		reference = eregion_ruins	
-	}
-	left_portrait = {
-		character = root
-		animation = anger
-	}
-		
-	right_portrait = {
-		character = scope:first_mate
-		animation = shame
-	}
-	option = {
-		name = sailing.5003.a
-		trigger_event = {			
-			id = sailing.5001
-			days = 15
-		}
-	}
-}
-
-sailing.5006 = { # The White Hills 3/3: The White Towers
-	type = activity_event
-	content_source = realms_dlc
-	title = sailing.5006.t
-	desc = sailing.5006.desc
-	theme = sailing_activity
-	override_background = {
-		reference = throne_room_noldor	
-	}
-	left_portrait = {
-		character = root
-		animation = ecstasy
-	}
-		
-	right_portrait = {
-		character = scope:first_mate
-		animation = shock
-	}
-	
-	option = { # See the Sea from above
-		name = sailing.5006.a
-		send_interface_toast = {
-			left_icon = ROOT
-			title = sailing.5006.toast.a.success			
-			add_stress = major_stress_loss
-			trigger_event = {
-				id = sailing.5007
-				days = 15
-			}
-		}
-	}
-	
-	option = { # Glance into the Palantir http://tolkiengateway.net/wiki/Tower_of_Avallon%C3%AB
-		name = sailing.5006.b
-		send_interface_toast = {
-			left_icon = ROOT
-			title = sailing.5006.toast.b.success
-			add_learning_skill = 1	
-			add_stress = major_stress_impact_gain
-			add_learning_lifestyle_xp = 150
-			trigger_event = {
-				id = sailing.5008
-				days = 15
-			}
-		}
-	}
-}
-
-sailing.5007 = { # Coming back home released but without experience
-	type = activity_event
-	content_source = realms_dlc
-	title = sailing.5007.t
-	desc = sailing.5007.desc
-	theme = sailing_activity
-	override_background = {
-		reference = ocean
-	}
-	override_background = {
-		reference = docks_elven
-	}
-	left_portrait = {
-		character = root
-		animation = marshal
-	}
-		
-	right_portrait = {
-		character = scope:first_mate
-		animation = ecstasy
-	}
-	option = {
-		name = sailing.6010.a
-		trigger_event = {			
-			id = sailing.9002
-			days = 15
-		}
-		add_character_flag = has_explored_lhune_gulf
-	}
-}
-
-sailing.5008 = { # Coming back home stressed but wiser after the Palantir
-	type = activity_event
-	content_source = realms_dlc
-	title = sailing.5008.t
-	desc = sailing.5008.desc
-	theme = sailing_activity
-	override_background = {
-		reference = throne_room_noldor	
-	}	
-	left_portrait = {
-		character = root
-		animation = paranoia
-	}
-		
-	right_portrait = {
-		character = scope:first_mate
-		animation = grief
-	}
-	option = {
-		name = sailing.6010.a
-		trigger_event = {			
-			id = sailing.9001
-			days = 15
-		}
-		add_character_flag = has_explored_lhune_gulf
-	}
-}
+# 6001 - Ras Morthil and Druwaith Iaur
+# 6100 - Bay of Tûlwang ~by Aerien
+# 6200 - Bay of Ormal ~by Aerien
+# 6400 - Sea of Rhûn ~by Aerien
 
 sailing.6001 = { # Ras Morthil and Druwaith Laur 1/3: Ras Morthil
 	type = activity_event
@@ -9161,6 +10407,7 @@ sailing.6001 = { # Ras Morthil and Druwaith Laur 1/3: Ras Morthil
 		name = sailing.6001.c
 		trigger = {
 				# culture = { has_cultural_pillar = heritage_northern_adunaic }
+				faith_is_good = no
 				can_raid_across_water = yes
 		}
 		send_interface_toast = {
@@ -9177,7 +10424,7 @@ sailing.6001 = { # Ras Morthil and Druwaith Laur 1/3: Ras Morthil
 	
 	
 	option = { # Continue sailing
-		name = sailing.8001.d
+		name = sailing.6001.d
 		trigger_event = {
 			id = sailing.6006
 			days = 15
@@ -9185,7 +10432,7 @@ sailing.6001 = { # Ras Morthil and Druwaith Laur 1/3: Ras Morthil
 	}
 }
 
-sailing.6002 = { 
+sailing.6002 = { # Admire the beacon
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6002.t
@@ -9201,7 +10448,7 @@ sailing.6002 = {
 		
 	right_portrait = {
 		character = scope:first_mate
-		animation = admiration
+		animation = personality_compassionate
 	}
 	option = {
 		name = sailing.6002.a
@@ -9212,7 +10459,7 @@ sailing.6002 = {
 	}
 }
 
-sailing.6003 = { 
+sailing.6003 = { # Light the beacon: success
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6003.t
@@ -9240,7 +10487,7 @@ sailing.6003 = {
 	}
 }
 
-sailing.6004 = { 
+sailing.6004 = { # Light the beacon: Failure
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6004.t
@@ -9268,7 +10515,7 @@ sailing.6004 = {
 	}
 }
 
-sailing.6005 = { 
+sailing.6005 = { # Burn the Beacon
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6005.t
@@ -9279,7 +10526,7 @@ sailing.6005 = {
 	}
 	left_portrait = {
 		character = root
-		animation = rage
+		animation = anger
 	}
 		
 	right_portrait = {
@@ -9403,7 +10650,6 @@ sailing.6006 = { # Ras Morthil and Druwaith Laur 2/3: Druwaith Laur
 			}
 		}
 	}
-
 	
 	option = { # Go home
 		name = sailing.6010.a
@@ -9414,7 +10660,7 @@ sailing.6006 = { # Ras Morthil and Druwaith Laur 2/3: Druwaith Laur
 	}
 }
 
-sailing.6007 = { 
+sailing.6007 = { # Investigate the Stones: Success
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6007.t
@@ -9442,7 +10688,7 @@ sailing.6007 = {
 	}
 }
 
-sailing.6008 = { 
+sailing.6008 = { # Investigate the Stones: Failure
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6008.t
@@ -9470,7 +10716,7 @@ sailing.6008 = {
 	}
 }
 
-sailing.6009 = { 
+sailing.6009 = { # Investigate the Caves: Success
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6009.t
@@ -9498,7 +10744,7 @@ sailing.6009 = {
 	}
 }
 
-sailing.6010 = { 
+sailing.6010 = { # Investigate the Caves: Failure
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6010.t
@@ -9685,7 +10931,7 @@ sailing.6011 = { # Ras Morthil and Druwaith Laur 3/3: Woses!
 	}
 }
 
-sailing.6012 = { 
+sailing.6012 = { # Attack them: Success
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6012.t
@@ -9714,7 +10960,7 @@ sailing.6012 = {
 	}
 }
 
-sailing.6013 = { 
+sailing.6013 = { # Attack them: Failure
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6013.t
@@ -9743,7 +10989,7 @@ sailing.6013 = {
 	}
 }
 
-sailing.6014 = { 
+sailing.6014 = { # Retreat: Success
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6014.t
@@ -9772,7 +11018,7 @@ sailing.6014 = {
 	}
 }
 
-sailing.6015 = { 
+sailing.6015 = { # Retreat: Failure
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6015.t
@@ -9801,7 +11047,7 @@ sailing.6015 = {
 	}
 }
 
-sailing.6016 = { 
+sailing.6016 = { # Diplomacy: Success
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6016.t
@@ -9826,7 +11072,7 @@ sailing.6016 = {
 	}
 }
 
-sailing.6017 = { 
+sailing.6017 = { # Diplomacy: Failure
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.6017.t
@@ -10032,6 +11278,7 @@ sailing.6101 = {
 			id = sailing.6102
 			days = 10 
 		}
+		scope:bellakarean_harbourmaster = { silent_disappearance_effect = yes }
 	}
 }
 	
@@ -10056,7 +11303,7 @@ sailing.6102 = {
 	}
 	right_portrait = {
 		character = scope:bellakaze_stowaway
-		animation = throne_room_conversation_1
+		animation = fear
 		#camera = camera_body_left
 	}
 	
@@ -10126,7 +11373,183 @@ sailing.6102 = {
 	
 	after = {
 		trigger_event = {
-			id = sailing.6103
+			id = sailing.6105
+			days = 10 
+		}
+	}
+}
+
+# Bôzisha-Dâr
+sailing.6105 = {
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6105.t
+	desc = sailing.6105.desc
+	theme = sailing_activity
+	override_background = {
+		reference = docks_western
+	}
+	left_portrait = {
+		character = root 
+		animation = personality_rational
+	}
+	center_portrait = {
+		character = scope:first_mate
+		animation = personality_callous
+	}
+	right_portrait = {
+		character = scope:bozisha_harbourmaster
+		animation = personality_greedy
+	}
+	immediate = {
+		create_character = {
+			location = root.location
+			template = servant_character
+			gender = male
+			age = 45
+			culture = culture:bozishnarud
+			faith = faith:faith_ray
+			save_scope_as = bozisha_harbourmaster
+		}
+	}
+	option = { # Buy some goods, sell some cargo
+		name = sailing.6105.a
+		duel = {
+ 			skill = stewardship
+ 			target = scope:bozisha_harbourmaster
+ 			60 = {
+				# You make some good deals
+ 				desc = sailing.6105.a.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = sailing.6105.a.success
+ 					left_icon = root
+ 					right_icon = scope:bozisha_harbourmaster
+ 					add_short_term_gold = medium_gold_value
+ 				}
+ 			}
+ 			40 = {
+ 				# You fail to turn a big profit
+ 				desc = sailing.6105.a.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = sailing.6105.a.failure
+ 					left_icon = root
+ 					right_icon = scope:bozisha_harbourmaster
+ 				}
+ 				remove_short_term_gold = minor_gold_value
+ 			}
+		}
+	} 
+	option = { # Hire some mercenaries
+		name = sailing.6105.b
+		remove_short_term_gold = 100 
+		create_maa_regiment = {
+			type = gaian_stalkers
+			check_can_recruit = no
+			size = 2
+		}
+	}
+	
+	option = { # Just see the sights
+		name = sailing.6105.c 
+		scope:activity = {
+			every_attending_character = {
+				add_stress = -10 
+			}
+		}
+	}
+
+	after = {
+		trigger_event = {
+			id = sailing.6106 
+			days = 10 
+		}
+		scope:bozisha_harbourmaster = { silent_disappearance_effect = yes }
+	}
+}
+
+# Fairiyn Coast
+sailing.6106 = {
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6106.t
+	desc = sailing.6106.desc
+	theme = sailing_activity
+	override_background = {
+		reference = fp1_beached_longships
+	}
+	left_portrait = {
+		character = root 
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = scope:first_mate
+		animation = chancellor 
+	}
+	option = { # Trade with the villagers 
+		name = sailing.6106.a 
+		add_gold = 25 
+	}
+	option =  { # Chat with the fishermen 
+		name = sailing.6106.b 
+		# Mariner skill
+		if = {
+			limit = { has_trait = lifestyle_mariner }
+			scope:activity = {
+				add_activity_log_entry = {
+				key = gained_sailor_xp_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = {
+						add_trait_xp = {
+							trait = lifestyle_mariner
+							value = 5
+						}
+					}
+				}
+			}
+		}	
+		else = {
+			scope:activity = {
+				add_activity_log_entry = {
+					key = gained_sailor_trait_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = { add_trait = lifestyle_mariner }
+				}
+			}
+		} 
+	}
+	option = { # Terrorize the Village
+		trigger = {
+			OR = {
+				has_trait = sadistic
+				has_trait = irritable
+				faith_is_evil = yes 
+			}
+		}
+		add_dread = medium_dread_gain
+		add_stress = -40
+	}
+	
+	after = {
+		trigger_event = {
+			id = sailing.6103 
 			days = 10 
 		}
 	}
@@ -10153,7 +11576,7 @@ sailing.6103 = {
 	}
 	right_portrait = {
 		character = scope:tuladen_harbourmaster
-		animation = throne_room_conversation_1
+		animation = obsequious_bow
 		#camera = camera_body_left
 	}
 	immediate = {
@@ -10236,6 +11659,7 @@ sailing.6103 = {
 			id = sailing.6104
 			days = 10 
 		}
+		scope:tuladen_harbourmaster = { silent_disappearance_effect = yes }
 	}
 }
 
@@ -10247,7 +11671,7 @@ sailing.6104 = {
 	desc = sailing.6104.desc
 	theme = sailing_activity
 	override_background = {
-		reference = ocean
+		reference = black_ship
 	}
 	
 	left_portrait = {
@@ -10363,6 +11787,1334 @@ sailing.6104 = {
 	}
 }
 	
+############
+## BAY OF ORMAL ~ by Aerien
+############
+
+sailing.6200 = { # Entering the bay
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6200.t
+	desc = sailing.6200.desc
+	theme = sailing_activity
+	override_background = {
+		reference = black_ship
+	}
+	trigger = { NOT = { has_character_flag = has_explored_ormal_bay } }
+	left_portrait = {
+		character = root
+		animation = survey
+	}
+
+	right_portrait = {
+		character = scope:first_mate
+		animation = personality_content
+	}
+	option = { # Admire the big ship
+		name = sailing.6200.a 
+		#add_stress = -10 
+		scope:activity = {
+			every_attending_character = {
+				add_stress = -10 
+			}
+		}
+	}
+	
+	option = { # Attempt to learn by observation
+		name = sailing.6200.b
+		# Mariner skill
+		if = {
+			limit = { has_trait = lifestyle_mariner }
+			scope:activity = {
+				add_activity_log_entry = {
+					key = sailing_completed_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = {
+						add_trait_xp = {
+							trait = lifestyle_mariner
+							value = 5
+						}
+					}
+				}
+			}
+		}	
+		else = {
+			scope:activity = {
+				add_activity_log_entry = {
+					key = sailing_completed_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = { add_trait = lifestyle_mariner }
+				}
+			}
+		}
+	}
+	
+	option = { # Try to attack them 
+		name = sailing.6200.c
+		trigger = { can_raid_across_water = yes }
+		duel = {
+			skill = martial
+			value = high_skill_rating
+			50 = {		
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = sailing.6200.c.success	
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.6200.c.success
+					add_gold = minor_gold_value					
+				}
+				# Mariner skill
+				if = {
+					limit = { has_trait = lifestyle_mariner }
+					scope:activity = {
+						add_activity_log_entry = {
+							key = sailing_completed_log
+							tags = { good }
+							# this line below adds the entry to the Effects section of the conclusion UI
+							show_in_conclusion = yes
+							character = root
+							
+							root = {
+								add_trait_xp = {
+									trait = lifestyle_mariner
+									value = 5
+								}
+							}
+						}
+					}
+				}	
+				else = {
+					scope:activity = {
+						add_activity_log_entry = {
+							key = sailing_completed_log
+							tags = { good }
+							# this line below adds the entry to the Effects section of the conclusion UI
+							show_in_conclusion = yes
+							character = root
+							
+							root = { add_trait = lifestyle_mariner }
+						}
+					}
+				}
+			}
+			50 = {		
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = sailing.6200.c.failure
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.6200.c.failure
+					add_dread = minor_dread_loss
+				}
+			}
+		}
+	}
+	
+	after = {
+		trigger_event = {
+			id = sailing.6201 
+			days = 15 
+		}
+	}
+}
+	
+sailing.6201 = { # Lyneria
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6201.t
+	desc = sailing.6201.desc
+	theme = sailing_activity
+	override_background = {
+		reference = docks_western
+	}
+	left_portrait = {
+		character = root
+		animation = interested
+	}
+	center_portrait = {
+		character = scope:first_mate
+		animation = personality_honorable
+	}
+	right_portrait = {
+		character = scope:lynerian_harbormaster
+		animation = personality_greedy
+	}
+	immediate = {
+		create_character = {
+			location = root.location
+			template = servant_character
+			gender = male
+			age = 45
+			culture = culture:usakani
+			faith = faith:faith_amav
+			save_scope_as = lynerian_harbormaster
+		}
+	}
+	option = { # Seek information on the Ormal Bay
+		name = sailing.6201.a 
+		remove_short_term_gold = minor_gold_value
+		add_learning_lifestyle_perk_points = 1 
+	}
+	option = { # Admire their large boats 
+		name = sailing.6201.b
+		# Mariner skill
+		if = {
+			limit = { has_trait = lifestyle_mariner }
+			scope:activity = {
+				add_activity_log_entry = {
+					key = sailing_completed_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = {
+						add_trait_xp = {
+							trait = lifestyle_mariner
+							value = 5
+						}
+					}
+				}
+			}
+		}	
+		else = {
+			scope:activity = {
+				add_activity_log_entry = {
+					key = sailing_completed_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = { add_trait = lifestyle_mariner }
+				}
+			}
+		}
+	}
+	option = {	# Attempt to buy a Mûmak!
+		name = sailing.6201.c 
+		duel = {
+			skills = { diplomacy stewardship }
+			value = very_high_skill_rating
+			20 = {		
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = 5
+				}
+				modifier = {
+					add = 40
+					root.culture = { has_cultural_pillar = heritage_northern_apysaic }
+				}
+				modifier = {
+					add = 40
+					root.culture = { has_cultural_pillar = heritage_middle_apysaic }
+				}
+				modifier = {
+					add = 40
+					root.culture = { has_cultural_pillar = heritage_southern_apysaic }
+				}
+				desc = sailing.6201.c.success	
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.6201.c.success
+					remove_short_term_gold = medium_gold_value					
+				}
+				add_character_modifier = pet_mumak
+			}
+			80 = {		
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = sailing.6201.c.failure
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.6201.c.failure
+					add_stress = 50
+				}
+			}
+		}
+	}
+	
+	after = {
+		trigger_event = {
+			id = sailing.6202 
+			days = 15 
+		}
+		scope:lynerian_harbormaster = { silent_disappearance_effect = yes }
+	}
+}
+
+sailing.6202 = { # Tûl Harár (Sirayn)
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6202.t
+	desc = sailing.6202.desc
+	theme = sailing_activity
+	override_background = {
+		reference = umbar 
+	}
+	left_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	option = { # Observe a religious festival
+		name = sailing.6202.a 
+		add_prestige = minor_prestige_gain
+		add_piety = minor_piety_gain 
+	}
+	option = { # Attempt to invest in trading 
+		name = sailing.6202.b
+		duel = {
+ 			skill = stewardship
+ 			value = mediocre_skill_rating
+ 			50 = {
+				# You make some good deals
+ 				desc = sailing.6202.a.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = sailing.6202.a.success
+ 					left_icon = root
+ 					add_short_term_gold = medium_gold_value
+ 				}
+ 			}
+ 			50 = {
+ 				# You fail to turn a big profit
+ 				desc = sailing.6202.a.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = sailing.6202.a.failure
+ 					left_icon = root
+					remove_short_term_gold = minor_gold_value
+ 				}
+ 			}
+		}
+	}
+
+	option = { # Just see the sights
+		name = sailing.6202.c 
+		#add_stress = -20 
+		scope:activity = {
+			every_attending_character = {
+				add_stress = -20 
+			}
+		}
+	}
+	after = {
+		trigger_event = {
+			id = sailing.6206 
+			days = 15 
+		}
+	}
+}
+
+sailing.6206 = { # Interlude: Chance to go home early
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6206.t
+	desc = sailing.6206.desc
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+	right_portrait = {
+		character = scope:first_mate
+		animation = personality_callous
+	}
+	option = { # Continue on our roundtrip through the bay
+		name = sailing.6206.a 
+		add_prestige = minor_prestige_gain
+		trigger_event = {
+			id = sailing.6203 # Harshandatt
+			days = 15 
+		}
+	}
+	option = { # Nah, let's get out of here
+		name = sailing.6206.b
+		custom_tooltip = sailing.6206.b.tt 
+		trigger_event = {
+			id = sailing.9002 # Go home with low XP
+			days = 15 
+		}
+	}
+}
+
+sailing.6203 = { # Naerphys, main city of Harshandatt
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6203.t
+	desc = sailing.6203.desc
+	theme = sailing_activity
+	override_background = {
+		reference = annuminas
+	}
+	left_portrait = {
+		character = root
+		animation = interested
+	}
+	right_portrait = {
+		character = scope:first_mate
+		animation = personality_honorable
+	}
+	option = { # Gain insight on their harvesting practices
+		name = sailing.6203.a 
+		add_stewardship_lifestyle_xp = 200 
+	}
+	option = { # Buy fish from the fishermen
+		trigger = { is_landless_adventurer = yes }
+		name = sailing.6203.b 
+		remove_short_term_gold = 20 
+		domicile ?= { 
+			change_provisions = major_provisions_gain 
+		}
+	}
+	option = { # Admire the pyramids
+		name = sailing.6203.c 
+		add_stress = -10 
+		add_learning_lifestyle_xp = 100
+	}
+	after = {
+		trigger_event = {
+			id = sailing.6204 
+			days = 15 
+		}
+	}
+}
+
+sailing.6204 = { # Pelepelplû, Khy main city
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6204.t
+	desc = sailing.6204.desc
+	theme = sailing_activity
+	override_background = {
+		reference = fornost
+	}
+	left_portrait = {
+		character = root
+		animation = personality_compassionate
+	}
+
+	option = { # Purchase a book on their military doctrines
+		name = sailing.6204.a 
+		remove_short_term_gold = minor_gold_value
+		custom_tooltip = sailing.6204.a.tt.book
+		create_artifact_book_effect = {
+			OWNER = root
+			CREATOR = scope:first_mate
+			SET_SUBJECT = flag:martial
+			SET_TOPIC = flag:no
+		}
+	    hidden_effect = {
+			if = {
+	        	limit = { exists = scope:newly_created_artifact } # To avoid errors
+	        	send_interface_toast = {
+		        	title = sailing.6204.a.tt
+		        	left_icon = root
+		        	right_icon = scope:newly_created_artifact
+		        	scope:newly_created_artifact = {
+		        		set_owner = {
+		        			target = root
+							history = {
+								location = root.capital_province
+								actor = scope:first_mate
+								recipient = root
+								type = given
+							}
+						}
+		        	}
+		        }
+			}
+		}
+	}
+	option = { # Traverse the waterways
+		name = sailing.6204.b
+		random_list = {
+			25 = { # You find a hidden treasure
+				custom_tooltip = sailing.6204.b.success 
+				add_gold = medium_gold_value 
+				add_legitimacy = minor_legitimacy_gain
+			}
+			75 = { # You're just having a fun ride
+				custom_tooltip = sailing.6204.b.failure
+				add_stress = -5 
+			}
+		}
+	}
+	option = { # Admire the aqueducts
+		name = sailing.6204.c 
+		add_stress = -20
+	}
+	after = {
+		trigger_event = {
+			id = sailing.6205 
+			days = 15 
+		}
+	}
+}
+
+sailing.6205 = { # Anarike main city
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6205.t
+	desc = sailing.6205.desc
+	theme = sailing_activity
+	override_background = {
+		reference = docks_adunai
+	}
+	left_portrait = {
+		character = root
+		animation = storyteller
+	}
+	right_portrait = {
+		character = scope:first_mate
+		animation = acknowledging
+	}
+	option = { # Learn about their numenorean history
+		name = sailing.6205.a
+		add_learning_lifestyle_perk_points = 1
+	}
+	option = { # Learn about shipbuilding
+		name = sailing.6205.b 
+		# Mariner skill
+		if = {
+			limit = { has_trait = lifestyle_mariner }
+			scope:activity = {
+				add_activity_log_entry = {
+					key = sailing_completed_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = {
+						add_trait_xp = {
+							trait = lifestyle_mariner
+							value = 5
+						}
+					}
+				}
+			}
+		}	
+		else = {
+			scope:activity = {
+				add_activity_log_entry = {
+					key = sailing_completed_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = { add_trait = lifestyle_mariner }
+				}
+			}
+		}
+	}
+
+	option = { # Learn about the Codyan threat
+		name = sailing.6205.c 
+		add_stress = 20 
+		add_martial_lifestyle_perk_points = 1
+		add_prestige = medium_prestige_gain
+	}
+	after = {
+		add_character_flag = has_explored_ormal_bay
+		trigger_event = {
+			id = sailing.9001 
+			days = 15 
+			
+		}
+	}
+}
+
+############
+## SEA OF RHÛN ~ by Aerien
+############
+
+sailing.6400 = { # Setting out
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6400.t
+	desc = sailing.6400.desc
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	left_portrait = {
+		character = root
+		animation = survey
+	}
+	right_portrait = {
+		character = scope:first_mate
+		animation = throne_room_one_handed_passive_1
+	}
+		
+	option = { # Let's stick to the coast
+		name = sailing.6400.a
+		custom_tooltip = sailing.6400.a.tt # Safer, but slower
+		trigger_event = {
+			id = sailing.6402
+			days = 25
+		}
+	}
+	
+	option =  { # Let's head out into open waters
+		name = sailing.6400.b
+		custom_tooltip = sailing.6400.b.tt
+		random_list = {
+			70 = {
+				custom_tooltip = sailing.6400.b.success 
+				add_prestige = minor_prestige_gain
+				# Mariner skill
+				if = {
+					limit = { has_trait = lifestyle_mariner }
+					scope:activity = {
+						add_activity_log_entry = {
+							key = sailing_completed_log
+							tags = { good }
+							# this line below adds the entry to the Effects section of the conclusion UI
+							show_in_conclusion = yes
+							character = root
+							
+							root = {
+								add_trait_xp = {
+									trait = lifestyle_mariner
+									value = 5
+								}
+							}
+						}
+					}
+				}	
+				else = {
+					scope:activity = {
+						add_activity_log_entry = {
+							key = sailing_completed_log
+							tags = { good }
+							# this line below adds the entry to the Effects section of the conclusion UI
+							show_in_conclusion = yes
+							character = root
+							
+							root = { add_trait = lifestyle_mariner }
+						}
+					}
+				}
+				trigger_event = {
+					id = sailing.6402 
+					days = 5 
+				}
+			}
+			30 = { # A storm!
+				custom_tooltip = sailing.6400.b.failure 
+
+				trigger_event = sailing.6401
+			}
+		}
+	}
+}
+
+sailing.6401 = { # The Storm
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6401.t
+	desc = sailing.6401.desc
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}	
+	override_effect_2d = {
+		reference = rain
+	}
+	widgets = {
+		widget = {
+			gui = "event_window_widget_vfx_lightning_storm"
+			container = "foreground_shader_vfx_container"
+		}
+	}
+	left_portrait = {
+		character = root
+		animation = fear
+	}
+	right_portrait = {
+		character = scope:first_mate
+		animation = shock
+	}
+	option = { # We must brave this storm!
+		name = sailing.6401.a
+		random_list = {
+			30 = { add_trait = ill }
+			30 = { increase_wounds_no_death_effect = { REASON = accident } }
+			40 = { add_stress = 70 }
+		}
+		trigger_event = {
+			id = sailing.6402 
+			days = 15
+		}
+	}
+	option = { # I'm a mariner, I know what to do
+		name = sailing.6401.b 
+		trigger = { has_trait = lifestyle_mariner }
+		add_stress = 10 
+		trigger_event = {
+			id = sailing.6402 
+			days = 15
+		}
+	}
+	option = { # Let's turn back home!
+		name = sailing.6401.c 
+		custom_tooltip = sailing.6401.c.tt 
+		add_prestige = minor_prestige_loss
+		trigger_event = {
+			id = sailing.9002 
+			days = 5 
+		}
+	}
+}
+
+sailing.6402 = { # Caras Sant
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6402.t
+	desc = sailing.6402.desc
+	theme = sailing_activity
+	override_background = {
+		reference = city_north
+	}
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+	option = { # Purchase some wine
+		name = sailing.6402.a 
+		remove_short_term_gold = 25 
+		add_character_modifier = {
+			modifier = ate_good_meal
+			years = 2
+		}
+	}
+	option = { # Purchase ALOT of wine
+		name = sailing.6402.b 
+		remove_short_term_gold = 100 
+		add_character_modifier = {
+			modifier = ate_good_meal
+			years = 10
+		}
+		add_stress = -50
+		random = {
+			chance = 20 
+			add_trait = drunkard
+		}
+		random = {
+			chance = 20 
+			send_interface_toast = {
+				title = drank_too_much_toast
+				add_character_modifier = {
+					modifier = drunken_stupor
+					years = 5
+				}
+			}
+		}
+	}
+	option = { # Just see the sights 
+		name = sailing.6402.c 
+		add_stress = -20 
+		add_prestige = miniscule_prestige_gain
+	}
+	option = { # Attempt to sabotage the port
+		name = sailing.6402.d 
+		trigger = { faith_is_evil = yes }
+		duel = {
+			skill = intrigue
+			value = high_skill_rating
+			50 = {		
+				compare_modifier = {					
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = sailing.6402.d.success	
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.6402.d.success
+					title:c_caras_sant = {
+						add_county_modifier = {
+							modifier = sailing_sabotaged_port_modifier
+							years = 5
+						}
+					}
+				}
+			}
+		
+			50 = {	
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = sailing.6402.d.failure
+				add_prestige = major_prestige_loss
+				increase_wounds_effect = { REASON = fight}
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.6402.d.failure
+				}
+			}
+		}
+	}
+	after = {
+		trigger_event = {
+			id = sailing.6403 
+			days = 10 
+		}
+	}
+}
+
+sailing.6403 = { # The Mouth of the Celduin
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6403.t
+	desc = sailing.6403.desc
+	theme = sailing_activity
+	override_background = {
+		reference = on_river
+	}
+	left_portrait = {
+		character = root
+		animation = interested
+	}
+	right_portrait = {
+		character = scope:first_mate
+		animation = happy_teacher
+	}
+	option = { # Nice day for fishing, ain't it? Huh-hah!
+		name = sailing.6403.a 
+		random_list = {
+			75 = {
+				custom_tooltip = sailing.6403.a.failure 
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.6403.a.failure 
+					add_stress = -20 
+					add_prestige = miniscule_prestige_gain
+				}
+
+			}
+			25 = {
+				custom_tooltip = sailing.6403.a.success
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.6403.a.success 
+					add_stress = -25 
+					add_prestige = medium_prestige_gain
+					add_gold = medium_gold_value 
+				}
+
+			}
+		}
+		if = {
+			limit = { is_landless_adventurer = yes }
+			domicile = { change_provisions = medium_provisions_gain }
+		}
+	}
+	option = { # Speak with the Fishermen 
+		name = sailing.6403.b 
+		# Mariner skill
+		if = {
+			limit = { has_trait = lifestyle_mariner }
+			scope:activity = {
+				add_activity_log_entry = {
+					key = sailing_completed_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = {
+						add_trait_xp = {
+							trait = lifestyle_mariner
+							value = 5
+						}
+					}
+				}
+			}
+		}	
+		else = {
+			scope:activity = {
+				add_activity_log_entry = {
+					key = sailing_completed_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = { add_trait = lifestyle_mariner }
+				}
+			}
+		} 
+	}
+	option = { # Spend time relaxing with your crew
+		name = sailing.6403.c 
+		scope:activity = {
+			every_attending_character = {
+				add_opinion = {
+					target = scope:host
+					modifier = shared_delicacy_opinion
+					opinion = 20
+				}
+			}
+		}
+	}
+	after = {
+		trigger_event = {
+			id = sailing.6404
+			days = 15 
+		}
+	}
+}
+
+sailing.6404 = { # The Bay of the Kug
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6404.t
+	desc = sailing.6404.desc
+	theme = sailing_activity
+	override_background = {
+		reference = docks_tribal
+	}
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+	right_portrait = {
+		character = scope:easterling_mercenary
+		animation = marshal_shield
+		triggered_outfit = {
+			outfit_tags = { military_outfit }
+		}
+	}
+	immediate = {
+		create_character = {
+			template = errant_soldier_character
+			location = scope:activity.activity_location
+			culture = culture:ulgath
+			faith = faith:faith_rhun_pantheistic
+			dynasty = none
+			gender_female_chance = 25
+			trait = education_martial_prowess_3
+			trait = lifestyle_blademaster
+			save_scope_as = easterling_mercenary
+		}
+	}
+	option = { # Hire this man!
+		name = sailing.6404.a 
+		remove_short_term_gold = medium_gold_value
+		add_courtier = scope:easterling_mercenary
+		scope:easterling_mercenary = { add_to_activity = scope:activity }
+	}
+	option = { # Hire a contingent of rhunnic soldiers 
+		name = sailing.6404.b
+		remove_short_term_gold = 100 
+		create_maa_regiment = {
+			type = easterling_swordsmen
+			check_can_recruit = no
+			size = 2
+		}
+	}
+	option = { # Try to impress the locals 
+		name = sailing.6404.c 
+		duel = {
+			skill = diplomacy
+			value = decent_skill_rating
+			50 = {		
+				compare_modifier = {					
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = sailing.6404.c.success	
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.6404.c.success
+					add_prestige = massive_prestige_gain
+				}
+			}
+		
+			50 = {	
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = sailing.6404.c.failure
+				add_prestige = medium_prestige_loss
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.6404.c.failure
+				}
+			}
+		}
+	}
+	after = {
+		trigger_event = {
+			id = sailing.6405
+			days = 15 
+		}
+	}
+}
+
+sailing.6405 = { # Egil Dorn, Isle of Shapeshifters
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6405.t
+	desc = sailing.6405.desc
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	left_portrait = {
+		character = root
+		animation = survey
+	}
+	right_portrait = {
+		character = scope:first_mate
+		animation = worry 
+	}
+	option = { # Pass by the scary island 
+		name = sailing.6405.a 
+		if = {
+			limit = { faith_is_good = yes }
+			add_piety = medium_piety_gain
+		}
+		add_stress = -25 
+	}
+	option = { # Pay homage to the dark gods 
+		name = sailing.6405.b
+		trigger = { faith_is_evil = yes }
+		if = {
+			limit = {
+				title:b_egil_dorn = {
+					is_holy_site_of = scope:host.faith
+				}
+				NOT = { has_trait = pilgrim }
+			}
+			add_piety = medium_piety_gain 
+			add_trait = pilgrim 
+		}
+		else_if = {
+			limit = {
+				title:b_egil_dorn = {
+					is_holy_site_of = scope:host.faith
+				}
+				has_trait = pilgrim
+			}
+			add_piety = medium_piety_gain 
+			root = {
+				add_trait_xp = {
+					trait = pilgrim
+					value = 5
+				}
+			}
+		}
+		else = {
+			add_piety = medium_piety_gain 
+		}
+	}
+	option = { # Brave the isle in defiance 
+		name = sailing.6405.c 
+		trigger = {
+			OR = {
+				has_trait = brave
+				has_trait = zealous 
+				has_trait = impatient 
+				has_trait = cynical 
+			}
+		}
+		add_prestige = medium_prestige_gain 
+		add_stress = -15
+		if = { 
+			limit = { faith_is_good = yes }
+			add_piety = minor_piety_gain 
+		}
+		random = {
+			chance = 5 
+			add_trait = possessed_1 
+		}
+	}
+	after = {
+		trigger_event = {
+			id = sailing.6406 
+			days = 10 
+		}
+	}
+}
+
+sailing.6406 = { # Mistrand
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6406.t
+	desc = sailing.6406.desc
+	theme = sailing_activity
+	override_background = {
+		reference = rhun
+	}
+	left_portrait = {
+		character = root
+		animation = personality_greedy
+	}
+	center_portrait = {
+		character = scope:first_mate
+		animation = personality_callous 
+	}
+	right_portrait = {
+		character = scope:mistrand_harbourmaster
+		animation = personality_greedy
+	}
+	immediate = {
+		create_character = {
+			location = root.location
+			template = servant_character
+			gender = male
+			age = 45
+			culture = culture:igath
+			faith = faith:faith_rhun_pantheistic
+			save_scope_as = mistrand_harbourmaster
+		}
+	}
+	option = { # Buy some goods, sell some cargo
+		name = sailing.6406.a
+		duel = {
+ 			skill = stewardship
+ 			target = scope:mistrand_harbourmaster
+ 			60 = {
+				# You make some good deals
+ 				desc = sailing.6406.a.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = sailing.6406.a.success
+ 					left_icon = root
+ 					right_icon = scope:mistrand_harbourmaster
+ 					add_short_term_gold = medium_gold_value
+ 				}
+ 			}
+ 			40 = {
+ 				# You fail to turn a big profit
+ 				desc = sailing.6406.a.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = sailing.6406.a.failure
+ 					left_icon = root
+ 					right_icon = scope:mistrand_harbourmaster
+ 				}
+ 				remove_short_term_gold = minor_gold_value
+ 			}
+		}
+	}
+	
+	option = { # Pay the harbour-master for some of his sailing tricks
+		name = sailing.6406.b
+		remove_short_term_gold = minor_gold_value
+		# Mariner skill
+		if = {
+			limit = { has_trait = lifestyle_mariner }
+			scope:activity = {
+				add_activity_log_entry = {
+					key = sailing_completed_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+				
+					root = {
+						add_trait_xp = {
+							trait = lifestyle_mariner
+							value = 10
+						}
+					}
+				}
+			}
+		}	
+		else = {
+			scope:activity = {
+				add_activity_log_entry = {
+					key = sailing_completed_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = { add_trait = lifestyle_mariner }
+				}
+			}
+		}
+	}
+	
+	option = { # See the sights of Mistrand!
+		name = sailing.6406.c 
+		scope:activity = {
+			every_attending_character = { 
+				add_stress = -25 
+			}
+		}
+	}
+	option = { # Attempt to sabotage the port 
+		name = sailing.6406.d
+		trigger = { faith_is_good = yes }
+		duel = {
+			skill = intrigue
+			value = high_skill_rating
+			50 = {		
+				compare_modifier = {					
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = sailing.6406.d.success	
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.6406.d.success
+					title:c_mistrand = {
+						add_county_modifier = {
+							modifier = sailing_sabotaged_port_modifier
+							years = 5
+						}
+					}
+				}
+			}
+		
+			50 = {	
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = sailing.6406.d.failure
+				add_prestige = major_prestige_loss
+				increase_wounds_effect = { REASON = fight}
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.6406.d.failure
+				}
+			}
+		}
+	}
+	after = {
+		trigger_event = {
+			id = sailing.6407 
+			days = 5 
+		}
+	}
+}
+
+sailing.6407 = { # End of the Journey
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.6407.t
+	desc = sailing.6407.desc
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	left_portrait = {
+		character = root
+		animation = throne_room_two_handed_passive_1
+	}
+	override_effect_2d = {
+		reference = fog
+	}
+	option = { # We've all done well!
+		name = sailing.6407.a
+		scope:activity = {
+			every_attending_character = {
+				add_prestige = minor_prestige_gain 
+			}
+		}
+	}
+	option = { # Our gods have blessed this trip 
+		name = sailing.6407.b
+		add_piety = medium_piety_gain 
+		add_legitimacy = miniscule_legitimacy_gain
+	}
+	option = { # I've learned alot about sailing!
+		name = sailing.6407.c 
+		# Mariner skill
+		if = {
+			limit = { has_trait = lifestyle_mariner }
+			scope:activity = {
+				add_activity_log_entry = {
+					key = sailing_completed_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+				
+					root = {
+						add_trait_xp = {
+							trait = lifestyle_mariner
+							value = 5
+						}
+					}
+				}
+			}
+		}	
+		else = {
+			scope:activity = {
+				add_activity_log_entry = {
+					key = sailing_completed_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = { add_trait = lifestyle_mariner }
+				}
+			}
+		}
+	}
+	after = { # Trip ends
+		trigger_event = {
+			id = sailing.9001 
+			days = 5 
+		}
+	}
+}
+	
 ############################
 ## River Sailing
 ## 8000-8999
@@ -10384,7 +13136,7 @@ sailing.8001 = { # Mouths of Anduin and The Fisher-folk of Ethir http://tolkieng
 	desc = sailing.8001.desc
 	theme = sailing_activity
 	override_background = {
-		reference = on_river
+		reference = black_ship
 	}
 	
 	left_portrait = {
@@ -10400,8 +13152,8 @@ sailing.8001 = { # Mouths of Anduin and The Fisher-folk of Ethir http://tolkieng
 	option = { # Sea Plundering of Fishermen boats. Gold and some fish (https://tolkienlibrary.com/press/images/FishesofMiddleEarth2008Willink.pdf)
 		name = sailing.8001.a
 		trigger = {	
-				# culture = { has_cultural_pillar = heritage_northern_adunaic }
-				can_raid_across_water = yes
+			can_raid_across_water = yes
+			NOT = { faith_is_good = yes }
 		}
 		reverse_add_opinion = {
 			target = title:c_ethir_anduin.holder
@@ -10409,7 +13161,7 @@ sailing.8001 = { # Mouths of Anduin and The Fisher-folk of Ethir http://tolkieng
 		}
 		duel = {
 			skill = martial
-			value = mediocre_skill_rating
+			value = decent_skill_rating
 			50 = {		
 				compare_modifier = {
 					value = scope:duel_value
@@ -10424,7 +13176,7 @@ sailing.8001 = { # Mouths of Anduin and The Fisher-folk of Ethir http://tolkieng
 				
 					trigger_event = {
 						id = sailing.8002
-						days = 15
+						days = 5
 					}
 				}
 				# Mariner skill
@@ -10474,7 +13226,7 @@ sailing.8001 = { # Mouths of Anduin and The Fisher-folk of Ethir http://tolkieng
 					add_dread = -2 # minor_dread_loss is too big
 					trigger_event = {
 						id = sailing.8003
-						days = 15
+						days = 5
 					}
 				}
 			}
@@ -10711,7 +13463,7 @@ sailing.8001 = { # Mouths of Anduin and The Fisher-folk of Ethir http://tolkieng
 	}
 }
 
-sailing.8002 = { # 
+sailing.8002 = { # Plundering the Ethir Anduin: Success
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8002.t
@@ -10739,7 +13491,7 @@ sailing.8002 = { #
 	}
 }
 
-sailing.8003 = {
+sailing.8003 = { # Plundering the Ethir Anduin: Failure
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8003.t
@@ -10767,7 +13519,7 @@ sailing.8003 = {
 	}
 }
 
-sailing.8004 = {
+sailing.8004 = { # The Fishermen of the Ethir Anduin
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8004.t
@@ -10788,9 +13540,21 @@ sailing.8004 = {
 	}
 	option = {
 		name = sailing.8004.a
+		add_stress = -20
 		trigger_event = {
 			id = sailing.8005
-			days = 15
+			days = 10
+		}
+	}
+	option = {
+		name = sailing.8004.b 
+		add_gold = 50 
+		trigger_event = {
+			id = sailing.8005
+			days = 10
+		}
+		title:c_ethir_anduin = {
+			change_development_progress_with_overflow = 750
 		}
 	}
 }
@@ -10814,13 +13578,12 @@ sailing.8005 = { # Pelargir  https://lotr.fandom.com/wiki/Pelargir
 		character = scope:first_mate
 		animation = happiness
 	}
-	
-	
+		
 	option = { # Sabotage the port
 		name = sailing.8005.a
 		trigger = {
-				# culture = { has_cultural_pillar = heritage_northern_adunaic }
-				can_raid_across_water = yes
+			can_raid_across_water = yes
+			faith_is_good = no
 		}
 		reverse_add_opinion = {
 			target = title:c_pelargir.holder			
@@ -10964,14 +13727,11 @@ sailing.8005 = { # Pelargir  https://lotr.fandom.com/wiki/Pelargir
 				send_interface_toast = {
 					left_icon = ROOT
 					title = sailing.8005.toast.c.success
-					remove_boat = yes
-					add_character_modifier = large_boat_modifier
-					remove_character_flag = hired_a_boat
-					add_prestige = minor_prestige_gain
-							
+					add_prestige = major_prestige_gain
+					add_short_term_gold = 100
 					trigger_event = {
 						id = sailing.8006
-						days = 15
+						days = 5
 					}
 				}
 			}
@@ -10989,26 +13749,20 @@ sailing.8005 = { # Pelargir  https://lotr.fandom.com/wiki/Pelargir
 					increase_wounds_no_death_effect = { REASON = fight }
 					trigger_event = {
 						id = sailing.8007
-						days = 15
+						days = 5
 					}
 				}
 			}
 		}
 	}
 	
-	option = { # Upgrade to RoyalShip by a fee of a small ship
+	option = { # Spend a short while in port, relaxing and seeing the sights
 		name = sailing.8005.d
-		remove_short_term_gold = small_boat_cost
-		remove_character_modifier = medium_boat_modifier
-		remove_character_modifier = small_boat_modifier
-		remove_character_modifier = small_damaged_boat_modifier
-		remove_character_modifier = medium_damaged_boat_modifier
-		remove_character_modifier = large_damaged_boat_modifier					
-		add_character_modifier = large_boat_modifier		
-		
+		add_stress = -50	
+		add_prestige = minor_prestige_gain
 		trigger_event = {
 			id = sailing.8008
-			days = 15
+			days = 20
 		}
 	}
 	
@@ -11021,7 +13775,7 @@ sailing.8005 = { # Pelargir  https://lotr.fandom.com/wiki/Pelargir
 	}	
 }
 
-sailing.8006 = {
+sailing.8006 = { # Steal a ship: success
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8006.t
@@ -11054,7 +13808,7 @@ sailing.8006 = {
 	}
 }
 
-sailing.8007 = {
+sailing.8007 = { # Steal a ship: failure
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8007.t
@@ -11111,6 +13865,7 @@ sailing.8008 = { # Osgiliath https://lotr.fandom.com/wiki/Osgiliath
 		trigger = {
 			# culture = { has_cultural_pillar = heritage_northern_adunaic }
 			can_raid_across_water = yes
+			faith_is_good = no
 		}
 		duel = {
 			skill = martial
@@ -11128,8 +13883,8 @@ sailing.8008 = { # Osgiliath https://lotr.fandom.com/wiki/Osgiliath
 					add_gold = medium_gold_value					
 		
 					trigger_event = {
-						id = sailing.8013
-						days = 15
+						id = sailing.8009
+						days = 5
 					}
 				}
 			}
@@ -11149,7 +13904,7 @@ sailing.8008 = { # Osgiliath https://lotr.fandom.com/wiki/Osgiliath
 					}
 					trigger_event = {
 						id = sailing.8010
-						days = 15
+						days = 5
 					}
 				}
 			}
@@ -11171,11 +13926,11 @@ sailing.8008 = { # Osgiliath https://lotr.fandom.com/wiki/Osgiliath
 				send_interface_toast = {
 					left_icon = ROOT
 					title = sailing.8008.toast.b.success
-					add_learning_skill = 1							
-		
+					add_learning_skill = 1	
+					add_prestige = medium_prestige_gain
 					trigger_event = {
 						id = sailing.8011
-						days = 15
+						days = 5
 					}
 				}
 			}
@@ -11192,7 +13947,7 @@ sailing.8008 = { # Osgiliath https://lotr.fandom.com/wiki/Osgiliath
 					add_stress = 2
 					trigger_event = {
 						id = sailing.8012
-						days = 15
+						days = 5
 					}
 				}
 			}
@@ -11208,12 +13963,11 @@ sailing.8008 = { # Osgiliath https://lotr.fandom.com/wiki/Osgiliath
 	}
 }
 
-sailing.8009 = {
+sailing.8009 = { # Plunder Osgiliath: Success
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8009.t
 	desc = sailing.8009.desc
-	orphan = yes # LotR - TODO - Figure out why?
 	theme = sailing_activity
 	override_background = {
 		reference = temple_generic
@@ -11237,7 +13991,7 @@ sailing.8009 = {
 	}
 }
 
-sailing.8010 = {
+sailing.8010 = { # Plunder Osgiliath: Failure
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8010.t
@@ -11265,7 +14019,7 @@ sailing.8010 = {
 	}
 }
 
-sailing.8011 = {
+sailing.8011 = { # The Dome of Stars: Success
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8011.t
@@ -11293,7 +14047,7 @@ sailing.8011 = {
 	}
 }
 
-sailing.8012 = {
+sailing.8012 = { # The Dome of Stars: Failure
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8012.t
@@ -11337,9 +14091,11 @@ sailing.8013 = { # Cair Andros: Garrison Control http://tolkiengateway.net/wiki/
 	}
 		
 	right_portrait = {
-		character = scope:first_mate
-		animation = anger
+		character = scope:aranelaithholder
+		animation = personality_callous
 	}
+	
+	immediate = { title:c_aranelaith.holder = { save_scope_as = aranelaithholder } }
 	
 	option = { # Garrison control: Diplomacy to let you continue
 		name = sailing.8013.a
@@ -11472,7 +14228,7 @@ sailing.8013 = { # Cair Andros: Garrison Control http://tolkiengateway.net/wiki/
 	}
 }
 
-sailing.8014 = {
+sailing.8014 = { # Cair Andros: Passage Granted
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8014.t
@@ -11500,7 +14256,7 @@ sailing.8014 = {
 	}
 }
 
-sailing.8015 = {
+sailing.8015 = { # Cair Andros: Passage Denied
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8015.t
@@ -11527,7 +14283,7 @@ sailing.8015 = {
 	}
 }
 
-sailing.8016 = {
+sailing.8016 = { # Cair Andros: Attack Success
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8016.t
@@ -11555,7 +14311,7 @@ sailing.8016 = {
 	}
 }
 
-sailing.8017 = {
+sailing.8017 = { # Cair Andros: Attack Defeat
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8017.t
@@ -11660,7 +14416,7 @@ sailing.8018 = { # Wetwang as an extension of the Dead Marshes
 	}
 }
 
-sailing.8019 = {
+sailing.8019 = { # Wetwang: Success
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8019.t
@@ -11688,7 +14444,7 @@ sailing.8019 = {
 	}
 }
 
-sailing.8020 = {
+sailing.8020 = { # Wetwang: Failure
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8020.t
@@ -11737,7 +14493,7 @@ sailing.8021 = { # Falls of Rauros / Argonath https://lotr.fandom.com/wiki/Falls
 	}
 
 	option = { # Observe the Argonath and Meditate
-		name = sailing.6010.a
+		name = sailing.8021.a
 		send_interface_toast = {
 			left_icon = ROOT
 			title = sailing.8021.toast.a.success
@@ -11747,8 +14503,19 @@ sailing.8021 = { # Falls of Rauros / Argonath https://lotr.fandom.com/wiki/Falls
 			}
 			trigger_event = { # Come back with experience
 				id = sailing.9001
-				days = 15
+				days = 10
 			}			
+		}
+	}
+	
+	option = { # Vow to topple this symbol of Gondor's pride
+		name = sailing.8021.b
+		trigger = { NOT = { faith_is_good = yes } }
+		add_dread = medium_dread_gain
+		add_prestige = medium_prestige_gain
+		trigger_event = { 
+			id = sailing.9001
+			days = 10 
 		}
 	}
 }
@@ -11761,7 +14528,7 @@ sailing.8021 = { # Falls of Rauros / Argonath https://lotr.fandom.com/wiki/Falls
 # 8104-6 - Pezarsan
 # 8107+ - Pezarsan
 			
-sailing.8100 = {
+sailing.8100 = { # Approaching the Delta
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8100.t
@@ -11782,7 +14549,7 @@ sailing.8100 = {
 
 	option = { # Engage - ship is undamaged
 		name = sailing.8100.a
-		trigger = { owns_an_undamaged_boat = yes }
+		#trigger = { owns_an_undamaged_boat = yes }
 		random_list = {
 			50 = { # Success
 				modifier = {
@@ -11877,7 +14644,7 @@ sailing.8100 = {
 				send_interface_toast = {
 					left_icon = ROOT
 					title = sailing.8100.toast.a.failure
-					damage_ship = yes
+					#damage_ship = yes
 					increase_wounds_no_death_effect = { REASON = fight }
 					trigger_event = {
 						id = sailing.8101
@@ -11888,121 +14655,116 @@ sailing.8100 = {
 		}
 	}
 	
-	option = { # Engage - ship is damaged
-		name = sailing.8100.b
-		trigger = { owns_an_undamaged_boat = no }
-		random_list = {
-			25 = { #Success
-				modifier = {
-					add = 20
-					has_trait_xp = {
-						trait = lifestyle_mariner
-						value < 50
-					}
-				}		
-				modifier = {
-					add = 40
-					has_trait_xp = {
-						trait = lifestyle_mariner
-						value >= 50
-						value < 100
-					}
-				}	
-				modifier = {
-					add = 60
-					has_trait_xp = {
-						trait = lifestyle_mariner
-						value >= 100
-					}
-				}
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.8100.toast.b.success
-					add_prowess_skill = 1
-					trigger_event = {
-						id = sailing.8101
-						days = 15
-					}
-					# Mariner skill
-					if = {
-						limit = { has_trait = lifestyle_mariner }
-						scope:activity = {
-							add_activity_log_entry = {
-								key = sailing_completed_log
-								tags = { good }
-								# this line below adds the entry to the Effects section of the conclusion UI
-								show_in_conclusion = yes
-								character = root
+	# option = { # Engage - ship is damaged
+		# name = sailing.8100.b
+		# trigger = { owns_an_undamaged_boat = no }
+		# random_list = {
+			# 25 = { #Success
+				# modifier = {
+					# add = 20
+					# has_trait_xp = {
+						# trait = lifestyle_mariner
+						# value < 50
+					# }
+				# }		
+				# modifier = {
+					# add = 40
+					# has_trait_xp = {
+						# trait = lifestyle_mariner
+						# value >= 50
+						# value < 100
+					# }
+				# }	
+				# modifier = {
+					# add = 60
+					# has_trait_xp = {
+						# trait = lifestyle_mariner
+						# value >= 100
+					# }
+				# }
+				# send_interface_toast = {
+					# left_icon = ROOT
+					# title = sailing.8100.toast.b.success
+					# add_prowess_skill = 1
+					# trigger_event = {
+						# id = sailing.8101
+						# days = 15
+					# }
+					# # Mariner skill
+					# if = {
+						# limit = { has_trait = lifestyle_mariner }
+						# scope:activity = {
+							# add_activity_log_entry = {
+								# key = sailing_completed_log
+								# tags = { good }
+								# # this line below adds the entry to the Effects section of the conclusion UI
+								# show_in_conclusion = yes
+								# character = root
 								
-								root = {
-									add_trait_xp = {
-										trait = lifestyle_mariner
-										value = 5
-									}
-								}
-							}
-						}
-					}	
-					else = {
-						scope:activity = {
-							add_activity_log_entry = {
-								key = sailing_completed_log
-								tags = { good }
-								# this line below adds the entry to the Effects section of the conclusion UI
-								show_in_conclusion = yes
-								character = root
+								# root = {
+									# add_trait_xp = {
+										# trait = lifestyle_mariner
+										# value = 5
+									# }
+								# }
+							# }
+						# }
+					# }	
+					# else = {
+						# scope:activity = {
+							# add_activity_log_entry = {
+								# key = sailing_completed_log
+								# tags = { good }
+								# # this line below adds the entry to the Effects section of the conclusion UI
+								# show_in_conclusion = yes
+								# character = root
 								
-								root = { add_trait = lifestyle_mariner }
-							}
-						}
-					} 
-				}
-			}
-			75 = { #Shipwreck
-				modifier = {
-					add = -20
-					has_trait_xp = {
-						trait = lifestyle_mariner
-						value < 50
-					}
-				}		
-				modifier = {
-					add = -40
-					has_trait_xp = {
-						trait = lifestyle_mariner
-						value >= 50
-						value < 100
-					}
-				}	
-				modifier = {
-					add = -60
-					has_trait_xp = {
-						trait = lifestyle_mariner
-						value >= 100
-					}
-				}
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.8100.toast.b.failure
-					increase_wounds_effect = { REASON = fight }
-					damage_ship = yes
-					add_character_flag = shipwreck					
-					trigger_event = { # Come back home no experience
-						id = sailing.9002
-						days = 15
-					}
-				}
-			}
-		}
-	}	
+								# root = { add_trait = lifestyle_mariner }
+							# }
+						# }
+					# } 
+				# }
+			# }
+			# 75 = { #Shipwreck
+				# modifier = {
+					# add = -20
+					# has_trait_xp = {
+						# trait = lifestyle_mariner
+						# value < 50
+					# }
+				# }		
+				# modifier = {
+					# add = -40
+					# has_trait_xp = {
+						# trait = lifestyle_mariner
+						# value >= 50
+						# value < 100
+					# }
+				# }	
+				# modifier = {
+					# add = -60
+					# has_trait_xp = {
+						# trait = lifestyle_mariner
+						# value >= 100
+					# }
+				# }
+				# send_interface_toast = {
+					# left_icon = ROOT
+					# title = sailing.8100.toast.b.failure
+					# increase_wounds_effect = { REASON = fight }
+					# damage_ship = yes
+					# add_character_flag = shipwreck					
+					# trigger_event = { # Come back home no experience
+						# id = sailing.9002
+						# days = 15
+					# }
+				# }
+			# }
+		# }
+	# }	
 	
 	option = { # Naval maneuver
 		name = sailing.8100.c
-		trigger = { 
-			NOR = {
-				has_character_flag = has_tried_to_enter_harnen
-			}
-		}
 		random_list = {
 			50 = { #Success
 				modifier = {
@@ -12031,10 +14793,10 @@ sailing.8100 = {
 					left_icon = ROOT
 					title = sailing.8100.toast.c.success
 					add_martial_lifestyle_xp = minor_lifestyle_xp
-					add_character_flag = {
-						flag = has_tried_to_enter_harnen
-						years = 3
-					}
+					# add_character_flag = {
+						# flag = has_tried_to_enter_harnen
+						# years = 3
+					# }
 					trigger_event = {
 						id = sailing.8101
 						days = 15
@@ -12067,10 +14829,10 @@ sailing.8100 = {
 				send_interface_toast = {
 					left_icon = ROOT
 					title = sailing.8100.toast.c.failure
-					add_character_flag = {
-						flag = has_tried_to_enter_harnen
-						years = 3
-					}
+					# add_character_flag = {
+						# flag = has_tried_to_enter_harnen
+						# years = 3
+					# }
 					add_prestige = minor_prestige_loss
 					trigger_event = { # Unable to sneak, only combat or retreat available
 						id = sailing.8100
@@ -12345,7 +15107,7 @@ sailing.8111 = { # Bronze tower of Ancalimon: angry priests
 
 	right_portrait = {
 		character = scope:priest
-		animation = angry
+		animation = rage
 	}
 	
 	immediate = {
@@ -12511,6 +15273,7 @@ sailing.8102 = { # Harad Crossroads (Amrun)
 	
 	option = { # Learning Northern Apysaic language
 		name = sailing.8102.c
+		trigger = { NOT = { knows_language = language_northern_apysaic } }
 		remove_short_term_gold = major_gold_value
 		learn_language = language_northern_apysaic		
 		trigger_event = {
@@ -12528,7 +15291,7 @@ sailing.8102 = { # Harad Crossroads (Amrun)
 	}
 }
 
-sailing.8103 = {
+sailing.8103 = { # Amrûn: The Scribe
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8103.t
@@ -12597,9 +15360,9 @@ sailing.8104 = { # Pezarsan
 		}		
 	}
 	
-	
 	option = { # Time to come back home
-		name = sailing.6010.a
+		name = sailing.8104.c
+		custom_tooltip = sailing.8104.c.tt
 		trigger_event = {
 			id = sailing.9002
 			days = 15
@@ -12640,10 +15403,10 @@ sailing.8105 = { # Artifact bid
 		}
 	}	
 	
-	option = { # Time to come back home
-		name = sailing.6010.a
+	option = { # I don't want to buy that
+		name = sailing.8105.b
 		trigger_event = {
-			id = sailing.9002
+			id = sailing.8107
 			days = 15
 		}
 	}
@@ -12683,16 +15446,16 @@ sailing.8106 = { # Caravans
 		}
 	}
 
-	option = { # Time to come back home
-		name = sailing.6010.a
+	option = { # Don't buy anything
+		name = sailing.8106.b
 		trigger_event = {
-			id = sailing.9002
+			id = sailing.8107
 			days = 15
 		}
 	}
 }
-# Khand
-sailing.8107 = { 
+
+sailing.8107 = { # The Final Stretch
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8107.t
@@ -12715,7 +15478,7 @@ sailing.8107 = {
 		add_dread = medium_dread_gain
 		random = {
 			chance = 30
-			add_trait = weak
+			increase_wounds_effect = { REASON = starving_peasant_horde }
 		}
 		
 		trigger_event = {			
@@ -12733,7 +15496,7 @@ sailing.8107 = {
 	}
 }
 
-sailing.8108 = { 
+sailing.8108 = { # Starlurtsa Khand
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8108.t
@@ -12746,7 +15509,11 @@ sailing.8108 = {
 		character = root
 		animation = admiration
 	}
-
+	right_portrait = {
+		character = scope:first_mate
+		animation = personality_callous
+	}
+	
 	option = { # We visit the temple
 		name = sailing.8108.a
 		send_interface_toast = {
@@ -12775,7 +15542,7 @@ sailing.8108 = {
 
 	option = { # We visit the Slave Market
 		name = sailing.8108.c
-		
+		#trigger = { faith_is_good = no }
 		trigger_event = {			
 			id = sailing.8110
 			days = 15
@@ -12805,7 +15572,7 @@ sailing.8108 = {
 	}
 }
 
-sailing.8109 = { 
+sailing.8109 = { # Startlurtsa Khand: Sightseeing
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8109.t
@@ -12828,8 +15595,7 @@ sailing.8109 = {
 	}	
 }
 
-# Slave market
-sailing.8110 = { 
+sailing.8110 = { # Slave market
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8110.t
@@ -12879,6 +15645,44 @@ sailing.8110 = {
 	option = { # You don't need a slave
 		name = sailing.8110.c	
 	}
+	
+	option = { # We'll liberate these slaves!
+		name = sailing.8110.d
+		trigger = { faith_is_evil = no }
+		duel = {
+			skill = prowess 
+			value = very_high_skill_rating
+ 			50 = {
+				# You free them
+ 				desc = sailing.8110.d.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = sailing.8110.d.success
+ 					left_icon = root
+ 					right_icon = scope:slave
+					add_courtier = scope:slave
+				}
+ 			}
+ 			50 = {
+ 				# You're beaten back by the guards
+ 				desc = sailing.8110.d.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+ 				send_interface_toast = {
+ 					title = sailing.8110.d.failure
+ 					left_icon = root
+					increase_wounds_effect = { REASON = fight }
+ 				}
+ 			}
+ 		}
+	}
 
 	after = {
 		trigger_event = {			
@@ -12899,7 +15703,7 @@ sailing.8110 = {
 #    - 8261 - The Last Bridge
 #    - 8271 - Cameth Brin
 
-sailing.8201 = {
+sailing.8201 = { # Lond Daer
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8201.t
@@ -12912,12 +15716,15 @@ sailing.8201 = {
 		character = root
 		animation = happiness
 	}
-		
-	right_portrait = {
+	center_portrait = {
 		character = scope:first_mate
-		animation = ecstasy
+		animation = interested
 	}
-
+	right_portrait = {
+		character = scope:lond_daer_holder
+		animation = personality_callous
+	}
+	immediate = { title:c_lond_daer.holder = { save_scope_as = lond_daer_holder } }
 	option = { # Explore Lond Daer Enedh
 		name = sailing.8201.a
 		duel = {
@@ -12932,6 +15739,7 @@ sailing.8201 = {
 				desc = sailing.8201.a.success
 				send_interface_toast = {
 					left_icon = ROOT
+					right_icon = scope:lond_daer_holder
 					title = sailing.8201.toast.a.success
 					add_gold = minor_gold_value
 
@@ -12972,7 +15780,7 @@ sailing.8201 = {
 	}
 }
 
-sailing.8211 = {
+sailing.8211 = { # Tharbad
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8211.t
@@ -12986,37 +15794,36 @@ sailing.8211 = {
 		animation = ecstasy
 	}
 
-	option = { # Explore the fire in Tharbad (Dunadan Rangers)
+	option = { # Explore the fire in Tharbad (Dúnadan Rangers)
 		name = sailing.8211.a		
 		create_character = {					
 			#template = lotr_dunedain_traveler_template
 			faith = faith:faith_edain
 			dynasty = none
-			culture = culture:dunedain
+			culture = culture:dunedain_ranger
+			trait = blood_of_numenor_4
 			gender_female_chance = 50
 			save_scope_as = dunadan1
-			location = root.capital_province
-		}
-				
-		create_character = {					
-			#template = lotr_dunedain_traveler_template
-			faith = faith:faith_edain
-			dynasty = none
-			culture = culture:dunedain
-			gender_female_chance = 50
-			save_scope_as = dunadan2
-			location = root.capital_province
-		}	
-				
-		create_character = {					
-			#template = lotr_dunedain_traveler_template
-			faith = faith:faith_edain
-			dynasty = none
-			culture = culture:dunedain
-			gender_female_chance = 50
-			save_scope_as = dunadan3
-			location = root.capital_province
-		}	
+			employer = title:c_naithgardh.holder
+		}		
+		# create_character = {					
+			# #template = lotr_dunedain_traveler_template
+			# faith = faith:faith_edain
+			# dynasty = none
+			# culture = culture:dunedain_ranger
+			# gender_female_chance = 50
+			# save_scope_as = dunadan2
+			# employer = title:c_naithgardh.holder
+		# }		
+		# create_character = {					
+			# #template = lotr_dunedain_traveler_template
+			# faith = faith:faith_edain
+			# dynasty = none
+			# culture = culture:dunedain_ranger
+			# gender_female_chance = 50
+			# save_scope_as = dunadan3
+			# employer = title:c_naithgardh.holder
+		# }	
 		trigger_event = {		
 			id = sailing.8212
 			days = 15
@@ -13027,31 +15834,31 @@ sailing.8211 = {
 		
 		create_character = {
 			template = servant_character
-			location = root.capital_province
+			employer = title:c_galtrev.holder
 			culture = culture:enedhwaithrim
 			faith = faith:faith_dunlending_turthalis 
 			gender_female_chance = 50
 			save_scope_as = brigand1
 			dynasty = none
 		}
-		create_character = {
-			template = servant_character
-			location = root.capital_province
-			culture = culture:enedhwaithrim
-			faith = faith:faith_dunlending_turthalis 
-			gender_female_chance = 50
-			save_scope_as = brigand2
-			dynasty = none
-		}
-		create_character = {
-			template = servant_character
-			location = root.capital_province
-			culture = culture:enedhwaithrim
-			faith = faith:faith_dunlending_turthalis 
-			gender_female_chance = 50
-			save_scope_as = brigand3
-			dynasty = none
-		}
+		# create_character = {
+			# template = servant_character
+			# employer = title:c_galtrev.holder
+			# culture = culture:enedhwaithrim
+			# faith = faith:faith_dunlending_turthalis 
+			# gender_female_chance = 50
+			# save_scope_as = brigand2
+			# dynasty = none
+		# }
+		# create_character = {
+			# template = servant_character
+			# employer = title:c_galtrev.holder
+			# culture = culture:enedhwaithrim
+			# faith = faith:faith_dunlending_turthalis 
+			# gender_female_chance = 50
+			# save_scope_as = brigand3
+			# dynasty = none
+		# }
 
 		trigger_event = {		
 			id = sailing.8213
@@ -13068,7 +15875,7 @@ sailing.8211 = {
 	}
 }
 
-sailing.8212 = {
+sailing.8212 = { # Tharbad: The Camp
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8212.t
@@ -13083,19 +15890,16 @@ sailing.8212 = {
 	}
 	right_portrait = {
 		character = scope:dunadan1
-		animation = worry
-	}
-	lower_left_portrait = {
-		character = scope:dunadan2
-		animation = worry
-	}
-	lower_right_portrait = {
-		character = scope:dunadan3
-		animation = worry
-	}
+		animation = throne_room_two_handed_passive_1
+	}	# lower_left_portrait = {
+		# character = scope:dunadan2
+	# }
+	# lower_right_portrait = {
+		# character = scope:dunadan3
+	# }
 
-	
-	option = { # State your allegiance to rangers
+
+	option = { # State your allegiance to the Rangers
 		name = sailing.8212.a
 		
 		if = {
@@ -13116,7 +15920,7 @@ sailing.8212 = {
 	}	
 }
 
-sailing.8213 = {
+sailing.8213 = { # Tharbad: The Brigands
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8213.t
@@ -13133,14 +15937,14 @@ sailing.8213 = {
 		character = scope:brigand1
 		animation = aggressive_dagger
 	}
-	lower_left_portrait = {
-		character = scope:brigand2
-		animation = aggressive_dagger
-	}
-	lower_right_portrait = {
-		character = scope:brigand3
-		animation = aggressive_dagger
-	}
+	# lower_left_portrait = {
+		# character = scope:brigand2
+		# animation = aggressive_dagger
+	# }
+	# lower_right_portrait = {
+		# character = scope:brigand3
+		# animation = aggressive_dagger
+	# }
 
 	option = { # State your allegiance to brigands
 		name = sailing.8213.a
@@ -13163,8 +15967,7 @@ sailing.8213 = {
 	}	
 }
 
-# Dunadan Rangers, good faith
-sailing.8214 = {
+sailing.8214 = { # Dunadan Rangers, good faith
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8214.t
@@ -13175,22 +15978,24 @@ sailing.8214 = {
 	}
 	left_portrait = {
 		character = root
-		animation = bold
+		animation = interested
 	}	
+	center_portrait = {
+		character = scope:first_mate
+		animation = personality_rational
+	}
 	right_portrait = {
 		character = scope:dunadan1
-		animation = bold
+		animation = personality_bold
 	}
-	lower_left_portrait = {
-		character = scope:dunadan2
-		animation = bold
-	}
-	lower_right_portrait = {
-		character = scope:dunadan3
-		animation = bold
-	}
+	# lower_left_portrait = {
+		# character = scope:dunadan2
+	# }
+	# lower_right_portrait = {
+		# character = scope:dunadan3
+	# }
 
-	option = { 
+	option = { # Sail onwards
 		name = sailing.8214.a	
 		add_martial_lifestyle_xp = medium_lifestyle_xp
 		trigger_event = {
@@ -13198,10 +16003,18 @@ sailing.8214 = {
 			days = 15
 		}		
 	}
+	
+	option = { # Return to the ship to end your trip
+		name = sailing.8214.b 
+		custom_tooltip = sailing.8214.b.tt
+		trigger_event = {
+			id = sailing.9002
+			days = 5
+		}	
+	}
 }
 
-# Dunadan Rangers, evil faith
-sailing.8215 = {
+sailing.8215 = { # Dunadan Rangers, evil faith
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8215.t
@@ -13219,27 +16032,26 @@ sailing.8215 = {
 		character = scope:dunadan1
 		animation = angry
 	}
-	lower_left_portrait = {
-		character = scope:dunadan2
-		animation = angry
-	}
-	lower_right_portrait = {
-		character = scope:dunadan3
-		animation = angry
-	}
+	# lower_left_portrait = {
+		# character = scope:dunadan2
+		# animation = angry
+	# }
+	# lower_right_portrait = {
+		# character = scope:dunadan3
+		# animation = angry
+	# }
 
 	option = { 
 		name = sailing.8215.a		
 		add_prestige = medium_prestige_loss
 		trigger_event = {
-			id = sailing.8221
-			days = 15
+			id = sailing.9002
+			days = 10
 		}		
 	}
 }
 
-# Brigands, evil faith
-sailing.8216 = {
+sailing.8216 = { # Brigands, evil faith
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8216.t
@@ -13251,20 +16063,20 @@ sailing.8216 = {
 	
 	left_portrait = {
 		character = root
-		animation = bold
+		animation = personality_bold
 	}
 	right_portrait = {
 		character = scope:brigand1
 		animation = aggressive_dagger
 	}
-	lower_left_portrait = {
-		character = scope:brigand2
-		animation = aggressive_dagger
-	}
-	lower_right_portrait = {
-		character = scope:brigand3
-		animation = aggressive_dagger
-	}
+	# lower_left_portrait = {
+		# character = scope:brigand2
+		# animation = aggressive_dagger
+	# }
+	# lower_right_portrait = {
+		# character = scope:brigand3
+		# animation = aggressive_dagger
+	# }
 
 	option = { 
 		name = sailing.8216.a	
@@ -13276,8 +16088,7 @@ sailing.8216 = {
 	}
 }
 
-# Brigands, but good faith
-sailing.8217 = {
+sailing.8217 = { # Brigands, but good faith
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8217.t
@@ -13294,14 +16105,14 @@ sailing.8217 = {
 		character = scope:brigand1
 		animation = aggressive_dagger
 	}
-	lower_left_portrait = {
-		character = scope:brigand2
-		animation = aggressive_dagger
-	}
-	lower_right_portrait = {
-		character = scope:brigand3
-		animation = aggressive_dagger
-	}
+	# lower_left_portrait = {
+		# character = scope:brigand2
+		# animation = aggressive_dagger
+	# }
+	# lower_right_portrait = {
+		# character = scope:brigand3
+		# animation = aggressive_dagger
+	# }
 
 	option = { 
 		name = sailing.8217.a		
@@ -13317,8 +16128,7 @@ sailing.8217 = {
 	}
 }
 
-# Swanfleet
-sailing.8221 = {
+sailing.8221 = { # Swanfleet
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8221.t
@@ -13352,8 +16162,7 @@ sailing.8221 = {
 	}
 }
 
-# Ost-in-Edhil
-sailing.8231 = {
+sailing.8231 = { # Eregion: Arrival
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8231.t
@@ -13390,8 +16199,7 @@ sailing.8231 = {
 	}
 }
 
-# Ost-in-Edhil - I recognize the place
-sailing.8232 = {
+sailing.8232 = { # Ost-in-Edhil - I recognize the place
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8232.t
@@ -13405,14 +16213,14 @@ sailing.8232 = {
 		animation = personality_honorable
 	}
 
-	option = {
+	option = { # Explore the city
 		name = sailing.8232.a
 		trigger_event = {
 			id = sailing.8233
 			days = 15
 		}		
 	}
-	option = { 
+	option = { # The path to the mountains
 		name = sailing.8232.b
 		trigger_event = {
 			id = sailing.8235
@@ -13421,8 +16229,7 @@ sailing.8232 = {
 	}
 }
 
-# Ost-in-Edhil - Crebain
-sailing.8233 = {
+sailing.8233 = { # Ost-in-Edhil - Crebain
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8233.t
@@ -13455,7 +16262,7 @@ sailing.8233 = {
 				send_interface_toast = {
 					left_icon = ROOT
 					title = sailing.8233.toast.a.success
-					#add_trait = adventurer
+					add_trait = adventurer
 					trigger_event = {
 						id = sailing.8234
 						days = 15
@@ -13483,8 +16290,7 @@ sailing.8233 = {
 	}
 }
 
-# After crebain
-sailing.8234 = {
+sailing.8234 = { # After crebain
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8234.t
@@ -13534,8 +16340,7 @@ sailing.8234 = {
 	}
 }
 
-# The path to the mountains
-sailing.8235 = {
+sailing.8235 = { # The path to the mountains
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8235.t
@@ -13586,8 +16391,7 @@ sailing.8235 = {
 	}
 }
 
-# Moria
-sailing.8241 = {
+sailing.8241 = { # Moria
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8241.t
@@ -13607,7 +16411,7 @@ sailing.8241 = {
 		duel = {
 			skill = martial
 			value = 12
-			10 = {		
+			40 = {		
 				compare_modifier = {
 					value = scope:duel_value
 					multiplier = 3.5
@@ -13621,7 +16425,7 @@ sailing.8241 = {
 				}
 				custom_tooltip = sailing.8241.a.success.tt
 			}
-			90 = {		
+			60 = {		
 				compare_modifier = {
 					value = scope:duel_value
 					multiplier = -3.5
@@ -13647,8 +16451,7 @@ sailing.8241 = {
 	}
 }
 
-# The Angle
-sailing.8251 = {
+sailing.8251 = { # The Angle
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8251.t
@@ -13745,8 +16548,7 @@ sailing.8251 = {
 	}
 }
 
-# The Last Bridge
-sailing.8261 = {
+sailing.8261 = { # The Last Bridge
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8261.t
@@ -13767,10 +16569,18 @@ sailing.8261 = {
 			days = 15
 		}
 	}
+	
+	option = {
+		name = sailing.8261.b 
+		custom_tooltip = sailing.8261.b.tt 
+		trigger_event = {
+			id = sailing.9001
+			days = 10
+		}
+	}
 }
 
-# The TrollShaws
-sailing.8262 = {
+sailing.8262 = { # The Trollshaws
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8262.t
@@ -13784,7 +16594,6 @@ sailing.8262 = {
 		animation = personality_bold
 	}
 	
-
 	option = { 
 		name = sailing.8262.a
 		if = {
@@ -13825,8 +16634,7 @@ sailing.8262 = {
 	}
 }
 
-# The Trollshaws - Trolls!
-sailing.8263 = {
+sailing.8263 = { # The Trollshaws - Trolls!
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8263.t
@@ -13841,10 +16649,9 @@ sailing.8263 = {
 	}
 	right_portrait = {
 		character = scope:troll
-		animation = marshal
+		animation = personality_callous
 	}
 	immediate = {
-		
 		random_county_in_region = {
 			region = middleearth_west_arnor_rhudaur
 			title_province = { save_scope_as = rhudaur_province }
@@ -13863,7 +16670,7 @@ sailing.8263 = {
 		name = sailing.8263.a
 		trigger_event = {			
 			id = sailing.8264
-			days = 15
+			days = 5
 		}
 		if = {
 			limit = {
@@ -13882,17 +16689,16 @@ sailing.8263 = {
 		name = sailing.8263.b
 		trigger_event = {			
 			id = sailing.8265
-			days = 15
+			days = 5
 		}
 	}
 
 	# Run
 	option = { 
 		name = sailing.8263.c
-		add_trait = craven
 		trigger_event = {			
 			id = sailing.9002
-			days = 15
+			days = 10
 		}
 	}
 	
@@ -13904,8 +16710,7 @@ sailing.8263 = {
 	}	
 }
 
-# The Trollshaws - Trolls - engaging
-sailing.8264 = {
+sailing.8264 = { # The Trollshaws - Trolls - engaging
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8264.t
@@ -13940,8 +16745,8 @@ sailing.8264 = {
 		name = sailing.8264.a
 		duel = {
 			skill = prowess
-			value = 12
-			30 = {		
+			value = high_skill_rating
+			40 = {		
 				compare_modifier = {
 					value = scope:duel_value
 					multiplier = 3.5
@@ -13977,7 +16782,7 @@ sailing.8264 = {
 					days = 15
 				}
 			}
-			70 = {		
+			60 = {		
 				compare_modifier = {
 					value = scope:duel_value
 					multiplier = -3.5
@@ -14006,8 +16811,7 @@ sailing.8264 = {
 	}
 }
 
-# The Trollshaws - Trolls - hiding
-sailing.8265 = {
+sailing.8265 = { # The Trollshaws - Trolls - hiding
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.8265.t
@@ -14031,6 +16835,59 @@ sailing.8265 = {
 	}
 }
 
+sailing.8271 = { # Cameth Brin
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.8271.t
+	desc = sailing.8271.desc
+	theme = sailing_activity
+	override_background = {
+		reference = carrock	
+	}
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = { #Castle
+		name = sailing.8271.a
+		
+		add_trait = architect
+		random = {
+			chance = 35		
+			add_trait = possessed_1			
+		}			
+		
+		trigger_event = {
+			id = sailing.9001
+			days = 15
+		}
+	}
+
+	option = { #Village
+		name = sailing.8271.b
+		
+		random = {
+			chance = 50			
+			add_trait = rough_terrain_expert
+		}	
+
+		trigger_event = {
+			id = sailing.9001
+			days = 15
+		}
+	}
+
+	option = { #Leave
+		name = sailing.8271.c
+		
+		trigger_event = {
+			id = sailing.9001
+			days = 15
+		}
+	}
+}
+
 # The Forsaken Inn: Discarded, but maybe for future exploration events in Eriador...
 #sailing.8263 = {
 #	type = activity_event
@@ -14046,7 +16903,7 @@ sailing.8265 = {
 #	option = { 
 #		name = sailing.8263.a
 #		trigger = {
-#			is_orc = no
+#			NOT = { is_orc = yes }
 #		}
 #		add_trait = drunkard
 #		random = {
@@ -14277,69 +17134,923 @@ sailing.8265 = {
 #	
 #}
 
-# Cameth Brin
-sailing.8271 = {
+### Lhûne river (originally by ispanets, expanded into full river exploration by Aerien)
+
+sailing.5100 = { # Lhune River: The Gulf of Lhune
 	type = activity_event
 	content_source = realms_dlc
-	title = sailing.8271.t
-	desc = sailing.8271.desc
+	title = sailing.5100.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { is_elf = yes }
+				desc = sailing.5100.desc.elf
+			}
+			desc = sailing.5100.desc
+		}
+	}
 	theme = sailing_activity
 	override_background = {
-		reference = carrock	
+		reference = ocean
 	}
 	left_portrait = {
 		character = root
-		animation = personality_bold
+		animation = personality_rational
 	}
-
-	option = { 
-		name = sailing.8271.a
-		
-		add_trait = architect
-		random = {
-			chance = 50		
-			add_trait = possessed_1			
-		}			
-		
+	right_portrait = {
+		character = scope:first_mate
+		animation = throne_room_conversation_3
+	}
+	lower_center_portrait = { character = scope:cirdan }
+	lower_left_portrait = { character = scope:harlondholder }
+	lower_right_portrait = { character = scope:forlondholder }
+	immediate = {
+		title:c_harlond.holder = { save_scope_as = harlondholder }
+		title:c_forlond.holder = { save_scope_as = forlondholder }
+		title:c_mithrhulond.holder.top_liege = { save_scope_as = cirdan }
+	}
+	option = { # Visit the Harlond 
+		name = sailing.5100.a
+		custom_tooltip = sailing.5100.a.tt
 		trigger_event = {
-			id = sailing.9001
-			days = 15
+			id = sailing.5101
+			days = 5
 		}
 	}
-
-	option = { 
-		name = sailing.8271.b
-		
-		random = {
-			chance = 50			
-			add_trait = rough_terrain_expert
-		}	
-
-		trigger_event = {
-			id = sailing.9001
-			days = 15
-		}
-	}
-
 	
-	option = { 
-		name = sailing.8271.c
-		
+	option = { # Visit the Forlond 
+		name = sailing.5100.b
+		custom_tooltip = sailing.5100.b.tt
+		trigger_event = {
+			id = sailing.5102
+			days = 5
+		}
+	}
+	
+	option = { # Straight to Mithlond (Shortcut but miss out on an extra event)
+		name = sailing.5100.c
+		custom_tooltip = sailing.5100.c.tt
+		trigger_event = {
+			id = sailing.5000
+			days = 10
+		}
+	}
+}
+
+sailing.5101 = { # Harlond
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5101.t
+	desc = sailing.5101.desc
+	theme = sailing_activity
+	override_background = {
+		reference = docks_elven
+	}
+	left_portrait = {
+		character = root
+		animation = throne_room_conversation_1
+	}
+	right_portrait = {
+		character = scope:harlondholder
+		animation = throne_room_conversation_2
+	}
+	
+	option = { # Greet the Elves and stock up on provisions
+		name = sailing.5101.a
+		scope:activity = {
+			every_attending_character = {
+				add_stress = -10
+			}
+		}
+		trigger_event = {
+			id = sailing.5000
+			days = 10
+		}
+	}
+	 
+	option = { # Attempt to learn Sindarin
+		name = sailing.5101.b 
+		trigger = { NOT = { knows_language = language_sindarin } }
+		random_list = {
+			50 = { #Success
+				modifier = {
+					add = 20
+					has_trait = lifestyle_mystic
+				}		
+				modifier = {
+					add = 20
+					learning > 15
+				}	
+				modifier = {
+					add = 40
+					is_elf = yes
+				}
+				desc = sailing.5101.b.success
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5101.b.success
+					learn_language = language_sindarin
+					trigger_event = {
+						id = sailing.5000
+						days = 15
+					}
+				}
+			}
+			50 = { # Failure
+				modifier = {
+					add = -20
+					learning < 8
+				}		
+				modifier = {
+					add = -40
+					faith_is_evil = yes
+				}	
+				desc = sailing.5101.b.failure
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5101.b.failure
+				}
+				trigger_event = {
+					id = sailing.5000
+					days = 15
+				}
+			}
+		}
+	}
+}
+
+sailing.5102 = { # Forlond
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5102.t
+	desc = sailing.5102.desc
+	theme = sailing_activity
+	override_background = {
+		reference = docks_elven
+	}
+	left_portrait = {
+		character = root
+		animation = interested
+	}
+	right_portrait = {
+		character = scope:forlondholder
+		animation = marshal
+	}
+	
+	option = { # Purchase Noldorin weaponry
+		name = sailing.5102.a
+		remove_short_term_gold = 50
+		random_list = {
+			50 = {
+				custom_tooltip = sailing.5102.a.spear
+				create_artifact_weapon_effect = {
+					OWNER = root
+					CREATOR = scope:forlondholder
+					#QUALITY = famed
+					SET_WEAPON_TYPE = flag:artifact_weapon_type_spear
+				}
+			}
+			50 = {
+				custom_tooltip = sailing.5102.a.bow
+				create_artifact_weapon_effect = {
+					OWNER = root
+					CREATOR = scope:forlondholder
+					#QUALITY = famed
+					SET_WEAPON_TYPE = flag:artifact_weapon_type_bow
+				}
+			}
+		}
+	    hidden_effect = {
+			if = {
+	        	limit = { exists = scope:newly_created_artifact } # To avoid errors
+	        	send_interface_toast = {
+		        	title = sailing.5102.a.tt
+		        	left_icon = root
+		        	right_icon = scope:newly_created_artifact
+		        	scope:newly_created_artifact = {
+		        		set_owner = {
+		        			target = root
+							history = {
+								location = root.capital_province
+								actor = scope:forlondholder
+								recipient = root
+								type = given
+							}
+						}
+		        	}
+		        }
+	        }
+		}
+		trigger_event = {
+			id = sailing.5000
+			days = 10
+		}
+	}
+	 
+	option = { # Attempt to learn Quenya
+		name = sailing.5102.b 
+		trigger = { NOT = { knows_language = language_quenya } }
+		random_list = {
+			50 = { #Success
+				modifier = {
+					add = 20
+					has_trait = lifestyle_mystic
+				}		
+				modifier = {
+					add = 20
+					learning > 15
+				}	
+				modifier = {
+					add = 40
+					is_elf = yes
+				}
+				desc = sailing.5102.b.success
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5102.b.success
+					learn_language = language_quenya
+					trigger_event = {
+						id = sailing.5000
+						days = 15
+					}
+				}
+			}
+			50 = { # Failure
+				modifier = {
+					add = -20
+					learning < 5
+				}		
+				modifier = {
+					add = -40
+					faith_is_evil = yes
+				}	
+				desc = sailing.5102.b.failure
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5102.b.failure
+				}
+				trigger_event = {
+					id = sailing.5000
+					days = 15
+				}
+			}
+		}
+	}
+}
+
+sailing.5000 = { # Lindon: The Grey Havens
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5000.t
+	desc =  sailing.5000.desc
+	theme = sailing_activity
+	override_background = {
+		reference = docks_elven
+	}
+	left_portrait = {
+		character = root
+		animation = interested
+	}	
+	center_portrait = {
+		character = scope:first_mate
+		animation = happiness
+	}
+	right_portrait = {
+		trigger = { NOT = { root = scope:cirdan } }
+		character = scope:cirdan
+		animation = personality_compassionate
+	}
+	
+	immediate = { 
+		if = {
+			limit = { faith_is_good = yes }
+			add_stress = -10 
+		}
+	}
+	
+	option = { # Dock the Ship!
+		name = sailing.5000.a
+		trigger_event = {
+			id = sailing.5001
+			days = 10
+		}
+	}
+	
+	option = { # Ah... the last haven before the Undying lands...
+		name = sailing.5000.b
+		trigger = { is_elf = yes }
+		add_stress = -40
+		random = {
+			chance = 10
+			add_trait = depressed_1
+		}
+		trigger_event = {
+			id = sailing.5001
+			days = 10
+		}
+	}
+	
+	option = { # Turn the ship around, I've seen enough.
+		name = sailing.5000.c 
+		custom_tooltip = sailing.5000.c.tt 
 		trigger_event = {
 			id = sailing.9002
+			days = 10
+		}
+	}
+}
+
+sailing.5001 = { # Elven encounter near the White Towers
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5001.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { is_elf = yes }
+				desc = sailing.5001.desc.elf
+			}
+			desc = sailing.5001.desc
+		}
+	}
+	theme = sailing_activity
+	override_background = {
+		reference = eregion_ruins	
+	}
+	left_portrait = {
+		character = root
+		animation = personality_vengeful
+	}		
+	right_portrait = {
+		character = scope:first_mate
+		animation = worry
+	}
+	
+	option = { # Encounter with the Elves solved with diplomacy
+		name = sailing.5001.a
+		trigger = {
+			NOT = { has_character_flag = diplomacy_at_whitetowers }
+			NOT = { is_elf = yes }
+		}
+		duel = {
+			skill = diplomacy
+			value = very_high_skill_rating
+			50 = {		
+				compare_modifier = {					
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = sailing.5001.a.success
+
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5001.toast.a.success	
+					add_prestige = medium_prestige_gain
+					
+					add_character_flag = {
+						flag = diplomacy_at_whitetowers
+						years = 3
+					}		
+					trigger_event = {
+						id = sailing.5002
+						days = 15
+					}
+				}
+			}
+			50 = {		
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}						
+				desc = sailing.5001.a.failure
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5001.toast.a.failure
+					add_prestige = minor_prestige_loss					
+					add_character_flag = {
+						flag = diplomacy_at_whitetowers
+						years = 3
+					}
+					trigger_event = { # Try sneaking!
+						id = sailing.5003
+						days = 15
+					}
+				}
+			}
+		}
+	}
+	
+	option = { # Trying to sneak in
+		name = sailing.5001.b
+		trigger = { 
+			NOT = { has_character_flag = sneaking_to_whitetowers }
+			NOT = { is_elf = yes }
+		}
+		duel = {
+			skill = intrigue
+			value = high_skill_rating
+			50 = {		
+				compare_modifier = {					
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				desc = sailing.5001.b.success
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5001.toast.b.success						
+					add_character_flag = {
+						flag = sneaking_to_whitetowers
+						years = 3
+					}
+					trigger_event = {
+						id = sailing.5004
+						days = 15
+					}
+				}
+			}
+			50 = {		
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				desc = sailing.5001.b.failure			
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5001.toast.b.failure
+					add_dread = minor_dread_loss
+					add_prestige = minor_prestige_loss	
+					add_character_flag = {
+						flag = sneaking_to_whitetowers
+						years = 3
+					}
+					trigger_event = {
+						id = sailing.5005
+						days = 15
+					}
+				}
+			}
+		}
+	}	
+	
+	option = { # Get free passage as an elf 
+		name = sailing.5001.c 
+		custom_tooltip = sailing.5001.c.tt
+		trigger = { is_elf = yes }
+		trigger_event = {
+			id = sailing.5006
+			days = 15
+		}
+	}
+	
+	option = { # Go back to the ship
+		name = sailing.5001.d
+		custom_tooltip = sailing.5001.d.tt
+		trigger = { NOT = { is_elf = yes } }
+		trigger_event = {
+			id = sailing.5009
 			days = 15
 		}
 	}
 }
 
+sailing.5002 = { # Diplomatic Approach: Success
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5002.t
+	desc = sailing.5002.desc
+	theme = sailing_activity
+	override_background = {
+		reference = eregion_ruins	
+	}
+	left_portrait = {
+		character = root
+		animation = happiness
+	}	
+	option = {
+		name = sailing.5002.a
+		trigger_event = {			
+			id = sailing.5006
+			days = 15
+		}
+	}
+}
+
+sailing.5003 = { # Diplomatic Approach: Failure
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5003.t
+	desc = sailing.5003.desc
+	theme = sailing_activity
+	override_background = {
+		reference = eregion_ruins	
+	}
+	left_portrait = {
+		character = root
+		animation = anger
+	}	
+	option = { # Try again
+		name = sailing.5003.a
+		trigger_event = {			
+			id = sailing.5001
+			days = 15
+		}
+	}
+	option = { # Return to the ship
+		name = sailing.5003.b
+		custom_tooltip = sailing.5003.b.tt
+		trigger_event = {
+			id = sailing.5009
+			days = 15
+		}
+	}
+}
+
+sailing.5004 = { # Sneaking in: Success
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5004.t
+	desc = sailing.5004.desc
+	theme = sailing_activity
+	override_background = {
+		reference = eregion_ruins	
+	}
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+		
+	right_portrait = {
+		character = scope:first_mate
+		animation = interested
+	}
+	option = {
+		name = sailing.5004.a
+		trigger_event = {			
+			id = sailing.5006
+			days = 15
+		}
+	}
+}
+
+sailing.5005 = { # Sneaking in: Failure
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5005.t
+	desc = sailing.5005.desc
+	theme = sailing_activity
+	override_background = {
+		reference = eregion_ruins	
+	}
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+		
+	right_portrait = {
+		character = scope:first_mate
+		animation = shame
+	}
+	option = { #Give up and continue upriver
+		name = sailing.5005.a
+		custom_tooltip = sailing.5005.a.tt
+		trigger_event = {			
+			id = sailing.5009
+			days = 15
+		}
+	}
+}
+
+sailing.5006 = { # The Elostirion
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5006.t
+	desc = sailing.5006.desc
+	theme = sailing_activity
+	override_background = {
+		reference = throne_room_noldor	
+	}
+	left_portrait = {
+		character = root
+		animation = ecstasy
+	}
+		
+	right_portrait = {
+		character = scope:first_mate
+		animation = shock
+	}
+	
+	option = { # See the Sea from above
+		name = sailing.5006.a
+		send_interface_toast = {
+			left_icon = ROOT
+			title = sailing.5006.toast.a.success			
+			add_stress = major_stress_loss
+			trigger_event = {
+				id = sailing.5007
+				days = 15
+			}
+		}
+	}
+	
+	option = { # Glance into the Palantir http://tolkiengateway.net/wiki/Tower_of_Avallon%C3%AB
+		name = sailing.5006.b
+		send_interface_toast = {
+			left_icon = ROOT
+			title = sailing.5006.toast.b.success
+			add_learning_skill = 1	
+			add_stress = major_stress_impact_gain
+			add_learning_lifestyle_xp = 150
+			trigger_event = {
+				id = sailing.5008
+				days = 15
+			}
+		}
+	}
+}
+
+sailing.5007 = { # Return from the tower (no Palantir)
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5007.t
+	desc = sailing.5007.desc
+	theme = sailing_activity
+	override_background = {
+		reference = ocean
+	}
+	override_background = {
+		reference = docks_elven
+	}
+	left_portrait = {
+		character = root
+		animation = marshal
+	}
+		
+	right_portrait = {
+		character = scope:first_mate
+		animation = ecstasy
+	}
+	option = { # Press onward
+		name = sailing.5007.a
+		custom_tooltip = sailing.5007.a
+		trigger_event = {			
+			id = sailing.5009
+			days = 15
+		}
+	}
+	option = { # Return home
+		name = sailing.5007.b
+		custom_tooltip = sailing.5007.b
+		trigger_event = {			
+			id = sailing.9001
+			days = 15
+		}
+	}
+}
+
+sailing.5008 = { # The Palantiiiir, Taliooooooooooon!
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5008.t
+	desc = sailing.5008.desc
+	theme = sailing_activity
+	override_background = {
+		reference = throne_room_noldor	
+	}	
+	left_portrait = {
+		character = root
+		animation = paranoia
+	}
+		
+	right_portrait = {
+		character = scope:first_mate
+		animation = grief
+	}
+	option = { # Press onward
+		name = sailing.5008.a
+		custom_tooltip = sailing.5008.a.tt
+		trigger_event = {			
+			id = sailing.5009
+			days = 15
+		}
+	}
+	option = { # Return home
+		name = sailing.5008.b
+		custom_tooltip = sailing.5008.b.tt
+		trigger_event = {			
+			id = sailing.9001
+			days = 15
+		}
+	}
+}
+
+sailing.5009 = { # Caras Celairnen
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5009.t
+	desc = sailing.5009.desc
+	theme = sailing_activity
+	override_background = {
+		reference = docks_dunedain
+	}	
+	left_portrait = {
+		character = root 
+		animation = interested 
+	}
+	center_portrait = {
+		character = scope:first_mate
+		animation = marshal
+	}
+	right_portrait = {
+		character = scope:silivnirlord
+		animation = throne_room_conversation_4
+	}
+	immediate = {
+		title:c_celairnen.holder = { save_scope_as = silivnirlord }
+	}
+	option = { # Visit the historic arnorian town
+		name = sailing.5009.a
+		add_learning_lifestyle_xp = medium_lifestyle_xp
+		trigger_event = {			
+			id = sailing.5010
+			days = 15
+		}
+	}
+	option = { # Visit the docks where Eärnur's expedition landed
+		name = sailing.5009.b
+		add_martial_lifestyle_xp = medium_lifestyle_xp
+		trigger_event = {			
+			id = sailing.5010
+			days = 15
+		}
+	}
+	option = { # Time to turn back
+		name = sailing.5009.c 
+		custom_tooltip = sailing.5009.c.tt 
+		trigger_event = {			
+			id = sailing.9001
+			days = 15
+		}
+	}
+}
+
+sailing.5010 = { # Kheledul
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5010.t
+	desc = sailing.5010.desc
+	theme = sailing_activity
+	override_background = {
+		reference = throne_room_dwarf
+	}	
+	left_portrait = {
+		character = root 
+		animation = happiness 
+	}
+	center_portrait = {
+		character = scope:first_mate
+		animation = interested
+	}
+	right_portrait = {
+		character = scope:kheledullord
+		animation = personality_callous
+	}
+	immediate = {
+		title:c_kheledul.holder = { save_scope_as = kheledullord }
+	}
+	option = { # Learn from the hardy sailors
+		name = sailing.5010.a
+		if = {
+			limit = { has_trait = lifestyle_mariner }
+			scope:activity = {
+				add_activity_log_entry = {
+					key = gained_sailor_xp_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = {
+						add_trait_xp = {
+							trait = lifestyle_mariner
+							value = 5
+						}
+					}
+				}
+			}
+		}	
+		else = {
+			scope:activity = {
+				add_activity_log_entry = {
+					key = gained_sailor_trait_log
+					tags = { good }
+					# this line below adds the entry to the Effects section of the conclusion UI
+					show_in_conclusion = yes
+					character = root
+					
+					root = { add_trait = lifestyle_mariner }
+				}
+			}
+		}
+	}
+
+	option = { # Buy Iron or Gemstones
+		name = sailing.5010.b
+		remove_short_term_gold = 85
+		random_list = {
+			25 = {
+				create_metal_gem_artifact = {
+					METAL = copper
+					MODIFIER = artifact_monthly_minor_prestige_1_modifier
+				}
+				set_metal_gem_variable = { METAL = copper }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5010.b.copper
+				}
+			}
+			25 = {
+				create_metal_gem_artifact = {
+					METAL = iron
+					MODIFIER = artifact_monthly_minor_prestige_1_modifier
+				}
+				set_metal_gem_variable = { METAL = iron }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5010.b.iron
+				}
+			}
+			25 = {
+				create_metal_gem_artifact = {
+					METAL = ruby
+					MODIFIER = artifact_monthly_minor_prestige_2_modifier
+				}
+				set_metal_gem_variable = { METAL = ruby }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5010.b.ruby
+				}
+			}
+			25 = {
+				create_metal_gem_artifact = {
+					METAL = diamond
+					MODIFIER = artifact_monthly_minor_prestige_3_modifier
+				}
+				set_metal_gem_variable = { METAL = diamond }
+				send_interface_toast = {
+					left_icon = ROOT
+					title = sailing.5010.b.diamond
+				}
+			}
+		}
+	}
+	
+	after = {
+		trigger_event = {			
+			id = sailing.5011
+			days = 5
+		}
+	}
+}
+
+sailing.5011 = { # End of the Lune
+	type = activity_event
+	content_source = realms_dlc
+	title = sailing.5011.t
+	desc = sailing.5011.desc
+	theme = sailing_activity
+	override_background = {
+		reference = on_river
+	}	
+	left_portrait = {
+		character = root 
+		animation = personality_content 
+	}
+	right_portrait = {
+		character = scope:first_mate
+		animation = personality_honorable
+	}
+	option = { # Time to go home
+		name = sailing.5011.a 
+		trigger_event = {			
+			id = sailing.9001
+			days = 5
+		}
+	}
+}
+		
 ############################
-## Random events in port
+## Wrap-up events
 ## 9000-9999
 ## by Jamie-san
 ############################
 
 #9001: successful expedition (by Jamie-san)
 #9002: unsuccessful expedition (by ispanets)
+#9003: Management event (hidden)
 
 # Successful mission
 sailing.9001 = {
@@ -14382,17 +18093,17 @@ sailing.9001 = {
 			# ispanets: Owns a ship
 			# - Repair is managed by sailing.1004 before next journey
 			# but if there has been a shipwreck, I need to remove the ship
-			if = {
-				limit = {
-					AND = {
-						has_character_flag = shipwreck						
-						NOT = {
-							has_character_flag = hired_a_boat
-						}
-					}
-				}
-				remove_boat = yes
-			}		
+			# if = {
+				# limit = {
+					# AND = {
+						# has_character_flag = shipwreck						
+						# NOT = {
+							# has_character_flag = hired_a_boat
+						# }
+					# }
+				# }
+				# remove_boat = yes
+			# }		
 			# - Returning is not necessary when owning
 
 			# Mariner skill
@@ -14400,7 +18111,7 @@ sailing.9001 = {
 				limit = { has_trait = lifestyle_mariner }
 				scope:activity = {
 					add_activity_log_entry = {
-						key = gained_sailor_xp_log_title
+						key = gained_sailor_xp_log
 						tags = { good }
 						# this line below adds the entry to the Effects section of the conclusion UI
 						show_in_conclusion = yes
@@ -14418,7 +18129,7 @@ sailing.9001 = {
 			else = {
 				scope:activity = {
 					add_activity_log_entry = {
-						key = gained_sailor_trait_log_title
+						key = gained_sailor_trait_log
 						tags = { good }
 						# this line below adds the entry to the Effects section of the conclusion UI
 						show_in_conclusion = yes
@@ -14476,17 +18187,40 @@ sailing.9002 = {
 			# ispanets: Owns a ship
 			# - Repair is managed by sailing.1004 before next journey
 			# but if there has been a shipwreck, I need to remove the ship
+			# if = {
+				# limit = {
+					# AND = {
+						# has_character_flag = shipwreck						
+						# OR = {														
+							# has_character_modifier = small_boat_modifier
+							# has_character_modifier = medium_boat_modifier
+							# has_character_modifier = large_boat_modifier
+							# has_character_modifier = small_damaged_boat_modifier
+							# has_character_modifier = medium_damaged_boat_modifier
+							# has_character_modifier = large_damaged_boat_modifier
+						# }
+					# }
+				# }
+				# remove_boat = yes
+			# }			
+			# - Returning is not necessary when owning
+
+			# Mariner skill
 			if = {
-				limit = {
-					AND = {
-						has_character_flag = shipwreck						
-						OR = {														
-							has_character_modifier = small_boat_modifier
-							has_character_modifier = medium_boat_modifier
-							has_character_modifier = large_boat_modifier
-							has_character_modifier = small_damaged_boat_modifier
-							has_character_modifier = medium_damaged_boat_modifier
-							has_character_modifier = large_damaged_boat_modifier
+				limit = { has_trait = lifestyle_mariner }
+				scope:activity = {
+					add_activity_log_entry = {
+						key = sailing_completed_log
+						tags = { good }
+						# this line below adds the entry to the Effects section of the conclusion UI
+						show_in_conclusion = yes
+						character = root
+						
+						root = {
+							add_trait_xp = {
+								trait = lifestyle_mariner
+								value = 5
+							}
 						}
 					}
 				}
@@ -14602,6 +18336,50 @@ sailing.9003 = {
 				limit = { has_character_flag = sailing_piracy_mission }
 				remove_character_flag = sailing_piracy_mission
 			}
+			if = {
+				limit = { has_character_flag = sailing_looking_new_prey }
+				remove_character_flag = sailing_looking_new_prey
+			}
+			if = {
+				limit = { has_character_flag = sailing_turtle_sighted }
+				remove_character_flag = sailing_turtle_sighted
+			}
+			if = {
+				limit = { has_character_flag = sailing_seal_sighted }
+				remove_character_flag = sailing_seal_sighted
+			}
+			if = {
+				limit = { has_character_flag = sailing_dolphin_sighted }
+				remove_character_flag = sailing_dolphin_sighted
+			}
+			if = {
+				limit = { has_character_flag = sailing_walrus_sighted }
+				remove_character_flag = sailing_walrus_sighted
+			}
+			if = {
+				limit = { has_character_flag = sailing_orca_sighted }
+				remove_character_flag = sailing_orca_sighted
+			}
+			if = {
+				limit = { has_character_flag = sailing_humpback_sighted }
+				remove_character_flag = sailing_humpback_sighted
+			}
+			if = {
+				limit = { has_character_flag = sailing_spermwhale_sighted }
+				remove_character_flag = sailing_spermwhale_sighted
+			}
+			if = {
+				limit = { has_character_flag = sailing_bluewhale_sighted }
+				remove_character_flag = sailing_bluewhale_sighted
+			}
+			if = {
+				limit = { has_character_flag = sailing_seadrake_sighted }
+				remove_character_flag = sailing_seadrake_sighted
+			}
+			if = {
+				limit = { has_character_flag = sailing_whitedread_sighted }
+				remove_character_flag = sailing_whitedread_sighted
+			}
 		}
 		scope:activity = {	
 			hidden_effect = { skip_activity_phase = yes }
@@ -14624,7 +18402,7 @@ sailing.9003 = {
 ### 9131: Duel won to the pirate leader
 
 ###########################
-sailing.9100 = {
+sailing.9100 = { # Select a target
 	type = activity_event
 	content_source = realms_dlc
 	title = sailing.9100.t
@@ -14636,14 +18414,14 @@ sailing.9100 = {
 	
 	left_portrait = {
 		character = root
-		animation = rage
+		animation = happiness
 	}
 	right_portrait = {
 		character = scope:first_mate
-		animation = rage
+		animation = personality_greedy
 	}
 
-	option = {
+	option = { # Raid a province
 		name = sailing.9100.a
 		trigger_event = {
 			id = sailing.9110
@@ -14651,7 +18429,7 @@ sailing.9100 = {
 		}
 	}
 
-	option = {
+	option = { # Patrol the seas
 		name = sailing.9100.b
 		trigger_event = {
 			on_action = first_random_piracy_events_at_sea
@@ -14684,6 +18462,7 @@ sailing.9110 = {
 		random_province = {
 			limit = {
 				is_coastal = yes
+				#scope:host = { in_diplomatic_range = this.county.holder }
 				NOR = {
 					culture = root.location.culture
 					culture = root.culture
@@ -14710,6 +18489,7 @@ sailing.9110 = {
 		random_province = {
 			limit = {
 				is_coastal = yes
+				#scope:host = { in_diplomatic_range = this.county.holder }
 				NOR = {
 					this = scope:piracy_destination_1
 					culture = root.location.culture
@@ -14737,6 +18517,7 @@ sailing.9110 = {
 		random_province = {
 			limit = {
 				is_coastal = yes
+				#scope:host = { in_diplomatic_range = this.county.holder }
 				NOR = {
 					this = scope:piracy_destination_1
 					this = scope:piracy_destination_2
@@ -14763,7 +18544,7 @@ sailing.9110 = {
 		}
 	}
 
-	option = {
+	option = { # Province 1
 		name = sailing.9110.a
 		scope:piracy_destination_1.barony_controller = {
 			add_opinion = {
@@ -14777,7 +18558,7 @@ sailing.9110 = {
 			save_scope_as = selected_piracy_destination
 		}
 	}
-	option = {
+	option = { # Province 2
 		name = sailing.9110.b
 		scope:piracy_destination_2.barony_controller = {
 			add_opinion = {
@@ -14791,7 +18572,7 @@ sailing.9110 = {
 			save_scope_as = selected_piracy_destination
 		}
 	}
-	option = {
+	option = { # Province 3
 		name = sailing.9110.c
 		scope:piracy_destination_3.barony_controller = {
 			add_opinion = {
@@ -14834,13 +18615,13 @@ sailing.9111 = {
 		animation = anger
 	}
 
-	option = { # Attack (undamaged ship)
+	option = { # Attack 
 		name = sailing.9111.a
-		trigger = { owns_an_undamaged_boat = yes }		
+		#trigger = { owns_an_undamaged_boat = yes }		
 		duel = {
 			skill = martial
-			value = 12
-			50 = { #Success
+			value = very_high_skill_rating
+			30 = { #Success
 				compare_modifier = {
 					value = {
 						value = scope:duel_value
@@ -14881,14 +18662,15 @@ sailing.9111 = {
 					left_icon = ROOT
 					title = sailing.9111.toast.a.success
 					add_martial_lifestyle_xp = 100
-					add_prestige = minor_prestige_gain
+					add_prestige = major_prestige_gain
+					add_short_term_gold = major_gold_value
 					trigger_event = {
 						id = sailing.9114
 						days = 15
 					}
 				}
 			}
-			50 = { #Failure
+			70 = { #Failure
 				compare_modifier = {
 					value = {
 						value = scope:duel_value
@@ -14928,7 +18710,7 @@ sailing.9111 = {
 				send_interface_toast = {
 					left_icon = ROOT
 					title = sailing.9111.toast.a.failure
-					damage_ship = true
+					#damage_ship = true
 					increase_wounds_effect = { REASON = fight }
 					trigger_event = {
 						id = sailing.9114
@@ -14939,117 +18721,11 @@ sailing.9111 = {
 		}
 	}	
 
-	option = { # Attack (damaged ship)
-		name = sailing.9111.b
-		trigger = { owns_an_undamaged_boat = no }		
-		duel = {
-			skill = martial
-			value = 12
-			25 = { #Success
-				compare_modifier = {
-					value = {
-						value = scope:duel_value
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value < 50
-								}
-							}
-							add = 20
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 50
-									value < 100
-								}
-							}
-							add = 40
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 100
-								}
-							}
-							add = 60
-						}
-					}
-					multiplier = 1.5
-					min = -49
-				}
-				desc = sailing.9111.b.success
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.9111.toast.b.success
-					add_prowess_skill = 1
-					add_martial_lifestyle_xp = 200
-					trigger_event = {
-						id = sailing.9114
-						days = 15
-					}
-				}
-			}
-			75 = { #Failure - shipwreck
-				compare_modifier = {
-					value = {
-						value = scope:duel_value
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value < 50
-								}
-							}
-							add = -20
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 50
-									value < 100
-								}
-							}
-							add = -40
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 100
-								}
-							}
-							add = -60
-						}
-					}
-					multiplier = 1.5
-					min = -49
-				}
-				desc = sailing.9111.b.failure
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.9111.toast.b.failure					
-					increase_wounds_effect = { REASON = fight }
-					damage_ship = yes
-					add_character_flag = shipwreck		
-					trigger_event = {
-						id = sailing.9002
-						days = 15
-					}
-				}
-			}
-		}
-	}
-
-	option = { # Naval maneuvre (undamaged)
+	option = { # Naval maneuvre 
 		name = sailing.9111.c
-		trigger = { owns_an_undamaged_boat = yes }
+		#trigger = { owns_an_undamaged_boat = yes }
 		random_list = {
-			50 = { #Success
+			40 = { #Success
 				modifier = {
 					add = 20
 					has_trait_xp = {
@@ -15083,7 +18759,7 @@ sailing.9111 = {
 					}
 				}
 			}
-			50 = {
+			60 = {
 				modifier = {
 					add = -20
 					has_trait_xp = {
@@ -15111,84 +18787,7 @@ sailing.9111 = {
 					left_icon = ROOT
 					title = sailing.9111.toast.c.failure
 					increase_wounds_effect = { REASON = fight }
-					damage_ship = yes				
-					trigger_event = { # Come back home no experience
-						id = sailing.9002
-						days = 15
-					}
-				}
-			}
-		}
-	}
-
-	option = { # Naval maneuvre (damaged)
-		name = sailing.9111.d
-		trigger = { owns_an_undamaged_boat = no }
-		random_list = {
-			50 = { #Success
-				modifier = {
-					add = 20
-					has_trait_xp = {
-						trait = lifestyle_mariner
-						value < 50
-					}
-				}		
-				modifier = {
-					add = 40
-					has_trait_xp = {
-						trait = lifestyle_mariner
-						value >= 50
-						value < 100
-					}
-				}	
-				modifier = {
-					add = 60
-					has_trait_xp = {
-						trait = lifestyle_mariner
-						value >= 100
-					}
-				}
-				desc = sailing.9111.d.success
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.9111.toast.d.success
-					add_martial_lifestyle_xp = 100
-					trigger_event = {
-						id = sailing.9114
-						days = 15
-					}
-				}
-			}
-			50 = { # Shipwreck
-				modifier = {
-					add = -20
-					has_trait_xp = {
-						trait = lifestyle_mariner
-						value < 50
-					}
-				}		
-				modifier = {
-					add = -40
-					has_trait_xp = {
-						trait = lifestyle_mariner
-						value >= 50
-						value < 100
-					}
-				}	
-				modifier = {
-					add = -60
-					has_trait_xp = {
-						trait = lifestyle_mariner
-						value >= 100
-					}
-				}
-				desc = sailing.9111.d.failure
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.9111.toast.d.failure
-					increase_wounds_effect = { REASON = fight }
-					damage_ship = yes			
-					add_character_flag = shipwreck		
+					#damage_ship = yes				
 					trigger_event = { # Come back home no experience
 						id = sailing.9002
 						days = 15
@@ -15246,6 +18845,7 @@ sailing.9114 = {
 					left_icon = ROOT
 					title = sailing.9114.toast.a.success					
 					add_dread = minor_dread_gain
+					add_short_term_gold = minor_gold_value
 					scope:selected_piracy_destination = {
 						add_province_modifier = {
 							modifier = province_sabotaged_by_pirates
@@ -15297,7 +18897,7 @@ sailing.9114 = {
 					left_icon = ROOT
 					title = sailing.9114.toast.b.success
 					add_dread = minor_dread_gain					
-					add_gold = medium_gold_value
+					add_gold = massive_gold_value
 					
 					trigger_event = {
 						id = sailing.9001
@@ -15327,7 +18927,6 @@ sailing.9114 = {
 		}
 	}
 
-
 	option = { # Duel the baron
 		name = sailing.9114.c
 		duel = {
@@ -15354,7 +18953,7 @@ sailing.9114 = {
 						increase_wounds_effect = { REASON = duel }
 					}
 					add_prestige = 100
-					
+					add_short_term_gold = major_gold_value
 					trigger_event = {
 						id = sailing.9001
 						days = 15
@@ -15391,7 +18990,6 @@ sailing.9114 = {
 		}
 	}
 
-
 	option = { # Hijack villagers
 		name = sailing.9114.d
 
@@ -15409,22 +19007,7 @@ sailing.9114 = {
 				send_interface_toast = {
 					left_icon = ROOT
 					title = sailing.9114.toast.d.success	
-					
-		
-					# # Try to fetch an existing character					
-					# create_character = {
-						# template = servant_character
-						# location = scope:selected_piracy_destination.capital_province
-						# culture = scope:selected_piracy_destination.culture
-						# faith = scope:selected_piracy_destination.faith
-						# dynasty = none
-						# trait = peasant_leader 
-						# save_scope_as = different_culture_peasant	
-					# }
-							
-					# scope:different_culture_peasant = {
-						# court_event_character_flag_effect = yes
-					# }
+					add_short_term_gold = major_gold_value
 					imprison_character_effect = {
 						TARGET = scope:local_villager
 						IMPRISONER = root
@@ -15457,7 +19040,8 @@ sailing.9114 = {
 			}
 		}
 	}
-	option = {
+	
+	option = { # Retreat
 		name = sailing.9114.e
 		trigger_event = {
 			id = sailing.9002
@@ -15487,13 +19071,13 @@ sailing.9120 = {
 		animation = anger
 	}
 
-	option = { # Attack (undamaged ship)
+	option = { # Attack 
 		name = sailing.9120.a
-		trigger = { owns_an_undamaged_boat = yes }		
+		#trigger = { owns_an_undamaged_boat = yes }		
 		duel = {
 			skill = martial
-			value = 12
-			50 = { #Success
+			value = very_high_skill_rating
+			30 = { #Success
 				compare_modifier = {
 					value = {
 						value = scope:duel_value
@@ -15534,7 +19118,7 @@ sailing.9120 = {
 					left_icon = ROOT
 					title = sailing.9120.toast.a.success
 					add_martial_lifestyle_xp = 100
-					add_gold = minor_gold_value
+					add_gold = massive_gold_value
 					trigger_event = {
 						on_action = following_random_piracy_events_at_sea
 						days = 15
@@ -15574,7 +19158,7 @@ sailing.9120 = {
 					}
 				} 
 			}
-			50 = { #Failure
+			70 = { #Failure
 				compare_modifier = {
 					value = {
 						value = scope:duel_value
@@ -15625,152 +19209,13 @@ sailing.9120 = {
 		}
 	}	
 
-	option = { # Attack (damaged ship)
-		name = sailing.9120.b
-		trigger = { owns_an_undamaged_boat = no }		
-		duel = {
-			skill = martial
-			value = 12
-			25 = { #Success
-				compare_modifier = {
-					value = {
-						value = scope:duel_value
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value < 50
-								}
-							}
-							add = 20
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 50
-									value < 100
-								}
-							}
-							add = 40
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 100
-								}
-							}
-							add = 60
-						}
-					}
-					multiplier = 1.5
-					min = -49
-				}
-				desc = sailing.9120.b.success
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.9120.toast.b.success
-					add_prowess_skill = 1
-					add_martial_lifestyle_xp = 200
-					trigger_event = {
-						on_action = following_random_piracy_events_at_sea
-						days = 15
-					}
-				}
-				# Mariner skill
-				if = {
-					limit = { has_trait = lifestyle_mariner }
-					scope:activity = {
-						add_activity_log_entry = {
-							key = sailing_completed_log
-							tags = { good }
-							# this line below adds the entry to the Effects section of the conclusion UI
-							show_in_conclusion = yes
-							character = root
-							
-							root = {
-								add_trait_xp = {
-									trait = lifestyle_mariner
-									value = 5
-								}
-							}
-						}
-					}
-				}	
-				else = {
-					scope:activity = {
-						add_activity_log_entry = {
-							key = sailing_completed_log
-							tags = { good }
-							# this line below adds the entry to the Effects section of the conclusion UI
-							show_in_conclusion = yes
-							character = root
-							
-							root = { add_trait = lifestyle_mariner }
-						}
-					}
-				} 
-			}
-			75 = { #Failure - shipwreck
-				compare_modifier = {
-					value = {
-						value = scope:duel_value
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value < 50
-								}
-							}
-							add = -20
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 50
-									value < 100
-								}
-							}
-							add = -40
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 100
-								}
-							}
-							add = -60
-						}
-					}
-					multiplier = 1.5
-					min = -49
-				}
-				desc = sailing.9120.b.failure
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.9120.toast.b.failure					
-					increase_wounds_effect = { REASON = fight }
-					damage_ship = yes
-					add_character_flag = shipwreck		
-					trigger_event = {
-						id = sailing.9002
-						days = 15
-					}
-				}
-			}
-		}
-	}
-
-	option = { # Hijack (undamaged ship)
+	option = { # Hijack 
 		name = sailing.9120.c
-		trigger = { owns_an_undamaged_boat = yes }
+		#trigger = { owns_an_undamaged_boat = yes }
 		duel = {
 			skill = intrigue
 			value = 12
-			50 = { #Success
+			30 = { #Success
 				compare_modifier = {
 					value = {
 						value = scope:duel_value
@@ -15810,6 +19255,7 @@ sailing.9120 = {
 				send_interface_toast = {
 					left_icon = ROOT
 					title = sailing.9120.toast.c.success
+					add_short_term_gold = massive_gold_value
 					capital_province = {
 						add_province_modifier = {
 							modifier = merchant_ship_hijacking
@@ -15855,7 +19301,7 @@ sailing.9120 = {
 					}
 				} 
 			}
-			50 = { #Failure - returning home
+			70 = { #Failure - returning home
 				compare_modifier = {
 					value = {
 						value = scope:duel_value
@@ -15895,147 +19341,6 @@ sailing.9120 = {
 				send_interface_toast = {
 					left_icon = ROOT
 					title = sailing.9120.toast.c.failure
-					increase_wounds_effect = { REASON = fight }
-					trigger_event = {
-						id = sailing.9002
-						days = 15
-					}
-				}
-			}
-		}
-	}
-
-	option = { # Hijack (damaged ship)
-		name = sailing.9120.d
-		trigger = { owns_an_undamaged_boat = no }
-		duel = {
-			skill = intrigue
-			value = 12
-			25 = { #Success
-				compare_modifier = {
-					value = {
-						value = scope:duel_value
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value < 50
-								}
-							}
-							add = 20
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 50
-									value < 100
-								}
-							}
-							add = 40
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 100
-								}
-							}
-							add = 60
-						}
-					}
-					multiplier = 1.5
-					min = -49
-				}
-				desc = sailing.9120.d.success
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.9120.toast.d.success
-					capital_province = {
-						add_province_modifier = {
-							modifier = merchant_ship_hijacking
-							days = 365
-						}
-					}
-					trigger_event = {
-						on_action = following_random_piracy_events_at_sea
-						days = 15
-					}
-				}
-				# Mariner skill
-				if = {
-					limit = { has_trait = lifestyle_mariner }
-					scope:activity = {
-						add_activity_log_entry = {
-							key = sailing_completed_log
-							tags = { good }
-							# this line below adds the entry to the Effects section of the conclusion UI
-							show_in_conclusion = yes
-							character = root
-							
-							root = {
-								add_trait_xp = {
-									trait = lifestyle_mariner
-									value = 5
-								}
-							}
-						}
-					}
-				}	
-				else = {
-					scope:activity = {
-						add_activity_log_entry = {
-							key = sailing_completed_log
-							tags = { good }
-							# this line below adds the entry to the Effects section of the conclusion UI
-							show_in_conclusion = yes
-							character = root
-							
-							root = { add_trait = lifestyle_mariner }
-						}
-					}
-				} 
-			}
-			75 = { #Failure - returning home
-				compare_modifier = {
-					value = {
-						value = scope:duel_value
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value < 50
-								}
-							}
-							add = -20
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 50
-									value < 100
-								}
-							}
-							add = -40
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 100
-								}
-							}
-							add = -60
-						}
-					}
-					multiplier = 1.5
-					min = -49
-				}
-				desc = sailing.9120.d.failure
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.9120.toast.d.failure
 					increase_wounds_effect = { REASON = fight }
 					trigger_event = {
 						id = sailing.9002
@@ -16114,13 +19419,13 @@ sailing.9130 = {
 		}
 	}
 
-	option = { # Attack (undamaged ship)
+	option = { # Attack 
 		name = sailing.9130.a
-		trigger = { owns_an_undamaged_boat = yes }		
+		#trigger = { owns_an_undamaged_boat = yes }		
 		duel = {
 			skill = martial
-			value = high_skill_rating
-			50 = { #Success
+			value = very_high_skill_rating
+			30 = { #Success
 				compare_modifier = {
 					value = {
 						value = scope:duel_value
@@ -16163,6 +19468,7 @@ sailing.9130 = {
 					add_martial_lifestyle_xp = 100
 					add_prestige = minor_prestige_gain
 					add_dread = minor_dread_gain
+					add_short_term_gold = major_gold_value
 					trigger_event = {
 						on_action = following_random_piracy_events_at_sea
 						days = 15
@@ -16202,7 +19508,7 @@ sailing.9130 = {
 					}
 				} 
 			}
-			50 = { #Failure
+			70 = { #Failure
 				compare_modifier = {
 					value = {
 						value = scope:duel_value
@@ -16254,147 +19560,6 @@ sailing.9130 = {
 		}
 	}	
 
-	option = { # Attack (damaged ship)
-		name = sailing.9130.b
-		trigger = { owns_an_undamaged_boat = no }		
-		duel = {
-			skill = martial
-			value = high_skill_rating
-			25 = { #Success
-				compare_modifier = {
-					value = {
-						value = scope:duel_value
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value < 50
-								}
-							}
-							add = 20
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 50
-									value < 100
-								}
-							}
-							add = 40
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 100
-								}
-							}
-							add = 60
-						}
-					}
-					multiplier = 1.5
-					min = -49
-				}
-				desc = sailing.9130.b.success
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.9130.toast.b.success
-					add_prowess_skill = 1
-					add_martial_lifestyle_xp = 100					
-					add_prestige = minor_prestige_gain
-					add_dread = minor_dread_gain
-					trigger_event = {
-						on_action = following_random_piracy_events_at_sea
-						days = 15
-					}
-				}
-				# Mariner skill
-				if = {
-					limit = { has_trait = lifestyle_mariner }
-					scope:activity = {
-						add_activity_log_entry = {
-							key = sailing_completed_log
-							tags = { good }
-							# this line below adds the entry to the Effects section of the conclusion UI
-							show_in_conclusion = yes
-							character = root
-							
-							root = {
-								add_trait_xp = {
-									trait = lifestyle_mariner
-									value = 5
-								}
-							}
-						}
-					}
-				}	
-				else = {
-					scope:activity = {
-						add_activity_log_entry = {
-							key = sailing_completed_log
-							tags = { good }
-							# this line below adds the entry to the Effects section of the conclusion UI
-							show_in_conclusion = yes
-							character = root
-							
-							root = { add_trait = lifestyle_mariner }
-						}
-					}
-				} 
-			}
-			75 = { #Failure - shipwreck
-				compare_modifier = {
-					value = {
-						value = scope:duel_value
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value < 50
-								}
-							}
-							add = -20
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 50
-									value < 100
-								}
-							}
-							add = -40
-						}
-						if = {
-							limit = {
-								has_trait_xp = {
-									trait = lifestyle_mariner
-									value >= 100
-								}
-							}
-							add = -60
-						}
-					}
-					multiplier = 1.5
-					min = -49
-				}
-				desc = sailing.9130.b.failure
-				send_interface_toast = {
-					left_icon = ROOT
-					title = sailing.9130.toast.b.failure					
-					increase_wounds_effect = { REASON = fight }
-					damage_ship = yes
-					add_character_flag = shipwreck		
-					trigger_event = {
-						id = sailing.9002
-						days = 15
-					}
-				}
-			}
-		}
-	}
-
 	option = { # Duel the Pirate Leader
 		name = sailing.9130.c
 		
@@ -16412,6 +19577,7 @@ sailing.9130 = {
 					left_icon = ROOT
 					title = sailing.9130.toast.c.success
 					add_prestige = 100
+					add_short_term_gold = medium_gold_value
 					trigger_event = sailing.9131
 				}
 				# Mariner skill
@@ -16477,6 +19643,7 @@ sailing.9130 = {
 	}
 }
 
+# Win the pirate duel
 sailing.9131 = {
 	type = activity_event
 	content_source = realms_dlc
@@ -16498,7 +19665,11 @@ sailing.9131 = {
 
 	option = { # Imprison him!
 		name = sailing.9131.a
-		add_trait = whip_master
+		add_prestige = major_prestige_gain
+		random = {
+			chance = 20
+			add_trait = whip_master
+		}
 		imprison = {
 			target = scope:dueled_pirate
 			type = dungeon
@@ -16507,7 +19678,7 @@ sailing.9131 = {
 
 	option = { # Kill him!
 		name = sailing.9131.b
-		add_trait = sadistic
+		add_dread = medium_dread_gain
 		execute_prisoner_effect = {
 			VICTIM = scope:dueled_pirate
 			EXECUTIONER = root
@@ -16580,9 +19751,11 @@ sailing.9131 = {
 		send_interface_toast = {			
 			left_icon = ROOT
 			title = sailing.9131.toast.e.success
-			add_trait = compassionate
-			add_prestige = minor_prestige_gain
+			add_piety = minor_piety_gain
+			add_legitimacy = minor_legitimacy_gain
+			add_stress = -20
 			add_dread = minor_dread_loss	
+			add_gold = minor_gold_value
 		}
 	}
 

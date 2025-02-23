@@ -74,6 +74,7 @@ honnin = {
 		tradition_isolationist
 		tradition_sacred_groves
 		tradition_forest_fighters
+		tradition_stalwart_defenders
 	}
 	
 	name_list = name_list_druedain
@@ -103,6 +104,7 @@ chaialla = {
 		tradition_hill_dwellers
 		tradition_equal_inheritance
 		tradition_vegetarianism
+		tradition_sacred_groves
 	}
 
 	dlc_tradition = {
@@ -126,7 +128,7 @@ chaialla = {
 }
 
 yatali_gan = {
-	color = { 65 152 44 }
+	color = { 114 179 151 }
 	created = 922.1.1
 	# parents = { drughu }
 	
@@ -137,10 +139,11 @@ yatali_gan = {
 	ethos = ethos_communal
 	martial_custom = martial_custom_equal
 	traditions = {
-		tradition_forest_folk
+		tradition_jungle_dwellers
 		tradition_isolationist
 		tradition_sacred_groves
-		tradition_forest_fighters
+		tradition_jungle_warriors
+		tradition_medicinal_plants
 	}
 
 	dlc_tradition = {

@@ -1310,6 +1310,77 @@ lifestyle_miner = {
 
 }
 
+lifestyle_artifact_crafting = {
+	icon = lifestyle_artifact_crafting.dds
+	category = lifestyle
+	ruler_designer_cost = 50
+	same_opinion = 15
+	stress_loss_mult = 0.15
+	random_creation = 0
+	birth = 0
+
+	desc = {
+		desc = trait_lifestyle_artifact_crafting_character_desc 
+	}
+
+	tracks = {
+		weapon_smith = {
+			30 = {
+				stress_loss_mult = 0.05	
+			}
+			65 = {
+				stress_loss_mult = 0.10
+			}
+			100 = {
+				stress_loss_mult = 0.20
+			}
+		}
+		armour_smith = {
+			30 = {
+				prowess = 1
+			}
+			65 = {
+				prowess = 1
+			}
+			100 = {
+				prowess = 2
+				health = 0.15
+			}
+		}
+		jewel_smith = {
+			30 = {
+				stress_gain_mult = 0.05
+				monthly_prestige = 0.10
+			}
+			65 = {
+				stress_gain_mult = 0.10
+				monthly_prestige = 0.15
+			}
+			100 = {
+				stress_gain_mult = 0.15
+				monthly_prestige = 0.5
+			}
+		}
+		enchanting_smith = {
+			30 = {
+				learning = 1
+				stress_gain_mult = 0.20
+			}
+			65 = {
+				learning = 2
+				health = 0.15
+				stress_gain_mult = 0.30
+			}
+			100 = {
+				learning = 4
+				stress_gain_mult = 0.50
+			}
+		}
+	}
+
+	ai_energy = 15
+}
+
 artificer = {
 	category = lifestyle
 
@@ -1862,78 +1933,6 @@ long_winter_plague = {
 	ai_energy = -75
 }
 
-lifestyle_artifact_crafting = {
-	icon = lifestyle_artifact_crafting.dds
-	category = lifestyle
-	ruler_designer_cost = 50
-	same_opinion = 15
-	stress_loss_mult = 0.15
-	random_creation = 0
-	birth = 0
-
-	desc = {
-		desc = trait_lifestyle_artifact_crafting_character_desc 
-	}
-
-	tracks = {
-		weapon_smith = {
-			30 = {
-				stress_loss_mult = 0.05	
-			}
-			65 = {
-				stress_loss_mult = 0.10
-			}
-			100 = {
-				stress_loss_mult = 0.20
-			}
-		}
-		armour_smith = {
-			30 = {
-				prowess = 1
-			}
-			65 = {
-				prowess = 1
-			}
-			100 = {
-				prowess = 2
-				health = 0.15
-			}
-		}
-		jewel_smith = {
-			30 = {
-				stress_gain_mult = 0.05
-				monthly_prestige = 0.10
-			}
-			65 = {
-				stress_gain_mult = 0.10
-				monthly_prestige = 0.15
-			}
-			100 = {
-				stress_gain_mult = 0.15
-				monthly_prestige = 0.5
-			}
-		}
-		enchanting_smith = {
-			30 = {
-				learning = 1
-				stress_gain_mult = 0.20
-			}
-			65 = {
-				learning = 2
-				health = 0.15
-				stress_gain_mult = 0.30
-			}
-			100 = {
-				learning = 4
-				stress_gain_mult = 0.50
-			}
-		}
-	}
-
-	ai_energy = 15
-}
-
-
 durin_unify = {
 	icon = "ukhzad.dds"
 	category = fame
@@ -1960,8 +1959,50 @@ durin_unify = {
 }
 
 balan_lai_member = {
-	icon = "balan_lai_member.dds"
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = balan_lai_member.dds
+			}
+			triggered_desc = {
+				trigger = { has_title = title:d_balan_lai_leader }
+				desc = balan_lai_leader.dds
+			}
+			desc = balan_lai_member.dds
+		}
+	}
 	category = fame
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_balan_lai_member
+			}
+			triggered_desc = {
+				trigger = { has_title = title:d_balan_lai_leader }
+				desc = trait_balan_lai_leader
+			}
+			desc = trait_balan_lai_member
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_balan_lai_member_desc
+			}
+			triggered_desc = {
+				trigger = { has_title = title:d_balan_lai_leader }
+				desc = trait_balan_lai_leader_character_desc
+			}
+			desc = trait_balan_lai_member_character_desc
+		}
+	}
 
 	monthly_prestige = 0.1
 	
@@ -2002,19 +2043,19 @@ bountig_story_trait = {
 		}
 		haruzan_cities = {
 			25 = {
-				supply_limit_mult = 0.1
+				supply_capacity_mult = 0.1
 				movement_speed = 0.05
 			}
 			50 = {
-				supply_limit_mult = 0.2
+				supply_capacity_mult = 0.2
 				movement_speed = 0.10
 			}
 			75 = {
-				supply_limit_mult = 0.3
+				supply_capacity_mult = 0.3
 				movement_speed = 0.15
 			}	
 			100 = {
-				supply_limit_mult = 0.4
+				supply_capacity_mult = 0.4
 				movement_speed = 0.2
 			}
 		}

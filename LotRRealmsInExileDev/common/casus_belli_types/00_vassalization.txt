@@ -45,7 +45,7 @@ vassalization_cb = {
 		custom_tooltip = {
 			text = "only_ambitious_elves_can_vassalize"
 			OR = {
-				is_elf = no
+				NOT = { is_elf = yes }
 				AND = {
 					is_elf = yes
 					has_game_rule = limited_elven_expansion
@@ -57,6 +57,9 @@ vassalization_cb = {
 				}
 			}
 		}
+		
+		# The Necromancer is hidden
+		NOT = { has_character_flag = unknown_sauron_flag } # LOTR
 	}
 
 	# Root is the title
@@ -149,7 +152,9 @@ vassalization_cb = {
 		}
 		
 		scope:attacker.primary_title.tier > scope:defender.primary_title.tier # Must be lower tier
-		
+
+		# The Necromancer is hidden
+		NOT = { has_character_flag = unknown_sauron_flag } # LOTR
 		
 		scope:attacker = {		
 			NOR = {

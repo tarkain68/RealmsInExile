@@ -79,9 +79,10 @@ lotr_intro_events.0001 = { # Introduction to Galadriel
 	
 	option = { 		#The Shadow is rising. We must act. (Offer vassalage to Parth Celebrant)
 		name = lotr_intro_events.0001.a
-		custom_tooltip = lotr_intro_events.0001.a_tt
+		custom_tooltip = lotr_intro_events.0001.a.tt
 			trigger = {
 				exists = title:d_parth_celebrant.holder
+				current_year >= 7000 
 			}
 			title:d_parth_celebrant.holder = {
 			save_scope_as = parthruler
@@ -117,9 +118,10 @@ lotr_intro_events.0001 = { # Introduction to Galadriel
 	
 	option = { 		#The Shadow is rising ~ Long Winter Edition
 		name = lotr_intro_events.0001.b
-		custom_tooltip = lotr_intro_events.0001.b_tt
+		custom_tooltip = lotr_intro_events.0001.b.tt
 			trigger = {
 				exists = title:d_drownholt.holder
+				current_year < 7000 # 
 			}
 			title:d_drownholt.holder = {
 				save_scope_as = parthruler
@@ -141,22 +143,22 @@ lotr_intro_events.0001 = { # Introduction to Galadriel
 			base = 0 # LotR: This should be tied to WotR mode.
 			modifier = { # Game Rule
 				has_game_rule = default_ai_behavior
-				add = 100
+				add = 50
 			}
 			modifier = { # Game Rule
 				has_game_rule = weighted_ai_behavior
-				add = 80
+				add = 40
 			}
 			modifier = { # Game Rule
 				has_game_rule = random_ai_behavior
-				add = 50
+				add = 30
 			}
 		}
 	}
 	
 	option = { 		#Yup. Thats me.
 		name = lotr_intro_events.0001.c
-		custom_tooltip = lotr_intro_events.0001.c_tt
+		custom_tooltip = lotr_intro_events.0001.c.tt
 		ai_chance = {
 			base = 0 # LotR: This should be tied to WotR mode.
 			modifier = { # Game Rule
@@ -387,7 +389,7 @@ lotr_intro_events.0005 = { # Introduction to Bornmir
 		custom_tooltip = lotr_intro_events.0005.b.tt
 
 		every_vassal_or_below = {
-			limit = { is_elf = no }
+			limit = { NOT = { is_elf = yes } }
 			trigger_event = {
 				id = elven.0501
 				days = 1
@@ -860,6 +862,38 @@ lotr_intro_events.2008 = { # Introduction to Thrór ~ Long Winter
 	}
 }
 
+lotr_intro_events.2009 = { # Introduction to Argan, the Axe that Walks (Long Winter)
+	content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.2009.t
+	desc = lotr_intro_events.2009.desc
+	theme = travel
+	override_background = {
+		reference = wilderness_desert
+	}
+	
+	immediate = {
+		play_music_cue = lotr_cue_dwarves
+	}
+	
+	left_portrait = {
+		character = root
+		animation = stayback
+	}
+
+	right_portrait = {
+		character = character:lineofargan2
+		animation = shock
+	}
+	
+	option = { 
+		name = lotr_intro_events.2009.a
+		death = {
+			death_reason = death_scorpion
+		}
+	}
+}
+
 ########################
 ###					 ###
 ### Orc Intro Events ###
@@ -1251,6 +1285,7 @@ lotr_intro_events.5507 = { # Introduction to the Lord of the Nazgûl - Long Wint
 	
 	immediate = {
 		play_music_cue = lotr_cue_nazgul
+		add_character_flag = witchking_long_winter
 	}
 	
 	option = { 
@@ -1271,12 +1306,12 @@ lotr_intro_events.5507 = { # Introduction to the Lord of the Nazgûl - Long Wint
 	}
 }
 
-lotr_intro_events.5508 = { # Introduction to the Lord of the Nazgûl - Long Winter 
+lotr_intro_events.5508 = { # Introduction to Sauron - Long Winter 
 	content_source = realms_dlc
 	type = character_event
 	title = lotr_intro_events.5508.t
 	desc = lotr_intro_events.5508.desc
-	theme = martial_strategy_focus
+	theme = intrigue_intimidation_focus
 	override_background = {
 		reference = throne_room_evil
 	}
@@ -1284,13 +1319,28 @@ lotr_intro_events.5508 = { # Introduction to the Lord of the Nazgûl - Long Wint
 		character = root
 		animation = menacing
 	}
-	
-	immediate = {
-		play_music_cue = lotr_cue_nazgul
+	right_portrait = {
+		character = character:nazgul1
+		animation = steward
 	}
 	
-	option = { 
+	immediate = {
+		play_music_cue = lotr_cue_sauron
+	}
+	
+	option = { #Continue as Sauron
 		name = lotr_intro_events.5508.a
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = { #Switch to the Witch-King
+		name = lotr_intro_events.5508.b
+		set_player_character = character:nazgul1
+		ai_chance = {
+			base = 0
+		}
 	}
 }
 
@@ -1441,7 +1491,7 @@ lotr_intro_events.6003 = { # Introduction to Elegost
 	}
 }
 
-lotr_intro_events.6004 = { # Introduction to Sulendil of Emyn Uial
+lotr_intro_events.6004 = { # Introduction to Súlendil of Emyn Uial
 	content_source = realms_dlc
 	type = character_event
 	title = lotr_intro_events.6004.t
@@ -1716,6 +1766,43 @@ lotr_intro_events.6011 = { # Introduction to Hwaldar | Angmar Start Date
     option = { 
 		name = lotr_intro_events.6011.a
 		add_prestige = 100
+	}
+}
+
+lotr_intro_events.6012 = { # Introduction to Eradan of the Warriors Three
+    content_source = realms_dlc
+	type = character_event
+	title = lotr_intro_events.6012.t
+	desc = lotr_intro_events.6012.desc
+	theme = dread
+	window = visit_settlement_window
+	override_background = {
+		reference = carrock
+    }
+	left_portrait = {
+		character = scope:andriel
+		animation = survey_staff
+	}
+	center_portrait = {
+		character = root
+		animation = throne_room_two_handed_passive_1
+	}
+	right_portrait = {
+		character = scope:farin 
+		animation = marshal_axe
+	}
+	
+	immediate = {
+		character:lineofandriel = { save_scope_as = andriel } 
+		character:lineofnorin2 = { save_scope_as = farin }
+	}
+    option = { 
+		name = lotr_intro_events.6012.a
+		domicile = { change_provisions = medium_provisions_gain }
+		trigger_event = {
+			id = rangers.0400
+			days = 3 
+		}
 	}
 }
 
@@ -3682,6 +3769,21 @@ lotr_intro_events.7809 = { # Introduction to Êruzagar of Pél
 
 	option = {
 		name = lotr_intro_events.7809.a
+		show_as_tooltip = {
+			scope:shibuzo = {
+				add_pressed_claim = title:k_pel
+			}
+		}
+		add_opinion = {
+			target = character:lineofmajidodobandit2
+			modifier = murdered_close_family_crime
+		}
+		character:lineofagathohin147 ?= {
+			add_opinion = {
+				target = character:lineofmajidodobandit2
+				modifier = murdered_close_family_crime
+			}
+		}
 	}
 }
 
@@ -3705,6 +3807,21 @@ lotr_intro_events.7810 = { # Introduction to Shibuzo of Igwanja
 
 	option = {
 		name = lotr_intro_events.7810.a
+		show_as_tooltip = {
+			add_pressed_claim = title:k_pel
+			scope:eruzagar = {
+				add_opinion = {
+					target = character:lineofmajidodobandit2
+					modifier = murdered_close_family_crime
+				}
+			}
+			character:lineofagathohin147 ?= {
+				add_opinion = {
+					target = character:lineofmajidodobandit2
+					modifier = murdered_close_family_crime
+				}
+			}
+		}
 	}
 }
 

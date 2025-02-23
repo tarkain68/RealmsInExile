@@ -1397,7 +1397,6 @@ easterling_swordsmen = {
 loke_innas_rim = { # Elite mounted soldiers guards of the Golden Realm
 	can_recruit = { has_primary_title = title:e_golden_realm_rhun }
 	type = heavy_cavalry
-	max_sub_regiments = 5
 
 	buy_cost = { gold = 260 }
 	low_maintenance_cost = { gold = 0.9 }
@@ -2091,7 +2090,7 @@ donan_slingers = {
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = bowmen
+	icon = donan_slingers
 }
 
 ## Hobbits ##
@@ -2267,7 +2266,7 @@ lossoth_ski_hunters = {
 		harsh_winter = { toughness = 5 damage = 8 }
 	}
 	
-	ai_quality = { value = @cultural_maa_extra_ai_score }
+	ai_quality = { value = 120 }
 	icon = lossoth_ski_hunters
 }
 
@@ -2310,7 +2309,7 @@ angmarim_pikemen = {
 
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = pikemen
+	icon = angmarim_pikemen
 }
 
 angmarim_archers = {
@@ -2349,7 +2348,7 @@ angmarim_archers = {
 	
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = bowmen
+	icon = angmarim_archers
 }
 
 thrall_master = {
@@ -2387,7 +2386,7 @@ thrall_master = {
 
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = skirmishers
+	icon = thrall_master
 }
 
 # Sederi
@@ -2435,7 +2434,7 @@ impali_tribesmen = {
 
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = pikemen
+	icon = impali_tribesmen
 }
 
 zeba_outriders = {
@@ -2484,7 +2483,7 @@ zeba_outriders = {
 
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = horse_archers
+	icon = zeba_outriders
 }
 
 #Usakani
@@ -2827,7 +2826,7 @@ hill_stalkers = {
 
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = skirmishers
+	icon = hill_stalkers
 }
 
 silent_stingers = {
@@ -2868,7 +2867,7 @@ silent_stingers = {
 
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = bowmen
+	icon = silent_stingers
 }
 
 #Mag
@@ -2961,7 +2960,7 @@ zebaback_slavers = {
 
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = light_cavalry
+	icon = zebaback_slavers
 }
 
 ### Womarin
@@ -3092,9 +3091,10 @@ swords_of_the_jungle = {
 	}
 	
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = heavy_infantry
+	icon = swords_of_the_jungle
 }
 
+## Special ##
 laamp_settler_maa = {
 	type = skirmishers
 
@@ -3129,4 +3129,75 @@ laamp_settler_maa = {
 	
 	ai_quality = { value = @cultural_maa_extra_ai_score }
 	icon = skirmishers
+}
+
+orthanc_guardsmen = { # Armored spearmen, armed with armour from Angrenost's old stores, replacements purchased from Gondor
+	type = pikemen
+	can_recruit = {
+		has_character_flag = is_saruman
+		has_character_flag = saruman_rearm_orthanc_guard
+	}
+
+	damage = 32
+	toughness = 24
+	pursuit = 0
+	screen = 20
+	
+	terrain_bonus = {
+		mountains = { toughness = 12 }
+		desert_mountains = { toughness = 12 }
+		hills = { toughness = 8 }
+		farmlands = { toughness = 8 }
+	}
+	
+	counters = {
+		light_cavalry = 1
+		heavy_cavalry = 1
+		camel_cavalry = 1
+	}
+
+	buy_cost = { gold = 95 }
+	low_maintenance_cost = { gold = 0.35 }
+	high_maintenance_cost = { gold = 1.05 }
+	provision_cost = @provisions_cost_infantry_moderate
+
+	allowed_in_hired_troops = no
+
+	stack = 100
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = gondor_footman
+}
+
+orthanc_bowmen = { # Armored archers, armed with armour from Angrenost's old stores, replacements purchased from Gondor
+	type = archers
+	can_recruit = {
+		has_character_flag = is_saruman
+		has_character_flag = saruman_rearm_orthanc_guard
+	}
+
+	damage = 24
+	toughness = 18
+	pursuit = 0
+	screen = 0
+	
+	terrain_bonus = {
+		hills = { damage = 10 toughness = 8 screen = 10 }
+		forest = { damage = 5 toughness = 4 screen = 10 }
+	}
+
+	counters = {
+		skirmishers = 1
+		heavy_infantry = 1
+	}
+
+	buy_cost = { gold = 75 }
+	low_maintenance_cost = { gold = 0.25 }
+	high_maintenance_cost = { gold = 0.75 }
+	provision_cost = @provisions_cost_infantry_moderate
+
+	allowed_in_hired_troops = no
+	
+	stack = 100
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = gondor_archers
 }

@@ -40,6 +40,9 @@ county_conquest_cb = {
 				}
 			}
 		}
+		
+		# Necromancer is hidden
+		NOT = { has_character_flag = unknown_sauron_flag } # LOTR
 	}
 
 	allowed_against_character = {
@@ -54,6 +57,8 @@ county_conquest_cb = {
 		        }
 			}
 		}
+		# Necromancer is hidden
+		NOT = { has_character_flag = unknown_sauron_flag } # LOTR
 	}
 	
 	allowed_against_character_display_regardless = { #LotR Tributaries
@@ -521,6 +526,8 @@ duchy_conquest_cb = {
 		        }
 			}
 		}
+		# Necromancer is hidden
+		NOT = { has_character_flag = unknown_sauron_flag } # LOTR
 	}
 
 	allowed_for_character_display_regardless = {
@@ -575,6 +582,8 @@ duchy_conquest_cb = {
 		        }
 			}
 		}
+		# Necromancer is hidden
+		NOT = { has_character_flag = unknown_sauron_flag } # LOTR
 	}
 	
 	allowed_against_character_display_regardless = { #LotR Tributaries
@@ -1180,7 +1189,7 @@ ducal_conquest_cb = {
 		custom_tooltip = {
 			text = "only_ambitious_elves_can_vassalize"
 			OR = {
-				is_elf = no
+				NOT = { is_elf = yes }
 				AND = {
 					is_elf = yes
 					has_game_rule = limited_elven_expansion
@@ -1192,6 +1201,8 @@ ducal_conquest_cb = {
 				}
 			}
 		}
+		# Necromancer is hidden
+		NOT = { has_character_flag = unknown_sauron_flag } # LOTR
 	}
 
 	allowed_against_character = {
@@ -1210,6 +1221,8 @@ ducal_conquest_cb = {
 		        }
 			}
 		}
+		# Necromancer is hidden
+		NOT = { has_character_flag = unknown_sauron_flag } # LOTR
 	}
 	
 	allowed_against_character_display_regardless = { #LotR Tributaries
