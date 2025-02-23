@@ -142,6 +142,7 @@
 		add = agent_groups_owner_perspective_value
 		add = agent_groups_target_character_perspective_value
 		add = odds_abduct_scheme_misc_value 
+		add = lotr_vigilance_abroad_elf_perk_effects
 		min = 0
 	}
 	
@@ -154,6 +155,21 @@
 
 		# Countermeasures.
 		apply_calculated_scheme_success_chance_adjustments_modifier = yes
+
+		#LotR - Vigilance Abroad
+		modifier = {
+			add = 10
+			scope:owner = {
+				is_elf = yes
+				has_perk = unshackled_lust_perk
+				faith = { #Is faith at least hostile (goes up to evil)
+					faith_hostility_level = {
+						target = scope:target.faith
+						value >= faith_hostile_level
+					}
+				}
+			}
+		}
 
 		# You found their escape tunnel
 		modifier = {
@@ -295,6 +311,9 @@
 	base_secrecy = {
 		add = secrecy_base_value
 		add = countermeasure_apply_secrecy_maluses_value
+		
+		#LotR - Mutual Understandings
+		add = lotr_home_advantage_elf_perk_effects
 	}
 
 	# On Actions

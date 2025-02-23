@@ -4,14 +4,14 @@
 	position = { 0 0 }
 	icon = node_intrigue
 
-	name = { #LOTR
+	name = { #LOTR - Radiance of the Eldar
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					exists = this
 					is_elf = yes
 				}
-				desc = like_weed_in_a_garden_perk_elf_name #LOTR - Radiance of the Eldar
+				desc = like_weed_in_a_garden_perk_elf_name
 			}
 			desc = like_weed_in_a_garden_perk_name
 		}
@@ -61,14 +61,14 @@ unshackled_lust_perk = {
 	position = { 0 1.25 }
 	icon = node_intrigue
 
-	name = { #LOTR
+	name = { #LOTR - Vigilance abroad
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					exists = this
 					is_elf = yes
 				}
-				desc = unshackled_lust_perk_elf_name #LOTR - Vigilance abroad
+				desc = unshackled_lust_perk_elf_name
 			}
 			desc = unshackled_lust_perk_name
 		}
@@ -107,14 +107,14 @@ subtle_desire_perk = {
 	position = { 0 2.5 }
 	icon = node_intrigue
 
-	name = { #LOTR
+	name = { #LOTR - Friend of the Common Folk
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					exists = this
 					is_elf = yes
 				}
-				desc = subtle_desire_perk_elf_name #LOTR - Friend of the Common Folk
+				desc = subtle_desire_perk_elf_name
 			}
 			desc = subtle_desire_perk_name
 		}
@@ -151,14 +151,14 @@ mortal_adoration_perk = {
 	
 	parent = subtle_desire_perk
 	
-	name = { #LOTR
+	name = { #LOTR - The Enemy of my Enemy
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					exists = this
 					is_elf = yes
 				}
-				desc = mortal_adoration_perk_elf_name #LOTR - The Enemy of my Enemy
+				desc = mortal_adoration_perk_elf_name
 			}
 			desc = mortal_adoration_perk_name
 		}
@@ -208,14 +208,14 @@ enticing_opportunity_perk = {
 	position = { 2 0 }
 	icon = node_intrigue
 	
-	name = { #LOTR
+	name = { #LOTR - The Knife in the Dark
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					exists = this
 					is_elf = yes
 				}
-				desc = enticing_opportunity_perk_elf_name #LOTR - The Knife in the Dark
+				desc = enticing_opportunity_perk_elf_name
 			}
 			desc = enticing_opportunity_perk_name
 		}
@@ -286,14 +286,14 @@ home_advantage_perk = {
 	
 	parent = enticing_opportunity_perk
 	
-	name = { #LOTR
+	name = { #LOTR - Mutual Understandings
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					exists = this
 					is_elf = yes
 				}
-				desc = home_advantage_perk_elf_name #LOTR - Mutual Understandings
+				desc = home_advantage_perk_elf_name
 			}
 			desc = home_advantage_perk_name
 		}
@@ -329,14 +329,14 @@ graceful_recovery_perk = {
 	
 	parent = home_advantage_perk
 	
-	name = { #LOTR
+	name = { #LOTR - Hamstring Foes
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					exists = this
 					is_elf = yes
 				}
-				desc = graceful_recovery_perk_elf_name #LOTR - Hamstring Foes
+				desc = graceful_recovery_perk_elf_name
 			}
 			desc = graceful_recovery_perk_name
 		}
@@ -372,14 +372,14 @@ smooth_operator_perk = {
 	
 	parent = graceful_recovery_perk
 	
-	name = { #LOTR
+	name = { #LOTR - Sow Internal Disunity
 		first_valid = {
 			triggered_desc = {
 				trigger = {
 					exists = this
 					is_elf = yes
 				}
-				desc = smooth_operator_perk_elf_name #LOTR - Sow Internal Disunity
+				desc = smooth_operator_perk_elf_name
 			}
 			desc = smooth_operator_perkname
 		}
@@ -407,15 +407,18 @@ smooth_operator_perk = {
 	}
 }
 
-
 seducer_perk = {
 	lifestyle = intrigue_lifestyle
 	tree = temptation
 	position = { 1 5 }
 	icon = trait_seducer
 
-	name = {
+	name = { #LOTR - Infiltrator
 		first_valid = {
+			triggered_desc = {
+				trigger = { is_elf = yes }
+				desc = seducer_perk_elf_name
+			}
 			triggered_desc = {
 				trigger = { is_female = yes }
 				desc = seducer_perk_female_name

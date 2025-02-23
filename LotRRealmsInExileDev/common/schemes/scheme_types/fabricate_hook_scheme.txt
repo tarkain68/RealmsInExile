@@ -179,6 +179,21 @@
 		# Countermeasures.
 		apply_indirect_scheme_success_chance_adjustments_modifier = yes
 
+		#LotR - Vigilance Abroad
+		modifier = {
+			add = 10
+			scope:owner = {
+				is_elf = yes
+				has_perk = unshackled_lust_perk
+				faith = { #Is faith at least hostile (goes up to evil)
+					faith_hostility_level = {
+						target = scope:target.faith
+						value >= faith_hostile_level
+					}
+				}
+			}
+		}
+
 		modifier = {
 			add = 20
 			desc = FABRICATE_HOOK_DECEITFUL
@@ -348,6 +363,9 @@
 	base_secrecy = {
 		add = secrecy_base_value
 		add = countermeasure_apply_secrecy_maluses_value
+		
+		#LotR - Mutual Understandings
+		add = lotr_home_advantage_elf_perk_effects
 	}
 
 	# On Actions

@@ -944,3 +944,194 @@ destroy_holding_interaction = {
 		}
 	}
 }
+
+lotr_fabricate_hook_for_friendly_vassal = {
+	interface_priority = 100
+	common_interaction = yes
+	category = interaction_category_hostile
+	cooldown_against_recipient = { years = 2 }
+
+	icon = request_easterling_invasion_interaction
+	desc = lotr_request_easterling_invasion_interaction_desc
+
+	scheme = fabricate_hook
+
+	is_shown = {
+		has_dlc_feature = legacy_of_persia
+		# scope:actor = {
+		# 	NOT = { is_elf = yes }
+		# 	NOT = { is_dwarf = yes }
+		# 	culture != culture:wastelands
+		# 	highest_held_title_tier <= tier_kingdom #No sponsored invasions for empires
+		# 	any_sub_realm_county = { #Invasions available to Rhovanion, Rhûn, Near Harad and Greater Bellakar holders
+		# 		any_county_province = { 
+		# 			OR = {
+		# 				geographical_region = middleearth_west_rhovanion
+		# 				geographical_region = middleearth_rhun
+		# 				geographical_region = adventure_nearharad
+		# 				geographical_region = custom_bellakar
+		# 			}
+		# 		}
+		# 	}
+		# }
+		# scope:recipient = {
+		# 	is_landed = yes
+		# 	culture != culture:wastelands
+		# 	any_sub_realm_county = { #Invasions targets limited to Rhovanion, Rhûn, Near Harad, Greater Bellakar and neighbouring duchies
+		# 		any_county_province = {
+		# 			geographical_region = dlc_fp3_region_lotr_easterling_invasion_targets
+		# 			NOR = {
+		# 				AND = {
+		# 					geographical_region	= adventure_elvenlands
+		# 					county.holder = { is_elf = yes }
+		# 				}
+		# 				terrain = halls
+		# 			}
+		# 		}
+		# 	}
+		# 	is_independent_ruler = yes
+		# 	is_ai = yes
+		# 	NOT = { government_has_flag = government_is_theocracy }
+		# }
+		
+		trigger_if = {
+			limit = { NOT = { has_game_rule = unrestricted_diplomatic_range } }
+			OR = { #Checking that they are within reasonable distance of each other
+				scope:actor = {
+					any_sub_realm_county = {
+						any_county_province = {
+							squared_distance = {
+								target = scope:recipient.capital_province
+								value < squared_distance_almost_massive # About 1.5 HREs in length, think about ~1 Khand from top to bottom
+							}
+						}
+					}
+				}
+				scope:recipient = {
+					any_sub_realm_county = {
+						any_county_province = {
+							squared_distance = {
+								target = scope:actor.capital_province
+								value < squared_distance_almost_massive # About 1.5 HREs in length, think about ~1 Khand from top to bottom
+							}
+						}
+					}
+				}
+			}
+		}
+		NOT = { scope:actor = scope:recipient }
+	}
+
+	is_valid_showing_failures_only = {
+	}
+
+	populate_recipient_list = {
+		scope:recipient = {
+			every_vassal_or_below = {
+				limit = {
+					this.faith ?= {
+						faith_hostility_level = {
+							target = scope:actor.faith
+							value >= faith_hostile_level
+						}
+					}
+				}
+				add_to_list = characters
+			}
+		}
+	}
+	
+	send_options_exclusive = no
+
+	on_accept = {
+
+	}
+
+	use_diplomatic_range = yes
+
+	ai_accept = {
+		base = 0
+
+		# Relationships: actor -> recipient / We avoid more relationship checks for balance reasons (and because important decisions tend to care little for relationships)
+		modifier = { # Rivalry modifier.
+			desc = offer_vassalization_interaction_aibehavior_rival_tt
+			trigger = {
+				scope:secondary_recipient = {
+					has_relation_rival = scope:actor
+					NOT = { has_relation_nemesis = scope:actor }
+				}
+			}
+			add = -10
+		}
+		modifier = { # Nemesis modifier.
+			desc = offer_vassalization_interaction_aibehavior_nemesis_tt
+			trigger = {
+				scope:secondary_recipient = {
+					has_relation_nemesis = scope:actor
+				}
+			}
+			add = -30
+		}
+		modifier = { # Same Dynasty modifier.
+			desc = offer_vassalization_interaction_aibehavior_dynasty_tt
+			trigger = {
+				scope:secondary_recipient = {
+					dynasty = scope:actor.dynasty
+				}
+			}
+			add = 10
+		}
+
+		# Compare Opinion modifier
+		opinion_modifier = {
+			who = scope:secondary_recipient
+			opinion_target = scope:actor
+			multiplier = 0.25
+		}
+
+		# AI who are in debt will take whatever windfalls they can.
+		modifier = {
+			add = {
+				value = scope:secondary_recipient.debt_level
+				add = 1 # Our first level is 0, so we add one to always get a positive number.
+				multiply = 10
+			}
+			debt_level >= 0
+			desc = PT_AI_IS_IN_DEBT
+		}
+		# AI value mod
+		ai_value_modifier = {
+			ai_greed = 0.5
+			ai_boldness = 0.25
+			min = 0
+			max = 25
+		}
+	}
+	ai_frequency = 24
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+	}
+	ai_potential = {
+		NOT = { ai_has_economical_boom_personality = yes }
+		ai_greed <= 25
+		highest_held_title_tier > tier_barony
+	}
+	ai_will_do = {
+		base = 0
+
+		modifier = {
+			add = 50
+			scope:recipient = {
+				opposite_alignment = { TARGET = scope:actor }
+			}
+		}
+
+		modifier = {
+			add = 100
+			scope:recipient = {
+				has_relation_rival = scope:actor
+			}
+		}
+	}
+
+}

@@ -321,6 +321,9 @@
 	base_secrecy = {
 		add = secrecy_base_value
 		add = countermeasure_apply_secrecy_maluses_value
+		
+		#LotR - Mutual Understandings
+		add = lotr_home_advantage_elf_perk_effects
 	}
 	
 	# On Actions

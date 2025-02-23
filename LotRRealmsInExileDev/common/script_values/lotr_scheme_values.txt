@@ -48,3 +48,32 @@ lotr_task_contract_bountig_umbar_AI_value = {
 		add = 100000
 	}
 }
+
+lotr_vigilance_abroad_elf_perk_effects = {
+	value = 0
+	if = {
+		limit = {
+			scope:owner = { 
+				is_elf = yes
+				has_perk = unshackled_lust_perk
+			}
+		}
+		add = 10
+	}
+}
+
+lotr_home_advantage_elf_perk_effects = {
+	value = 0
+	if = {
+		limit = {
+			scope:owner = { 
+				is_elf = yes
+				has_perk = home_advantage_perk
+			}
+		}
+		add = {
+			value = 20
+			desc = home_advantage_perk_elf_value
+		}
+	}
+}
