@@ -22,6 +22,29 @@
             }
           }
         ]
+      },
+      {
+        "id": "b914b88f01c2216d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6b169a2e5cdd407d",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "Secrecy/Secrecy Canvas.canvas",
+                "viewState": {
+                  "x": 46.20417302866383,
+                  "y": -28.55418265174694,
+                  "zoom": -2.333333333333333
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Secrecy Canvas"
+            }
+          }
+        ]
       }
     ],
     "direction": "vertical"
@@ -78,7 +101,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "2b24f854f8a71567",
@@ -168,13 +191,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "df16c026985449d0",
+  "active": "6b169a2e5cdd407d",
   "lastOpenFiles": [
-    "Illustrative secrecy levels.png",
-    "Secrecy/Secrecy Canvas.canvas",
     "Secrecy/Secrecy Note.md",
-    "Corruption/Corruption Canvas.canvas",
+    "Secrecy/Secrecy Canvas.canvas",
     "Corruption/Corruption Note.md",
+    "Illustrative secrecy levels.png",
+    "Corruption/Corruption Canvas.canvas",
     "Corruption",
     "Secrecy/S.md",
     "Welcome.md",

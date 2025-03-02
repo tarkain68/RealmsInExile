@@ -1,7 +1,7 @@
 ### What is it?
 Secrecy is a measure of how concealed the Fellowship is from the searching eye of Sauron. 
 ### What does it do at a high level?
-Secrecy determines how well the Fellowship and the Ringbearer remain hidden from Sauron’s gaze. As secrecy decreases, Sauron's agents are better able to intensify their hunt, making encounters more frequent, travel more dangerous, and ultimately making the temptation of the Ring harder to resist. 
+Secrecy determines how well the Fellowship and the Ringbearer remain hidden from Sauron’s gaze. As **secrecy decreases**, Sauron's **agents are better able to intensify their hunt**, making **encounters more frequent**, **travel more dangerous**, and ultimately making the temptation of the Ring harder to resist. 
 ### What is it in code?
 Secrecy is a numerical variable that's stored on the Ringbearer (or alternatively, the LAAMP that the ringbearer sits in). I'd suggest we normalise this between a range of 0 and 100, with 0 being totally exposed and 100 being totally concealed.
 ### How might this work in more detail?
@@ -15,15 +15,15 @@ I'd suggest that we present and use secrecy in the following ways (very similar 
 
 Secrecy should be a dynamic variable, rising and falling based on player choices, environmental factors, and major events. For example:
 
-- Using the ring (large loss of secrecy)
-- Staying in non-good locations too long (gradually increasing losses of secrecy)
-- Corruption of the fellowship (this might be too much pushing in the same direction so not sure!)
-- Passing through enemy occupied lands
-- Successful search actions by Sauron's agents like the Nazgul
-- Resting in safe havens
-- Taking more hidden paths
-- Intervention of powerful allies
-- Misdirection, making Sauron believe the ring is elsewhere
+- **Using the ring** (large loss of secrecy)
+- **Staying in non-good locations too long** (gradually increasing losses of secrecy)
+- **Corruption of the fellowship** (this might be too much pushing in the same direction so not sure!)
+- **Passing through enemy occupied lands**
+- **Successful search actions by Sauron's agents like the Nazgul**
+- **Resting in safe havens**
+- **Taking more hidden paths**
+- **Intervention of powerful allies**
+- **Misdirection, making Sauron believe the ring is elsewhere**
 
 _Secrecy is_ _**the**_ _key lever for Sauron too, who will aim to take actions to reduce the fellowship's secrecy to reveal the ringbearer and place them in more and more perillous situations._ 
 ### What strategic considerations might this prompt in a player?
