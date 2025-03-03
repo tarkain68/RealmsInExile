@@ -35,7 +35,15 @@ e_arnor = {
 	4894.7.12 = {
 		holder = 0 # Kingdom of Arnor Dissolved
 	}
+
 	# Add Kings of Arthedain? - Argeleb I de-facto re-establishes the Kingdom
+
+	7052.5.1 = { #Kingdom Restored as a part of the Reunited Kingdom
+        holder = lineisildur42 # Elessar
+    }
+	7174.3.1 = {
+		holder = lineisildur43 #Eldarion		
+	}
 }	
 
 ### Kingdom of Cardolan
@@ -7801,6 +7809,15 @@ c_dunglan = { #The Westmarch
 		holder = k_wastelands_holder
 		change_development_level = -5
 		government = wastelands_government
+	}
+	7085.1.1 = { # Year Aragorn grants the Westmarch to the Hobbits
+		holder = lineoftook30 #Peregrin
+		change_development_level = 5
+		government = hobbit_government
+	}
+	7095.1.1 = { # Year Pippin granted the Wardency of the Westmarch to Sam's son-in-law
+		holder = lineofgreenholm1 #Fastred
+		liege = d_shire
 	}
 }
 c_norinanyaron = {

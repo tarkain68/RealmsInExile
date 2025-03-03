@@ -669,6 +669,9 @@
  dynn_pathonion: "Pâthonion"
  dynn_uirebion: "Uirebion"
  dynn_golwenion: "Golwenion"
+ dynn_aegardh: "Aegardh"
+ dynn_brunion: "Brúnion"
+ dynn_talionath: "Talionath"
  dynn_orontorion: "Orontorion"
  dynn_thavor: "Thavor"
  dynn_morinehtar: "Morinehtar"
@@ -832,7 +835,7 @@
  dynn_hallatan: "Hallatanion"
  dynn_cerindur: "Cerindurionath"
  dynn_mamandil: "Mamandilion"
- dynn_caranmir: "Caranmír"
+ dynn_caranmir: "Caranmir"
  dynn_elendir: "Elendirionath"
  dynn_forodil: "Forodilionath"
  dynn_sulmacil: "Sulmacilion"
@@ -1556,7 +1559,10 @@
  dynn_feordan: "Feordan"
  dynn_liuthwig: "Líuthwiging"
  dynn_jothivian: "Jothivia"
- 
+ dynn_solvarding: "Solvarding" ### Gondorian Northmen houses
+ dynn_ostharing: "Ostharingi"
+ dynn_thainingas: "Thainingas"
+
  ### Estarewas ###
  dynn_veremund: "Veremunding"
  dynn_garsind: "Garsinding"
@@ -2070,6 +2076,8 @@
  dynn_vasnan: "Vasnan"
  dynn_bardiyen: "Bârdiyen"
  dynn_ashtadet: "Ashtadet"
+ dynn_kahlavan: "Kahlavan"
+ dynn_bahez: "Bahez"
 
 ### SIRAYN ###
  ### Nafarati ###

@@ -195,6 +195,9 @@
  dynn_pathonion_motto: "The Gauntlets of [gondor|E]"
  dynn_uirebion_motto: "Our peace shall stand as firm as the tallest mountain"
  dynn_golwenion_motto: "Wisdom is the only freedom"
+ dynn_aegardh_motto: "Without [eru|E] we are nothing"
+ dynn_brunion_motto: "Sons of Aegardh"
+ dynn_talionath_motto: "So End Our Foes"
  dynn_morinehtar_motto: "Even the smallest light shines in the dark"
  dynn_suldilion_motto: "Where there's life there's hope" 
  dynn_calambar_motto: "Family First"
@@ -1321,6 +1324,9 @@
  dynn_feordan_motto: "Riders of the Grey Plains"
  dynn_liuthwig_motto: "Shatter All Before Us"
  dynn_jothivian_motto: "Keepers of the Bight"
+ dynn_solvarding_motto: "The Morning is close"
+ dynn_ostharing_motto: "Ride East unto Dusk"
+ dynn_thainingas_motto: "To [gondor|E], our Strength"
  
  ### Gramas ###
  dynn_gudemar_motto: "By Water or by Road"
@@ -1564,6 +1570,8 @@
  dynn_vasnan_motto: "From our right hand flows treasure, from our left, despair."
  dynn_bardiyen_motto: "Victory without Righteousness is Pointless"
  dynn_ashtadet_motto: "Magnificence in Virtue"
+ dynn_kahlavan_motto: "With the Sun rises Triumph"
+ dynn_bahez_motto: "Friendship is Victory"
 
  ### SIRAYN ###
  dynn_nediyko_motto: "Keep the Shadowed Passes"
