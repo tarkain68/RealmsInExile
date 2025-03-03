@@ -11,6 +11,7 @@ widget = {
 	window_crafting_mechanic = {}
 	window_crafting_mechanic_artifact_icons = {}
 	saved_artifact_templates_window = {}
+	lotr_fellowship_window = {}
 	using = Animation_ShowHide_Standard
 
 	flowcontainer = {
@@ -180,7 +181,7 @@ widget = {
 			margin = { 5 10 }
 
 			Background = {
-				visible = "[And(Not(IsRightWindowOpen) , Not(IsGameViewOpen('barbershop')) )]"
+				visible = "[And(And(Not(IsRightWindowOpen) , Not(IsGameViewOpen('barbershop')) ), Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 				texture = "gfx/interface/skinned/hud_maintab_bg_middle.dds"
 				spriteType = CorneredTiled
 				texture_density =  2
@@ -188,7 +189,7 @@ widget = {
 			}
 
 			Background = {
-				visible = "[And(Not(IsRightWindowOpen) , Not(IsGameViewOpen('barbershop')) )]"
+				visible = "[And(And(Not(IsRightWindowOpen) , Not(IsGameViewOpen('barbershop')) ), Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 				spriteType = CorneredStretched
 				spriteborder_top = 100
 				parentanchor = top|right
@@ -198,7 +199,7 @@ widget = {
 			}
 
 			Background = {
-				visible = "[And(Not(IsRightWindowOpen) , Not(IsGameViewOpen('barbershop')) )]"
+				visible = "[And(And(Not(IsRightWindowOpen) , Not(IsGameViewOpen('barbershop')) ), Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 				spriteType = CorneredStretched
 				spriteborder_bottom = 100
 				parentanchor = top|right
@@ -653,6 +654,51 @@ widget = {
 							size = { 40 40 }
 							onclick = "[GetVariableSystem.Toggle('window_crafting_mechanic')]"
 							down = "[GetVariableSystem.Exists('window_crafting_mechanic')]"
+						}		
+					}
+					
+					## FELLOWSHIP ##
+					widget_hud_main_tab = {
+						allow_outside = yes
+						name = "fellowship_button"
+						datacontext = "[GetPlayer]"
+						datacontext = "[AccessLocalPlayerCachedData]" 
+						# enabled = "[And(GetScriptedGui('can_craft_artifacts').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End), And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), GetPlayer.IsValid), IsDefaultGUIMode)))]"
+							
+						tooltipwidget = {
+							container_fellowship_tooltip = {}
+						}
+	
+						state = {
+							name = _mouse_hierarchy_enter
+							on_start = "[PdxGuiInterruptThenTriggerAllAnimations('hud_tab_glow_crafting_leave','hud_tab_glow_crafting_enter')]"
+							alpha = 1
+						}
+							
+						state = {
+							name = _mouse_hierarchy_leave
+							on_start = "[PdxGuiInterruptThenTriggerAllAnimations('hud_tab_glow_crafting_enter','hud_tab_glow_crafting_leave')]"
+							alpha = 1
+						}
+	
+						blockoverride "maintab_button"
+						{
+							texture = "gfx/interface/icons/traits/elf-crafter.dds"
+							size = { 40 40 }
+							onclick = "[GetVariableSystem.Toggle('lotr_fellowship')]"
+							down = "[GetVariableSystem.Exists('lotr_fellowship')]"
+							onclick = "[CloseGameView('my_realm')]"
+							onclick = "[CloseGameView('military')]"
+							onclick = "[CloseGameView('council_window')]"
+							onclick = "[CloseGameView('court_window')]"
+							onclick = "[CloseGameView('intrigue_window')]"
+							onclick = "[CloseGameView('factions_window')]"
+							onclick = "[CloseGameView('decisions')]"
+							onclick = "[CloseGameView('activity_list_window')]"
+							onclick = "[CloseGameView('manage_tax_slots')]"
+							onclick = "[CloseGameView('government_administration')]"
+							onclick = "[GetVariableSystem.Clear('window_crafting_mechanic')]"
+							onclick = "[GetVariableSystem.Clear('window_sorcery')]"
 						}		
 					}
 				}
@@ -6733,6 +6779,42 @@ types HUD
 	}
 
 	type container_crafting_tooltip = container
+	{
+		using = GeneralTooltipSetup
+		alwaystransparent = no
+
+		object_tooltip_pop_out = {
+			blockoverride "title_text"
+			{
+				margin = { 0 3 }
+				text = "CRAFTING_TITLE_HUD"
+				default_format = "#T"
+			}
+
+			blockoverride "concept_link"
+			{
+				visible = no
+			}
+
+			blockoverride "main_description"
+			{
+				vbox = {
+					layoutpolicy_horizontal = expanding
+
+					cooltip_paragraph = {
+						visible = "[Not( GetScriptedGui('can_craft_artifacts').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End) )]"
+						text = "CRAFTING_TOOLTIP_HUD"
+					}
+
+					spacer = {
+						size = { 0 10 }
+					}
+				}
+			}
+		}
+	}
+
+	type container_fellowship_tooltip = container
 	{
 		using = GeneralTooltipSetup
 		alwaystransparent = no

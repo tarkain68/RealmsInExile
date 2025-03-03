@@ -1,0 +1,433 @@
+﻿types Fellowship {
+	type lotr_fellowship_window = window {
+		name = "lotr_fellowship_window"
+		parentanchor = top|right
+		layer = windows_layer
+		movable = no
+		using = Window_Size_MainTab
+
+		visible = "[And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), And(GetPlayer.IsValid, GetPlayer.IsAlive)), And(IsDefaultGUIMode, GetVariableSystem.Exists( 'lotr_fellowship' ))))]"
+
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+			using = Sound_WindowShow_Standard
+			using = Window_Position_MainTab
+		}
+
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+			using = Sound_WindowHide_Standard
+			using = Window_Position_MainTab_Hide
+		}
+
+		state = {
+			name = close_me
+			trigger_when = "[Or(Or(IsRightWindowOpen, GetVariableSystem.Exists('window_crafting_mechanic')),GetVariableSystem.Exists('window_sorcery'))]"
+			on_finish = "[GetVariableSystem.Clear('lotr_fellowship')]"
+		}
+		
+		margin_widget = {
+			size = { 100% 100% }
+			margin = { 0 26 }
+			margin_right = 13
+
+			widget = {
+				size = { 100% 100% }
+
+				vbox = {
+					using = Window_Margins
+
+					header_pattern = {
+						layoutpolicy_horizontal = expanding
+
+						blockoverride "header_text"
+						{
+							text = "FELLOWSHIP_TITLE"
+						}
+
+						blockoverride "button_close"
+						{
+							onclick = "[GetVariableSystem.Clear('lotr_fellowship')]"
+						}
+					}
+
+					widget = {
+						layoutpolicy_horizontal = expanding
+						layoutpolicy_vertical = expanding
+						vbox = {
+							spacing = 30
+							# Corruption + Secrecy bars
+							text_single = {
+								text = "secrecy_bar_progress_bar"
+               			 		default_format = "#high"
+                				fontsize = 18
+							}
+							secrecy_stages = {}
+							# secrecy_active_stage = {}
+							# progressbar_secrecy = { # Shows after you've started crafting
+							# 	name = "lotr_corruption"
+							# 	size = { 420 30 }
+							# 	position = { 0 10 }
+
+							# 	min = 0
+							# 	max = "100"
+							# 	value = "50"
+							# }
+							expand = {}
+							#Ring bearer
+							hbox = {
+								# 2 scrollboxes
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	type secrecy_animation_attention_bar = icon {
+		name = "bar_effect"
+		parentanchor = center
+		size = { 100% 100% }
+
+		spriteType = Corneredtiled
+		spriteborder = { 10 10 }
+
+		texture = "gfx/interface/component_effects/attention_text.dds"
+		using = Color_White
+
+		state = {
+			trigger_on_create = yes
+			name = a
+			next = b
+
+			using = Animation_Curve_Default
+			duration = 0.8
+			alpha = 1
+		}
+
+		state = {
+			name = b
+			next = a
+
+			using = Animation_Curve_Default
+			duration = 1.5
+			alpha = 0.5
+		}
+
+        ### Horizontal Wipe Animation Left
+		icon = {
+			size = { 100% 90% }
+			parentanchor = vcenter
+			texture = "gfx/interface/colors/white.dds"
+			alpha = 0
+
+			modify_texture = {
+				name = "horizontal_wipe"
+				texture = "gfx/interface/progressbars/progressbar_center_glow_white_decrease.dds"
+				blend_mode = alphamultiply
+			}
+
+			state = {
+				name = a
+				next = b
+				trigger_on_create = yes
+				duration = 0
+				alpha = 0
+
+				modify_texture = {
+					name = "horizontal_wipe"
+					translate_uv = { -0.5 0 }
+				}
+			}
+
+			state = {
+				name = b
+				next = c
+				duration = 1
+				alpha = 1
+
+				modify_texture = {
+					name = "horizontal_wipe"
+					translate_uv = { 1 0 }
+				}
+			}
+
+			state = {
+				name = c
+				next = a
+				duration = 0.5
+				alpha = 0
+				delay = 1.5
+			}
+		}
+
+		### Horizontal Wipe Animation Right
+		icon = {
+			size = { 100% 90% }
+			parentanchor = vcenter
+			texture = "gfx/interface/colors/white.dds"
+			alpha = 0
+
+			modify_texture = {
+				name = "horizontal_wipe"
+				texture = "gfx/interface/progressbars/progressbar_center_glow_white_increase.dds"
+				blend_mode = alphamultiply
+			}
+
+			state = {
+				name = a
+				next = b
+				trigger_on_create = yes
+				duration = 0
+				alpha = 0
+
+				modify_texture = {
+					name = "horizontal_wipe"
+					translate_uv = { 0.5 0 }
+				}
+			}
+
+			state = {
+				name = b
+				next = c
+				duration = 1
+				alpha = 1
+
+				modify_texture = {
+					name = "horizontal_wipe"
+					translate_uv = { -1 0 }
+				}
+			}
+
+			state = {
+				name = c
+				next = a
+				duration = 0.5
+				alpha = 0
+				delay = 1.5
+			}
+		}
+	}
+
+	type secrecy_stages = widget {
+        hbox = {
+			layoutpolicy_horizontal = expanding
+			spacing = -20
+            secrecy_progress_bar = {
+                progresstexture = "gfx/interface/progressbars/house_unity/antagonistic.dds"
+            }
+            secrecy_progress_bar = {
+                progresstexture = "gfx/interface/progressbars/house_unity/competitive.dds"
+            }
+            secrecy_progress_bar = {
+                progresstexture = "gfx/interface/progressbars/house_unity/friendly.dds"
+            }
+            secrecy_progress_bar = {
+                progresstexture = "gfx/interface/progressbars/house_unity/harmonious.dds"
+            }
+            secrecy_progress_bar = {
+                progresstexture = "gfx/interface/progressbars/house_unity/harmonious.dds"
+            }
+        }
+	}
+
+	type secrecy_arrow = widget {
+        hbox = {
+            block "marker" {
+                icon = {
+                    size = { 20 50 }
+                    texture = "gfx/interface/window_roco_grandeur/grandeur_bar_base_level.dds"
+                }
+                using = animation_state_move_arrow
+            }
+        }
+    }
+
+	type secrecy_progress_bar = progressbar_standard {
+        size = { 110 25 }
+        min = 0
+        max = 50
+        value = 50
+        alpha = 0.9
+    }
+
+	type secrecy_active_stage = widget {
+        hbox = {
+            ignoreinvisible = no
+            position = { 2 160 }
+            secrecy_progress_bar = {
+                progresstexture = "gfx/interface/progressbars/house_unity/antagonistic.dds"
+                size = { 126 40 }
+                alpha = 1
+                secrecy_animation_attention_bar = {}
+                secrecy_arrow = {}
+            }
+            secrecy_progress_bar = {
+                progresstexture = "gfx/interface/progressbars/house_unity/competitive.dds"
+                size = { 126 40 }
+                alpha = 1
+                secrecy_animation_attention_bar = {}
+                secrecy_arrow = {}
+            }
+            secrecy_progress_bar = {
+                progresstexture = "gfx/interface/progressbars/house_unity/friendly.dds"
+                size = { 126 40 }
+                alpha = 1
+                secrecy_animation_attention_bar = {}
+                secrecy_arrow = {}
+            }
+            secrecy_progress_bar = {
+                progresstexture = "gfx/interface/progressbars/house_unity/harmonious.dds"
+                size = { 126 40 }
+                alpha = 1
+                secrecy_animation_attention_bar = {}
+                secrecy_arrow = {}
+            }
+        }
+	}
+
+	type secrecy_animation_attention_bar = icon {
+		name = "bar_effect"
+		parentanchor = center
+		size = { 100% 100% }
+
+		spriteType = Corneredtiled
+		spriteborder = { 10 10 }
+
+		texture = "gfx/interface/component_effects/attention_text.dds"
+		using = Color_White
+
+		state = {
+			trigger_on_create = yes
+			name = a
+			next = b
+
+			using = Animation_Curve_Default
+			duration = 0.8
+			alpha = 1
+		}
+
+		state = {
+			name = b
+			next = a
+
+			using = Animation_Curve_Default
+			duration = 1.5
+			alpha = 0.5
+		}
+
+        ### Horizontal Wipe Animation Left
+		icon = {
+			size = { 100% 90% }
+			parentanchor = vcenter
+			texture = "gfx/interface/colors/white.dds"
+			alpha = 0
+
+			modify_texture = {
+				name = "horizontal_wipe"
+				texture = "gfx/interface/progressbars/progressbar_center_glow_white_decrease.dds"
+				blend_mode = alphamultiply
+			}
+
+			state = {
+				name = a
+				next = b
+				trigger_on_create = yes
+				duration = 0
+				alpha = 0
+
+				modify_texture = {
+					name = "horizontal_wipe"
+					translate_uv = { -0.5 0 }
+				}
+			}
+
+			state = {
+				name = b
+				next = c
+				duration = 1
+				alpha = 1
+
+				modify_texture = {
+					name = "horizontal_wipe"
+					translate_uv = { 1 0 }
+				}
+			}
+
+			state = {
+				name = c
+				next = a
+				duration = 0.5
+				alpha = 0
+				delay = 1.5
+			}
+		}
+
+		### Horizontal Wipe Animation Right
+		icon = {
+			size = { 100% 90% }
+			parentanchor = vcenter
+			texture = "gfx/interface/colors/white.dds"
+			alpha = 0
+
+			modify_texture = {
+				name = "horizontal_wipe"
+				texture = "gfx/interface/progressbars/progressbar_center_glow_white_increase.dds"
+				blend_mode = alphamultiply
+			}
+
+			state = {
+				name = a
+				next = b
+				trigger_on_create = yes
+				duration = 0
+				alpha = 0
+
+				modify_texture = {
+					name = "horizontal_wipe"
+					translate_uv = { 0.5 0 }
+				}
+			}
+
+			state = {
+				name = b
+				next = c
+				duration = 1
+				alpha = 1
+
+				modify_texture = {
+					name = "horizontal_wipe"
+					translate_uv = { -1 0 }
+				}
+			}
+
+			state = {
+				name = c
+				next = a
+				duration = 0.5
+				alpha = 0
+				delay = 1.5
+			}
+		}
+	}
+}
+
+template animation_state_move_arrow {
+    state = {
+        trigger_on_create = yes
+        name = a
+        next = b
+        position_x = 5
+        position_y = -5
+    }
+    state = {
+        name = b
+        next = a
+        position_x = 5
+        # position_x = "[FixedPointToFloat(Scope.ScriptValue('convert_secrecy_value_to_bar_size'))]"
+        position_y = -5
+    }
+}

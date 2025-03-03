@@ -14301,7 +14301,7 @@ culture_knight_big_illustration = {
 				culture = culture:caledhrim
 				culture = { any_parent_culture_or_above = { this = culture:dunedain_ranger } }
 				culture = { any_parent_culture_or_above = { this = culture:uialdain } }
-				culture = { any_parent_culture_or_above = { this = culture:caledhrims } }
+				culture = { any_parent_culture_or_above = { this = culture:caledhrim } }
 			}
 		}
 	}
