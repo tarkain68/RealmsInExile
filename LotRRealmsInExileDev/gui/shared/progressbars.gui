@@ -904,7 +904,7 @@ types ProgressBars
 		}
 	}
 	
-	type progressbar_corruption = progressbar {
+	type progressbar_camp_unity = progressbar {
 		min = 0
 		max = 100
 		value = 35

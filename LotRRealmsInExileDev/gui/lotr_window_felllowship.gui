@@ -57,24 +57,55 @@
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
 						vbox = {
-							spacing = 30
-							# Corruption + Secrecy bars
+							spacing = 20
+							spacer = { size = { 0 0 } }
+							#Secrecy
 							text_single = {
 								text = "secrecy_bar_progress_bar"
                			 		default_format = "#high"
                 				fontsize = 18
+
+								background = {
+									margin = { 40 15 }
+									using = Background_Area
+									using = Mask_Rough_Edges
+									modify_texture = {
+										texture = "gfx/interface/component_masks/event_effect_mask.dds"
+										blend_mode = alphaMultiply
+									}
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										blend_mode = alphamultiply
+										spriteType = corneredTiled
+									}
+								}
 							}
 							secrecy_stages = {}
-							# secrecy_active_stage = {}
-							# progressbar_secrecy = { # Shows after you've started crafting
-							# 	name = "lotr_corruption"
-							# 	size = { 420 30 }
-							# 	position = { 0 10 }
 
-							# 	min = 0
-							# 	max = "100"
-							# 	value = "50"
-							# }
+							spacer = { size = { 0 0 } }
+							#Camp Unity
+							text_single = {
+								text = "camp_unity_progress_bar"
+								default_format = "#high"
+								fontsize = 18
+
+								background = {
+									margin = { 20 15 }
+									using = Background_Area
+									using = Mask_Rough_Edges
+									modify_texture = {
+										texture = "gfx/interface/component_masks/event_effect_mask.dds"
+										blend_mode = alphaMultiply
+									}
+									modify_texture = {
+										texture = "gfx/interface/component_masks/mask_scratches.dds"
+										blend_mode = alphamultiply
+										spriteType = corneredTiled
+									}
+								}
+							}
+							camp_unity_progress_bar = {}
+
 							expand = {}
 							#Ring bearer
 							hbox = {
@@ -87,34 +118,45 @@
 		}
 	}
 
+	### Secrecy ###
+
 	type secrecy_animation_attention_bar = icon {
 		name = "bar_effect"
 		parentanchor = center
 		size = { 100% 100% }
 
-		spriteType = Corneredtiled
-		spriteborder = { 10 10 }
+		block "animation_visible" { visible = yes }
+
+		# spriteType = Corneredtiled
+		# spriteborder = { 10 10 }
 
 		texture = "gfx/interface/component_effects/attention_text.dds"
-		using = Color_White
+		using = Color_Purple
 
-		state = {
-			trigger_on_create = yes
-			name = a
-			next = b
-
-			using = Animation_Curve_Default
-			duration = 0.8
-			alpha = 1
+		glow = {
+			using = Color_Purple
+			using = Glow_Standard
+			glow_radius = 6
 		}
 
 		state = {
-			name = b
-			next = a
+			trigger_on_create = yes
 
+			name = max_glow
+			next = min_glow
+			duration = 1
 			using = Animation_Curve_Default
-			duration = 1.5
-			alpha = 0.5
+
+			glow_alpha = 0.8
+		}
+
+		state = {
+			name = min_glow
+			next = max_glow
+			duration = 1.6
+			using = Animation_Curve_Default
+
+			glow_alpha = 0.2
 		}
 
         ### Horizontal Wipe Animation Left
@@ -213,221 +255,46 @@
 	}
 
 	type secrecy_stages = widget {
+		size = { 560 25 }
         hbox = {
 			layoutpolicy_horizontal = expanding
-			spacing = -20
-            secrecy_progress_bar = {
-                progresstexture = "gfx/interface/progressbars/house_unity/antagonistic.dds"
-            }
-            secrecy_progress_bar = {
-                progresstexture = "gfx/interface/progressbars/house_unity/competitive.dds"
-            }
-            secrecy_progress_bar = {
-                progresstexture = "gfx/interface/progressbars/house_unity/friendly.dds"
-            }
-            secrecy_progress_bar = {
-                progresstexture = "gfx/interface/progressbars/house_unity/harmonious.dds"
-            }
-            secrecy_progress_bar = {
-                progresstexture = "gfx/interface/progressbars/house_unity/harmonious.dds"
-            }
+            secrecy_progress_bar = { #Level 1
+				secrecy_animation_attention_bar = { blockoverride "animation_visible" { visible = "[GetScriptedGui( 'lotr_fellowship_secrecy_level_active' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'active_level_flag', MakeScopeFlag('secrecy_level_1') ).End )]" } }
+				value = "[GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'active_level_flag', MakeScopeFlag('secrecy_level_1') ).ScriptValue('lotr_secrecy_hud_display')]"
+			}
+            secrecy_progress_bar = { #Level 2
+				secrecy_animation_attention_bar = { blockoverride "animation_visible" { visible = "[GetScriptedGui( 'lotr_fellowship_secrecy_level_active' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'active_level_flag', MakeScopeFlag('secrecy_level_2') ).End )]" } } 
+				value = "[GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'active_level_flag', MakeScopeFlag('secrecy_level_2') ).ScriptValue('lotr_secrecy_hud_display')]"
+			}
+            secrecy_progress_bar = { #Level 3
+				secrecy_animation_attention_bar = { blockoverride "animation_visible" { visible = "[GetScriptedGui( 'lotr_fellowship_secrecy_level_active' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'active_level_flag', MakeScopeFlag('secrecy_level_3') ).End )]" } } 
+				value = "[GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'active_level_flag', MakeScopeFlag('secrecy_level_3') ).ScriptValue('lotr_secrecy_hud_display')]"
+			}
+            secrecy_progress_bar = { #Level 4
+				secrecy_animation_attention_bar = { blockoverride "animation_visible" { visible = "[GetScriptedGui( 'lotr_fellowship_secrecy_level_active' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'active_level_flag', MakeScopeFlag('secrecy_level_4') ).End )]" } } 
+				value = "[GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'active_level_flag', MakeScopeFlag('secrecy_level_4') ).ScriptValue('lotr_secrecy_hud_display')]"
+			}
+            secrecy_progress_bar = { #Level 5
+				secrecy_animation_attention_bar = { blockoverride "animation_visible" { visible = "[GetScriptedGui( 'lotr_fellowship_secrecy_level_active' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'active_level_flag', MakeScopeFlag('secrecy_level_5') ).End )]" } } 
+				value = "[GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'active_level_flag', MakeScopeFlag('secrecy_level_5') ).ScriptValue('lotr_secrecy_hud_display')]"
+			}
         }
 	}
 
-	type secrecy_arrow = widget {
-        hbox = {
-            block "marker" {
-                icon = {
-                    size = { 20 50 }
-                    texture = "gfx/interface/window_roco_grandeur/grandeur_bar_base_level.dds"
-                }
-                using = animation_state_move_arrow
-            }
-        }
-    }
-
-	type secrecy_progress_bar = progressbar_standard {
+	type secrecy_progress_bar = progressbar_secrecy {
         size = { 110 25 }
         min = 0
-        max = 50
-        value = 50
+        max = 20
+        value = 20
         alpha = 0.9
     }
 
-	type secrecy_active_stage = widget {
-        hbox = {
-            ignoreinvisible = no
-            position = { 2 160 }
-            secrecy_progress_bar = {
-                progresstexture = "gfx/interface/progressbars/house_unity/antagonistic.dds"
-                size = { 126 40 }
-                alpha = 1
-                secrecy_animation_attention_bar = {}
-                secrecy_arrow = {}
-            }
-            secrecy_progress_bar = {
-                progresstexture = "gfx/interface/progressbars/house_unity/competitive.dds"
-                size = { 126 40 }
-                alpha = 1
-                secrecy_animation_attention_bar = {}
-                secrecy_arrow = {}
-            }
-            secrecy_progress_bar = {
-                progresstexture = "gfx/interface/progressbars/house_unity/friendly.dds"
-                size = { 126 40 }
-                alpha = 1
-                secrecy_animation_attention_bar = {}
-                secrecy_arrow = {}
-            }
-            secrecy_progress_bar = {
-                progresstexture = "gfx/interface/progressbars/house_unity/harmonious.dds"
-                size = { 126 40 }
-                alpha = 1
-                secrecy_animation_attention_bar = {}
-                secrecy_arrow = {}
-            }
-        }
-	}
-
-	type secrecy_animation_attention_bar = icon {
-		name = "bar_effect"
-		parentanchor = center
-		size = { 100% 100% }
-
-		spriteType = Corneredtiled
-		spriteborder = { 10 10 }
-
-		texture = "gfx/interface/component_effects/attention_text.dds"
-		using = Color_White
-
-		state = {
-			trigger_on_create = yes
-			name = a
-			next = b
-
-			using = Animation_Curve_Default
-			duration = 0.8
-			alpha = 1
-		}
-
-		state = {
-			name = b
-			next = a
-
-			using = Animation_Curve_Default
-			duration = 1.5
-			alpha = 0.5
-		}
-
-        ### Horizontal Wipe Animation Left
-		icon = {
-			size = { 100% 90% }
-			parentanchor = vcenter
-			texture = "gfx/interface/colors/white.dds"
-			alpha = 0
-
-			modify_texture = {
-				name = "horizontal_wipe"
-				texture = "gfx/interface/progressbars/progressbar_center_glow_white_decrease.dds"
-				blend_mode = alphamultiply
-			}
-
-			state = {
-				name = a
-				next = b
-				trigger_on_create = yes
-				duration = 0
-				alpha = 0
-
-				modify_texture = {
-					name = "horizontal_wipe"
-					translate_uv = { -0.5 0 }
-				}
-			}
-
-			state = {
-				name = b
-				next = c
-				duration = 1
-				alpha = 1
-
-				modify_texture = {
-					name = "horizontal_wipe"
-					translate_uv = { 1 0 }
-				}
-			}
-
-			state = {
-				name = c
-				next = a
-				duration = 0.5
-				alpha = 0
-				delay = 1.5
-			}
-		}
-
-		### Horizontal Wipe Animation Right
-		icon = {
-			size = { 100% 90% }
-			parentanchor = vcenter
-			texture = "gfx/interface/colors/white.dds"
-			alpha = 0
-
-			modify_texture = {
-				name = "horizontal_wipe"
-				texture = "gfx/interface/progressbars/progressbar_center_glow_white_increase.dds"
-				blend_mode = alphamultiply
-			}
-
-			state = {
-				name = a
-				next = b
-				trigger_on_create = yes
-				duration = 0
-				alpha = 0
-
-				modify_texture = {
-					name = "horizontal_wipe"
-					translate_uv = { 0.5 0 }
-				}
-			}
-
-			state = {
-				name = b
-				next = c
-				duration = 1
-				alpha = 1
-
-				modify_texture = {
-					name = "horizontal_wipe"
-					translate_uv = { -1 0 }
-				}
-			}
-
-			state = {
-				name = c
-				next = a
-				duration = 0.5
-				alpha = 0
-				delay = 1.5
-			}
-		}
-	}
-}
-
-template animation_state_move_arrow {
-    state = {
-        trigger_on_create = yes
-        name = a
-        next = b
-        position_x = 5
-        position_y = -5
-    }
-    state = {
-        name = b
-        next = a
-        position_x = 5
-        # position_x = "[FixedPointToFloat(Scope.ScriptValue('convert_secrecy_value_to_bar_size'))]"
-        position_y = -5
+	###Camp Unity + Corruption ###
+	type camp_unity_progress_bar = progressbar_camp_unity {
+        size = { 560 25 }
+        min = 0
+        max = 100
+        value = 50
+        alpha = 0.9
     }
 }

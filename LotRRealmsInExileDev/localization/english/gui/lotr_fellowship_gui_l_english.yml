@@ -1,3 +1,6 @@
 ﻿l_english:
+ FELLOWSHIP_TITLE: "The Fellowship"
+ FELLOWSHIP_TITLE_HUD: "The Fellowship"
+ FELLOWSHIP_TOOLTIP_HUD: "$FELLOWSHIP_TITLE_HUD$"
  secrecy_bar_progress_bar: "Secrecy"
- corruption_bar_progress_bar: "Corruption"
+ camp_unity_progress_bar: "Camp Unity"

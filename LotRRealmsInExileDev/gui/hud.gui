@@ -664,7 +664,7 @@ widget = {
 						datacontext = "[GetPlayer]"
 						datacontext = "[AccessLocalPlayerCachedData]" 
 						# enabled = "[And(GetScriptedGui('can_craft_artifacts').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End), And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), GetPlayer.IsValid), IsDefaultGUIMode)))]"
-							
+						visible = "[GetScriptedGui('lotr_fellowship_hud_visible').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 						tooltipwidget = {
 							container_fellowship_tooltip = {}
 						}
@@ -683,8 +683,8 @@ widget = {
 	
 						blockoverride "maintab_button"
 						{
-							texture = "gfx/interface/icons/traits/elf-crafter.dds"
-							size = { 40 40 }
+							texture = "gfx/interface/icons/artifact/artefact_icons_unique_ring_of_stonefoots.dds"
+							size = { 50 50 }
 							onclick = "[GetVariableSystem.Toggle('lotr_fellowship')]"
 							down = "[GetVariableSystem.Exists('lotr_fellowship')]"
 							onclick = "[CloseGameView('my_realm')]"
@@ -6823,7 +6823,7 @@ types HUD
 			blockoverride "title_text"
 			{
 				margin = { 0 3 }
-				text = "CRAFTING_TITLE_HUD"
+				text = "FELLOWSHIP_TITLE_HUD"
 				default_format = "#T"
 			}
 
@@ -6839,7 +6839,7 @@ types HUD
 
 					cooltip_paragraph = {
 						visible = "[Not( GetScriptedGui('can_craft_artifacts').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End) )]"
-						text = "CRAFTING_TOOLTIP_HUD"
+						text = "FELLOWSHIP_TOOLTIP_HUD"
 					}
 
 					spacer = {
