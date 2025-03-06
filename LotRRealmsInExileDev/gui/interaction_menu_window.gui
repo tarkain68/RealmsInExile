@@ -132,13 +132,19 @@ window = {
 				}
 			}
 
+			scrollbox = {
+				size = { 354 800 }
 
-			dynamicgridbox = {
-				name = "category_interaction_list"
-				datamodel = "[CharacterInteractionMenuWindow.GetCategoryItems]"
+				blockoverride "scrollbox_content"
+				{
+					dynamicgridbox = {
+						name = "category_interaction_list"
+						datamodel = "[CharacterInteractionMenuWindow.GetCategoryItems]"
 
-				item = {
-					flowcontainer_category_group = {}
+						item = {
+							flowcontainer_category_group = {}
+						}
+					}
 				}
 			}
 		}
@@ -174,4 +180,5 @@ window = {
 			}
 		}
 	}
+
 }
