@@ -1,1 +1,61 @@
-﻿
+﻿####################################
+#
+#   ### Search these Titles ###
+#
+#   Fellowship - Fellowship Related Effects
+#   Secrecy - Secrecy Related Effects
+#   Corruption - Corruption Related Effects
+#
+##################################
+
+##################
+### Fellowship ###
+##################
+
+set_fellowship_member = {
+    add_to_global_variable_list = {
+        name = lotr_fellowship_members
+        target = $CHARACTER$
+    }
+}
+
+remove_fellowship_member = {
+    remove_list_global_variable = {
+        name = lotr_fellowship_members
+        target = $CHARACTER$
+    }
+}
+
+set_member_as_ringbearer = {
+    
+}
+
+###############
+### Secrecy ###
+###############
+
+increase_fellowship_secrecy = {
+
+}
+
+decrease_fellowship_secrecy = {
+    
+}
+
+##################
+### Corruption ###
+##################
+
+increase_fellowship_member_corruption = {
+    increase_variable = {
+        NAME = corruption
+        AMOUNT = $VALUE$
+    }
+}
+
+decrease_fellowship_member_corruption = {
+    decrease_variable = {
+        NAME = corruption
+        AMOUNT = $VALUE$
+    }
+}

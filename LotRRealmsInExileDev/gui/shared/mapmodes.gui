@@ -4,7 +4,7 @@ types MapModes
 		ignoreinvisible = yes
 
 		button_round  = {
-			visible = "[And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode )]"
+			visible = "[And(And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode ),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 			name = "map_mode_simple_realms_button"
 			onclick = "[SetMapMode('simple_realms')]"
 			raw_text = "Srlm"
@@ -12,7 +12,7 @@ types MapModes
 		}
 
 		button_round  = {
-			visible = "[And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode )]"
+			visible = "[And(And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode ),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 			name = "map_mode_terrain_button"
 			onclick = "[SetMapMode('terrain')]"
 			raw_text = "Ter"
@@ -20,7 +20,7 @@ types MapModes
 		}
 
 		button_round  = {
-			visible = "[And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode )]"
+			visible = "[And(And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode ),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 			name = "map_mode_baronies_button"
 			onclick = "[SetMapMode('baronies')]"
 			raw_text = "Bar"
@@ -28,7 +28,7 @@ types MapModes
 		}
 
 		button_round  = {
-			visible = "[And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode )]"
+			visible = "[And(And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode ),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 			name = "map_mode_realm_areas_button"
 			onclick = "[SetMapMode('realm_areas')]"
 			raw_text = "Area"
@@ -36,7 +36,7 @@ types MapModes
 		}
 
 		button_round  = {
-			visible = "[And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode )]"
+			visible = "[And(And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode ),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 			name = "map_mode_diplomacy_button"
 			onclick = "[SetMapMode('diplomacy')]"
 			raw_text = "Diplo"
@@ -44,21 +44,21 @@ types MapModes
 		}
 
 		button_round  = {
-			visible = "[And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode )]"
+			visible = "[And(And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode ),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 			onclick = "[SetMapMode('debug_character_pools')]"
 			raw_text = "Pools"
 			raw_tooltip = "Character Pools"
 		}
 
 		button_round  = {
-			visible = "[And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode )]"
+			visible = "[And(And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode ),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 			onclick = "[SetMapMode('debug_ai_war_coordinator_targets')]"
 			raw_text = "AI"
 			raw_tooltip = "AI War Coordinator targets"
 		}
 
 		button_round  = {
-			visible = "[And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode )]"
+			visible = "[And(And( Not(IsGameViewOpen('barbershop')), CanChangeMapMode ),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 			onclick = "[SetMapMode('debug_visual_regions')]"
 			raw_text = "Reg"
 			raw_tooltip = "Visual Geographical Regions"
@@ -78,14 +78,14 @@ types MapModes
 			margin_top = -12
 			margin_right = 10
 			color = { 0.15 0.15 0.15 0.75 }
-			visible = "[And(CanChangeMapMode, Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_timeline').GetValue, '(CFixedPoint)0' ) ))]"
+			visible = "[And(And(CanChangeMapMode, Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_timeline').GetValue, '(CFixedPoint)0' ) )),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 		}
 
 		@zoom_level_offset = -40
 
 		flowcontainer = {
 			name = "paper_map"
-			visible = "[And(And( And( Not( GetVariableSystem.Exists( 'mapmodes_expand' ) ), IsMapMode('realms') ), IsDefaultGUIMode ), Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_map_zoom').GetValue, '(CFixedPoint)0' ) ))]"
+			visible = "[And(And(And( And( Not( GetVariableSystem.Exists( 'mapmodes_expand' ) ), IsMapMode('realms') ), IsDefaultGUIMode ), Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_map_zoom').GetValue, '(CFixedPoint)0' ) )),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 			parentanchor = top|right
 			position = { 0 @zoom_level_offset }
 			direction = vertical
@@ -126,7 +126,7 @@ types MapModes
 
 		flowcontainer = {
 			name = "political_map"
-			visible = "[And(And( And( Not( GetVariableSystem.Exists( 'mapmodes_expand' ) ), IsMapMode('realms') ), IsDefaultGUIMode ), Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_map_zoom').GetValue, '(CFixedPoint)0' ) ))]"
+			visible = "[And(And(And( And( Not( GetVariableSystem.Exists( 'mapmodes_expand' ) ), IsMapMode('realms') ), IsDefaultGUIMode ), Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_map_zoom').GetValue, '(CFixedPoint)0' ) )),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 			parentanchor = top|right
 			position = { 0 @zoom_level_offset }
 			direction = vertical
@@ -167,7 +167,7 @@ types MapModes
 
 		flowcontainer = {
 			name = "details_map"
-			visible = "[And(And( And(Not(GetVariableSystem.Exists( 'mapmodes_expand' )), IsMapMode('realms')), IsDefaultGUIMode ), Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_map_zoom').GetValue, '(CFixedPoint)0' ) ))]"
+			visible = "[And(And(And( And(Not(GetVariableSystem.Exists( 'mapmodes_expand' )), IsMapMode('realms')), IsDefaultGUIMode ), Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_map_zoom').GetValue, '(CFixedPoint)0' ) )),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 			parentanchor = top|right
 			position = { 0 @zoom_level_offset }
 			direction = vertical
@@ -211,7 +211,7 @@ types MapModes
 			name = "map_mode_realms_button"
 			position = { 0 25 }
 			size = { 50 50 }
-			visible = "[And(CanChangeMapMode, Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_timeline').GetValue, '(CFixedPoint)0' ) ))]"
+			visible = "[And(And(CanChangeMapMode, Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_timeline').GetValue, '(CFixedPoint)0' ) )),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 
 			blockoverride 'mm_datacontext'
 			{
@@ -243,7 +243,7 @@ types MapModes
 			parentanchor = right|bottom
 			margin_right = 15
 			direction = vertical
-			visible = "[And(CanChangeMapMode, Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_timeline').GetValue, '(CFixedPoint)0' ) ))]"
+			visible = "[And(And(CanChangeMapMode, Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_timeline').GetValue, '(CFixedPoint)0' ) )),Not(GetVariableSystem.Exists( 'lotr_fellowship' )))]"
 
 			## De Jure
 			flowcontainer = {
@@ -396,6 +396,7 @@ types MapModes
 			widgetanchor = bottom|right
 			position = { 20 21 }
 		}
+	
 	}
 
 	type mm_text_button = button_tertiary {

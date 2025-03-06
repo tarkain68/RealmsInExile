@@ -3,4 +3,8 @@
  FELLOWSHIP_TITLE_HUD: "The Fellowship"
  FELLOWSHIP_TOOLTIP_HUD: "$FELLOWSHIP_TITLE_HUD$"
  secrecy_bar_progress_bar: "Secrecy"
- camp_unity_progress_bar: "Camp Unity"
+ camp_unity_progress_bar: "Fellowship Unity"
+ 
+ lotr_fellowship_tab_secrecy: "Secrecy"
+ lotr_fellowship_tab_corruption: "Fellowship Unity"
+ secrecy_level_tt: "[EmptyScope.ScriptValue('lotr_current_secrecy')]/100"

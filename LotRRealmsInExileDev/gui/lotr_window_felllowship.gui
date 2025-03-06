@@ -39,7 +39,7 @@
 				vbox = {
 					using = Window_Margins
 
-					header_pattern = {
+					header_pattern = { #Header
 						layoutpolicy_horizontal = expanding
 
 						blockoverride "header_text"
@@ -56,65 +56,332 @@
 					widget = {
 						layoutpolicy_horizontal = expanding
 						layoutpolicy_vertical = expanding
+
+						background = {
+							using = Background_Area
+						}
+						
 						vbox = {
 							spacing = 20
-							spacer = { size = { 0 0 } }
+							#Ring bearer + group
+							widget = {
+								layoutpolicy_horizontal = expanding
+								size = { 500 500 }
+								
+								background = {
+									using = Background_Area_Dark
+									alpha = 0.7 
+								}
+								### Center ###
+								fellowship_portrait_head = {
+									datacontext = "[GetPlayer]"
+									parentanchor = hcenter
+								}
+
+								### Left Side ###
+								fellowship_portrait_head = {
+									datacontext = "[GetPlayer]"
+									parentanchor = center
+									position = { -120 -140 }
+								}
+								fellowship_portrait_head = {
+									datacontext = "[GetPlayer]"
+									parentanchor = center
+									position = { -200 -40 }
+								}
+								fellowship_portrait_head = {
+									datacontext = "[GetPlayer]"
+									parentanchor = center
+									position = { -180 90 }
+								}
+								fellowship_portrait_head = {
+									datacontext = "[GetPlayer]"
+									parentanchor = center
+									position = { -70 170 }
+								}
+								
+								### Right Side ###
+								fellowship_portrait_head = {
+									datacontext = "[GetPlayer]"
+									parentanchor = center
+									position = { 120 -140 }
+								}
+								fellowship_portrait_head = {
+									datacontext = "[GetPlayer]"
+									parentanchor = center
+									position = { 200 -40 }
+								}
+								fellowship_portrait_head = {
+									datacontext = "[GetPlayer]"
+									parentanchor = center
+									position = { 180 90 }
+								}
+								fellowship_portrait_head = {
+									datacontext = "[GetPlayer]"
+									parentanchor = center
+									position = { 70 170 }
+								}
+
+								### One Ring Icon ###
+								icon = {
+									size = { 125 125 }
+									texture = "gfx/interface/icons/character_interactions/realms_debug.dds"
+									parentanchor = center
+								}
+							}
+						
+							# Tabs setup
+							oncreate = "[BindTabsContext]"
+							oncreate = "[PdxGuiTabs.AddTab( 'secrecy' )]"
+							oncreate = "[PdxGuiTabs.AddTab( 'corruption' )]"
+
+							### Tabs header
+
+							hbox_tab_buttons = {
+								name = "tab_buttons"
+
+								blockoverride "button_tab"
+								{
+									texture = "gfx/interface/buttons/button_tab_light_bg.dds"
+								}
+
+								blockoverride "tab_name"
+								{
+									text = "[PdxGuiTabItem.LocalizeTab( 'lotr_fellowship_tab' )]"
+									default_format = "#high"
+								}
+							}
+							
 							#Secrecy
-							text_single = {
-								text = "secrecy_bar_progress_bar"
-               			 		default_format = "#high"
-                				fontsize = 18
+							vbox = {
+								visible = "[PdxGuiTabs.IsTabSet( 'secrecy' )]"
+								spacing = 30
+								layoutpolicy_horizontal = expanding
+								layoutpolicy_vertical = expanding
+								
+								hbox = {
+									layoutpolicy_horizontal = expanding
+									widget = { #Current Secrecy
+										size = { 110 20 }
 
-								background = {
-									margin = { 40 15 }
-									using = Background_Area
-									using = Mask_Rough_Edges
-									modify_texture = {
-										texture = "gfx/interface/component_masks/event_effect_mask.dds"
-										blend_mode = alphaMultiply
+										background = {
+											margin = { 40 15 }
+											using = Background_Area
+											using = Mask_Rough_Edges
+											modify_texture = {
+												texture = "gfx/interface/component_masks/event_effect_mask.dds"
+												blend_mode = alphaMultiply
+											}
+											modify_texture = {
+												texture = "gfx/interface/component_masks/mask_scratches.dds"
+												blend_mode = alphamultiply
+												spriteType = corneredTiled
+											}
+										}
+										text_single = {
+											text = "[EmptyScope.ScriptValue('lotr_current_secrecy')]"
+											default_format = "#high"
+											fontsize = 18
+											parentanchor = center
+										}
 									}
-									modify_texture = {
-										texture = "gfx/interface/component_masks/mask_scratches.dds"
-										blend_mode = alphamultiply
-										spriteType = corneredTiled
+									widget = { #Active Stage
+										size = { 110 20 }
+
+										background = {
+											margin = { 40 15 }
+											using = Background_Area
+											using = Mask_Rough_Edges
+											modify_texture = {
+												texture = "gfx/interface/component_masks/event_effect_mask.dds"
+												blend_mode = alphaMultiply
+											}
+											modify_texture = {
+												texture = "gfx/interface/component_masks/mask_scratches.dds"
+												blend_mode = alphamultiply
+												spriteType = corneredTiled
+											}
+										}
+										text_single = {
+											raw_text = "Active Stage"
+											default_format = "#high"
+											fontsize = 18
+											parentanchor = center
+										}
+									}
+									widget = { #Monthly Change
+										size = { 110 20 }
+
+										background = {
+											margin = { 40 15 }
+											using = Background_Area
+											using = Mask_Rough_Edges
+											modify_texture = {
+												texture = "gfx/interface/component_masks/event_effect_mask.dds"
+												blend_mode = alphaMultiply
+											}
+											modify_texture = {
+												texture = "gfx/interface/component_masks/mask_scratches.dds"
+												blend_mode = alphamultiply
+												spriteType = corneredTiled
+											}
+										}
+										text_single = {
+											raw_text = "Monthly Change"
+											default_format = "#high"
+											fontsize = 18
+											parentanchor = center
+										}
+									}
+								}
+								
+								secrecy_stages = {}
+
+								scrollbox = {
+									size = { 520 240 }
+
+									blockoverride "scrollbox_content"
+									{
+										text_single = { raw_text = "Secrecy Effects" }
 									}
 								}
 							}
-							secrecy_stages = {}
-
-							spacer = { size = { 0 0 } }
+					
 							#Camp Unity
-							text_single = {
-								text = "camp_unity_progress_bar"
-								default_format = "#high"
-								fontsize = 18
+							vbox = {
+								visible = "[PdxGuiTabs.IsTabSet( 'corruption' )]"
+								spacing = 30
+								layoutpolicy_vertical = expanding
+								layoutpolicy_horizontal = expanding
 
-								background = {
-									margin = { 20 15 }
-									using = Background_Area
-									using = Mask_Rough_Edges
-									modify_texture = {
-										texture = "gfx/interface/component_masks/event_effect_mask.dds"
-										blend_mode = alphaMultiply
+								hbox = {
+									layoutpolicy_horizontal = expanding
+									widget = { #Current Secrecy
+										size = { 110 20 }
+
+										background = {
+											margin = { 40 15 }
+											using = Background_Area
+											using = Mask_Rough_Edges
+											modify_texture = {
+												texture = "gfx/interface/component_masks/event_effect_mask.dds"
+												blend_mode = alphaMultiply
+											}
+											modify_texture = {
+												texture = "gfx/interface/component_masks/mask_scratches.dds"
+												blend_mode = alphamultiply
+												spriteType = corneredTiled
+											}
+										}
+										text_single = {
+											text = "[EmptyScope.ScriptValue('lotr_current_secrecy')]"
+											default_format = "#high"
+											fontsize = 18
+											parentanchor = center
+										}
 									}
-									modify_texture = {
-										texture = "gfx/interface/component_masks/mask_scratches.dds"
-										blend_mode = alphamultiply
-										spriteType = corneredTiled
+									widget = { #Active Stage
+										size = { 110 20 }
+
+										background = {
+											margin = { 40 15 }
+											using = Background_Area
+											using = Mask_Rough_Edges
+											modify_texture = {
+												texture = "gfx/interface/component_masks/event_effect_mask.dds"
+												blend_mode = alphaMultiply
+											}
+											modify_texture = {
+												texture = "gfx/interface/component_masks/mask_scratches.dds"
+												blend_mode = alphamultiply
+												spriteType = corneredTiled
+											}
+										}
+										text_single = {
+											raw_text = "Active Stage"
+											default_format = "#high"
+											fontsize = 18
+											parentanchor = center
+										}
+									}
+									widget = { #Monthly Change
+										size = { 110 20 }
+
+										background = {
+											margin = { 40 15 }
+											using = Background_Area
+											using = Mask_Rough_Edges
+											modify_texture = {
+												texture = "gfx/interface/component_masks/event_effect_mask.dds"
+												blend_mode = alphaMultiply
+											}
+											modify_texture = {
+												texture = "gfx/interface/component_masks/mask_scratches.dds"
+												blend_mode = alphamultiply
+												spriteType = corneredTiled
+											}
+										}
+										text_single = {
+											raw_text = "Monthly Change"
+											default_format = "#high"
+											fontsize = 18
+											parentanchor = center
+										}
+									}
+								}
+								
+								camp_unity_progress_bar = {}
+
+								scrollbox = {
+									size = { 520 240 }
+
+									blockoverride "scrollbox_content"
+									{
+										text_single = { raw_text = "Camp Unity Effects" }
 									}
 								}
 							}
-							camp_unity_progress_bar = {}
 
 							expand = {}
-							#Ring bearer
-							hbox = {
-								# 2 scrollboxes
-							}
 						}
 					}
 				}
 			}
+		}
+	}
+
+	### Fellowship ###
+	type fellowship_portrait_head = widget { 
+		size = { 110 120 }
+		widget = {
+			size = { 100% 100% }
+			background = {
+				visible = "[Not(Character.IsHovered)]"
+				using = Background_Portrait_Glow
+				color = { 1 0.7 0.2 0.1 }
+			}
+			background = {
+				name = "hovered"
+				visible = "[Character.IsHovered]"
+				using = Background_Portrait_Glow
+				color = { 0.9 0.8 0.6 0.15 }
+			}
+
+			block "empty_character" {}
+		}
+		portrait_button = {
+			parentanchor = bottom|hcenter
+			size = { 100 125 }
+			using = portrait_base
+
+			block "portrait_texture" {
+				portrait_texture = "[Character.GetPortrait('environment_head', 'camera_head', 'idle', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+			}
+
+			mask = "gfx/portraits/portrait_mask_head.dds"
+			effectname = "NoHighlight"
+
+			block "portrait_button" {}
 		}
 	}
 
@@ -255,7 +522,7 @@
 	}
 
 	type secrecy_stages = widget {
-		size = { 560 25 }
+		size = { 520 25 }
         hbox = {
 			layoutpolicy_horizontal = expanding
             secrecy_progress_bar = { #Level 1
@@ -282,19 +549,710 @@
 	}
 
 	type secrecy_progress_bar = progressbar_secrecy {
-        size = { 110 25 }
+        size = { 100 25 }
         min = 0
         max = 20
         value = 20
         alpha = 0.9
+		tooltip = secrecy_level_tt
     }
 
 	###Camp Unity + Corruption ###
 	type camp_unity_progress_bar = progressbar_camp_unity {
-        size = { 560 25 }
+        size = { 520 25 }
         min = 0
         max = 100
         value = 50
         alpha = 0.9
     }
+
+	### UNITYBAR ###
+	# type house_unity_stage = icon {
+	# 	datacontext = "[GUIHouseUnityStage.GetHouseUnityStage]"
+
+	# 	layoutpolicy_horizontal = expanding
+
+	# 	block "size" {
+	# 		size = { 50 20 }
+	# 	}
+
+	# 	# visible = "[And(HouseUnityStage.IsValid, Not(GUIHouseUnityStage.IsActive))]"
+	# 	texture = "[HouseUnityStage.GetProgressBar]"
+
+	# 	block "stage_icon" { }
+
+	# 	spriteborder = { 6 6 }
+	# 	spriteType = Corneredtiled
+
+	# 	tooltipwidget = {
+	# 		house_unity_stage_tooltip = {}
+	# 	}
+	# }
+
+	# type house_unity_stage_active = house_unity_stage {
+	# 	# visible = "[And(HouseUnityStage.IsValid, GUIHouseUnityStage.IsActive)]"
+	# 	animation_attention_bar = {}
+
+	# 	### Horizontal Wipe Animation Left
+	# 	icon = {
+	# 		size = { 100% 90% }
+	# 		parentanchor = vcenter
+	# 		texture = "gfx/interface/colors/white.dds"
+	# 		alpha = 0
+
+	# 		modify_texture = {
+	# 			name = "horizontal_wipe"
+	# 			texture = "gfx/interface/progressbars/progressbar_center_glow_white_decrease.dds"
+	# 			blend_mode = alphamultiply
+	# 		}
+
+	# 		state = {
+	# 			name = a
+	# 			next = b
+	# 			trigger_on_create = yes
+	# 			duration = 0
+	# 			alpha = 0
+
+	# 			modify_texture = {
+	# 				name = "horizontal_wipe"
+	# 				translate_uv = { -0.5 0 }
+	# 			}
+	# 		}
+
+	# 		state = {
+	# 			name = b
+	# 			next = c
+	# 			duration = 1
+	# 			alpha = 1
+	# 			on_finish = "[PdxGuiTriggerAllAnimations('grandeur_bar_glow')]"
+
+	# 			modify_texture = {
+	# 				name = "horizontal_wipe"
+	# 				translate_uv = { 1 0 }
+	# 			}
+	# 		}
+
+	# 		state = {
+	# 			name = c
+	# 			next = a
+	# 			duration = 0.5
+	# 			alpha = 0
+	# 			delay = 1.5
+	# 		}
+	# 	}
+
+	# 	### Horizontal Wipe Animation Right
+	# 	icon = {
+	# 		size = { 100% 90% }
+	# 		parentanchor = vcenter
+	# 		texture = "gfx/interface/colors/white.dds"
+	# 		alpha = 0
+
+	# 		modify_texture = {
+	# 			name = "horizontal_wipe"
+	# 			texture = "gfx/interface/progressbars/progressbar_center_glow_white_increase.dds"
+	# 			blend_mode = alphamultiply
+	# 		}
+
+	# 		state = {
+	# 			name = a
+	# 			next = b
+	# 			trigger_on_create = yes
+	# 			duration = 0
+	# 			alpha = 0
+
+	# 			modify_texture = {
+	# 				name = "horizontal_wipe"
+	# 				translate_uv = { 0.5 0 }
+	# 			}
+	# 		}
+
+	# 		state = {
+	# 			name = b
+	# 			next = c
+	# 			duration = 1
+	# 			alpha = 1
+	# 			on_finish = "[PdxGuiTriggerAllAnimations('grandeur_bar_glow')]"
+
+	# 			modify_texture = {
+	# 				name = "horizontal_wipe"
+	# 				translate_uv = { -1 0 }
+	# 			}
+	# 		}
+
+	# 		state = {
+	# 			name = c
+	# 			next = a
+	# 			duration = 0.5
+	# 			alpha = 0
+	# 			delay = 1.5
+	# 		}
+	# 	}
+
+
+	# 	widget = {
+	# 		position = "[GUIHouseUnityStage.GetMarkerPosition(PdxGuiWidget.Self)]"
+
+	# 		icon = {
+	# 			block "marker_glow_attributes" {
+	# 				position = { -17 2 }
+	# 				size = { 25 28 }
+	# 			}
+	# 			texture = "gfx/interface/progressbars/progressbar_center_glow.dds"
+	# 			color = { 0.75 0.89 0.97 0.9 }
+	# 		}
+
+	# 		block "marker" {
+	# 			icon = {
+	# 				size = { 12 34 }
+	# 				position = { -5 -2 }
+	# 				texture = "gfx/interface/window_roco_grandeur/grandeur_bar_base_level.dds"
+	# 			}
+	# 		}
+	# 	}
+
+	# 	block "stage_icon" {}
+	# }
+
+	# type widget_house_unity_status_bar = widget {
+	# 	size = { 100% 100% }
+
+	# 	widget = {
+	# 		size = { 98% 20 }
+	# 		parentanchor = bottom|hcenter
+	# 		position = { 0 -64}
+
+	# 		background = {
+	# 			using = Background_Area_ExtraDark
+	# 		}
+	# 	}
+
+	# 	hbox = {
+	# 		layoutpolicy_horizontal = expanding
+	# 		layoutpolicy_vertical = expanding
+
+	# 		margin_left = 20
+	# 		margin_right = 20
+
+	# 		datamodel = "[DynastyHouseView.GetHouseUnityStages]"
+
+	# 		item = {
+	# 			hbox = {
+	# 				layoutpolicy_horizontal = expanding
+	# 				layoutpolicy_vertical = expanding
+	# 				layoutstretchfactor_horizontal = "[GUIHouseUnityStage.GetWeight]"
+
+	# 				widget = {
+	# 					icon = {
+	# 						size = { 30 40 }
+	# 						position = { -15 -10 }
+	# 						texture = "gfx/interface/window_dynasty_house/small_arrow.dds"
+	# 						alpha = 1
+
+	# 						text_single = {
+	# 							parentanchor = center
+	# 							position = { 0 -10 }
+	# 							text = "[GUIHouseUnityStage.GetValue]"
+	# 							align = center
+	# 						}
+	# 					}
+	# 				}
+
+	# 				house_unity_stage = {
+	# 					blockoverride "size" {
+	# 						size = { 50 25 }
+	# 					}
+
+	# 					blockoverride "stage_icon" {
+	# 						icon = {
+	# 							texture = "[HouseUnityStage.GetIcon]"
+	# 							size = { 50 50 }
+	# 							position = { 0 -35 }
+	# 							parentanchor = center
+
+	# 							modify_texture = {
+	# 								texture = "gfx/interface/colors/grey.dds"
+	# 								alpha = 0.3
+	# 								blend_mode = multiply
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+
+	# 				house_unity_stage_active = {
+	# 					blockoverride "size" {
+	# 						size = { 50 40 }
+	# 					}
+
+	# 					blockoverride "marker_glow_attributes" {
+	# 						position = { -10 2 }
+	# 						size = { 14 35 }
+	# 					}
+
+	# 					blockoverride "marker" {
+	# 						icon = {
+	# 							size = { 45 45 }
+	# 							position = { -22 15 }
+	# 							texture = "gfx/interface/window_dynasty_house/unity_arrow.dds"
+	# 						}
+	# 					}
+
+	# 					blockoverride "stage_icon" {
+	# 						icon = {
+	# 							texture = "[HouseUnityStage.GetIcon]"
+	# 							position = { 0 -40 }
+	# 							size = { 70 70 }
+	# 							parentanchor = center
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }
+
+	# type house_unity_stage_tooltip = object_tooltip_pop_out {
+	# 	alwaystransparent = no
+
+	# 	blockoverride "header_additions"
+	# 	{
+	# 		hbox = {
+	# 			margin_right = 10
+	# 			margin_top = 8
+	# 			margin_left = -4
+
+	# 			icon = {
+	# 				size = { 52 52 }
+	# 				texture = "[HouseUnityStage.GetIcon]"
+	# 			}
+	# 		}
+	# 	}
+
+	# 	blockoverride "title_text" {
+	# 		margin = { 0 8 }
+	# 		text = "[HouseUnityStage.GetNameNoTooltip]"
+	# 		default_format = "#T"
+	# 	}
+
+	# 	blockoverride "main_description" {
+	# 		textbox = {
+	# 			name = "main_description"
+	# 			layoutpolicy_horizontal = expanding
+	# 			max_width = 400
+	# 			margin_top = 5
+	# 			margin_bottom = 15
+	# 			using = DefaultTooltipText
+	# 			multiline = yes
+	# 			text = "[HouseUnityStage.GetDescription]"
+	# 			fonttintcolor = "[TooltipInfo.GetTintColor]"
+	# 			alwaystransparent = no
+	# 		}
+
+	# 		text_multi = {
+	# 			visible = "[DynastyHouse.IsPlayerMember]"
+	# 			layoutpolicy_horizontal = expanding
+	# 			max_width = 400
+	# 			margin_top = 5
+	# 			margin_bottom = 15
+	# 			using = DefaultTooltipText
+	# 			multiline = yes
+	# 			text = "[HouseUnityStage.GetAffectHouseUnityDesc(GetPlayer)]"
+	# 			fonttintcolor = "[TooltipInfo.GetTintColor]"
+	# 			alwaystransparent = no
+	# 		}
+
+	# 		vbox = {
+	# 			layoutpolicy_horizontal = expanding
+	# 			spacing = 3
+	# 			margin_bottom = 10
+
+	# 			text_label_left  = {
+	# 				layoutpolicy_horizontal = expanding
+	# 				margin_left = 16
+	# 				text = "HOUSE_UNITY_EFFECTS_TITLE"
+	# 			}
+
+	# 			text_multi = {
+	# 				layoutpolicy_horizontal = expanding
+	# 				max_width = 400
+	# 				autoresize = yes
+	# 				text = "[HouseUnityStage.GetModifierDesc]"
+	# 			}
+	# 		}
+
+	# 		vbox = {
+	# 			layoutpolicy_horizontal = expanding
+	# 			block "decisions_visibility" {
+	# 				visible = "[DataModelHasItems( DynastyHouseView.GetDecisions(HouseUnityStage.Self) )]"
+	# 			}
+
+	# 			text_label_left  = {
+	# 				layoutpolicy_horizontal = expanding
+	# 				margin_left = 16
+	# 				text = "HOUSE_UNITY_DECISIONS_TITLE"
+	# 			}
+
+	# 			vbox = {
+	# 				layoutpolicy_horizontal = expanding
+	# 				block "decisions_datamodel" {
+	# 					datamodel = "[DynastyHouseView.GetDecisions(HouseUnityStage.Self)]"
+	# 				}
+	# 				margin_left = 6
+
+	# 				item = {
+	# 					hbox = {
+	# 						layoutpolicy_horizontal = expanding
+
+	# 						text_single = {
+	# 							visible = "[Decision.IsValid]"
+	# 							text = "[Decision.GetName]"
+	# 							align = nobaseline
+	# 							layoutpolicy_horizontal = expanding
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+
+	# 	blockoverride "concept_link" {
+	# 		text = "[house_unity_level|E]"
+	# 	}
+	# }
+
+	# type button_unity_decision = button_standard {
+	# 	size = { 300 45 }
+
+	# 	block "decision_context" { }
+
+	# 	tooltipwidget = {
+	# 		decision_tooltip = {}
+	# 	}
+
+	# 	onclick = "[DynastyHouseView.OnDecisionClick(Decision.Self)]"
+
+	# 	widget = {
+	# 		datacontext = "[DynastyHouse.GetFounder]"
+	# 		scissor = yes
+	# 		parentanchor = right|top
+
+	# 		block "size_illustration" {
+	# 			size = { 250 43 }
+	# 		}
+
+	# 		icon = {
+	# 			name = "illustration"
+	# 			parentanchor = right|top
+	# 			size = { 250 100 }
+
+	# 			mirror = horizontal
+	# 			texture = "[Decision.GetPicture( Character.Self )]"
+	# 			alpha = 0.7
+
+	# 			visible = "[Decision.IsPossibleForPlayer]"
+
+	# 			using = Mask_Rough_Edges
+
+	# 			modify_texture = {
+	# 				texture = "gfx/interface/component_masks/mask_fade_horizontal_extended.dds"
+	# 				blend_mode = alphamultiply
+	# 			}
+	# 		}
+
+	# 		highlight_icon = {
+	# 			parentanchor = right|top
+	# 			size = { 250 100 }
+
+	# 			mirror = horizontal
+	# 			texture = "[Decision.GetPicture( Character.Self )]"
+	# 			alpha = 0.7
+
+	# 			visible = "[Not(Decision.IsPossibleForPlayer)]"
+
+	# 			effectname = "GreyedOut"
+
+	# 			tintcolor = { 0.6 0.6 0.6 0.7 }
+
+	# 			using = Mask_Rough_Edges
+
+	# 			modify_texture = {
+	# 				texture = "gfx/interface/component_masks/mask_fade_horizontal_extended.dds"
+	# 				blend_mode = alphamultiply
+	# 			}
+	# 		}
+	# 	}
+
+	# 	hbox = {
+	# 		margin = { 20 0 }
+	# 		margin_right = 10
+
+	# 		text_single = {
+	# 			layoutpolicy_horizontal = growing
+	# 			name = "title"
+	# 			text = "[Decision.GetTitleForPlayer]"
+	# 			visible = "[Decision.IsPossibleForPlayer]"
+	# 			default_format = "#clickable"
+	# 			align = nobaseline
+	# 		}
+
+	# 		text_single = {
+	# 			layoutpolicy_horizontal = growing
+	# 			name = "title2"
+	# 			text = "[Decision.GetTitleForPlayer]"
+	# 			visible = "[Not(Decision.IsPossibleForPlayer)]"
+	# 			block "default_format" {
+	# 				default_format = "#low"
+	# 			}
+	# 			align = nobaseline
+	# 		}
+
+	# 		highlight_icon = {
+	# 			size = { 30 30 }
+	# 			name = "not_possible"
+	# 			texture = "gfx/interface/icons/symbols/icon_cross.dds"
+	# 			visible = "[Not(Decision.IsPossibleForPlayer)]"
+	# 		}
+	# 	}
+	# }
+
+	# # "Look at me!" Animation for bar
+	# type animation_attention_bar = icon {
+	# 	name = "bar_effect"
+	# 	parentanchor = center
+	# 	size = { 100% 100% }
+
+	# 	spriteType = Corneredtiled
+	# 	spriteborder = { 10 10 }
+
+	# 	texture = "gfx/interface/component_effects/attention_text.dds"
+	# 	using = Color_White
+
+	# 	state = {
+	# 		trigger_on_create = yes
+	# 		name = a
+	# 		next = b
+
+	# 		using = Animation_Curve_Default
+	# 		duration = 0.8
+	# 		alpha = 1
+	# 	}
+
+	# 	state = {
+	# 		name = b
+	# 		next = a
+
+	# 		using = Animation_Curve_Default
+	# 		duration = 1.5
+	# 		alpha = 0.5
+	# 	}
+	# }
+
+	# type hbox_house_unity_changelog_entry = hbox {
+	# 	layoutpolicy_horizontal = expanding
+	# 	layoutpolicy_vertical = expanding
+
+	# 	spacing = 10
+
+	# 	widget = {
+	# 		size = { 56 30 }
+
+	# 		block "icon_progress" {
+	# 			icon = {
+	# 				size = { 100% 100% }
+	# 				background = {
+	# 					visible = "[GreaterThan_int32( HouseUnityChangelogEntry.GetProgress, '(int32)0' )]"
+	# 					using = Background_Frame
+	# 					using = Color_Green
+	# 					alpha = 0.3
+	# 					margin_left = 4
+	# 					margin_right = 16
+	# 					margin_top = 1
+	# 					margin_bottom = 3
+	# 				}
+
+	# 				background = {
+	# 					visible = "[LessThanOrEqualTo_int32( HouseUnityChangelogEntry.GetProgress, '(int32)0' )]"
+	# 					using = Background_Area_Dark
+	# 					using = Color_Green
+	# 					alpha = 0.1
+	# 					margin_left = 4
+	# 					margin_right = 16
+	# 					margin_top = 1
+	# 					margin_bottom = 3
+	# 				}
+
+	# 				background = {
+	# 					visible = "[GreaterThan_int32( HouseUnityChangelogEntry.GetProgress, '(int32)0' )]"
+	# 					using = Background_Frame
+	# 					using = Color_Grey
+	# 					alpha = 0.5
+	# 					margin_left = 4
+	# 					margin_right = 16
+	# 					margin_top = 1
+	# 					margin_bottom = 3
+	# 				}
+
+	# 				background = {
+	# 					visible = "[LessThanOrEqualTo_int32( HouseUnityChangelogEntry.GetProgress, '(int32)0' )]"
+	# 					using = Background_Area_Light
+	# 					alpha = 0.4
+	# 					margin_left = 4
+	# 					margin_right = 16
+	# 					margin_top = 1
+	# 					margin_bottom = 3
+	# 				}
+
+	# 				hbox = {
+	# 					margin_left = 5
+	# 					icon = {
+	# 						size = { 25 25 }
+	# 						texture = "[HouseUnityChangelogEntry.GetCurrentHouseUnityStageType.GetIcon]"
+	# 					}
+
+	# 					spacer = {
+	# 						size { 5 0 }
+	# 					}
+
+	# 					text_single = {
+	# 						text = "[HouseUnityChangelogEntry.GetProgress|+=]"
+	# 						align = nobaseline
+	# 						#margin_bottom = 5
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+
+	# 	expand = {}
+
+	# 	vbox = {
+	# 		layoutpolicy_horizontal = expanding
+	# 		layoutpolicy_vertical = expanding
+
+	# 		hbox = {
+	# 			layoutpolicy_horizontal = expanding
+	# 			layoutpolicy_vertical = expanding
+	# 			text_single = {
+	# 				block "change_value_text" {
+	# 					text = "HOUSE_UNITY_STAGE_CHANGE_VALUE_TRIGGER_CHARACTER"
+	# 				}
+	# 				align = nobaseline
+	# 			}
+	# 		}
+
+	# 		block "change_value_desc" {
+	# 			hbox = {
+	# 				layoutpolicy_horizontal = expanding
+	# 				layoutpolicy_vertical = expanding
+	# 				#visible = "[Not( HouseUnityChangelogEntry.GetNextHouseUnityStageType.IsValid )]"
+
+	# 				text_single = {
+	# 					text = "[HouseUnityChangelogEntry.GetDescription]"
+	# 					align = nobaseline
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }
+
+	# type house_unity_recent_changes_tooltip = object_tooltip_pop_out {
+
+	# 	#maximumsize = { 1000 600 }
+
+	# 	blockoverride "header_additions" { }
+
+	# 	blockoverride "title_text" {
+	# 		margin = { 0 8 }
+	# 		text = "HOUSE_UNITY_RECENT_CHANGES_LABEL"
+	# 		default_format = "#T"
+	# 	}
+
+	# 	blockoverride "concept_link" {
+	# 		text = ""
+	# 	}
+
+	# 	blockoverride "main_description" {
+	# 		vbox = {
+	# 			layoutpolicy_horizontal = expanding
+	# 			layoutpolicy_vertical = expanding
+
+	# 			visible = "[DataModelHasItems( DynastyHouseView.GetDynastyHouse.GetChangelog )]"
+	# 			datamodel = "[DataModelFirst( DynastyHouseView.GetDynastyHouse.GetChangelog, '(int32)13' )]"
+
+	# 			item = {
+	# 				vbox = {
+	# 					layoutpolicy_horizontal = expanding
+	# 					margin_bottom = 20
+
+	# 					hbox_house_unity_changelog_entry = {
+	# 						visible = "[HouseUnityChangelogEntry.GetNextHouseUnityStageType.IsValid]"
+	# 						background = {
+	# 							using = Background_Area_Dark
+	# 							#using = Color_Green
+	# 							alpha = 0.5
+	# 							margin_left = 4
+	# 							margin_right = 10
+	# 							margin_top = 15
+	# 							margin_bottom = -4
+	# 						}
+	# 						background = {
+	# 							visible = "[GreaterThan_int32( HouseUnityChangelogEntry.GetProgress, '(int32)0' )]"
+	# 							using = Background_Frame
+	# 							using = Color_Green
+	# 							alpha = 0.3
+	# 							margin_left = 4
+	# 							margin_right = 10
+	# 							margin_top = 15
+	# 							margin_bottom = -4
+	# 						}
+	# 						background = {
+	# 							visible = "[LessThanOrEqualTo_int32( HouseUnityChangelogEntry.GetProgress, '(int32)0' )]"
+	# 							using = Background_Frame
+	# 							using = Color_Red
+	# 							alpha = 0.5
+	# 							margin_left = 4
+	# 							margin_right = 10
+	# 							margin_top = 15
+	# 							margin_bottom = -4
+	# 						}
+	# 						blockoverride "icon_progress" {
+	# 							hbox = {
+	# 								margin_top = -20
+	# 								icon = {
+	# 									size = { 45 45 }
+	# 									texture = "[HouseUnityChangelogEntry.GetNextHouseUnityStageType.GetIcon]"
+	# 								}
+	# 							}
+	# 						}
+
+	# 						blockoverride "change_value_text" {
+	# 							text = "HOUSE_UNITY_STAGE_CHANGE_VALUE_TRIGGER_CHANGE_STAGE"
+	# 							layoutpolicy_vertical = expanding
+	# 							margin_bottom = 15
+	# 						}
+	# 						blockoverride "change_value_desc" {
+	# 						}
+	# 					}
+
+	# 					hbox_house_unity_changelog_entry = {}
+	# 				}
+	# 			}
+	# 		}
+
+	# 		vbox = {
+	# 			layoutpolicy_horizontal = expanding
+	# 			layoutpolicy_vertical = expanding
+
+	# 			visible = "[Not(DataModelHasItems( DynastyHouseView.GetDynastyHouse.GetChangelog ))]"
+
+	# 			text_single = {
+	# 				text = "HOUSE_UNITY_NO_RECENT_CHANGE_LABEL"
+	# 				layoutpolicy_vertical = expanding
+	# 				align = nobaseline
+	# 				margin_bottom = 20
+	# 			}
+	# 		}
+	# 	}
+	# }
+
 }

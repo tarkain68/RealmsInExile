@@ -54,5 +54,5 @@ lotr_total_secrecy = {
 }
 
 lotr_current_secrecy = {
-    value = 61
+    value = 50
 }

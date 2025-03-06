@@ -74,6 +74,10 @@
   settle_wilderness_immediately_interaction:0 "Colonize all [colony|E] holdings"
   make_tributary_immediately_interaction:0 "Make this [ruler|E] your [tributary|E]"
 
+  set_character_as_fellowship_member: "Set Fellowship Member"
+  add_fellowship_member: "Add character as a Fellowship member"
+  remove_fellowship_member: "Remove character as a Fellowship member"
+
   ally_with_tributary_ruler:0 "[recipient.GetTitledFirstName] will be released as a [tributary|E]"
   balan_lai_hesitant_to_fight_other_balan_lai:0 "[recipient.GetTitledFirstName] is hesitant to fight against another Balan-Lai member"
 
