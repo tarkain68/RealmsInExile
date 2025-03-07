@@ -174,14 +174,12 @@ set_character_as_fellowship_member = {
 		always = yes
 	}
 
-	# Release vassal as tributary state
 	send_option = {		
 		flag = add_fellowship_member
 		localization = add_fellowship_member
 		starts_enabled = { always = yes	}
 	}
 
-	# Release vassal as protectorate
 	send_option = {		
 		flag = remove_fellowship_member
 		localization = remove_fellowship_member
@@ -196,6 +194,47 @@ set_character_as_fellowship_member = {
 		} else_if = {
 			limit = { scope:add_fellowship_member = yes }
 			set_fellowship_member = { CHARACTER = scope:recipient }
+		}
+	}
+	
+	auto_accept = yes
+}
+
+set_corruption_of_fellowship_member = {
+	category = interaction_debug_realms
+	use_diplomatic_range = no
+	common_interaction = yes
+	ignores_pending_interaction_block = yes
+	icon = realms_debug
+
+	is_shown = {
+		debug_only = yes
+	}
+	
+	can_send = {
+		always = yes
+	}
+
+	send_option = {		
+		flag = increase_corruption
+		localization = increase_corruption
+		starts_enabled = { always = yes	}
+	}
+
+	send_option = {		
+		flag = decrease_corruption
+		localization = decrease_corruption
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		if = {
+			limit = { scope:increase_corruption = yes }
+			scope:recipient = { increase_fellowship_member_corruption = { VALUE = 5 } }
+		} else_if = {
+			limit = { scope:decrease_corruption = yes }
+			scope:recipient = { decrease_fellowship_member_corruption = { VALUE = 100 } }
 		}
 	}
 	

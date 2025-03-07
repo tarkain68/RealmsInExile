@@ -56,3 +56,16 @@ lotr_total_secrecy = {
 lotr_current_secrecy = {
     value = 50
 }
+
+lotr_secrecy_monthly_change = {
+    value = 0.5
+}
+
+lotr_character_corruption = {
+    value = 0
+
+    if = {
+        limit = { has_variable = lotr_corruption }
+        add = var:lotr_corruption
+    }
+}

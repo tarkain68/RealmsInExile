@@ -30,6 +30,47 @@ set_member_as_ringbearer = {
     
 }
 
+debug_form_canon_fellowship = {
+    every_in_global_list = {
+        variable = lotr_fellowship_members
+        save_temporary_scope_as = char_temp
+        remove_list_global_variable = {
+            name = lotr_fellowship_members
+            target = scope:char_temp
+        }
+    }
+
+    character:lineisildur42 = { add_to_list = sorting_list }
+    character:lineoforopher6 = { add_to_list = sorting_list }
+    character:lineofdurin100 = { add_to_list = sorting_list }
+    character:linesteward39 = { add_to_list = sorting_list }
+    character:lineofgandalf = { add_to_list = sorting_list }
+    character:lineofbaggins29 = { add_to_list = sorting_list }
+    character:lineofbrandybuck31 = { add_to_list = sorting_list }
+    character:lineoftook30 = { add_to_list = sorting_list }
+    character:lineofgamgee10 = { add_to_list = sorting_list }
+
+    ordered_in_list = {
+        list = sorting_list
+        order_by = learning
+        max = 9
+        save_scope_as = char_temp
+        set_fellowship_member = { CHARACTER = scope:char_temp }
+        remove_from_list = sorting_list
+    }
+    intialise_fellowship_corruption = yes
+}
+
+intialise_fellowship_corruption = {
+    every_in_global_list = {
+        variable = lotr_fellowship_members
+        set_variable = {
+            name = lotr_corruption
+            value = 0
+        }
+    }
+}
+
 ###############
 ### Secrecy ###
 ###############
@@ -48,14 +89,14 @@ decrease_fellowship_secrecy = {
 
 increase_fellowship_member_corruption = {
     increase_variable = {
-        NAME = corruption
+        NAME = lotr_corruption
         AMOUNT = $VALUE$
     }
 }
 
 decrease_fellowship_member_corruption = {
     decrease_variable = {
-        NAME = corruption
+        NAME = lotr_corruption
         AMOUNT = $VALUE$
     }
 }
