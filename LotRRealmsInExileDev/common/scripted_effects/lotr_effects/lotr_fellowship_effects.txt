@@ -39,6 +39,7 @@ debug_form_canon_fellowship = {
             target = scope:char_temp
         }
     }
+    create_artifact_one_ring_effect = { OWNER = character:lineofbaggins20 }
 
     character:lineisildur42 = { add_to_list = sorting_list }
     character:lineoforopher6 = { add_to_list = sorting_list }
@@ -50,9 +51,16 @@ debug_form_canon_fellowship = {
     character:lineoftook30 = { add_to_list = sorting_list }
     character:lineofgamgee10 = { add_to_list = sorting_list }
 
-    ordered_in_list = {
+    ordered_in_list = { #Ring bearer gets added to the Global List *first*
         list = sorting_list
-        order_by = learning
+        order_by = {
+            if = {
+                limit = { any_character_artifact = { has_variable = one_ring } }
+                add = 100000
+            } else = {
+                add = 10
+            }
+        }
         max = 9
         save_scope_as = char_temp
         set_fellowship_member = { CHARACTER = scope:char_temp }
