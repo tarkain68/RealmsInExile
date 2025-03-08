@@ -39,7 +39,6 @@ debug_form_canon_fellowship = {
             target = scope:char_temp
         }
     }
-    create_artifact_one_ring_effect = { OWNER = character:lineofbaggins20 }
 
     character:lineisildur42 = { add_to_list = sorting_list }
     character:lineoforopher6 = { add_to_list = sorting_list }
@@ -77,6 +76,10 @@ intialise_fellowship_corruption = {
             value = 0
         }
     }
+}
+
+form_fellowship_camp = {
+    
 }
 
 ###############

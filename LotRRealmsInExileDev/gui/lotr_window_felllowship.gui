@@ -72,6 +72,11 @@
 								allow_outside = yes
 								layoutpolicy_horizontal = expanding
 								size = { 500 500 }
+								button_standard = {
+									visible = "[InDebugMode]"
+									text_single = { raw_text = "disable debug info" parentanchor = center }
+									onclick = "[GetVariableSystem.Toggle( 'lotr_fellowship_debug' )]"
+								}
 								
 								background = {
 									using = Background_Area_Dark
@@ -377,8 +382,20 @@
 			text_single = {
 				text = "[Character.GetFirstNameNoTooltip]"
 			}
+			button_standard = {
+				size = { 100 25}
+				visible = "[And(InDebugMode,Not(GetVariableSystem.Exists( 'lotr_fellowship_debug' )))]"
+				text_single = { raw_text = "+ corruption" parentanchor = center}
+				onclick = "[GetScriptedGui('lotr_fellowship_debug_increase_corruption').Execute(GuiScope.SetRoot( Character.MakeScope ).End)]"
+			}
+			button_standard = {
+				size = { 100 25}
+				visible = "[And(InDebugMode,Not(GetVariableSystem.Exists( 'lotr_fellowship_debug' )))]"
+				text_single = { raw_text = "- corruption" parentanchor = center}
+				onclick = "[GetScriptedGui('lotr_fellowship_debug_decrease_corruption').Execute(GuiScope.SetRoot( Character.MakeScope ).End)]"
+			}
 			progressbar_secrecy = {
-				visible = "[Not(InDebugMode)]"
+				visible = "[And(InDebugMode,Not(GetVariableSystem.Exists( 'lotr_fellowship_debug' )))]"
 				size = { 80 20 }
 				min = 0
 				max = 100
@@ -1279,82 +1296,82 @@ template Widget_Corruption_Background
 	background = {
 		visible = "[LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)0' )]"
 		using = Background_Portrait_Glow
-		color = { 1.000  0.843  0.196  0.2 }
+		color = { 1.000  0.843  0.196  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)5' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)0'))]"
 		using = Background_Portrait_Glow
-		color = { 0.980  0.784  0.176  0.2 }
+		color = { 0.980  0.784  0.176  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)10' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)5'))]"
 		using = Background_Portrait_Glow
-		color = { 0.961  0.725  0.157  0.2 }
+		color = { 0.961  0.725  0.157  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)15' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)10'))]"
 		using = Background_Portrait_Glow
-		color = { 0.941  0.667  0.137  0.2 }
+		color = { 0.941  0.667  0.137  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)20' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)15'))]"
 		using = Background_Portrait_Glow
-		color = { 0.922  0.608  0.118  0.2 }
+		color = { 0.922  0.608  0.118  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)25' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)20'))]"
 		using = Background_Portrait_Glow
-		color = { 0.882  0.490  0.102  0.2 }
+		color = { 0.882  0.490  0.102  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)30' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)25'))]"
 		using = Background_Portrait_Glow
-		color = { 0.863  0.431  0.094  0.2 }
+		color = { 0.863  0.431  0.094  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)35' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)30'))]"
 		using = Background_Portrait_Glow
-		color = { 0.843  0.392  0.086  0.2 }
+		color = { 0.843  0.392  0.086  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)40' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)35'))]"
 		using = Background_Portrait_Glow
-		color = { 0.824  0.353  0.078  0.2 }
+		color = { 0.824  0.353  0.078  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)45' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)40'))]"
 		using = Background_Portrait_Glow
-		color = { 0.784  0.314  0.071  0.2 }
+		color = { 0.784  0.314  0.071  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)50' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)45'))]"
 		using = Background_Portrait_Glow
-		color = { 0.745  0.275  0.063  0.2 }
+		color = { 0.745  0.275  0.063  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)55' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)50'))]"
 		using = Background_Portrait_Glow
-		color = { 0.706  0.235  0.055  0.2 }
+		color = { 0.706  0.235  0.055  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)60' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)55'))]"
 		using = Background_Portrait_Glow
-		color = { 0.667  0.196  0.047  0.2 }
+		color = { 0.667  0.196  0.047  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)65' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)60'))]"
 		using = Background_Portrait_Glow
-		color = { 0.627  0.176  0.039  0.2 }
+		color = { 0.627  0.176  0.039  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)70' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)65'))]"
 		using = Background_Portrait_Glow
-		color = { 0.588  0.157  0.031  0.2 }
+		color = { 0.588  0.157  0.031  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)75' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)70'))]"
 		using = Background_Portrait_Glow
-		color = { 0.549  0.137  0.024  0.2 }
+		color = { 0.549  0.137  0.024  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)80' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)75'))]"
@@ -1364,12 +1381,12 @@ template Widget_Corruption_Background
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)85' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)80'))]"
 		using = Background_Portrait_Glow
-		color = { 0.451  0.098  0.008  0.2 }
+		color = { 0.451  0.098  0.008  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)90' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)85'))]"
 		using = Background_Portrait_Glow
-		color = { 0.431  0.078  0.000  0.2 }
+		color = { 0.431  0.078  0.000  0.35 }
 	}
 	background = {
 		visible = "[And(LessThanOrEqualTo_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)95' ), GreaterThan_CFixedPoint( Character.MakeScope.Var('lotr_corruption').GetValue, '(CFixedPoint)80'))]"
