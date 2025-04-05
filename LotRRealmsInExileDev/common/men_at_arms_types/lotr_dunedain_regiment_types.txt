@@ -131,6 +131,7 @@ gondorian_marines = { #represents Gondorian maritime traditions and mainly there
 	damage = 12
 	toughness = 20
 	screen = 20
+	pursuit = 0
 	
 	terrain_bonus = {
 		hills = { damage = 4 toughness = 6 }
@@ -920,7 +921,7 @@ pelargir_mariners = {
 
 numenorean_soldiers = {
 	# can_recruit = { culture = { has_innovation = innovation_numenorean_warriors } }
-	type = heavy_infantry
+	type = pikemen
 
 	can_recruit = {
 		OR = {
@@ -935,18 +936,20 @@ numenorean_soldiers = {
 	}
 
 	damage = 110
-	toughness = 60
+	toughness = 120
 	pursuit = 0
-	screen = 50
+	screen = 45
 	
 	counters = {
-		pikemen = 1
-		archers = 1
+		light_cavalry = 1
+		heavy_cavalry = 1
+		camel_cavalry = 1
+		elephant_cavalry = 1
 	}
 	
-	buy_cost = { gold = 250 }
-	low_maintenance_cost = { gold = 1 }
-	high_maintenance_cost = { gold = 3 }
+	buy_cost = { gold = 310 }
+	low_maintenance_cost = { gold = 0.6 }
+	high_maintenance_cost = { gold = 1.8 }
 	provision_cost = @provisions_cost_cavalry_expensive
 	
 	stack = 50
@@ -970,10 +973,10 @@ numenorean_archers = {
 		}
 	}
 	
-	damage = 75
-	toughness = 30
-	pursuit = 5
-	screen = 15
+	damage = 130
+	toughness = 52
+	pursuit = 20
+	screen = 10
 	
 	terrain_bonus = {
 		hills = { damage = 12 toughness = 4 }
@@ -981,15 +984,17 @@ numenorean_archers = {
 
 	counters = {
 		skirmishers = 1
+		light_cavalry = 1
 		heavy_cavalry = 1
+		monster = 1
 	}
 
-	buy_cost = { gold = 200 }
-	low_maintenance_cost = { gold = 0.9 }
-	high_maintenance_cost = { gold = 2.7 }
+	buy_cost = { gold = 240 }
+	low_maintenance_cost = { gold = 0.5 }
+	high_maintenance_cost = { gold = 1.5 }
 	provision_cost = @provisions_cost_cavalry_expensive
 	
-	stack = 100
+	stack = 50
 	ai_quality = { value = @cultural_maa_extra_ai_score }
 	icon = numenorean_archers
 }
@@ -1043,10 +1048,10 @@ numenorean_knights = {
 		}
 	}
 	
-	damage = 150
-	toughness = 50
-	pursuit = 20
-	screen = 10
+	damage = 320
+	toughness = 112
+	pursuit = 40
+	screen = 40
 	
 	terrain_bonus = {
 		plains = { damage = 30 }
@@ -1060,15 +1065,17 @@ numenorean_knights = {
 
 	counters = {
 		archers = 1
+		heavy_infantry = 1
+		heavy_cavalry = 1
 	}
 
-	buy_cost = { gold = 260 }
-	low_maintenance_cost = { gold = 1.3 }
-	high_maintenance_cost = { gold = 3.9 }
+	buy_cost = { gold = 375 }
+	low_maintenance_cost = { gold = 0.7 }
+	high_maintenance_cost = { gold = 2.1 }
 
 	provision_cost = @provisions_cost_cavalry_expensive
 	
-	stack = 50
+	stack = 25
 
 	allowed_in_hired_troops = no
 	ai_quality = { value = @cultural_maa_extra_ai_score }
@@ -1123,22 +1130,23 @@ numenorean_elites = {
 		}
 	}
 
-	damage = 75
-	toughness = 40
+	damage = 145
+	toughness = 72
 	pursuit = 0
-	screen = 40
+	screen = 25
 	
 	counters = {
+		heavy_infantry = 1
+		skirmishers = 1
 		pikemen = 1
-		archers = 1
 	}
 	
 	buy_cost = { gold = 320 }
-	low_maintenance_cost = { gold = 1.1 }
-	high_maintenance_cost = { gold = 3.3 }
+	low_maintenance_cost = { gold = 0.7 }
+	high_maintenance_cost = { gold = 2.1 }
 	provision_cost = @provisions_cost_cavalry_expensive
 
-	stack = 75
+	stack = 50
 	ai_quality = { value = @cultural_maa_extra_ai_score }
 	icon = numenorean_elites
 }
@@ -1146,7 +1154,7 @@ numenorean_elites = {
 ### DUNEDAIN ###
 # Duplicates of Numenorean soldiers, just with slightly smaller numbers
 dunedain_soldiers = {
-	type = heavy_infantry
+	type = pikemen
 
 	can_recruit = {
 		OR = {
@@ -1160,20 +1168,21 @@ dunedain_soldiers = {
 		}
 	}
 
-	damage = 80
-	toughness = 60
+	damage = 100
+	toughness = 110
 	pursuit = 0
 	screen = 40
 	
 	counters = {
-		archers = 1
 		light_cavalry = 1
 		heavy_cavalry = 1
+		camel_cavalry = 1
+		elephant_cavalry = 1
 	}
 	
-	buy_cost = { gold = 250 }
-	low_maintenance_cost = { gold = 1 }
-	high_maintenance_cost = { gold = 3 }
+	buy_cost = { gold = 265 }
+	low_maintenance_cost = { gold = 0.6 }
+	high_maintenance_cost = { gold = 1.8 }
 
 	provision_cost = @provisions_cost_infantry_moderate
 	
@@ -1197,10 +1206,10 @@ dunedain_archers = {
 		}
 	}
 	
-	damage = 100
-	toughness = 40
-	pursuit = 10
-	screen = 10
+	damage = 115
+	toughness = 46
+	pursuit = 15
+	screen = 5
 	
 	terrain_bonus = {
 		hills = { damage = 12 toughness = 4 }
@@ -1209,12 +1218,12 @@ dunedain_archers = {
 	counters = {
 		skirmishers = 1
 		heavy_infantry = 1
-		pikemen = 1
+		archers = 1
 	}
 
-	buy_cost = { gold = 200 }
-	low_maintenance_cost = { gold = 0.9 }
-	high_maintenance_cost = { gold = 2.7 }
+	buy_cost = { gold = 215 }
+	low_maintenance_cost = { gold = 0.5 }
+	high_maintenance_cost = { gold = 1.5 }
 	provision_cost = @provisions_cost_infantry_moderate
 	
 	stack = 50
@@ -1237,10 +1246,10 @@ dunedain_knights = {
 		}
 	}
 	
-	damage = 200
-	toughness = 80
-	pursuit = 30
-	screen = 15
+	damage = 280
+	toughness = 98
+	pursuit = 40
+	screen = 40
 	
 	terrain_bonus = {
 		plains = { damage = 30 }
@@ -1254,12 +1263,13 @@ dunedain_knights = {
 
 	counters = {
 		heavy_infantry = 1
+		heavy_cavalry = 1
 		monster = 1
 	}
 
-	buy_cost = { gold = 260 }
-	low_maintenance_cost = { gold = 1.3 }
-	high_maintenance_cost = { gold = 3.9 }
+	buy_cost = { gold = 320 }
+	low_maintenance_cost = { gold = 0.8 }
+	high_maintenance_cost = { gold = 2.4 }
 	provision_cost = @provisions_cost_cavalry_expensive
 
 	stack = 25
@@ -1286,20 +1296,21 @@ dunedain_elites = {
 	}
 	type = heavy_infantry
 
-	damage = 100
-	toughness = 80
+	damage = 120
+	toughness = 60
 	pursuit = 0
-	screen = 40
+	screen = 20
 	
 	counters = {
 		pikemen = 1
 		heavy_infantry = 1
+		skirmishers = 1
 		archers = 1
 	}
 	
-	buy_cost = { gold = 320 }
-	low_maintenance_cost = { gold = 1.1 }
-	high_maintenance_cost = { gold = 3.3 }
+	buy_cost = { gold = 265 }
+	low_maintenance_cost = { gold = 0.7 }
+	high_maintenance_cost = { gold = 2.1 }
 	provision_cost = @provisions_cost_infantry_expensive
 	
 	stack = 50
@@ -1322,14 +1333,15 @@ arnorian_soldiers = {
 		}
 	}
 
-	damage = 45
-	toughness = 40
-	pursuit = 0
+	damage = 50
+	toughness = 45
+	pursuit = 10
 	screen = 20
 	
 	counters = {
 		pikemen = 1
-		light_cavalry = 1
+		skirmishers = 1
+		heavy_infantry = 1
 	}
 
 	buy_cost = { gold = 95 }
@@ -1358,9 +1370,9 @@ arnorian_bowmen = { # Armored archers
 		}
 	}
 
-	damage = 32
-	toughness = 26
-	pursuit = 0
+	damage = 45
+	toughness = 30
+	pursuit = 10
 	screen = 0
 	
 	terrain_bonus = {
@@ -1386,8 +1398,8 @@ arnorian_bowmen = { # Armored archers
 }
 
 arnorian_cavalry = {
-	damage = 105
-	toughness = 52
+	damage = 110
+	toughness = 70
 	pursuit = 25
 	screen = 20
 	can_recruit = {
@@ -1414,6 +1426,7 @@ arnorian_cavalry = {
 	counters = {
 		skirmishers = 1
 		archers = 1
+		heavy_cavalry = 1
 	}
 
 	winter_bonus = {
@@ -1447,10 +1460,10 @@ wardens_of_annuminas = {
 	}
 	type = pikemen
 
-	damage = 56
-	toughness = 54
+	damage = 50
+	toughness = 60
 	pursuit = 0
-	screen = 20
+	screen = 30
 	
 	terrain_bonus = {
 		mountains = { toughness = 12 }
@@ -1463,6 +1476,7 @@ wardens_of_annuminas = {
 		light_cavalry = 1
 		heavy_cavalry = 1
 		camel_cavalry = 1
+		elephant_cavalry = 1
 	}
 
 	buy_cost = { gold = 200 }
@@ -1652,6 +1666,7 @@ mundburgian_eored = {
 	damage = 130
 	toughness = 50
 	pursuit = 25
+	screen = 0
 	
 	terrain_bonus = {
 		plains = { damage = 30 }

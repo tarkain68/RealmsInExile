@@ -303,8 +303,8 @@ longbeard_horse_archers = {	#higêm thinbîn
 		}
 	}
 
-	stack = 10
-	damage = 160
+	stack = 30
+	damage = 180
 	toughness = 80
 	pursuit = 50
 	screen = 100
@@ -1195,9 +1195,9 @@ undying_of_khazad_dum = { #Nêmahinkhêd
 
 	stack = 80
 	damage = 70
-	toughness = 110
+	toughness = 120
 	pursuit = 0
-	screen = 15
+	screen = 25
 
 	can_recruit = {
 		AND = {
@@ -1240,10 +1240,10 @@ blacklock_mercenaries = {
 	provision_cost = @provisions_cost_infantry_expensive
 
 	stack = 80
-	damage = 130
-	toughness = 120
+	damage = 48
+	toughness = 60
 	pursuit = 0
-	screen = 25
+	screen = 20
 
 	can_recruit = { always = no }	
 
@@ -1282,8 +1282,8 @@ firebeard_monsters = { # flamethrowers/Gozig farâs
 	provision_cost = @provisions_cost_infantry_expensive
 
 	stack = 10
-	toughness = 380
-	damage = 440
+	toughness = 400
+	damage = 575
 	pursuit = 30
 	screen = 30
 
