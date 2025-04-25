@@ -1028,6 +1028,10 @@ negotiate_alliance_interaction = {
 				hostage_oath_of_friendship_trigger = yes
 			}
 		}
+		trigger_if = {
+			limit = { scope:actor = { is_ai = yes} }
+			scope:actor = { lotr_race_and_alignment_compatibility_trigger = { CHARACTER = scope:recipient } }
+		}
 	}
 	
 	is_valid_showing_failures_only = {

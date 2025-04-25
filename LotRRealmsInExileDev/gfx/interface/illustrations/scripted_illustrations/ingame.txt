@@ -12666,7 +12666,10 @@ character_view_bg = {
 		reference = "character_view/india.dds"
 
 		trigger = {
-			has_graphical_india_region_trigger = yes
+			# has_graphical_india_region_trigger = yes
+			capital_province ?= {
+				geographical_region = custom_greater_ray
+			}
 		}
 	}
 
@@ -14160,6 +14163,57 @@ character_private = {
 
 culture_levy_big_illustration = {
 
+	### Elven Heritages/Cultures ###
+	texture = { #Avarin Elves	
+		reference = "men_at_arms_big/levies_elven.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_calaquendi } }
+	}
+	texture = { #Grey Elves	
+		reference = "men_at_arms_big/levies_elven.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_lomiquendi } }
+	}
+	texture = { #High Elves	
+		reference = "men_at_arms_big/levies_elven.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_moriquendi } }
+	}
+	
+	### Dúnedain ###
+	texture = { 	
+		reference = "men_at_arms_big/levies_dunedain.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_dunedain } }
+	}
+	
+	### Daen ###
+	texture = { #Daen	
+		reference = "men_at_arms_big/levies_daen.dds"
+		trigger = { 
+			OR = {
+				culture = { has_cultural_pillar = heritage_danan_lin } 
+				culture = { has_cultural_pillar = heritage_daen_coentis } 
+				culture = { has_cultural_pillar = heritage_daen_lintis } 
+			}
+		}
+	}
+	
+	### Haradrim/Easterling ###
+	texture = { 	
+		reference = "men_at_arms_big/levies_haradrim.dds"
+		trigger = { 
+			OR = {
+				culture = { has_cultural_pillar = heritage_northern_apysaic }
+				culture = { has_cultural_pillar = heritage_southern_apysaic }
+				culture = { has_cultural_pillar = heritage_middle_apysaic }
+				culture = { has_cultural_pillar = heritage_ioriag }
+				culture = { has_cultural_pillar = heritage_thani_native }
+				culture = { has_cultural_pillar = heritage_igath }
+				culture = { has_cultural_pillar = heritage_nafarati }
+				culture = { has_cultural_pillar = heritage_magri }
+				culture = { has_cultural_pillar = heritage_kirani }
+				culture = { has_cultural_pillar = heritage_tulwangi }
+			}
+		}
+	}
+
 	####################
 	# Basic Triggers ###
 	####################
@@ -14170,12 +14224,21 @@ culture_levy_big_illustration = {
 		trigger = { is_human = yes }
 	}
 	texture = {
+		reference = "men_at_arms_big/levies_druedain.dds"
+		trigger = { is_druedain = yes }
+	}
+	texture = {
+		reference = "men_at_arms_big/levies_goblin.dds"
+		trigger = { is_goblin = yes }
+	}
+	texture = {
 		reference = "men_at_arms_big/orc_rabble.dds"
 		trigger = { 
 			OR = {
 				is_orc = yes 
 				is_nazgul = yes
 				is_sauron = yes 
+				is_maiar_fallen = yes
 			}
 		}
 	}
@@ -14184,11 +14247,11 @@ culture_levy_big_illustration = {
 		trigger = { is_hobbit = yes }
 	}
 	texture = {
-		reference = "men_at_arms_big/levies.dds"
+		reference = "men_at_arms_big/levies_elven.dds"
 		trigger = { is_elf = yes }
 	}
 	texture = {
-		reference = "men_at_arms_big/levies.dds"
+		reference = "men_at_arms_big/levies_dwarven.dds"
 		trigger = { is_dwarf = yes }
 	}
 
@@ -14200,11 +14263,147 @@ culture_levy_big_illustration = {
 }
 
 culture_knight_big_illustration = {
+
+	### Northmen Heritage ###
 	texture = {
-		reference = "men_at_arms_big/westfolders.dds"
+		reference = "men_at_arms_big/knights_northmen.dds"
 		trigger = { 
 			culture = { has_cultural_pillar = heritage_hadorim }
 		}
+	}
+	### Daen Heritage ###
+	texture = { 	
+		reference = "men_at_arms_big/knights_daen.dds"
+		trigger = { 
+			OR = {
+				culture = { has_cultural_pillar = heritage_danan_lin } 
+				culture = { has_cultural_pillar = heritage_daen_coentis } 
+				culture = { has_cultural_pillar = heritage_daen_lintis } 
+			}
+		}
+	}
+	### Numenorean Heritage ###
+	texture = { #Bellakari
+		reference = "men_at_arms_big/knights_southern.dds"
+		trigger = { 
+			OR = {
+				culture = culture:bellakarani
+				culture = { any_parent_culture_or_above = { this = culture:bellakarani } }
+			}
+		}
+	}
+	texture = { #umbaredain
+		reference = "men_at_arms_big/knights_adunaic.dds"
+		trigger = { 
+			OR = {
+				culture = { has_cultural_pillar = heritage_southern_adunaic }
+				culture = { has_cultural_pillar = heritage_northern_adunaic }
+			}
+		}
+	}
+	texture = { #Dunedain Rangers
+		reference = "men_at_arms_big/knights_human.dds"
+		trigger = { 
+			OR = {
+				culture = culture:dunedain_ranger
+				culture = culture:uialdain
+				culture = { any_parent_culture_or_above = { this = culture:dunedain_ranger } }
+				culture = { any_parent_culture_or_above = { this = culture:uialdain } }
+			}
+		}
+	}
+	texture = { #Orobedhrim
+		reference = "men_at_arms_big/knights_daen.dds"
+		trigger = { 
+			OR = {
+				culture = culture:orodbedhrim
+				culture = { any_parent_culture_or_above = { this = culture:orodbedhrim } }
+			}
+		}
+	}
+	texture = { #Gondorian
+		reference = "men_at_arms_big/knights_gondor.dds"
+		trigger = { 
+			OR = {
+				culture = culture:gondorian
+				culture = culture:belfalathrim
+				culture = culture:dunedain
+				culture = culture:caledhrim
+				culture = { any_parent_culture_or_above = { this = culture:gondorian } }
+				culture = { any_parent_culture_or_above = { this = culture:belfalathrim } }
+				culture = { any_parent_culture_or_above = { this = culture:dunedain } }
+				culture = { any_parent_culture_or_above = { this = culture:caledhrim } }
+			}
+		}
+	}
+	texture = { #Arnorian
+		reference = "men_at_arms_big/knights_numenorean.dds"
+		trigger = { 
+			OR = {
+				culture = culture:arnorian
+				culture = { any_parent_culture_or_above = { this = culture:arnorian } }
+			}
+		}
+	}
+	texture = { #Numenorean
+		reference = "men_at_arms_big/knights_numenorean.dds"
+		trigger = { 
+			OR = {
+				culture = culture:numenorean
+				culture = { any_parent_culture_or_above = { this = culture:numenorean } }
+			}
+		}
+	}
+	
+	### Iorag Heritage ###
+	texture = { #Asdriag/Odhriag/Magriag
+		reference = "men_at_arms_big/easterling_swordsmen.dds"
+		trigger = { 
+			OR = {
+				culture = { has_cultural_pillar = heritage_ioriag }
+				culture = { has_cultural_pillar = heritage_igath } 
+			}
+		}
+	}
+	
+	### Haradrim Heritage ###
+	texture = {
+		reference = "men_at_arms_big/knights_southern.dds"
+		trigger = { 
+			OR = {
+				culture = { has_cultural_pillar = heritage_northern_apysaic }
+				culture = { has_cultural_pillar = heritage_southern_apysaic }
+				culture = { has_cultural_pillar = heritage_middle_apysaic }
+				culture = { has_cultural_pillar = heritage_thani_native }
+				culture = { has_cultural_pillar = heritage_nafarati }
+				culture = { has_cultural_pillar = heritage_magri }
+				culture = { has_cultural_pillar = heritage_kirani }
+				culture = { has_cultural_pillar = heritage_tulwangi }
+			}
+		}
+	}
+
+	### Elven Heritages/Cultures ###
+	texture = { #Lasgalendrim	
+		reference = "men_at_arms_big/knights_elven.dds"
+		trigger = { 
+			OR = {
+				culture = culture:lasgalendrim
+				culture = { any_parent_culture_or_above = { this = culture:lasgalendrim } }
+			}
+		}
+	}
+	texture = { #High Elves	
+		reference = "men_at_arms_big/knights_elven.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_calaquendi } }
+	}
+	texture = { #Grey Elves	
+		reference = "men_at_arms_big/knights_falathrim.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_lomiquendi } }
+	}
+	texture = { #Avarin Elves	
+		reference = "men_at_arms_big/knights_silvan.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_moriquendi } }
 	}
 
 	####################
@@ -14213,29 +14412,41 @@ culture_knight_big_illustration = {
 
 	# In-case a culture or heritage wasn't specified, we fallback to these textures
 	texture = {
-		reference = "men_at_arms_big/heavy_infantry.dds"
+		reference = "men_at_arms_big/knights_druedain.dds"
+		trigger = { is_druedain = yes }
+	}
+	texture = {
+		reference = "men_at_arms_big/knights_human.dds"
 		trigger = { is_human = yes }
 	}
 	texture = {
-		reference = "men_at_arms_big/urukhai_swordsmen.dds"
+		reference = "men_at_arms_big/knights_goblin.dds"
+		trigger = { is_goblin = yes }
+	}
+	texture = {
+		reference = "men_at_arms_big/knights_orc.dds"
+		trigger = { is_orc = yes }
+	}
+	texture = {
+		reference = "men_at_arms_big/knights_uruk.dds"
 		trigger = { 
 			OR = {
-				is_orc = yes 
 				is_nazgul = yes
 				is_sauron = yes 
+				is_maiar_fallen = yes
 			}
 		}
 	}
 	texture = {
-		reference = "men_at_arms_big/hobbit_bounders.dds"
+		reference = "men_at_arms_big/knights_hobbit.dds"
 		trigger = { is_hobbit = yes }
 	}
 	texture = {
-		reference = "men_at_arms_big/heavy_infantry.dds"
+		reference = "men_at_arms_big/knights_elven.dds"
 		trigger = { is_elf = yes }
 	}
 	texture = {
-		reference = "men_at_arms_big/heavy_infantry.dds"
+		reference = "men_at_arms_big/knights_dwarven.dds"
 		trigger = { is_dwarf = yes }
 	}
 
@@ -14251,6 +14462,21 @@ culture_levy_small_illustration = {
 	####################
 	# Basic Triggers ###
 	####################
+	
+	texture = { #Dúnedain	
+		reference = "men_at_arms_small/levies_dunedain.dds"
+		trigger = { culture = { has_cultural_pillar = heritage_dunedain } }
+	}
+	texture = { #Daen	
+		reference = "men_at_arms_small/levies_daen.dds"
+		trigger = { 
+			OR = {
+				culture = { has_cultural_pillar = heritage_danan_lin } 
+				culture = { has_cultural_pillar = heritage_daen_coentis } 
+				culture = { has_cultural_pillar = heritage_daen_lintis } 
+			}
+		}
+	}
 
 	# In-case a culture or heritage wasn't specified, we fallback to these textures
 	texture = {
@@ -14258,25 +14484,34 @@ culture_levy_small_illustration = {
 		trigger = { is_human = yes }
 	}
 	texture = {
-		reference = "men_at_arms_small/levies.dds"
+		reference = "men_at_arms_small/levies_druedain.dds"
+		trigger = { is_druedain = yes }
+	}
+	texture = {
+		reference = "men_at_arms_small/levies_goblin.dds"
+		trigger = { is_goblin = yes }
+	}
+	texture = {
+		reference = "men_at_arms_small/orc_rabble.dds"
 		trigger = { 
 			OR = {
 				is_orc = yes 
 				is_nazgul = yes
 				is_sauron = yes 
+				is_maiar_fallen = yes
 			}
 		}
 	}
 	texture = {
-		reference = "men_at_arms_small/levies.dds"
+		reference = "men_at_arms_small/hobbit_bounders.dds"
 		trigger = { is_hobbit = yes }
 	}
 	texture = {
-		reference = "men_at_arms_small/levies.dds"
+		reference = "men_at_arms_small/levies_elven.dds"
 		trigger = { is_elf = yes }
 	}
 	texture = {
-		reference = "men_at_arms_small/levies.dds"
+		reference = "men_at_arms_small/levies_dwarven.dds"
 		trigger = { is_dwarf = yes }
 	}
 
@@ -14311,6 +14546,7 @@ culture_knight_small_illustration = {
 				is_orc = yes 
 				is_nazgul = yes
 				is_sauron = yes 
+				is_maiar_fallen = yes
 			}
 		}
 	}

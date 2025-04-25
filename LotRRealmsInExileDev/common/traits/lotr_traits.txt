@@ -335,7 +335,7 @@ nazgul = {
 	can_have_children = no
 	immortal = yes
 	
-	prowess = 5 # The Dread of the Nazgul make them more fearsome in combat, but not innately better swordsmen or tacticians
+	prowess = 2 # The Dread of the Nazgul make them more fearsome in combat, but not innately better swordsmen or tacticians #Hendrix note: Gave Nazgul sorcerous metallurgy for their prowess buffs (reduced this value from 5 to 2 to compensate)
 
 	# Add commmander aspect to represent Nazgul dread 'debuffing' enemy armies
 	
@@ -984,40 +984,40 @@ cavalry_leader = {
 	
 	ruler_designer_cost = 25
 
-	light_cavalry_damage_mult = 0.05
-	light_cavalry_toughness_mult = 0.05
-	heavy_cavalry_damage_mult = 0.05
-	heavy_cavalry_toughness_mult = 0.05
-	archer_cavalry_damage_mult = 0.05
-	archer_cavalry_toughness_mult = 0.05
+	light_cavalry_damage_mult = 0.03
+	light_cavalry_toughness_mult = 0.03
+	heavy_cavalry_damage_mult = 0.03
+	heavy_cavalry_toughness_mult = 0.03
+	archer_cavalry_damage_mult = 0.03
+	archer_cavalry_toughness_mult = 0.03
 	
 	track = {
 		33 = {
-			light_cavalry_damage_mult = 0.05
-			light_cavalry_toughness_mult = 0.05
-			heavy_cavalry_damage_mult = 0.05
-			heavy_cavalry_toughness_mult = 0.05
-			archer_cavalry_damage_mult = 0.05
-			archer_cavalry_toughness_mult = 0.05
+			light_cavalry_damage_mult = 0.03
+			light_cavalry_toughness_mult = 0.03
+			heavy_cavalry_damage_mult = 0.03
+			heavy_cavalry_toughness_mult = 0.03
+			archer_cavalry_damage_mult = 0.03
+			archer_cavalry_toughness_mult = 0.03
 		}
 		66 = {
-			knight_effectiveness_mult = 0.1
-			light_cavalry_damage_mult = 0.05
-			light_cavalry_toughness_mult = 0.05
-			heavy_cavalry_damage_mult = 0.05
-			heavy_cavalry_toughness_mult = 0.05
-			archer_cavalry_damage_mult = 0.05
-			archer_cavalry_toughness_mult = 0.05
+			advantage = 1
+			light_cavalry_damage_mult = 0.03
+			light_cavalry_toughness_mult = 0.03
+			heavy_cavalry_damage_mult = 0.03
+			heavy_cavalry_toughness_mult = 0.03
+			archer_cavalry_damage_mult = 0.03
+			archer_cavalry_toughness_mult = 0.03
 		}
 		100 = {
-			knight_effectiveness_mult = 0.2
+			advantage = 2
 			martial = 1
-			light_cavalry_damage_mult = 0.05
-			light_cavalry_toughness_mult = 0.05
-			heavy_cavalry_damage_mult = 0.05
-			heavy_cavalry_toughness_mult = 0.05
-			archer_cavalry_damage_mult = 0.05
-			archer_cavalry_toughness_mult = 0.05
+			light_cavalry_damage_mult = 0.03
+			light_cavalry_toughness_mult = 0.03
+			heavy_cavalry_damage_mult = 0.03
+			heavy_cavalry_toughness_mult = 0.03
+			archer_cavalry_damage_mult = 0.03
+			archer_cavalry_toughness_mult = 0.03
 		}
 	}
 

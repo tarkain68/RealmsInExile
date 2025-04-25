@@ -1177,8 +1177,8 @@ gondor.0502 = { # Aragorn is allowed into Minas Tirith and is coronated
 	option = { 
 		name = gondor.0502.a # Gondor kingdom restored and given to Aragorn
 		# add_character_modifier = {	# To give him a fighting chance after loosing all the MAA - for some time, the gondorians fighting spirit is renewed
-		# 	modifier = return_of_the_king_modifier
-		# 	years = 20
+			# modifier = return_of_the_king_modifier
+			# years = 20
 		# }
 		add_character_modifier = { #To give him time to get married in peace
 			modifier = fp1_reprieve_from_sa_modifier
@@ -2502,6 +2502,15 @@ gondor.0507 = { # The Glory of Gondor Restored
 					override = yes
 					name = TRUCE_GONDOR_MORDOR
 				}
+			}
+		}
+		if = { # If he was put on the throne by the Liberation of Gondor cb
+			limit = { has_character_flag = selected_to_rule_gondor }
+			add_gold = 300 
+			create_maa_regiment = {
+				type = guard_of_the_citadel
+				check_can_recruit = no
+				size = 3
 			}
 		}
 	}
@@ -7825,7 +7834,7 @@ gondor.2602 = { # Soldiers of Pelargir
 		spawn_army = {
 			levies = 500
 			men_at_arms = {
-				type = pelargir_mariners
+				type = gondorian_marines
 				stacks = 3
 			}
 			location = capital_province
@@ -9821,10 +9830,10 @@ gondor.3600 = { # integrate the northern provinces
 	title = gondor.3600.t
 	desc = gondor.3600.desc
 	theme = war
-	
+	override_background = { reference = forodwaith } 
 	left_portrait = {
 		character = root
-		animation = accepting
+		animation = happiness
 	}
 
 	option = {
@@ -10419,7 +10428,7 @@ gondor.3803 = { #Arassuil arrives at Pelargir
 	theme = diplomacy
 	window = visit_settlement_window
 	override_background = {
-		reference = docks_dunedain
+		reference = docks_gondor
 	}
 	left_portrait = {
 		character = root

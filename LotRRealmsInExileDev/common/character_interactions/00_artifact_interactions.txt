@@ -1581,6 +1581,11 @@ demand_artifact_interaction = {
 			add = 100
 			desc = SCHEME_WEAK_HOOK_USED
 		}
+		modifier = {
+			add = -1000
+			trigger = { scope:target = { is_important_artifact = yes } }
+			desc = IMPORTANT_ARTIFACT
+		}
 
 		# Unity modifiers
 		evaluate_action_decreasing_house_unity = { VALUE = 100 }
@@ -2888,7 +2893,7 @@ start_stealing_back_artifact = {
 		scope:recipient = {
 			is_in_valinor = no
 			is_sauron = no
-			this = character:lineofeonwe #Can't steal from Eonwë
+			this != character:lineofeonwe #Can't steal from Eonwë
 			# needs to have an artifact we can claim
 			any_character_artifact = {
 				can_be_claimed_by = scope:actor

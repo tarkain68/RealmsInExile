@@ -571,7 +571,7 @@ add_blood_of_numenor_effect = {
 	# Level 10
 	if = {
 		limit = {
-			current_year <= 4894
+			current_year < 4894
 			culture ?= {
 				OR = {
 					this = culture:arnorian
@@ -582,7 +582,7 @@ add_blood_of_numenor_effect = {
 						any_parent_culture_or_above = { this = culture:gondorian }
 						NOT = {
 							OR = {
-								this = culture:umbaredain
+								this = culture:umbaredain									
 								any_parent_culture_or_above = { this = culture:umbaredain }
 							}
 						}
@@ -593,9 +593,9 @@ add_blood_of_numenor_effect = {
 		random_list = {
 			10 = { add_trait = blood_of_numenor_10 }
 			15 = { add_trait = blood_of_numenor_9 }
-			35 = { add_trait = blood_of_numenor_8 }
+			30 = { add_trait = blood_of_numenor_8 }
 			25 = { add_trait = blood_of_numenor_7 }
-			5 = { add_trait = blood_of_numenor_6 }
+			10 = { add_trait = blood_of_numenor_6 }
 			5 = { add_trait = blood_of_numenor_5 }
 			2 = { add_trait = blood_of_numenor_4 }
 			1 = { add_trait = blood_of_numenor_3 }
@@ -606,7 +606,7 @@ add_blood_of_numenor_effect = {
 		limit = {
 			OR = {
 				AND = {
-					current_year <= 4894
+					current_year < 4894
 					culture ?= {
 						OR = {
 							this = culture:bellakarani
@@ -623,7 +623,7 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 5382
+					current_year < 5382
 					culture ?= {
 						OR = {
 							this = culture:gondorian
@@ -633,7 +633,9 @@ add_blood_of_numenor_effect = {
 								NOT = {
 									OR = {
 										this = culture:umbaredain
+										this = culture:isengard_dunlending										
 										any_parent_culture_or_above = { this = culture:umbaredain }
+										any_parent_culture_or_above = { this = culture:isengard_dunlending }	
 									}
 								}
 							}
@@ -644,7 +646,7 @@ add_blood_of_numenor_effect = {
 		}
 		random_list = {
 			15 = { add_trait = blood_of_numenor_8 }
-			35 = { add_trait = blood_of_numenor_7 }
+			30 = { add_trait = blood_of_numenor_7 }
 			25 = { add_trait = blood_of_numenor_6 }
 			15 = { add_trait = blood_of_numenor_5 }
 			5 = { add_trait = blood_of_numenor_4 }
@@ -656,7 +658,7 @@ add_blood_of_numenor_effect = {
 		limit = {
 			OR = {
 				AND = {
-					current_year <= 4900
+					current_year < 4900
 					culture ?= {
 						OR = {
 							this = culture:bellakaze
@@ -665,7 +667,7 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 5382
+					current_year < 5382
 					culture ?= {
 						OR = {
 							this = culture:bellakarani
@@ -684,7 +686,7 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 5667
+					current_year < 5667
 					culture ?= {
 						OR = {
 							this = culture:gondorian
@@ -694,7 +696,9 @@ add_blood_of_numenor_effect = {
 								NOT = {
 									OR = {
 										this = culture:umbaredain
+										this = culture:isengard_dunlending										
 										any_parent_culture_or_above = { this = culture:umbaredain }
+										any_parent_culture_or_above = { this = culture:isengard_dunlending }								
 									}
 								}
 							}
@@ -704,25 +708,26 @@ add_blood_of_numenor_effect = {
 			}
 		}
 		random_list = {
-			15 = { add_trait = blood_of_numenor_7 }
+			18 = { add_trait = blood_of_numenor_7 }
 			30 = { add_trait = blood_of_numenor_6 }
 			25 = { add_trait = blood_of_numenor_5 }
-			15 = { add_trait = blood_of_numenor_4 }
+			12 = { add_trait = blood_of_numenor_4 }
 			8 = { add_trait = blood_of_numenor_3 }
 			5 = { add_trait = blood_of_numenor_2 }
-			2 = { add_trait = blood_of_numenor_1 }
+			1 = { add_trait = blood_of_numenor_1 }
 		}
 	} else_if = {
 		limit = {
 			OR = {
 				AND = {
-					current_year <= 4900
+					current_year < 4900
 					culture ?= {
 						OR = {
 							this = culture:anbalukkhori
 							#this = culture:anarikean
 							this = culture:tanturaki
 							this = culture:old_umbarean
+							this = culture:black_numenorean
 							any_parent_culture_or_above = { this = culture:anbalukkhori }
 							#any_parent_culture_or_above = { this = culture:anarikean }
 							any_parent_culture_or_above = { this = culture:tanturaki}
@@ -731,7 +736,7 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 5382
+					current_year < 5382
 					culture ?= {
 						OR = {
 							this = culture:bellakaze
@@ -742,16 +747,16 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 5667
+					current_year < 5667
 					culture ?= {
 						OR = {
-							this = culture:umbaredain
+							this = culture:umbaredain							
 							any_parent_culture_or_above = { this = culture:umbaredain }
 						}
 					}
 				}
 				AND = {
-					current_year <= 5977
+					current_year < 5977
 					culture ?= {
 						OR = {
 							this = culture:gondorian
@@ -762,7 +767,9 @@ add_blood_of_numenor_effect = {
 								NOT = {
 									OR = {
 										this = culture:umbaredain
+										this = culture:isengard_dunlending										
 										any_parent_culture_or_above = { this = culture:umbaredain }
+										any_parent_culture_or_above = { this = culture:isengard_dunlending }	
 									}
 								}
 							}
@@ -773,18 +780,18 @@ add_blood_of_numenor_effect = {
 			}
 		}
 		random_list = {
-			15 = { add_trait = blood_of_numenor_6 }
-			25 = { add_trait = blood_of_numenor_5 }
-			30 = { add_trait = blood_of_numenor_4 }
+			18 = { add_trait = blood_of_numenor_6 }
+			30 = { add_trait = blood_of_numenor_5 }
+			25 = { add_trait = blood_of_numenor_4 }
 			15 = { add_trait = blood_of_numenor_3 }
-			10 = { add_trait = blood_of_numenor_2 }
-			5 = { add_trait = blood_of_numenor_1 }
+			5 = { add_trait = blood_of_numenor_2 }
+			2 = { add_trait = blood_of_numenor_1 }
 		}
 	} else_if = {
 		limit = {
 			OR = {
 				AND = {
-					current_year <= 5382
+					current_year < 5382
 					culture ?= {
 						OR = {
 							this = culture:anbalukkhori
@@ -793,11 +800,12 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 5667
+					current_year < 5667
 					culture ?= {
 						OR = {
 							this = culture:bellakarani
 							this = culture:kharadunaim
+							this = culture:black_numenorean
 							any_parent_culture_or_above = { this = culture:kharadunaim }
 							AND = {
 								any_parent_culture_or_above = { this = culture:bellakarani }
@@ -812,16 +820,16 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 5977
+					current_year < 5977
 					culture ?= {					
 					OR = {
-						this = culture:umbaredain
-							any_parent_culture_or_above = { this = culture:umbaredain }
+						this = culture:umbaredain									
+						any_parent_culture_or_above = { this = culture:umbaredain }
 						}
 					}
 				}
 				AND = {
-					current_year <= 6543
+					current_year < 6543
 					culture ?= {
 						OR = {
 							this = culture:dunedain
@@ -833,17 +841,17 @@ add_blood_of_numenor_effect = {
 			}
 		}
 		random_list = {
-			15 = { add_trait = blood_of_numenor_5 }
-			30 = { add_trait = blood_of_numenor_4 }
+			18 = { add_trait = blood_of_numenor_5 }
+			32 = { add_trait = blood_of_numenor_4 }
 			25 = { add_trait = blood_of_numenor_3 }
-			20 = { add_trait = blood_of_numenor_2 }
+			15 = { add_trait = blood_of_numenor_2 }
 			10 = { add_trait = blood_of_numenor_1 }
 		}
 	} else_if = {
 		limit = {
 			OR = {
 				AND = {
-					current_year <= 5382
+					current_year < 5382
 					culture ?= {
 						OR = {
 							this = culture:old_umbarean
@@ -854,15 +862,19 @@ add_blood_of_numenor_effect = {
 							AND = {
 								any_parent_culture_or_above = { this = culture:old_umbarean }
 								NOT = {
-									any_parent_culture_or_above = { this = culture:umbaredain }
-									this = culture:umbaredain
+									OR = {
+										this = culture:umbaredain
+										this = culture:isengard_dunlending										
+										any_parent_culture_or_above = { this = culture:umbaredain }
+										any_parent_culture_or_above = { this = culture:isengard_dunlending }
+									}
 								}
 							}
 						}
 					}
 				}
 				AND = {
-					current_year <= 5667
+					current_year < 5667
 					culture ?= {
 						OR = {
 							this = culture:bellakaze
@@ -871,7 +883,7 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 5977
+					current_year < 5977
 					culture ?= {
 						OR = {
 							this = culture:bellakarani
@@ -890,14 +902,19 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 6543
+					current_year < 6543
 					culture ?= {
 						OR = {
 							this = culture:gondorian
 							AND = {
 								any_parent_culture_or_above = { this = culture:gondorian }
 								NOT = {
-									any_parent_culture_or_above = { this = culture:umbaredain }
+									OR = {
+										this = culture:umbaredain
+										this = culture:isengard_dunlending										
+										any_parent_culture_or_above = { this = culture:umbaredain }
+										any_parent_culture_or_above = { this = culture:isengard_dunlending }
+									}
 								}
                     		}
 						}
@@ -925,16 +942,17 @@ add_blood_of_numenor_effect = {
 		limit = {
 			OR = {
 				AND = {
-					current_year <= 5977
+					current_year < 5977
 					culture ?= {
 						OR = {
 							this = culture:anbalukkhori
+							this = culture:black_numenorean
 							any_parent_culture_or_above = { this = culture:anbalukkhori }
 						}
 					}
 				}
 				AND = {
-					current_year <= 6543
+					current_year < 6543
 					culture ?= {
 						OR = {
 							this = culture:bellakarani
@@ -961,7 +979,12 @@ add_blood_of_numenor_effect = {
 							AND = {
 								any_parent_culture_or_above = { this = culture:gondorian }
 								NOT = {
-									any_parent_culture_or_above = { this = culture:umbaredain }
+									OR = {
+										this = culture:umbaredain
+										this = culture:isengard_dunlending										
+										any_parent_culture_or_above = { this = culture:umbaredain }
+										any_parent_culture_or_above = { this = culture:isengard_dunlending }
+									}
 								}
 							}
 						}
@@ -979,21 +1002,26 @@ add_blood_of_numenor_effect = {
 		limit = {
 			OR = {
 				AND = {
-					current_year >= 7033
+					current_year > 6787
 					culture ?= {
 						OR = {
 							this = culture:gondorian
 							AND = {
 								any_parent_culture_or_above = { this = culture:gondorian }
 								NOT = {
-									any_parent_culture_or_above = { this = culture:umbaredain }
+									OR = {
+										this = culture:umbaredain
+										this = culture:isengard_dunlending										
+										any_parent_culture_or_above = { this = culture:umbaredain }
+										any_parent_culture_or_above = { this = culture:isengard_dunlending }
+									}
 								}
 							}
 						}
 					}
 				}
 				AND = {
-					current_year <= 5667
+					current_year < 5667
 					culture ?= {
 						OR = {
 							#this = culture:anarikean
@@ -1004,7 +1032,7 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 5977
+					current_year < 5977
 					culture ?= {
 						OR = {
 							this = culture:bellakaze
@@ -1013,16 +1041,17 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 6543
+					current_year < 6543
 					culture ?= {
 						OR = {
 							this = culture:anbalukkhori
+							this = culture:black_numenorean
 							any_parent_culture_or_above = { this = culture:anbalukkhori }
 						}
 					}
 				}
 				AND = {
-					current_year <= 6787
+					current_year < 6787
 					culture ?= {
 						OR = {
 							this = culture:bellakarani
@@ -1052,7 +1081,7 @@ add_blood_of_numenor_effect = {
 		limit = {
 			OR = {
 				AND = {
-					current_year <= 6543
+					current_year < 6543
 					culture ?= {
 						OR = {
 							this = culture:bellakaze
@@ -1061,7 +1090,7 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 7033
+					current_year < 7033
 					culture ?= {
 						OR = {
 							this = culture:bellakarani
@@ -1081,10 +1110,11 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 6787
+					current_year < 6787
 					culture ?= {
 						OR = {
 							this = culture:anbalukkhori
+							this = culture:black_numenorean
 							any_parent_culture_or_above = { this = culture:anbalukkhori }
 						}
 					}
@@ -1096,11 +1126,6 @@ add_blood_of_numenor_effect = {
 							this = culture:gondorian
 							AND = {
 								any_parent_culture_or_above = { this = culture:gondorian }
-								NOT = {
-									OR = {
-										any_parent_culture_or_above = { this = culture:umbaredain }
-									}
-								}
 							}
 						}
 					}
@@ -1116,7 +1141,7 @@ add_blood_of_numenor_effect = {
 		limit = {
 			OR = {
 				AND = {
-					current_year <= 5977
+					current_year < 5977
 					culture ?= {
 						OR = {
 							#this = culture:anarikean
@@ -1127,7 +1152,7 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year <= 6787
+					current_year < 6787
 					OR = {
 						culture ?= {
 							this = culture:bellakaze
@@ -1139,7 +1164,7 @@ add_blood_of_numenor_effect = {
 					}
 				}
 				AND = {
-					current_year > 7033
+					current_year >= 7033
 					culture ?= {
 						OR = {
 							this = culture:bellakarani
@@ -1175,6 +1200,15 @@ add_blood_of_numenor_effect = {
 							this = culture:tanturaki
 							#any_parent_culture_or_above = { this = culture:anarikean }
 							any_parent_culture_or_above = { this = culture:tanturaki}
+							AND = {
+								any_parent_culture_or_above = { this = culture:old_umbarean }
+								NOT = {
+									OR = {
+										any_parent_culture_or_above = { this = culture:umbaredain }
+										this = culture:umbaredain
+									}
+								}
+							}
 						}
 					}
 				}
@@ -1184,6 +1218,7 @@ add_blood_of_numenor_effect = {
 						culture ?= {
 							this = culture:bellakaze
 							this = culture:anbalukkhori
+							this = culture:black_numenorean
 							any_parent_culture_or_above = { this = culture:anbalukkhori }
 							any_parent_culture_or_above = { this = culture:bellakaze }
 						}
@@ -1192,7 +1227,10 @@ add_blood_of_numenor_effect = {
 			}
 		}
 		random_list = {
-			1 = { add_trait = blood_of_numenor_1 }  
+			1 = { 
+				add_trait = blood_of_numenor_1
+				remove_trait = blood_of_numenor_1
+			}  
 			99 = { }                             
 		}
 	} else = { ## Second Fallback
