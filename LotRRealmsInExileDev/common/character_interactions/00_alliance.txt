@@ -1392,7 +1392,7 @@ negotiate_alliance_interaction = {
 						target = scope:actor
 					}
 					if = {
-						limit = { is_tributary_of = { SUZERAIN = scope:actor TRIBUTARY = scope:recipient } }
+						limit = { is_lotr_tributary_of = { SUZERAIN = scope:actor TRIBUTARY = scope:recipient } }
 						custom_tooltip = {
 							text = ally_with_tributary_ruler
 							scope:recipient = { free_tributary = yes }
@@ -2516,7 +2516,7 @@ perk_alliance_interaction = {
 				target = scope:actor
 			}
 			if = {
-				limit = { is_tributary_of = { SUZERAIN = scope:actor TRIBUTARY = scope:recipient } }
+				limit = { is_lotr_tributary_of = { SUZERAIN = scope:actor TRIBUTARY = scope:recipient } }
 				custom_tooltip = {
 					text = ally_with_tributary_ruler
 					scope:recipient = { free_tributary = yes }
@@ -3326,7 +3326,7 @@ join_war_interaction = {
 
 		# If you're a Suzerain, you can help defend a non-permanent tributary | PLAYER ONLY
 		trigger_else_if = {
-			limit = { is_tributary_of = { SUZERAIN = scope:actor TRIBUTARY = scope:recipient } }
+			limit = { is_lotr_tributary_of = { SUZERAIN = scope:actor TRIBUTARY = scope:recipient } }
 			always = yes
 		}
 
@@ -3491,7 +3491,7 @@ join_war_interaction = {
 				limit = { 
 					is_religious_war = yes 
 					scope:actor = { NOT = { is_elf = yes } }
-					NOT = { is_tributary_of = { SUZERAIN = scope:actor TRIBUTARY = scope:recipient } }
+					NOT = { is_lotr_tributary_of = { SUZERAIN = scope:actor TRIBUTARY = scope:recipient } }
 				}
 				trigger_if = { #Only if you're not allies and not a tributary/suzerain relationship
 					limit = {
@@ -3586,7 +3586,7 @@ join_war_interaction = {
 
 			# If you're a Suzerain, you can help defend a non-permanent/permanent tributary | PLAYER ONLY
 			trigger_else_if = {
-				limit = { is_tributary_of = { SUZERAIN = scope:actor TRIBUTARY = scope:recipient } }
+				limit = { is_lotr_tributary_of = { SUZERAIN = scope:actor TRIBUTARY = scope:recipient } }
 				always = yes
 			}
 			trigger_else_if = {

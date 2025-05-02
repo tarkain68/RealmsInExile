@@ -496,8 +496,8 @@ lotr_war_events.0004 = {
                     OR = {
                         holder = character:lineofsauron
                         holder = { is_vassal_or_below_of = character:lineofsauron }
-                        is_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder }
-                        is_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder.top_liege }
+                        is_lotr_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder }
+                        is_lotr_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder.top_liege }
                     }
                 }
                 order_by = {
@@ -532,8 +532,8 @@ lotr_war_events.0004 = {
                     OR = {
                         this = character:lineofsauron
                         this = { is_vassal_or_below_of = character:lineofsauron }
-                        is_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = this }
-                        is_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder.top_liege }
+                        is_lotr_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = this }
+                        is_lotr_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder.top_liege }
                     }
                 }
             }
@@ -546,8 +546,8 @@ lotr_war_events.0004 = {
                     OR = {
                         this = character:lineofsauron
                         this = { is_vassal_or_below_of = character:lineofsauron }
-                        is_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = this }
-                        is_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder.top_liege }
+                        is_lotr_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = this }
+                        is_lotr_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder.top_liege }
                     }
                 }
             }
@@ -563,8 +563,8 @@ lotr_war_events.0004 = {
                         OR = {
                             holder = character:lineofsauron
                             holder = { is_vassal_or_below_of = character:lineofsauron }
-                            is_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder }
-                            is_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder.top_liege }
+                            is_lotr_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder }
+                            is_lotr_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder.top_liege }
                         }
                     }
                     order_by = {
@@ -590,8 +590,8 @@ lotr_war_events.0004 = {
                         OR = {
                             holder = character:lineofsauron
                             holder = { is_vassal_or_below_of = character:lineofsauron }
-                            is_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder }
-                            is_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder.top_liege }
+                            is_lotr_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder }
+                            is_lotr_tributary_of = { SUZERAIN = character:lineofsauron TRIBUTARY = holder.top_liege }
                         }
                     }
                     order_by = {
