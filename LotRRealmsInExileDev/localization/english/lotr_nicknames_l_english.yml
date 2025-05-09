@@ -237,7 +237,7 @@
   nick_mamandil:  "Mámandil"
   nick_mamandil_desc:  "[CHARACTER.GetShortUINameNoTooltipNoFormat] named himself [Glossary('Mámandil','mamandil_gloss')] when he was pursuring that hand of Tar-Ancalimë, who herself was hiding as the shepherdess [Glossary('Emerwen','emerwen_gloss')] in the fields of Emerie."
   nick_emerwen_aranel:  "Emerwen Aranel"
-  nick_emerwen_aranel_desc:  "In her youth, Tar-Ancalimë was raised by her mother Erendis in a house soley of women, embittered by Tar-Aldarion's contast absences. Taught to scorn all men and living in the countryside amongst the sheep, Ancalimë became known as [Glossary('Emerwen','emerwen_gloss')] [Glossary('Aranel','aranel_gloss')] for her upbringing, unusual for that of the King's Heir. She would live up to her name when the fled to the fields from her suitors, only to be discovered by Hallacar [Glossary('Mámandil','mamandil_gloss')]."
+  nick_emerwen_aranel_desc:  "In her youth, Tar-Ancalimë was raised by her mother Erendis in a house comprised solely of women, embittered by Tar-Aldarion's constant absences. Taught to scorn all men and living in the countryside amongst the sheep, Ancalimë became known as [Glossary('Emerwen','emerwen_gloss')] [Glossary('Aranel','aranel_gloss')] for her upbringing, unusual for that of the King's Heir. She would live up to her name when she fled to the fields from her suitors, only to be discovered by Hallacar [Glossary('Mámandil','mamandil_gloss')]."
   nick_the_faithful:  "the Faithful" #Bór the Faithful - unused
   nick_the_renewer_dunedain:  "Envinyatar" #aragorn
   nick_the_renewer_dunedain_desc:  "Envinyatar is a [quenya|E] name claimed by [CHARACTER.GetShortUINameNoTooltipNoFormat|U], meaning 'the Renewer'. It refers in a literal sense to [CharYourHerHis(CHARACTER)] renewal of the Kingship of the [dunedain|E], and so to the renewal of the hope of [men|E]."
@@ -281,8 +281,8 @@
   nick_alcarin_desc:  "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] ruled over the realm of [gondor|E] at the apex of its power and splendor, such that precious jewels were considered but playthings for [CharYourHerHis(CHARACTER)] subjects."
   nick_liberator_gondor:  "the Liberator of [gondor|E]"
   nick_liberator_gondor_desc:  "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] [CharWereWas(CHARACTER)] the driving force behind the liberation of [gondor|E] which saw the fallen kingdom restored and freed from the shadow of [mordor|E]."
-  nick_orcslayer:0 "the Orcslayer"
-  nick_orcslayer_desc:0 "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] challenged the leader of the [orcs|E] of [moria|E] to single combat and slew [CharYourHerHis(CHARACTER)] foe in a feat of unmatched skill of blade."
+  nick_orcslayer: "the Orcslayer"
+  nick_orcslayer_desc: "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] challenged the leader of the [orcs|E] of [moria|E] to single combat and slew [CharYourHerHis(CHARACTER)] foe in a feat of unmatched skill of blade."
   nick_laicamaite: "Laicamaitë"
   nick_laicamaite_desc: "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] was nicknamed [Glossary('Laicamaitë','laicamaite_gloss')] for both [CharYourHerHis(CHARACTER)] rule of [calenardhon|E] and his knowledge of gardening."
   nick_veatura: "Vëaturá" 
@@ -294,7 +294,7 @@
   nick_aureamaitale: "Aurëamaitalë"
   nick_aureamaitale_desc: "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] was named [Glossary('Aurëamaitalë','aureamaitale_gloss')] for [CharYourHerHis(CHARACTER)] work was cherished by many of [CharYourHerHis(CHARACTER)] the faithful for the warmth of his prose and beautiful illustrations of his garden home of Hyarnustar - telling many tales that reminded one of the soul and life and good that remained even in the darkening of [numenor|E]."
   nick_moria_purger: "the Light-bringer"
-  nick_moria_purger_desc:0 "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] successfully drove the [orcs|E] from [moria|E], bringing a bit of light to the Black Pit - if but for a brief moment."
+  nick_moria_purger_desc: "[CHARACTER.GetShortUINameNoTooltipNoFormat|U] successfully drove the [orcs|E] from [moria|E], bringing a bit of light to the Black Pit - if but for a brief moment."
 
   ### Defender against Wildmen Nicknames ###
   nick_the_unyielding:  "the Unyielding"

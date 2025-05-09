@@ -1812,7 +1812,6 @@ lineisildur42 = { #Aragorn, you know who he is
 }
 
 ## Children of Aragorn and Arwen ##
-# For a possible 4th age bookmark
 
 lineisildur43 = {
 	name = Eldarion ### Eldarion 'Andúmírë'(needs to be made as a nickname), Second King of the Reunited Kingdom		
