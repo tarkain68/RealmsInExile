@@ -60,11 +60,13 @@ melkoric_religion = {
 		#HighGodName
 		HighGodName = forces_of_evil_high_god_name
 		HighGodName2 = forces_of_evil_high_god_name
+		HighGodNameAlternateSheHe = CHARACTER_SHEHE_HE
 		HighGodNamePossessive = forces_of_evil_high_god_name_possessive
 		HighGodNameSheHe = CHARACTER_SHEHE_HE
 		HighGodHerselfHimself = CHARACTER_HIMSELF
 		HighGodHerHis = CHARACTER_HERHIS_HIS
 		HighGodNameAlternate = forces_of_evil_high_god_alternate
+		HighGodName2Alternate = forces_of_evil_high_god_alternate
 		HighGodNameAlternatePossessive = forces_of_evil_high_god_alternate_possessive
 		HighGodAlternateSheHe = CHARACTER_SHEHE_HE
 		HighGodAlternateHerselfHimself = CHARACTER_HIMSELF
@@ -229,7 +231,7 @@ melkoric_religion = {
 			doctrine = doctrine_consanguinity_restricted
 			doctrine = doctrine_pilgrimage_encouraged
 		}
-		melkorite = { # Black Numenorean Melkor Worship (Seperate from Kings Men)
+		melkorite = { # Black Numenorean Melkor Worship (Separate from Kings Men)
 			color = { 104 0 0 }
 			icon = melkor_01
 			

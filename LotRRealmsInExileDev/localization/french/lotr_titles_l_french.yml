@@ -1777,8 +1777,8 @@
  d_forithilien:0 "Forithilien"
  cn_forithilien_daen:0 "Dorarnen"
  cn_forithilien_blackspeech:0 "Vorhantok"
- c_henneth_anun:0 "Henneth Annûn"
- b_henneth_anun:0 "Henneth Annûn"
+ c_henneth_annun:0 "Henneth Annûn"
+ b_henneth_annun:0 "Henneth Annûn"
  b_cormallen:0 "Cormallen"
  c_coruvegil:0 "Coruvegil"
  b_bar_wilwarin:0 "Bar-Wilwarin"
@@ -2655,7 +2655,7 @@
  e_arthedain_adj:0 "Arthedanien"
  k_arthedain:0 "Arthedain"
  k_arthedain_adj:0 "Arthedanien"
- k_shire:0 "le Comté"
+ k_shire:0 "la Comté"
  k_shire_adj:0 "comtale"
  d_shire:0 "le Comté"
  d_shire_adj:0 "comtale"
@@ -3399,7 +3399,7 @@
  b_ibriz_garan:0 "Ibriz-Garân"
  c_rasinut:0 "Rasinut"
  b_rasinut:0 "Rasinut"
- d_dronun_dum:0 "Dronûn-Dûm"
+ d_dronun_dum:0 "Dronûn-dûm"
  c_bilakh_anut:0 "Bilakh Anut"
  b_bilakh_anut:0 "Bilakh Anut"
  c_sigibab:0 "Sigibab"
@@ -4211,7 +4211,7 @@
  b_adunagath:0 "Adûnagath"
  b_adejja:0 "Adejja"
  b_karissa:0 "Karissa"
- d_zinrenzil:0 "Zimrênzil"
+ d_zimrenzil:0 "Zimrênzil"
  c_zimrenzil:0 "Zimrênzil"
  b_zimrenzil:0 "Zimrênzil"
  b_an_huyan:0 "An-Huyan"
@@ -5433,7 +5433,7 @@
  c_firad:0 "Firad"
  b_asumabar:0 "Asûmâbar"
  b_bozemar:0 "Bozemar"
- # k_darsalan:0 "Dârsalan"
+ k_darsalan:0 "Dârsalan"
  d_darsalan:0 "Dârsalan"
  c_hidar:0 "Hidar"
  b_hidar:0 "Hidar"
@@ -7324,7 +7324,7 @@
  k_korul_article:0 "$the_$"
  k_arne:0 "Arne" # Kingdom of the Eriadorim in the late Second Age
  e_pharazain:0 "Pharazâin"
- e_thani_hazad_southern_province:0 "Kharasûzâin" # Name for a reduced Thani-hazad after the Empire of An-Balkumagan forms
+ e_thani_hazad_southern_province:0 "Kharasûzâin" # Name for a reduced Thani-Hazad after the Empire of An-Balkumagan forms
  d_scarlet_triad:0 "la Triade Écarlate"
  #d_scarlet_triad_article:0 "$the_$"
  e_sea_dragon_host:0 "Sogíkutí Kadir"
@@ -9030,7 +9030,7 @@
  cn_irid_laranor:0 "Irid Laranor"
  cn_tur_betark:0 "Tûr Betark"
  cn_bulnd_mabul:0 "Bûlnd-Mabûl"
- cn_ered_melin:0 "Ered Melin"
+ cn_ered_mellin:0 "Ered Mellin"
  cn_manyano_malimavi:0 "Manyano Malimavi"
  cn_urid_pharazain:0 "Urîd Pharazâno"
 
@@ -9101,6 +9101,9 @@
  k_mablad_dum:0 "Mablad-dum"
  k_nargubraz:0 "Nargubraz"
  k_bizar_uld_um:0 "Bizarûldûm"
+ k_khazad_madur: "Khazad-Madûr"
+ k_gamil_nala: "Gâmil-Nala"
+ k_kibil_tarag: "Kibil-Tarag"
 
  ### Renames ###
  BELFALAS:0 "Belfalas"
@@ -10290,7 +10293,7 @@
  b_zharothamun:0 "Zharothamûn"
 
  e_shayn:0 "Shayn"
- k_lynerian_league:0 "Lynerian League"
+ k_lyneria:0 "Lynerian League"
  d_meloria:0 "Meloria"
  c_lyneria:0 "Lyneria"
  b_lyneria:0 "Lyneria"

@@ -1109,6 +1109,7 @@ tedjin.0114 = { # Bor decides how he should reign
 		every_vassal = {
 			limit = {
 				has_faith = faith:faith_easterling_war
+				highest_held_title_tier < character:lineofazumenakhad81.highest_held_title_tier
 			}
 			
 			change_liege = {
@@ -3965,7 +3966,7 @@ tedjin.0511 = { #United at Last
 			years = 20
 		}
 	}
-	option = { # This is only the begining
+	option = { # This is only the beginning
 		trigger = {
 			NOT = {
 				any_ally = {

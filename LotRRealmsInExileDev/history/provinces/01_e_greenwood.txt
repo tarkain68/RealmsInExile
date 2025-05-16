@@ -327,6 +327,11 @@
 		religion = way_of_strength
 		holding = tribal_holding
 	}
+	7052.4.6 = { #Defeat of Dol Guldur
+		religion = faith_eldar
+		culture = lasgalendrim
+		holding = elven_holding
+	}
 }
 
 ##	Nan Gulduin (c_nan_gulduin)
@@ -1230,6 +1235,11 @@
 			dense_growth
 		}
 	}
+	7060.5.22 = {
+		culture = woodmen
+		religion = faith_woodmen
+		holding = tribal_holding
+	}
 }
 
 3316 = {	#Dunrâd Angálaladh (b_dunrad_angaladh)
@@ -1408,6 +1418,11 @@
 			dense_growth
 		}
 	}
+	7055.5.20 = {
+		culture = woodmen
+		religion = faith_woodmen
+		holding = tribal_holding
+	}
 }
 
 3328 = {	#Mellonbar (b_mellonbar)
@@ -1465,6 +1480,16 @@
 		religion = way_of_strength
 		holding = tribal_holding
 	}
+	7052.3.28 = { #Defeat of Dol Guldur
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+	7058.6.1 = {
+		culture = woodmen
+		religion = faith_woodmen
+		holding = tribal_holding
+	}
 }
 
 3331 = {	#Tauronim (b_tauronim)
@@ -1489,6 +1514,16 @@
 	4800.1.1 = {
 		culture = kazgumhoth
 		religion = way_of_strength
+		holding = tribal_holding
+	}
+	7052.3.28 = { #Defeat of Dol Guldur
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+	}
+	7057.4.30 = {
+		culture = woodmen
+		religion = faith_woodmen
 		holding = tribal_holding
 	}
 }
@@ -1603,7 +1638,6 @@
 		religion = lidless_eye 
 		culture = kazgumhoth
 		holding = castle_holding
-		special_building_slot = wonder_amon_lanc_02
 		special_building = wonder_amon_lanc_02	
 	}
 	6096.1.1 = { # Sauron flees at the coming of Gandalf to investigate
@@ -1638,6 +1672,12 @@
 			orc_siege_works_05
 			uruk_pits_04
 		}
+	}
+	7052.4.6 = { #Establishment of East Lorien
+		religion = faith_eldar
+		culture = galadhrim
+		holding = elven_holding
+		special_building = wonder_amon_lanc_03
 	}
 }
 
@@ -1681,6 +1721,11 @@
 			scouting_posts_03
 		}
 	}
+	7052.4.6 = { #Establishment of East Lorien
+		religion = faith_eldar
+		culture = galadhrim
+		holding = elven_holding
+	}
 }
 
 3340 = {	#Pêl Úmarth (b_pel_umarth)
@@ -1722,6 +1767,11 @@
 			castle_02
 			scouting_posts_02
 		}
+	}
+	7052.4.6 = { #Establishment of East Lorien
+		religion = faith_eldar
+		culture = galadhrim
+		holding = elven_holding
 	}
 }
 
@@ -1830,6 +1880,11 @@
 		culture = woodmen
 		holding = castle_holding
 	}
+	7052.4.6 = { #Establishment of East Lorien
+		religion = faith_eldar
+		culture = galadhrim
+		holding = elven_holding
+	}
 }
 
 3344 = {	#Burganstath (b_burganstath)
@@ -1915,6 +1970,11 @@
 		religion = lidless_eye
 		holding = castle_holding
 	}
+	7052.4.6 = { #Establishment of East Lorien
+		religion = faith_eldar
+		culture = galadhrim
+		holding = elven_holding
+	}
 }
 
 3347 = {	#Emyn Lûm (b_emyn_lum)
@@ -1969,6 +2029,11 @@
 		culture = kazgumhoth 
 		religion = lidless_eye
 		holding = castle_holding
+	}
+	7052.4.6 = { #Establishment of East Lorien
+		religion = faith_eldar
+		culture = galadhrim
+		holding = elven_holding
 	}
 }
 
@@ -2048,6 +2113,11 @@
 			# ramparts_03 #TODONEWCAPS
 		}
 	}
+	7052.4.6 = { #Establishment of East Lorien
+		religion = faith_eldar
+		culture = galadhrim
+		holding = elven_holding
+	}
 }
 
 3354 = {	#Lugdûm (b_lugdum)
@@ -2120,6 +2190,11 @@
 			spider_nest
 			dense_growth
 		}
+	}
+	7052.4.6 = { #Establishment of East Lorien
+		religion = faith_eldar
+		culture = galadhrim
+		holding = elven_holding
 	}
 }
 
@@ -2272,6 +2347,11 @@
 			spider_nest
 			wild_orcs
 		}
+	}
+	7060.10.3 = { #Establishment of East Lorien
+		culture = woodmen
+		religion = faith_woodmen
+		holding = tribal_holding
 	}
 }
 
@@ -2539,6 +2619,14 @@
 		culture = woodmen
 		religion = lidless_eye
 		holding = tribal_holding
+	}
+	7052.4.6 = {
+		culture = wastelands
+		religion = faith_wastelands_pagan
+		holding = wastelands_holding
+		buildings = {
+			wolf_den
+		}
 	}
 }
 

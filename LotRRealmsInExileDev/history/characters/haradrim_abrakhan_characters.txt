@@ -96,7 +96,7 @@ syarrhul1 = {
 	
 	dynasty = dynasty_syarhioni
 	culture = anbalukkhori
-	religion = cult_of_zigur
+	religion = faith_kanra
 	
 	father = syarrhul0
 	
@@ -193,7 +193,7 @@ syarrhul2 = {	# Black Vizier Brother, formerly sister
 	
 	dynasty = dynasty_syarhioni
 	culture = anbalukkhori
-	religion = cult_of_zigur
+	religion = faith_kanra
 	
 	father = syarrhul0
 	
@@ -220,8 +220,8 @@ syarrhul2husband = {	#now wife	#eventually, add her as the daughter of a pustic 
 	name = Zae
 	female = yes
 	
-	culture = pust
-	religion = cult_of_zigur
+	culture = lushek_pust
+	religion = faith_kanra
 	
 	trait = zealous
 	trait = ambitious
@@ -241,8 +241,8 @@ syarrhul3 = {	# Black Viziers nephew (added as an heir, formerly bastard son)
 	name = Zadunzi_i_r	# Adunaic name, but pustic culture
 	
 	dynasty = dynasty_syarhioni
-	culture = pust
-	religion = cult_of_zigur
+	culture = lushek_pust
+	religion = faith_kanra
 	
 	father = syarrhul2
 	mother = syarrhul2husband
@@ -290,8 +290,8 @@ eastkanalord1daughter = {
 	mother = eastkanalord1wife
 	dynasty = dynasty_tahbrani
 	
-	culture = pust
-	religion = cult_of_zigur
+	culture = lushek_pust
+	religion = faith_kanra
 	
 	trait = patient
 	trait = brave
@@ -309,48 +309,10 @@ eastkanalord1daughter = {
 }
 
 ## Other 
-caranlambar1 = {
-	# one of the Golden King's creations
-	name = Caran_Lambar
-	culture = nafarati
-	religion = faith_nafar
-	
-	dynasty = dynasty_alaranin
-    father = linealaranin17
-    mother = linealaranin18
-	
-	martial = 10
-	diplomacy = 8
-	intrigue = 6
-	stewardship = 7
-	prowess = 8
-	
-	trait = ambitious
-	trait = callous
-	trait = brave
-	trait = education_martial_4
-	trait = infertile
-	trait = physique_good_3
-	trait = strong
-	trait = reckless
-	trait = open_terrain_expert
-	trait = nafarati_berserker
-	6991.8.23 = {
-		birth = yes
-		give_nickname = nick_terror_of_nafarat
-		effect = {
-			add_character_flag = had_nickname_event
-			add_character_flag = no_auto_family
-            #set_employer = character:nazgul3 # Alrain Note: unneeded. So long, Caran-Lambar...
-		}
-	}
-	7052.1.1 = { death = { death_reason = death_natural_causes } } # Matt note: tie to defeat of Abrakhân.
-}
-
 hidarlord3 = {
 	name = Ma_a_nadez
 	
-	culture = pust
+	culture = darsalai
 	religion = faith_arani
 	
 	6999.11.26 = { birth = yes }
@@ -365,8 +327,8 @@ hidarlord3 = {
 azgarabanvanda1 = {
 	name = Azgara_a_ban_Vanda_a_
 	
-	culture = pust
-	religion = cult_of_zigur
+	culture = darsalai
+	religion = faith_arani
 	
 	prowess = 12
 	trait = brave
@@ -395,15 +357,15 @@ azgarabanvanda1 = {
 }
 southkanalord1 = {
 	name = Za_a_kk
-	culture = pust
-	religion = cult_of_zigur
+	culture = lushek_pust
+	religion = faith_kanra
 	7002.12.9 = { birth = yes }
 	7057.1.25 = { death = yes }
 }
 southkanalord2 = {
 	name = Zeyas_Tayan
-	culture = pust
-	religion = cult_of_zigur
+	culture = lushek_pust
+	religion = faith_kanra
 	trait = education_martial_3
 	trait=intellect_good_1
 	6992.6.16 = { birth = yes }
@@ -411,8 +373,8 @@ southkanalord2 = {
 }
 eastkanalord1 = {
 	name = Ra_a_hkaad
-	culture = pust
-	religion = cult_of_zigur
+	culture = lushek_pust
+	religion = faith_kanra
 	
 	father = linetahbrani17
 	mother = linetahbrani18
@@ -443,8 +405,8 @@ eastkanalord1 = {
 eastkanalord1wife = {
 	name = Ruza
 	female = yes
-	culture = pust
-	religion = cult_of_zigur
+	culture = lushek_pust
+	religion = faith_kanra
 	
 	trait = paranoid
 	trait = eccentric
@@ -462,8 +424,8 @@ eastkanalord1son = {
 	mother = eastkanalord1wife
 	dynasty = dynasty_tahbrani
 	
-	culture = pust
-	religion = cult_of_zigur
+	culture = lushek_pust
+	religion = faith_kanra
 	
 	trait = ambitious
 	trait = brave
@@ -478,34 +440,18 @@ eastkanalord1son = {
 		death = { death_reason = death_battle }
 	}
 }
-uhtyarafortslord1 = {
-	name = Sharhn
-	culture = pust
-	religion = cult_of_zigur
-	6985.2.11 = {
-		birth = yes
-		effect = {
-			add_opinion = {
-				target = character:nazgul3
-				modifier = loyal_servant
-			}
-		}
-	}
-	7064.3.2 {
-		death = { death_reason = death_natural_causes }
-	}
-}
+
 uhtyaralord1 = {
 	name = Kanzca
-	culture = pust
-	religion = cult_of_zigur
+	culture = darsalai
+	religion = faith_kanra
 	6995.3.17 = { birth = yes }
 	7079.11.14 = { death = yes }
 }
 nafaratlord3 = {
 	name = Tula
 	culture = nafarati
-	religion = faith_nafar
+	religion = faith_indur
 	
 	dynasty = dynasty_banugand
     father = linebanugand25
@@ -522,7 +468,7 @@ nafaratlord3 = {
 nafaratlord4 = {
 	name = Shayain
 	culture = nafarati
-	religion = faith_nafar
+	religion = faith_indur
 	trait = physique_good_3
 	trait = reaver
 	7004.4.11 = { birth = yes }
@@ -532,7 +478,7 @@ nafaratlord5 = {
 	name = Zheyat_Lee
 	female = yes
 	culture = nafarati
-	religion = faith_nafar
+	religion = faith_indur
 	stewardship = 9
 	trait = education_intrigue_3
 	trait = inappetetic
@@ -543,7 +489,7 @@ nafaratlord5 = {
 nafaratlord6 = {
 	name = Auatzin
 	culture = nafarati
-	religion = faith_nafar
+	religion = faith_indur
 	trait = reaver
 	trait = education_martial_3
 	trait = physique_good_1
@@ -553,7 +499,7 @@ nafaratlord6 = {
 nafaratlord8 = {
 	name = Topanratl
 	culture = nafarati
-	religion = faith_nafar
+	religion = faith_indur
 	
 	dynasty = dynasty_topanrin
     father = linetopanrin17
@@ -569,32 +515,31 @@ nafaratlord8 = {
 nafaratlord9 = {
 	name = Kraya_a_mo # Southern Apysiac name
 	culture = nafarati
-	religion = faith_nafar
+	religion = faith_indur
 	6987.11.17 = { birth = yes }
 	7060.5.19 = { death = yes }
 }
 nafaratlord10 = {
 	name = Ti_i_mor # Southern Apysiac name
 	culture = nafarati
-	religion = faith_nafar
+	religion = faith_indur
 	6999.7.23 = { birth = yes }
 	7066.2.3 = { death = yes }
 }
 nafaratlord11 = {
 	name = Sa_a_mi_i_lya_a_n # Southern Apysiac name
 	culture = nafarati
-	religion = faith_nafar
+	religion = faith_indur
 	6989.8.18 = { birth = yes }
 	7071.8.24 = { death = yes }
 }
 nafaratlord12 = {
     name = Kyatika_a_r # Southern Apysiac name
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
     trait = humble
     trait = fickle
     trait = reaver
-    trait = nafarati_berserker
     diplomacy = 16
     martial = 16
     stewardship = 12
@@ -605,11 +550,10 @@ nafaratlord12 = {
 }
 nafaratlord13 = {
     name = Mek
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
     trait = just
     trait = forder
-    trait = nafarati_berserker
     prowess = 10
     trait = education_martial_2
     6993.2.21 = {  birth = yes }
@@ -617,7 +561,7 @@ nafaratlord13 = {
 }
 nafaratlord14 = {
     name = Ha_a_rath # Southern Apysiac name
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
     trait = callous
     trait = generous
@@ -638,7 +582,7 @@ nafaratlord16 = {
     female = yes
 	
 	dynasty = dynasty_firamirid
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefiramirid17
@@ -661,7 +605,7 @@ lineofhidar1 = {
     name = Kanaishr
     dynasty = dynasty_hidar
     religion = faith_arani
-    culture = pust
+    culture = darsalai
     trait = fickle
     trait = gluttonous
     diplomacy = 24
@@ -679,7 +623,7 @@ lineofhidar2 = {
     name = Shaya
     female = yes
     religion = faith_arani
-    culture = pust
+    culture = darsalai
     trait = zealous
     trait = craven
     diplomacy = 15
@@ -696,7 +640,7 @@ lineofhidar3 = {
     name = Karixishr
     dynasty = dynasty_hidar
     religion = faith_arani
-    culture = pust
+    culture = darsalai
     father = lineofhidar1
     mother = lineofhidar2
     trait = paranoid
@@ -719,7 +663,7 @@ lineofhidar4 = {
     name = Jiloya
     female = yes
     religion = faith_arani
-    culture = pust
+    culture = darsalai
     trait = education_diplomacy_4
     6857.11.1 = { birth = yes }
     6954.2.17 = { death = yes }
@@ -728,7 +672,7 @@ lineofhidar5 = {
     name = Caran
     dynasty = dynasty_hidar
     religion = faith_arani
-    culture = pust
+    culture = darsalai
     father = lineofhidar3
     mother = lineofhidar4
     trait = just
@@ -743,7 +687,7 @@ lineofhidar6 = {
     name = Asya
     female = yes
     religion = faith_arani
-    culture = pust
+    culture = darsalai
     trait = education_diplomacy_3
     6915.2.15 = { birth = yes }
     7015.3.4 = { death = yes }
@@ -752,7 +696,7 @@ lineofhidar7 = {
     name = Syar_Ankar
     dynasty = dynasty_hidar
     religion = faith_arani
-    culture = pust
+    culture = darsalai
     father = lineofhidar5
     mother = lineofhidar6
     trait = deceitful
@@ -766,7 +710,7 @@ lineofhidar8 = {
     name = Tayiztahkzi
     female = yes
     religion = faith_arani
-    culture = pust
+    culture = darsalai
     trait = vengeful
     trait = shy
     trait = education_stewardship_3
@@ -777,7 +721,7 @@ lineofhidar9 = { #ALIVE
     name = Aya_a_rix
     dynasty = dynasty_hidar
     religion = faith_arani
-    culture = pust
+    culture = darsalai
     father = lineofhidar7
     mother = lineofhidar8
     trait = gluttonous
@@ -795,7 +739,7 @@ lineofhidar10 = { #ALIVE
     name = Tula_a_kk
     female = yes
     religion = faith_arani
-    culture = pust
+    culture = darsalai
     intrigue = 9
     prowess = 9
     6995.5.20 = { birth = yes }
@@ -805,7 +749,7 @@ lineofhidar11 = { # Lord of Hidar
 	name = Kanaishr
     dynasty = dynasty_hidar
 	religion = faith_arani
-	culture = pust
+	culture = darsalai
     father = lineofhidar7
     mother = lineofhidar8
 	trait = temperate
@@ -825,7 +769,7 @@ lineofhidar12 = {
 	
     dynasty_house = house_kanzira
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 	
     father = lineofhidar5
     mother = lineofhidar6
@@ -843,7 +787,7 @@ lineofhidar13 = {
     name = Jiloya
     female = yes
     religion = faith_arani
-    culture = pust
+    culture = darsalai
     trait = zealous
     trait = education_diplomacy_4
     6967.10.5 = { birth = yes }
@@ -855,7 +799,7 @@ lineofhidar14 = {
 	
     dynasty_house = house_kanzira
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 	
     father = lineofhidar12
     mother = lineofhidar13
@@ -875,7 +819,7 @@ lineofhidar15 = {
 	
     dynasty_house = house_kanzira
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 	
     father = lineofhidar12
     mother = lineofhidar13
@@ -899,6 +843,33 @@ lineofhidar15 = {
     }
     7092.10.2 = { death = yes }
 }
+lineofhidar15brother = {
+    name = Bogho
+	
+    dynasty_house = house_kanzira
+    religion = faith_arani
+    culture = darsalai
+	
+    father = lineofhidar12
+    mother = lineofhidar13
+	
+    trait = generous
+    trait = forgiving
+    trait = impatient
+    trait = education_diplomacy_3
+	trait = physique_good_1
+	
+	diplomacy = 8 
+	martial = 7 
+	stewardship = 6 
+	intrigue = 5 
+	learning = 4
+	prowess = 3
+	
+    6999.11.20 = { birth = yes }
+
+    7092.10.2 = { death = { death_reason = death_natural_causes } }
+}
 
 # Izrissin Tribe - Lords of Samikha
 
@@ -907,7 +878,7 @@ lineizrissin1 = {
 
     dynasty = dynasty_izrissin
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     trait = honest
     trait = humble
@@ -925,12 +896,31 @@ lineizrissin1 = {
         death = { death_reason = death_natural_causes }
     }
 }
+lineizrissin1brother = {
+    name = Borgha_a_l
+
+    dynasty = dynasty_izrissin
+    religion = faith_arani
+    culture = darsalai
+
+    trait = content
+    trait = humble
+    trait = brave
+
+    6840.4.17 = {
+        birth = yes
+    }
+
+    6909.9.19 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
 lineizrissin2 = {
     name = Ba
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     trait = brave
     trait = temperate
@@ -949,7 +939,7 @@ lineizrissin3 = {
 
     dynasty = dynasty_izrissin
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = lineizrissin1
     mother = lineizrissin2
@@ -975,7 +965,7 @@ lineizrissin4 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     trait = craven
     trait = callous
@@ -994,7 +984,7 @@ lineizrissin5 = {
 
     dynasty = dynasty_izrissin
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = lineizrissin3
     mother = lineizrissin4
@@ -1020,7 +1010,7 @@ lineizrissin6 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     trait = just
     trait = lazy
@@ -1039,7 +1029,7 @@ lineizrissin7 = {
 
     dynasty = dynasty_izrissin
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = lineizrissin5
     mother = lineizrissin6
@@ -1065,7 +1055,7 @@ lineizrissin8 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     trait = diligent
     trait = honest
@@ -1084,7 +1074,7 @@ lineizrissin9 = {
 
     dynasty = dynasty_izrissin
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = lineizrissin7
     mother = lineizrissin8
@@ -1110,7 +1100,7 @@ lineizrissin10 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     trait = lazy
     trait = craven
@@ -1129,7 +1119,7 @@ lineizrissin11 = {
 
     dynasty = dynasty_izrissin
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = lineizrissin9
     mother = lineizrissin10
@@ -1154,7 +1144,7 @@ linedakijha1 = {
 
     dynasty = dynasty_dakijha
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     trait = paranoid
     trait = greedy
@@ -1177,7 +1167,7 @@ linedakijha2 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     trait = vengeful
     trait = content
@@ -1196,7 +1186,7 @@ linedakijha3 = {
 
     dynasty = dynasty_dakijha
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linedakijha1
     mother = linedakijha2
@@ -1221,8 +1211,8 @@ linedakijha4 = {
     name = A_A_minata
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     trait = sadistic
     trait = gregarious
@@ -1241,7 +1231,7 @@ linedakijha5 = {
 
     dynasty = dynasty_dakijha
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linedakijha3
     mother = linedakijha4
@@ -1262,12 +1252,34 @@ linedakijha5 = {
         death = { death_reason = death_natural_causes }
     }
 }
+linedakijha5brother = {
+    name = Terkho
+
+    dynasty = dynasty_dakijha
+    religion = faith_arani
+    culture = darsalai
+
+    father = linedakijha3
+    mother = linedakijha4
+
+    trait = temperate
+    trait = zealous
+    trait = generous
+
+    6887.10.27 = {
+        birth = yes
+    }
+
+    6956.8.20 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
 linedakijha6 = {
     name = Ze_e_nuab
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     trait = lustful
     trait = vengeful
@@ -1286,7 +1298,7 @@ linedakijha7 = { # conqueror, created duchy of Khija
 
     dynasty = dynasty_dakijha
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linedakijha5
     mother = linedakijha6
@@ -1314,8 +1326,8 @@ linedakijha8 = {
     name = Na_a_ma_a_ndia
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     trait = gluttonous
     trait = stubborn
@@ -1334,7 +1346,7 @@ linedakijha9 = {
 
     dynasty = dynasty_dakijha
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linedakijha7
     mother = linedakijha8
@@ -1359,7 +1371,7 @@ linedakijha10 = {
     name = Sia
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     trait = honest
@@ -1405,7 +1417,7 @@ linedakijha12 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linedakijha9
     mother = linedakijha10
@@ -1428,7 +1440,7 @@ linedakijha13 = { # lord in 7033
 
     dynasty = dynasty_dakijha
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linedakijha9
     mother = linedakijha10
@@ -1456,7 +1468,7 @@ linedakijha14 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     trait = fickle
     trait = trusting
@@ -1475,7 +1487,7 @@ linedakijha15 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linedakijha13
     mother = linedakijha14
@@ -1497,7 +1509,7 @@ linedakijha16 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linedakijha13
     mother = linedakijha14
@@ -1519,7 +1531,7 @@ linedakijha17 = {
 
     dynasty = dynasty_dakijha
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linedakijha13
     mother = linedakijha14
@@ -1541,7 +1553,7 @@ linedakijha18 = {
 
     dynasty = dynasty_dakijha
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linedakijha13
     mother = linedakijha14
@@ -1576,7 +1588,7 @@ linedakijha19 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     trait = humble
     trait = lazy
@@ -1595,7 +1607,7 @@ linedakijha20 = { # lord in 7033
 
     dynasty = dynasty_dakijha
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linedakijha9
     mother = linedakijha10
@@ -1624,7 +1636,7 @@ linedakijha21 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     trait = patient
     trait = shy
@@ -1643,7 +1655,7 @@ linedakijha22 = {
 
     dynasty = dynasty_dakijha
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linedakijha20
     mother = linedakijha21
@@ -2145,7 +2157,9 @@ linenardegan12 = {
 
     trait = trusting
     trait = deceitful
-    trait = ambitious
+    trait = rowdy
+
+    disallow_random_traits = yes
 
     diplomacy = 3
     martial = 4
@@ -2158,6 +2172,10 @@ linenardegan12 = {
 
     6774.8.6 = {
         birth = yes
+    }
+
+    6790.8.6 = {
+        trait = ambitious
     }
 
     6844.7.28 = {
@@ -2327,13 +2345,47 @@ linenardegan17 = {
     learning = 3
     prowess = 1
 
-    trait = education_martial_1
+    trait = education_diplomacy_2
 
     6869.4.8 = {
         birth = yes
     }
 
     6933.3.18 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linenardegan17brother = {
+    name = Ra_a_hkaad
+
+    religion = faith_arani
+    culture = sand_people
+	dynasty = dynasty_nardegan
+
+    father = linenardegan15
+    mother = linenardegan16
+
+    sexuality = heterosexual
+
+    trait = generous
+    trait = just
+    trait = paranoid
+
+    diplomacy = 2
+    martial = 7
+    stewardship = 3
+    intrigue = 4
+    learning = 5
+    prowess = 5
+
+    trait = education_martial_2
+
+    6871.7.18 = {
+        birth = yes
+    }
+
+    6936.6.16 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -2449,8 +2501,8 @@ linenardegan21 = {
     religion = faith_arani
     culture = sand_people
 
-    father = linenardegan15
-    mother = linenardegan16
+    father = linenardegan19
+    mother = linenardegan20
 
     sexuality = heterosexual
 
@@ -2467,15 +2519,15 @@ linenardegan21 = {
 
     trait = education_martial_3
 
-    6876.11.1 = {
+    6900.12.14 = {
         birth = yes
     }
 
-    6902.3.18 = {
+    6922.3.18 = {
         add_spouse = linenardegan22
     }
 
-    6959.6.7 = {
+    6980.6.7 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -2502,13 +2554,117 @@ linenardegan22 = {
 
     trait = education_martial_2
 
-    6876.8.25 = {
+    6901.8.25 = {
         birth = yes
     }
 
-    6937.7.4 = {
+    6989.7.4 = {
         death = { death_reason = death_natural_causes }
     }
+}
+
+linenardegan23 = {
+    name = Borgha_a_l
+
+    dynasty = dynasty_nardegan
+    religion = faith_arani
+    culture = sand_people
+
+    father = linenardegan21
+    mother = linenardegan22
+
+    sexuality = heterosexual
+
+    trait = brave
+    trait = humble
+    trait = wrathful
+
+    diplomacy = 4
+    martial = 8
+    stewardship = 6
+    intrigue = 5
+    learning = 2
+    prowess = 3
+
+    trait = education_martial_3
+
+    6937.5.22 = {
+        birth = yes
+    }
+
+    6969.6.9 = {
+        add_spouse = linenardegan24
+    }
+
+    7002.2.2 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linenardegan24 = {
+    name = Safia
+    female = yes
+
+    religion = faith_arani
+    culture = sand_people
+
+    sexuality = heterosexual
+
+    trait = lustful
+    trait = greedy
+    trait = fickle
+
+    diplomacy = 3
+    martial = 2
+    stewardship = 8
+    intrigue = 7
+    learning = 5
+    prowess = 1
+
+    trait = education_stewardship_3
+
+    6952.5.22 = {
+        birth = yes
+    }
+
+    7011.11.11 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linenardegan25 = { # WotR ruler
+	name = Sharhn
+	
+    dynasty = dynasty_nardegan
+    religion = faith_arani
+    culture = sand_people
+
+    father = linenardegan23
+    mother = linenardegan24
+
+    sexuality = heterosexual
+	
+    trait = ambitious
+    trait = greedy
+    trait = brave
+	trait = education_intrigue_4
+	trait = intellect_good_1
+
+    diplomacy = 6
+    martial = 5
+    stewardship = 8
+    intrigue = 9
+    learning = 5
+    prowess = 3
+	
+	6985.2.11 = {
+		birth = yes
+		add_pressed_claim = title:d_darsalan
+	}
+	
+	7064.3.2 {
+		death = { death_reason = death_natural_causes }
+	}
 }
 
 ### Line of Renegand ~ Independent High chieftains in the south for the Long Winter start date ###
@@ -2518,7 +2674,7 @@ linerenegand1 = {
 
     dynasty = dynasty_renegand
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -2553,7 +2709,7 @@ linerenegand2 = {
     female = yes
 
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -2584,7 +2740,7 @@ linerenegand3 = {
 
     dynasty = dynasty_renegand
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     father = linerenegand1
     mother = linerenegand2
@@ -2622,7 +2778,7 @@ linerenegand4 = {
     female = yes
 
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -2653,7 +2809,7 @@ linerenegand5 = {
 
     dynasty = dynasty_renegand
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     father = linerenegand3
     mother = linerenegand4
@@ -2691,7 +2847,7 @@ linerenegand6 = {
     female = yes
 
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     sexuality = bisexual
 
@@ -2722,7 +2878,7 @@ linerenegand7 = {
 
     dynasty = dynasty_renegand
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     father = linerenegand5
     mother = linerenegand6
@@ -2760,7 +2916,7 @@ linerenegand8 = {
     female = yes
 
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -2791,7 +2947,7 @@ linerenegand9 = {
 
     dynasty = dynasty_renegand
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     father = linerenegand7
     mother = linerenegand8
@@ -2829,7 +2985,7 @@ linerenegand10 = {
     female = yes
 
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -2860,7 +3016,7 @@ linerenegand11 = { # Long Winter start date ruler
 
     dynasty = dynasty_renegand
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     father = linerenegand9
     mother = linerenegand10
@@ -2898,7 +3054,7 @@ linerenegand12 = {
     female = yes
 
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -2929,16 +3085,12 @@ linerenegand13 = {
 
     dynasty = dynasty_renegand
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     father = linerenegand11
     mother = linerenegand12
 
     sexuality = heterosexual
-
-    trait = deceitful
-    trait = arrogant
-    trait = patient
 
     diplomacy = 2
     martial = 5
@@ -2951,6 +3103,12 @@ linerenegand13 = {
 
     6785.10.27 = {
         birth = yes
+    }
+
+    6801.10.27 = {
+        trait = deceitful
+        trait = arrogant
+        trait = patient
     }
 
     6819.7.2 = {
@@ -2967,7 +3125,7 @@ linerenegand14 = {
     female = yes
 
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -2998,7 +3156,7 @@ linerenegand15 = {
 
     dynasty = dynasty_renegand
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     father = linerenegand13
     mother = linerenegand14
@@ -3036,7 +3194,7 @@ linerenegand16 = {
     female = yes
 
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -3067,7 +3225,7 @@ linerenegand17 = {
 
     dynasty = dynasty_renegand
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     father = linerenegand15
     mother = linerenegand16
@@ -3105,7 +3263,7 @@ linerenegand18 = {
     female = yes
 
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -3136,7 +3294,7 @@ linerenegand19 = {
 
     dynasty = dynasty_renegand
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     father = linerenegand15
     mother = linerenegand16
@@ -3174,7 +3332,7 @@ linerenegand20 = {
     female = yes
 
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -3206,7 +3364,7 @@ linerenegand21 = {
 
 	dynasty = dynasty_renegand
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     father = linerenegand15
     mother = linerenegand16
@@ -3241,7 +3399,7 @@ linerenegand22 = {
 
 	dynasty = dynasty_renegand
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     father = linerenegand15
     mother = linerenegand16
@@ -3276,7 +3434,7 @@ linerenegand23 = {
 	dynasty = dynasty_renegand
 
     religion = faith_kanra
-    culture = pust
+    culture = lushek_pust
 
     father = linerenegand15
     mother = linerenegand16
@@ -3311,8 +3469,8 @@ linezaikhandri1 = {
     name = Arsa_a_l
 
     dynasty = dynasty_zaikhandri
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -3346,8 +3504,8 @@ linezaikhandri2 = {
     name = Dila
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -3377,8 +3535,8 @@ linezaikhandri3 = {
     name = Je_e_ngho
 
     dynasty = dynasty_zaikhandri
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linezaikhandri1
     mother = linezaikhandri2
@@ -3415,8 +3573,8 @@ linezaikhandri4 = {
     name = Me_e_laja
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -3446,8 +3604,8 @@ linezaikhandri5 = {
     name = Bra_a_limar
 
     dynasty = dynasty_zaikhandri
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linezaikhandri3
     mother = linezaikhandri4
@@ -3494,8 +3652,8 @@ linezaikhandri6 = {
     name = Safia
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -3525,8 +3683,8 @@ linezaikhandri7 = {
     name = Kha_a_lo_o_nimmir
 
     dynasty = dynasty_zaikhandri
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linezaikhandri5
     mother = linezaikhandri6
@@ -3563,8 +3721,8 @@ linezaikhandri8 = {
     name = Safia
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = asexual
 
@@ -3594,8 +3752,8 @@ linezaikhandri9 = {
     name = Malt_o_e_k
 
     dynasty = dynasty_zaikhandri
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linezaikhandri7
     mother = linezaikhandri8
@@ -3632,8 +3790,8 @@ linezaikhandri10 = {
     name = Debara
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -3663,8 +3821,8 @@ linezaikhandri11 = {
     name = Drajze_e_n
 
     dynasty = dynasty_zaikhandri
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linezaikhandri9
     mother = linezaikhandri10
@@ -3701,8 +3859,8 @@ linezaikhandri12 = {
     name = Boze_e_na
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -3732,8 +3890,8 @@ linezaikhandri13 = {
     name = Brajkho
 
     dynasty = dynasty_zaikhandri
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linezaikhandri11
     mother = linezaikhandri12
@@ -3770,8 +3928,8 @@ linezaikhandri14 = {
     name = Su_u_nkha_a_nna
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -3801,8 +3959,8 @@ linezaikhandri15 = {
     name = Mire_e_no
 
     dynasty = dynasty_zaikhandri
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linezaikhandri13
     mother = linezaikhandri14
@@ -3839,8 +3997,8 @@ linezaikhandri16 = {
     name = Dje_e_na
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -3870,8 +4028,8 @@ linezaikhandri17 = {
     name = Jerek
 
     dynasty = dynasty_zaikhandri
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linezaikhandri15
     mother = linezaikhandri16
@@ -3908,8 +4066,8 @@ linezaikhandri18 = {
     name = Shina
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -3939,8 +4097,8 @@ linezaikhandri19 = {
     name = Asina
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 	dynasty = dynasty_zaikhandri
 
     father = linezaikhandri15
@@ -3977,7 +4135,7 @@ linekhijayah1 = {
 
     dynasty = dynasty_khijayah
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -4012,7 +4170,7 @@ linekhijayah2 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -4043,7 +4201,7 @@ linekhijayah3 = {
 
     dynasty = dynasty_khijayah
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linekhijayah1
     mother = linekhijayah2
@@ -4090,7 +4248,7 @@ linekhijayah4 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = bisexual
 
@@ -4122,7 +4280,7 @@ linekhijayah5 = { # Long winter start date ruler
 
     dynasty = dynasty_khijayah
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linekhijayah3
     mother = linekhijayah4
@@ -4165,7 +4323,7 @@ linekhijayah6 = {
     name = Pe_e_nhar
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -4196,7 +4354,7 @@ linekhijayah7 = {
 
     dynasty = dynasty_khijayah
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linekhijayah6
     mother = linekhijayah5
@@ -4236,7 +4394,7 @@ linekhijayah7sister = {
 
     dynasty = dynasty_khijayah
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linekhijayah6
     mother = linekhijayah5
@@ -4271,7 +4429,7 @@ linekhijayah7brother = {
 
     dynasty = dynasty_khijayah
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linekhijayah6
     mother = linekhijayah5
@@ -4306,7 +4464,7 @@ linekhijayah8 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -4337,7 +4495,7 @@ linekhijayah9 = {
 
     dynasty = dynasty_khijayah
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linekhijayah7
     mother = linekhijayah8
@@ -4375,7 +4533,7 @@ linekhijayah10 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -4406,7 +4564,7 @@ linekhijayah11 = {
 
     dynasty = dynasty_khijayah
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linekhijayah9
     mother = linekhijayah10
@@ -4444,7 +4602,7 @@ linekhijayah12 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -4475,7 +4633,7 @@ linekhijayah13 = {
 
     dynasty = dynasty_khijayah
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linekhijayah11
     mother = linekhijayah12
@@ -4513,7 +4671,7 @@ linekhijayah14 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -4545,7 +4703,7 @@ linekhijayah15 = {
 	dynasty = dynasty_khijayah
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linekhijayah13
     mother = linekhijayah14
@@ -4580,7 +4738,7 @@ linekhijayah16 = {
 	dynasty = dynasty_khijayah
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linekhijayah13
     mother = linekhijayah14
@@ -4614,7 +4772,7 @@ linekhijayah17 = {
 
     dynasty = dynasty_khijayah
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linekhijayah13
     mother = linekhijayah14
@@ -4652,7 +4810,7 @@ linekhijayah18 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -4684,7 +4842,7 @@ linekhijayah19 = {
 	dynasty = dynasty_khijayah
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linekhijayah13
     mother = linekhijayah14
@@ -4718,7 +4876,7 @@ linekhijayah20 = {
 
     dynasty = dynasty_khijayah
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linekhijayah13
     mother = linekhijayah14
@@ -4756,7 +4914,7 @@ linekhijayah21 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -4974,6 +5132,9 @@ lineasuriand6 = {
     trait = ambitious
     trait = humble
     trait = paranoid
+    trait = rowdy
+
+    disallow_random_traits = yes
 
     diplomacy = 4
     martial = 9
@@ -5304,6 +5465,41 @@ lineasuriand15 = {
     }
 }
 
+lineasuriand15brother = {
+    name = Kha_a_ndoro
+
+    religion = faith_arani
+    culture = sand_people
+	dynasty = dynasty_asuriand
+
+    father = lineasuriand13
+    mother = lineasuriand14
+
+    sexuality = heterosexual
+
+    trait = forgiving
+    trait = content
+    trait = cynical
+
+    diplomacy = 4
+    martial = 6
+    stewardship = 4
+    intrigue = 4
+    learning = 6
+    prowess = 7
+
+    trait = education_martial_2
+	trait = education_martial_prowess_2
+
+    6925.11.20 = {
+        birth = yes
+    }
+
+    6989.10.24 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
 lineasuriand16 = {
     name = Debara
     female = yes
@@ -5386,6 +5582,40 @@ lineasuriand17 = {
     }
 }
 
+lineasuriand17brother = {
+    name = Gjorad
+
+    dynasty = dynasty_asuriand
+    religion = faith_arani
+    culture = sand_people
+
+    father = lineasuriand13
+    mother = lineasuriand14
+
+    sexuality = heterosexual
+
+    trait = honest
+    trait = trusting
+    trait = compassionate
+
+    diplomacy = 5
+    martial = 8
+    stewardship = 5
+    intrigue = 4
+    learning = 3
+    prowess = 6
+
+    trait = education_martial_3
+
+    6932.2.19 = {
+        birth = yes
+    }
+
+    7001.11.1 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
 lineasuriand18 = {
     name = Me_e_laja
     female = yes
@@ -5424,7 +5654,7 @@ linesamikhand1 = {
 
     dynasty = dynasty_samikhand
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -5459,7 +5689,7 @@ linesamikhand2 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -5490,7 +5720,7 @@ linesamikhand3 = { # Long winter start date ruler
 
     dynasty = dynasty_samikhand
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linesamikhand1
     mother = linesamikhand2
@@ -5530,7 +5760,7 @@ linesamikhand4 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -5561,7 +5791,7 @@ linesamikhand5 = {
 
     dynasty = dynasty_samikhand
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linesamikhand3
     mother = linesamikhand4
@@ -5599,7 +5829,7 @@ linesamikhand6 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -5630,7 +5860,7 @@ linesamikhand7 = {
 
     dynasty = dynasty_samikhand
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linesamikhand5
     mother = linesamikhand6
@@ -5640,6 +5870,9 @@ linesamikhand7 = {
     trait = fickle
     trait = arrogant
     trait = brave
+    trait = rowdy
+
+    disallow_random_traits = yes
 
     diplomacy = 2
     martial = 5
@@ -5668,13 +5901,16 @@ linesamikhand8 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
     trait = greedy
     trait = temperate
     trait = chaste
+    trait = rowdy
+
+    disallow_random_traits = yes
 
     diplomacy = 3
     martial = 7
@@ -5699,7 +5935,7 @@ linesamikhand9 = {
 
     dynasty = dynasty_samikhand
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linesamikhand7
     mother = linesamikhand8
@@ -5737,7 +5973,7 @@ linesamikhand10 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -5768,7 +6004,7 @@ linesamikhand11 = {
 
     dynasty = dynasty_samikhand
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linesamikhand9
     mother = linesamikhand10
@@ -5806,7 +6042,7 @@ linesamikhand12 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -5837,7 +6073,7 @@ linesamikhand13 = {
 
     dynasty = dynasty_samikhand
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linesamikhand11
     mother = linesamikhand12
@@ -5875,7 +6111,7 @@ linesamikhand14 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -5906,7 +6142,7 @@ linesamikhand15 = {
 
     dynasty = dynasty_samikhand
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linesamikhand13
     mother = linesamikhand14
@@ -5944,7 +6180,7 @@ linesamikhand16 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -5975,7 +6211,7 @@ linesamikhand17 = {
     female = yes
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 	dynasty = dynasty_samikhand
 
     father = linesamikhand13
@@ -6011,7 +6247,7 @@ linesamikhand18 = {
 	dynasty = dynasty_samikhand
 
     religion = faith_arani
-    culture = pust
+    culture = darsalai
 
     father = linesamikhand13
     mother = linesamikhand14
@@ -6040,14 +6276,14 @@ linesamikhand18 = {
     }
 }
 
-### Line of Tahbrani ~ High Chieftains of Tahbr Abrakhan under the Kingdom of Darsalan ###
+### Line of Tahbrani ~ High Chieftains of Tahbr Abrakhan ###
 
 linetahbrani1 = {
     name = Borgha_a_l
 
     dynasty = dynasty_tahbrani
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -6081,8 +6317,8 @@ linetahbrani2 = {
     name = Me_e_laja
     female = yes
 
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -6112,8 +6348,8 @@ linetahbrani3 = { # Long winter start date ruler
     name = Ozho
 
     dynasty = dynasty_tahbrani
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     father = linetahbrani1
     mother = linetahbrani2
@@ -6150,8 +6386,8 @@ linetahbrani4 = {
     name = Su_u_nkha_a_nna
     female = yes
 
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -6181,8 +6417,8 @@ linetahbrani5 = {
     name = Terkho
 
     dynasty = dynasty_tahbrani
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     father = linetahbrani3
     mother = linetahbrani4
@@ -6219,8 +6455,8 @@ linetahbrani6 = {
     name = Ina
     female = yes
 
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -6250,8 +6486,8 @@ linetahbrani7 = {
     name = A_A_mbar
 
     dynasty = dynasty_tahbrani
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     father = linetahbrani5
     mother = linetahbrani6
@@ -6288,8 +6524,8 @@ linetahbrani8 = {
     name = Mahare_e_na
     female = yes
 
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -6319,8 +6555,8 @@ linetahbrani9 = {
     name = Borgha_a_l
 
     dynasty = dynasty_tahbrani
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     father = linetahbrani7
     mother = linetahbrani8
@@ -6357,8 +6593,8 @@ linetahbrani10 = {
     name = Farisi
     female = yes
 
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -6388,8 +6624,8 @@ linetahbrani11 = {
     name = Ozho
 
     dynasty = dynasty_tahbrani
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     father = linetahbrani9
     mother = linetahbrani10
@@ -6426,8 +6662,8 @@ linetahbrani12 = {
     name = Ina
     female = yes
 
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -6457,8 +6693,8 @@ linetahbrani13 = {
     name = De_e_lasimmir
 
     dynasty = dynasty_tahbrani
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     father = linetahbrani11
     mother = linetahbrani12
@@ -6495,8 +6731,8 @@ linetahbrani14 = {
     name = Da_a_nikha
     female = yes
 
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -6526,8 +6762,8 @@ linetahbrani15 = {
     name = Ne_e_nad
 
     dynasty = dynasty_tahbrani
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     father = linetahbrani13
     mother = linetahbrani14
@@ -6564,8 +6800,8 @@ linetahbrani16 = {
     name = A_A_mma_a_li
     female = yes
 
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -6595,8 +6831,8 @@ linetahbrani17 = {
     name = Bogho
 
     dynasty = dynasty_tahbrani
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     father = linetahbrani15
     mother = linetahbrani16
@@ -6633,8 +6869,8 @@ linetahbrani18 = {
     name = Fa_a_lasha
     female = yes
 
-    religion = faith_arani
-    culture = pust
+    religion = faith_kanra
+    culture = lushek_pust
 
     sexuality = heterosexual
 
@@ -6878,10 +7114,6 @@ linesarisand7 = {
 
     sexuality = heterosexual
 
-    trait = humble
-    trait = just
-    trait = trusting
-
     diplomacy = 6
     martial = 6
     stewardship = 5
@@ -6893,6 +7125,12 @@ linesarisand7 = {
 
     6784.7.19 = {
         birth = yes
+    }
+
+    6800.7.19 = {
+        trait = humble
+        trait = just
+        trait = trusting
     }
 
     6811.3.21 = {
@@ -7183,8 +7421,8 @@ linetaresi1 = {
     name = Brajkho
 
     dynasty = dynasty_taresi
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -7218,8 +7456,8 @@ linetaresi2 = {
     name = Me_e_laja
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -7249,8 +7487,8 @@ linetaresi3 = {
     name = Ne_e_nad
 
     dynasty = dynasty_taresi
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linetaresi1
     mother = linetaresi2
@@ -7287,8 +7525,8 @@ linetaresi4 = {
     name = Safia
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -7318,8 +7556,8 @@ linetaresi5 = {
     name = Mire_e_no
 
     dynasty = dynasty_taresi
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linetaresi3
     mother = linetaresi4
@@ -7356,8 +7594,8 @@ linetaresi6 = {
     name = Shere_e_n
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = bisexual
 
@@ -7387,8 +7625,8 @@ linetaresi7 = {
     name = Zhasa_a_n
 
     dynasty = dynasty_taresi
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linetaresi5
     mother = linetaresi6
@@ -7425,8 +7663,8 @@ linetaresi8 = {
     name = Ma_a_ndera
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -7456,8 +7694,8 @@ linetaresi9 = {
     name = Malt_o_e_k
 
     dynasty = dynasty_taresi
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linetaresi7
     mother = linetaresi8
@@ -7494,8 +7732,8 @@ linetaresi10 = {
     name = Ade_e_nja
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -7525,8 +7763,8 @@ linetaresi11 = {
     name = Darijkho
 
     dynasty = dynasty_taresi
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linetaresi9
     mother = linetaresi10
@@ -7563,8 +7801,8 @@ linetaresi12 = {
     name = Shina
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -7594,8 +7832,8 @@ linetaresi13 = {
     name = Ne_e_nad
 
     dynasty = dynasty_taresi
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = linetaresi11
     mother = linetaresi12
@@ -7632,8 +7870,8 @@ linetaresi14 = {
     name = Aifa_a_nna
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -7663,8 +7901,8 @@ linetaresi15 = {
     name = Safia
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 	dynasty = dynasty_taresi
 
     father = linetaresi13
@@ -7700,7 +7938,7 @@ linebanugand1 = {
     name = Zirinkho
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -7740,7 +7978,7 @@ linebanugand2 = {
     name = Kilija
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -7771,7 +8009,7 @@ linebanugand3 = {
     name = Gjorad
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand1
@@ -7809,7 +8047,7 @@ linebanugand4 = {
     name = Dje_e_na
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -7840,7 +8078,7 @@ linebanugand5 = {
     name = Mire_e_no
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand3
@@ -7878,7 +8116,7 @@ linebanugand6 = {
     name = Mahare_e_na
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -7909,7 +8147,7 @@ linebanugand7 = {
     name = Pakir
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand5
@@ -7947,7 +8185,7 @@ linebanugand8 = {
     name = Marja_a_ni
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -7978,7 +8216,7 @@ linebanugand9 = {
     name = Bozidar
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand7
@@ -8016,7 +8254,7 @@ linebanugand10 = {
     name = Dila
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -8047,7 +8285,7 @@ linebanugand11 = { # Long winter start date ruler
     name = Jozir
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand9
@@ -8068,13 +8306,13 @@ linebanugand11 = { # Long winter start date ruler
     learning = 3
     prowess = 1
 
-    trait = education_stewardship_1
+    trait = education_stewardship_2
 
-    6720.6.20 = {
+    6725.6.20 = {
         birth = yes
     }
 
-    6741.11.6 = {
+    6744.11.6 = {
         add_spouse = linebanugand12
 		give_nickname = nick_the_feeble
 		effect = {
@@ -8083,10 +8321,10 @@ linebanugand11 = { # Long winter start date ruler
         health = 3
     }
 	
-	6755.5.5 = {
+	6755.5.5 = { # Wife is ruling the realm with him as her figurehead
 		effect = { 
 			designate_diarch = character:linebanugand12
-			start_diarchy = regency
+			try_start_diarchy = regency
 			update_diarchy_swing_with_perspective_effect = {
 				SWING = major_sop_swing_diarch_gain
 				LIEGE = character:linebanugand11
@@ -8111,7 +8349,7 @@ linebanugand12 = { # True ruler of the Kingdom
     name = Ma_a_ndera
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -8131,7 +8369,7 @@ linebanugand12 = { # True ruler of the Kingdom
 
     trait = education_stewardship_4
 
-    6717.9.2 = {
+    6727.9.2 = {
         birth = yes
     }
 	6755.5.5 = {
@@ -8149,7 +8387,7 @@ linebanugand13 = {
     name = Gjorad
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand11
@@ -8158,8 +8396,10 @@ linebanugand13 = {
     sexuality = heterosexual
 
     trait = stubborn
-    trait = deceitful
-    trait = greedy
+    trait = brave
+    trait = honest
+	trait = shrewd
+	trait = beauty_good_1
 
     diplomacy = 5
     martial = 11
@@ -8168,7 +8408,7 @@ linebanugand13 = {
     learning = 6
     prowess = 2
 
-    trait = education_martial_2
+    trait = education_martial_4
 
     6753.9.15 = {
         birth = yes
@@ -8188,7 +8428,7 @@ linebanugand13sister = {
 	female = yes
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand11
@@ -8223,7 +8463,7 @@ linebanugand14 = {
     name = Draze_e_nkha
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -8254,7 +8494,7 @@ linebanugand15 = {
     name = Asu_u_ma_a_ni
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand13
@@ -8292,14 +8532,10 @@ linebanugand16 = {
     name = Fa_a_lasha
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
-
-    trait = shy
-    trait = zealous
-    trait = gluttonous
 
     diplomacy = 1
     martial = 5
@@ -8314,6 +8550,12 @@ linebanugand16 = {
         birth = yes
     }
 
+    6802.10.17 = {
+        trait = shy
+        trait = zealous
+        trait = gluttonous
+    }
+
     6855.3.10 = {
         death = { death_reason = death_natural_causes }
     }
@@ -8323,7 +8565,7 @@ linebanugand17 = {
     name = Zhasa_a_n
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand15
@@ -8361,7 +8603,7 @@ linebanugand18 = {
     name = Aisata
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -8392,7 +8634,7 @@ linebanugand19 = {
     name = Pe_e_nhar
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand17
@@ -8430,7 +8672,7 @@ linebanugand20 = {
     name = Desa
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -8461,7 +8703,7 @@ linebanugand21 = {
     name = Radofa_a_n
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand19
@@ -8499,7 +8741,7 @@ linebanugand22 = {
     name = Adina
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -8530,7 +8772,7 @@ linebanugand23 = {
     name = Jozir
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand21
@@ -8568,7 +8810,7 @@ linebanugand24 = {
     name = Debara
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -8599,7 +8841,7 @@ linebanugand25 = {
     name = Drajze_e_n
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand23
@@ -8646,7 +8888,7 @@ linebanugand26 = {
     name = Farisi
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -8677,7 +8919,7 @@ linebanugand27 = {
     name = Rajlo
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand25
@@ -8715,7 +8957,7 @@ linebanugand28 = {
     name = A_A_mija
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -8746,7 +8988,7 @@ linebanugand29 = {
     name = Krukho
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand27
@@ -8784,7 +9026,7 @@ linebanugand30 = {
     name = A_A_mhara
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -8815,7 +9057,7 @@ linebanugand31 = {
     name = Aifa_a_nna
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand27
@@ -8849,7 +9091,7 @@ linebanugand32 = {
     name = Kjatikhar
 
     dynasty = dynasty_banugand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebanugand27
@@ -8887,7 +9129,7 @@ linebanugand33 = {
     name = Dila
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -8920,7 +9162,7 @@ linealaranin1 = {
     name = Arajar
 
     dynasty = dynasty_alaranin
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -8955,7 +9197,7 @@ linealaranin2 = {
     name = Farisi
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -8986,7 +9228,7 @@ linealaranin3 = {
     name = Radofa_a_n
 
     dynasty = dynasty_alaranin
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linealaranin1
@@ -9024,7 +9266,7 @@ linealaranin4 = {
     name = Debara
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -9055,7 +9297,7 @@ linealaranin5 = { # Long Winter Start date ruler
     name = Mire_e_no
 
     dynasty = dynasty_alaranin
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linealaranin3
@@ -9093,7 +9335,7 @@ linealaranin6 = {
     name = Lekisha
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -9124,7 +9366,7 @@ linealaranin7 = {
     name = A_A_lu
 
     dynasty = dynasty_alaranin
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linealaranin5
@@ -9162,7 +9404,7 @@ linealaranin8 = {
     name = Ke_e_lija
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -9193,7 +9435,7 @@ linealaranin9 = {
     name = Pe_e_nhar
 
     dynasty = dynasty_alaranin
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linealaranin7
@@ -9231,7 +9473,7 @@ linealaranin10 = {
     name = Sa_a_nja
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -9262,7 +9504,7 @@ linealaranin11 = {
     name = Rajlo
 
     dynasty = dynasty_alaranin
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linealaranin9
@@ -9300,7 +9542,7 @@ linealaranin12 = {
     name = Kijara
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -9331,7 +9573,7 @@ linealaranin13 = {
     name = Brajkho
 
     dynasty = dynasty_alaranin
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linealaranin11
@@ -9369,7 +9611,7 @@ linealaranin14 = {
     name = Me_e_laja
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -9383,7 +9625,7 @@ linealaranin14 = {
     stewardship = 4
     intrigue = 7
     learning = 4
-    prowess = 5
+    prowess = 1
 
     trait = education_martial_4
 
@@ -9400,7 +9642,7 @@ linealaranin15 = {
     name = Bozidar
 
     dynasty = dynasty_alaranin
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linealaranin13
@@ -9438,7 +9680,7 @@ linealaranin16 = {
     name = Ade_e_nja
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -9469,7 +9711,7 @@ linealaranin17 = {
     name = Borgha_a_l
 
     dynasty = dynasty_alaranin
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linealaranin15
@@ -9507,7 +9749,7 @@ linealaranin18 = {
     name = Ina
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -9538,7 +9780,7 @@ linealaranin19 = {
     name = Boze_e_na
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linealaranin17
@@ -9572,7 +9814,7 @@ linealaranin20 = {
     name = Kijta
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linealaranin17
@@ -9602,14 +9844,49 @@ linealaranin20 = {
     }
 }
 
+linealaranin21 = {
+	name = Caran_Lambar
+	culture = nafarati
+	religion = faith_indur
+	
+	dynasty = dynasty_alaranin
+    father = linealaranin17
+    mother = linealaranin18
+	
+	martial = 10
+	diplomacy = 8
+	intrigue = 6
+	stewardship = 7
+	prowess = 8
+	
+	trait = ambitious
+	trait = callous
+	trait = brave
+	trait = education_martial_4
+	trait = physique_good_3
+	trait = strong
+	trait = reckless
+	trait = open_terrain_expert
+	
+	6991.8.23 = {
+		birth = yes
+		give_nickname = nick_terror_of_nafarat
+		effect = {
+			add_character_flag = had_nickname_event
+			add_character_flag = no_auto_family
+		}
+	}
+	7052.1.1 = { death = { death_reason = death_natural_causes } }
+}
+
 ### Line of Topanrin, High Chieftains of southern Nafarat ###
 
 linetopanrin1 = {
     name = Gjorad
 
     dynasty = dynasty_topanrin
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     sexuality = heterosexual
 
@@ -9643,8 +9920,8 @@ linetopanrin2 = {
     name = Draze_e_nkha
     female = yes
 
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     sexuality = heterosexual
 
@@ -9674,8 +9951,8 @@ linetopanrin3 = {
     name = Arsa_a_l
 
     dynasty = dynasty_topanrin
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     father = linetopanrin1
     mother = linetopanrin2
@@ -9712,8 +9989,8 @@ linetopanrin4 = {
     name = Da_a_nikha
     female = yes
 
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     sexuality = heterosexual
 
@@ -9743,8 +10020,8 @@ linetopanrin5 = { # Long winter start date ruler
     name = Gjorad
 
     dynasty = dynasty_topanrin
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     father = linetopanrin3
     mother = linetopanrin4
@@ -9754,7 +10031,6 @@ linetopanrin5 = { # Long winter start date ruler
     trait = greedy
     trait = wrathful
     trait = impatient
-	trait = nafarati_berserker
 
     diplomacy = 4
     martial = 11
@@ -9782,8 +10058,8 @@ linetopanrin6 = {
     name = Fa_a_nna
     female = yes
 
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     sexuality = heterosexual
 
@@ -9813,17 +10089,13 @@ linetopanrin7 = {
     name = Bra_a_nkho
 
     dynasty = dynasty_topanrin
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     father = linetopanrin5
     mother = linetopanrin6
 
     sexuality = heterosexual
-
-    trait = content
-    trait = sadistic
-    trait = zealous
 
     diplomacy = 5
     martial = 3
@@ -9836,6 +10108,12 @@ linetopanrin7 = {
 
     6784.12.23 = {
         birth = yes
+    }
+
+    6800.12.23 = {
+        trait = content
+        trait = sadistic
+        trait = zealous
     }
 
     6817.9.9 = {
@@ -9851,14 +10129,10 @@ linetopanrin8 = {
     name = Me_e_laja
     female = yes
 
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     sexuality = heterosexual
-
-    trait = trusting
-    trait = deceitful
-    trait = ambitious
 
     diplomacy = 3
     martial = 4
@@ -9873,6 +10147,12 @@ linetopanrin8 = {
         birth = yes
     }
 
+    6801.6.8 = {
+        trait = trusting
+        trait = deceitful
+        trait = ambitious
+    }
+
     6860.8.6 = {
         death = { death_reason = death_natural_causes }
     }
@@ -9882,8 +10162,8 @@ linetopanrin9 = {
     name = Krejir
 
     dynasty = dynasty_topanrin
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     father = linetopanrin7
     mother = linetopanrin8
@@ -9920,8 +10200,8 @@ linetopanrin10 = {
     name = Dje_e_na
     female = yes
 
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     sexuality = heterosexual
 
@@ -9951,8 +10231,8 @@ linetopanrin11 = {
     name = De_e_lasimmir
 
     dynasty = dynasty_topanrin
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     father = linetopanrin9
     mother = linetopanrin10
@@ -9989,8 +10269,8 @@ linetopanrin12 = {
     name = Su_u_nkha_a_nna
     female = yes
 
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     sexuality = asexual
 
@@ -10020,8 +10300,8 @@ linetopanrin13 = {
     name = Malt_o_e_k
 
     dynasty = dynasty_topanrin
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     father = linetopanrin11
     mother = linetopanrin12
@@ -10058,8 +10338,8 @@ linetopanrin14 = {
     name = Fa_a_lasha
     female = yes
 
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     sexuality = heterosexual
 
@@ -10089,8 +10369,8 @@ linetopanrin15 = {
     name = Nede_e_lkho
 
     dynasty = dynasty_topanrin
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     father = linetopanrin13
     mother = linetopanrin14
@@ -10127,8 +10407,8 @@ linetopanrin16 = {
     name = Dila
     female = yes
 
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     sexuality = heterosexual
 
@@ -10158,8 +10438,8 @@ linetopanrin17 = {
     name = Drajze_e_n
 
     dynasty = dynasty_topanrin
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     father = linetopanrin15
     mother = linetopanrin16
@@ -10196,8 +10476,8 @@ linetopanrin18 = {
     name = Sha_a_ni
     female = yes
 
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     sexuality = heterosexual
 
@@ -10228,8 +10508,8 @@ linetopanrin19 = {
     female = yes
 	dynasty = dynasty_topanrin
 
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     father = linetopanrin17
     mother = linetopanrin18
@@ -10262,8 +10542,8 @@ linetopanrin20 = {
     name = Fa_a_nnaja
     female = yes
 
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 	dynasty = dynasty_topanrin
 
     father = linetopanrin17
@@ -10274,6 +10554,7 @@ linetopanrin20 = {
     trait = ambitious
     trait = humble
     trait = just
+	trait = twin
 
     diplomacy = 2
     martial = 2
@@ -10293,12 +10574,46 @@ linetopanrin20 = {
     }
 }
 
+linetopanrin20brother = {
+    name = Arsa_a_l
+
+    religion = faith_ray
+    culture = bozishnarud
+	dynasty = dynasty_topanrin
+
+    father = linetopanrin17
+    mother = linetopanrin18
+
+    sexuality = heterosexual
+
+    trait = ambitious
+    trait = temperate
+    trait = just
+
+    diplomacy = 7
+    martial = 6
+    stewardship = 4
+    intrigue = 3
+    learning = 5
+    prowess = 8
+
+    trait = education_diplomacy_3
+
+    7005.4.1 = {
+        birth = yes
+    }
+
+    7079.11.25 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
 linetopanrin21 = {
     name = A_A_mija
     female = yes
 
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 	dynasty = dynasty_topanrin
 
     father = linetopanrin17
@@ -10332,8 +10647,8 @@ linetopanrin22 = {
     name = Kha_a_lo_o_nimmir
 
     dynasty = dynasty_topanrin
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     father = linetopanrin17
     mother = linetopanrin18
@@ -10370,8 +10685,8 @@ linetopanrin23 = {
     name = Se_e_la
     female = yes
 
-    religion = faith_nafar
-    culture = nafarati
+    religion = faith_ray
+    culture = bozishnarud
 
     sexuality = heterosexual
 
@@ -10403,7 +10718,7 @@ linefiramirid1 = {
     name = Milhe_e_nkho
 
     dynasty = dynasty_firamirid
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -10438,7 +10753,7 @@ linefiramirid2 = {
     name = Fa_a_nna
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -10469,7 +10784,7 @@ linefiramirid3 = {
     name = Pe_e_nhar
 
     dynasty = dynasty_firamirid
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefiramirid1
@@ -10507,7 +10822,7 @@ linefiramirid4 = {
     name = Sha_a_ni
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -10538,7 +10853,7 @@ linefiramirid5 = {
     name = Malt_o_e_k
 
     dynasty = dynasty_firamirid
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefiramirid3
@@ -10576,7 +10891,7 @@ linefiramirid6 = {
     name = Aifa_a_nna
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -10607,7 +10922,7 @@ linefiramirid7 = {
     name = Krejir
 
     dynasty = dynasty_firamirid
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefiramirid5
@@ -10645,7 +10960,7 @@ linefiramirid8 = {
     name = Marja_a_ni
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -10676,7 +10991,7 @@ linefiramirid9 = {
     name = Bozidar
 
     dynasty = dynasty_firamirid
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefiramirid7
@@ -10714,7 +11029,7 @@ linefiramirid10 = {
     name = Kijara
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -10745,7 +11060,7 @@ linefiramirid11 = {
     name = Jasikho
 
     dynasty = dynasty_firamirid
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefiramirid9
@@ -10783,7 +11098,7 @@ linefiramirid12 = {
     name = Sa_a_nja
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -10814,7 +11129,7 @@ linefiramirid13 = {
     name = Drajze_e_n
 
     dynasty = dynasty_firamirid
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefiramirid11
@@ -10852,7 +11167,7 @@ linefiramirid14 = {
     name = Ke_e_lija
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -10883,7 +11198,7 @@ linefiramirid15 = {
     name = De_e_lasimmir
 
     dynasty = dynasty_firamirid
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefiramirid13
@@ -10917,11 +11232,45 @@ linefiramirid15 = {
     }
 }
 
+linefiramirid15brother = {
+    name = Terkho
+
+    dynasty = dynasty_firamirid
+    religion = faith_indur
+    culture = nafarati
+
+    father = linefiramirid13
+    mother = linefiramirid14
+
+    sexuality = heterosexual
+
+    trait = generous
+    trait = gregarious
+    trait = forgiving
+
+    diplomacy = 4
+    martial = 11
+    stewardship = 4
+    intrigue = 5
+    learning = 4
+    prowess = 4
+
+    trait = education_martial_4
+
+    6926.2.15 = {
+        birth = yes
+    }
+
+    6997.7.27 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
 linefiramirid16 = {
     name = Ma_a_ndera
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -10952,7 +11301,7 @@ linefiramirid17 = {
     name = Malt_o_e_k
 
     dynasty = dynasty_firamirid
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefiramirid15
@@ -10986,11 +11335,45 @@ linefiramirid17 = {
     }
 }
 
+linefiramirid17brother = {
+    name = Malt_o_e_k
+
+    dynasty = dynasty_firamirid
+    religion = faith_indur
+    culture = nafarati
+
+    father = linefiramirid15
+    mother = linefiramirid16
+
+    sexuality = heterosexual
+
+    trait = greedy
+    trait = lustful
+    trait = forgiving
+
+    diplomacy = 5
+    martial = 7
+    stewardship = 4
+    intrigue = 4
+    learning = 3
+    prowess = 6
+
+    trait = education_martial_3
+
+    6958.5.28 = {
+        birth = yes
+    }
+
+    7029.9.2 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
 linefiramirid18 = {
     name = Asina
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11021,7 +11404,7 @@ linefiramirid19 = {
     name = Pe_e_nhar
 
     dynasty = dynasty_firamirid
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefiramirid17
@@ -11059,7 +11442,7 @@ linefiramirid20 = {
     name = Ruzikha
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11090,7 +11473,7 @@ linefiramirid21 = {
     name = Zhasara
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefiramirid17
@@ -11124,7 +11507,7 @@ linefiramirid22 = {
     name = Kijta
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefiramirid17
@@ -11158,7 +11541,7 @@ linefiramirid23 = {
     name = Drajze_e_n
 
     dynasty = dynasty_firamirid
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefiramirid17
@@ -11196,7 +11579,7 @@ linefiramirid24 = {
     name = Aifa_a_nna
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11228,7 +11611,7 @@ linekandradand1 = {
     name = A_A_mbar
 
     dynasty = dynasty_kandradand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11263,7 +11646,7 @@ linekandradand2 = {
     name = Adina
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11294,7 +11677,7 @@ linekandradand3 = {
     name = Ne_e_nad
 
     dynasty = dynasty_kandradand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linekandradand1
@@ -11332,7 +11715,7 @@ linekandradand4 = {
     name = Sa_a_nja
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11363,7 +11746,7 @@ linekandradand5 = {
     name = Bogho
 
     dynasty = dynasty_kandradand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linekandradand3
@@ -11401,7 +11784,7 @@ linekandradand6 = {
     name = Draze_e_nkha
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11432,7 +11815,7 @@ linekandradand7 = {
     name = Jerek
 
     dynasty = dynasty_kandradand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linekandradand5
@@ -11470,7 +11853,7 @@ linekandradand8 = {
     name = Me_e_laja
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11501,7 +11884,7 @@ linekandradand9 = {
     name = Bozidar
 
     dynasty = dynasty_kandradand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linekandradand7
@@ -11539,7 +11922,7 @@ linekandradand10 = {
     name = Dila
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11570,7 +11953,7 @@ linekandradand11 = {
     name = Kijta
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linekandradand9
@@ -11604,7 +11987,7 @@ linekandradand12 = {
     name = Nede_e_lkho
 
     dynasty = dynasty_kandradand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linekandradand9
@@ -11642,7 +12025,7 @@ linekandradand13 = {
     name = A_A_mhara
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11673,7 +12056,7 @@ linekandradand14 = {
     name = Farisi
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linekandradand9
@@ -11707,7 +12090,7 @@ linekandradand15 = {
     name = Malt_o_e_k
 
     dynasty = dynasty_kandradand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linekandradand9
@@ -11745,7 +12128,7 @@ linekandradand16 = {
     name = Ma_a_ndera
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11778,7 +12161,7 @@ linebozadi1 = {
     name = Krejir
 
     dynasty = dynasty_bozadi
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11813,7 +12196,7 @@ linebozadi2 = {
     name = Aifa_a_nna
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11840,11 +12223,11 @@ linebozadi2 = {
     }
 }
 
-linebozadi3 = {
+linebozadi3 = { # Long Winter Start date ruler
     name = Rajlo
 
     dynasty = dynasty_bozadi
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebozadi1
@@ -11882,7 +12265,7 @@ linebozadi4 = {
     name = Asina
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -11913,7 +12296,7 @@ linebozadi5 = {
     name = Krukho
 
     dynasty = dynasty_bozadi
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebozadi3
@@ -11922,8 +12305,9 @@ linebozadi5 = {
     sexuality = bisexual
 
     trait = ambitious
-    trait = vengeful
-    trait = lazy
+    trait = pensive
+
+    disallow_random_traits = yes
 
     diplomacy = 2
     martial = 5
@@ -11936,6 +12320,11 @@ linebozadi5 = {
 
     6776.12.23 = {
         birth = yes
+    }
+
+    6792.12.23 = {
+        trait = vengeful
+        trait = lazy
     }
 
     6810.8.12 = {
@@ -11951,14 +12340,12 @@ linebozadi6 = {
     name = Ade_e_nja
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
 
-    trait = shy
-    trait = lustful
-    trait = ambitious
+    trait = bossy
 
     diplomacy = 3
     martial = 7
@@ -11973,6 +12360,12 @@ linebozadi6 = {
         birth = yes
     }
 
+    6794.8.19 = {
+        trait = shy
+        trait = lustful
+        trait = ambitious
+    }
+
     6820.1.1 = {
         death = { death_reason = death_leper }
     }
@@ -11982,7 +12375,7 @@ linebozadi7 = {
     name = Milhe_e_nkho
 
     dynasty = dynasty_bozadi
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebozadi5
@@ -12020,7 +12413,7 @@ linebozadi8 = {
     name = Draze_e_nkha
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -12051,7 +12444,7 @@ linebozadi9 = {
     name = Brajkho
 
     dynasty = dynasty_bozadi
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebozadi7
@@ -12089,7 +12482,7 @@ linebozadi10 = {
     name = Marja_a_ni
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -12120,7 +12513,7 @@ linebozadi11 = {
     name = A_A_mhara
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebozadi9
@@ -12154,7 +12547,7 @@ linebozadi12 = {
     name = Kijta
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebozadi9
@@ -12188,7 +12581,7 @@ linebozadi13 = {
     name = Rajkho
 
     dynasty = dynasty_bozadi
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linebozadi9
@@ -12226,7 +12619,7 @@ linebozadi14 = {
     name = Adina
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -12257,11 +12650,11 @@ linebozadi15 = {
     name = A_A_mbar
 
     dynasty = dynasty_bozadi
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
-    father = linebozadi9
-    mother = linebozadi10
+    father = linebozadi13
+    mother = linebozadi14
 
     sexuality = heterosexual
 
@@ -12278,15 +12671,15 @@ linebozadi15 = {
 
     trait = education_martial_2
 
-    6880.4.25 = {
+    6899.4.25 = {
         birth = yes
     }
 
-    6904.10.20 = {
+    6924.10.20 = {
         add_spouse = linebozadi16
     }
 
-    6943.11.6 = {
+    6973.11.6 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -12295,7 +12688,7 @@ linebozadi16 = {
     name = Desa
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -12307,17 +12700,17 @@ linebozadi16 = {
     diplomacy = 4
     martial = 7
     stewardship = 4
-    intrigue = 3
+    intrigue = 7
     learning = 3
     prowess = 4
 
-    trait = education_martial_3
+    trait = education_intrigue_2
 
-    6877.4.21 = {
+    6899.4.21 = {
         birth = yes
     }
 
-    6958.4.11 = {
+    6988.4.11 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -12325,34 +12718,153 @@ linebozadi16 = {
 linebozadi17 = {
     name = Kijara
     female = yes
+	
 	dynasty = dynasty_bozadi
-
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
-    father = linebozadi9
-    mother = linebozadi10
+    father = linebozadi15
+    mother = linebozadi16
 
     sexuality = heterosexual
 
     trait = humble
-    trait = craven
-    trait = deceitful
+    trait = content
+    trait = gregarious
 
-    diplomacy = 3
-    martial = 9
+    diplomacy = 8
+    martial = 3
+    stewardship = 5
+    intrigue = 6
+    learning = 7
+    prowess = 2
+
+    trait = education_diplomacy_3
+
+    6926.8.14 = {
+        birth = yes
+    }
+	
+	6947.4.17 = {
+		add_matrilineal_spouse = lineasuriand15brother
+	}
+
+    6997.7.11 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linebozadi18 = {
+    name = Safia
+    female = yes
+	
+	dynasty = dynasty_bozadi
+    religion = faith_indur
+    culture = nafarati
+
+    father = lineasuriand15brother
+    mother = linebozadi17
+
+    sexuality = heterosexual
+
+    trait = cynical
+    trait = content
+    trait = forgiving
+
+    diplomacy = 7
+    martial = 3
+    stewardship = 5
+    intrigue = 6
+    learning = 8
+    prowess = 2
+
+    trait = education_learning_3
+
+    6950.5.10 = {
+        birth = yes
+    }
+	
+	6977.7.17 = {
+		add_matrilineal_spouse = linefiramirid15brother
+	}
+
+    7028.2.28 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+	
+linebozadi19 = {
+    name = Kilija
+    female = yes
+	
+	dynasty = dynasty_bozadi
+    religion = faith_indur
+    culture = nafarati
+
+    father = linefiramirid15brother
+    mother = linebozadi18
+
+    sexuality = heterosexual
+
+    trait = temperate
+    trait = content
+    trait = cynical
+
+    diplomacy = 7
+    martial = 3
+    stewardship = 5
+    intrigue = 6
+    learning = 8
+    prowess = 2
+
+    trait = education_diplomacy_3
+	trait = intellect_good_1
+
+    6980.8.18 = {
+        birth = yes
+    }
+	
+	7006.7.18 = {
+		add_matrilineal_spouse = linetopanrin20brother
+	}
+
+    7031.4.16 = {
+        death = { death_reason = death_ill }
+    }
+}
+
+linebozadi20 = {
+    name = A_A_ndria
+    female = yes
+	
+	dynasty = dynasty_bozadi
+    religion = faith_indur
+    culture = nafarati
+
+    father = linetopanrin20brother
+    mother = linebozadi19
+
+    sexuality = heterosexual
+
+    trait = generous
+    trait = brave
+    trait = cynical
+
+    diplomacy = 9
+    martial = 2
     stewardship = 7
-    intrigue = 11
-    learning = 6
-    prowess = 5
+    intrigue = 7
+    learning = 4
+    prowess = 1
 
-    trait = education_intrigue_3
+    trait = education_diplomacy_4
+	trait = intellect_good_2
 
-    6881.8.14 = {
+    7010.10.10 = {
         birth = yes
     }
 
-    6965.2.24 = {
+    7104.4.11 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -12363,7 +12875,7 @@ linefejarand1 = {
     name = Milhe_e_nkho
 
     dynasty = dynasty_fejarand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -12398,7 +12910,7 @@ linefejarand2 = {
     name = Boze_e_na
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -12425,11 +12937,11 @@ linefejarand2 = {
     }
 }
 
-linefejarand3 = {
+linefejarand3 = { 
     name = Kha_a_ndoro
 
     dynasty = dynasty_fejarand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefejarand1
@@ -12458,7 +12970,7 @@ linefejarand3 = {
         add_spouse = linefejarand4
     }
 
-    6789.5.9 = {
+    6786.5.9 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -12467,7 +12979,7 @@ linefejarand4 = {
     name = Sa_a_nja
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -12494,11 +13006,11 @@ linefejarand4 = {
     }
 }
 
-linefejarand5 = {
+linefejarand5 = { # Long Winter Start date ruler
     name = Bra_a_nkho
 
     dynasty = dynasty_fejarand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefejarand3
@@ -12536,7 +13048,7 @@ linefejarand6 = {
     name = Fa_a_lasha
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -12567,7 +13079,7 @@ linefejarand7 = {
     name = Rajlo
 
     dynasty = dynasty_fejarand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefejarand5
@@ -12575,9 +13087,7 @@ linefejarand7 = {
 
     sexuality = heterosexual
 
-    trait = callous
-    trait = forgiving
-    trait = arbitrary
+    trait = bossy
 
     diplomacy = 1
     martial = 7
@@ -12590,6 +13100,12 @@ linefejarand7 = {
 
     6781.12.17 = {
         birth = yes
+    }
+
+    6797.12.17 = {
+        trait = callous
+        trait = forgiving
+        trait = arbitrary
     }
 
     6806.10.28 = {
@@ -12605,14 +13121,12 @@ linefejarand8 = {
     name = Kijara
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = bisexual
 
-    trait = brave
-    trait = callous
-    trait = calm
+    trait = bossy
 
     diplomacy = 3
     martial = 5
@@ -12627,6 +13141,12 @@ linefejarand8 = {
         birth = yes
     }
 
+    6796.6.19 = {
+        trait = brave
+        trait = callous
+        trait = calm
+    }
+
     6852.6.2 = {
         death = { death_reason = death_pneumonic }
     }
@@ -12636,7 +13156,7 @@ linefejarand9 = {
     name = Krejir
 
     dynasty = dynasty_fejarand
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     father = linefejarand7
@@ -12674,7 +13194,7 @@ linefejarand10 = {
     name = A_A_mija
     female = yes
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
 
     sexuality = heterosexual
@@ -12706,8 +13226,9 @@ linefejarand11 = {
     female = yes
 	dynasty = dynasty_fejarand
 
-    religion = faith_nafar
+    religion = faith_indur
     culture = nafarati
+	dynasty = dynasty_fejarand
 
     father = linefejarand9
     mother = linefejarand10
@@ -12730,8 +13251,297 @@ linefejarand11 = {
     6842.3.18 = {
         birth = yes
     }
+	
+	6864.4.6 = {
+		add_matrilineal_spouse = lineizrissin1brother
+	}
 
     6918.7.5 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linefejarand12 = {
+    name = Mahare_e_na
+    female = yes
+	dynasty = dynasty_fejarand
+
+    religion = faith_indur
+    culture = nafarati
+	dynasty = dynasty_fejarand
+
+    father = lineizrissin1brother
+    mother = linefejarand11
+
+    sexuality = heterosexual
+
+    trait = brave
+    trait = gregarious
+    trait = fickle
+
+    diplomacy = 4
+    martial = 4
+    stewardship = 9
+    intrigue = 7
+    learning = 5
+    prowess = 2
+
+    trait = education_stewardship_3
+
+    6869.6.19 = {
+        birth = yes
+    }
+	
+	6892.9.22 = {
+		add_matrilineal_spouse = linenardegan17brother
+	}
+
+    6951.5.15 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linefejarand13 = {
+    name = Sa_a_nja
+    female = yes
+	dynasty = dynasty_fejarand
+
+    religion = faith_indur
+    culture = nafarati
+	dynasty = dynasty_fejarand
+
+    father = linenardegan17brother
+    mother = linefejarand12
+
+    sexuality = heterosexual
+
+    trait = brave
+    trait = generous
+    trait = lustful
+
+    diplomacy = 8
+    martial = 3
+    stewardship = 7
+    intrigue = 8
+    learning = 7
+    prowess = 1
+
+    trait = education_diplomacy_4
+	trait = beauty_good_1
+
+    6899.9.28 = {
+        birth = yes
+    }
+	
+	6926.2.16 = {
+		add_matrilineal_spouse = linedakijha5brother
+	}
+
+    6978.8.17 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linefejarand14 = {
+    name = Ruzikha
+    female = yes
+	dynasty = dynasty_fejarand
+
+    religion = faith_indur
+    culture = nafarati
+	dynasty = dynasty_fejarand
+
+    father = linedakijha5brother
+    mother = linefejarand13
+
+    sexuality = heterosexual
+
+    trait = arbitrary
+    trait = gregarious
+    trait = lustful
+
+    diplomacy = 7
+    martial = 2
+    stewardship = 8
+    intrigue = 9
+    learning = 8
+    prowess = 2
+
+    trait = education_intrigue_3
+	trait = beauty_good_1
+
+    6930.10.3 = {
+        birth = yes
+    }
+	
+	6955.5.15 = {
+		add_matrilineal_spouse = lineasuriand17brother
+	}
+
+    7007.11.27 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linefejarand15 = {
+    name = Ade_e_nja
+    female = yes
+	dynasty = dynasty_fejarand
+
+    religion = faith_indur
+    culture = nafarati
+	dynasty = dynasty_fejarand
+
+    father = lineasuriand17brother
+    mother = linefejarand14
+
+    sexuality = heterosexual
+
+    trait = arbitrary
+    trait = greedy
+    trait = content
+
+    diplomacy = 6
+    martial = 2
+    stewardship = 9
+    intrigue = 8
+    learning = 7
+    prowess = 4
+
+    trait = education_stewardship_4
+	trait = beauty_good_2
+
+    6964.11.24 = {
+        birth = yes
+    }
+	
+	6992.8.22 = {
+		add_matrilineal_spouse = linefiramirid17brother
+	}
+
+    7028.2.20 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linefejarand16 = { # WotR ruler
+    name = Kijara
+    female = yes
+	dynasty = dynasty_fejarand
+
+    religion = faith_indur
+    culture = nafarati
+	dynasty = dynasty_fejarand
+
+    father = linefiramirid17brother
+    mother = linefejarand15
+
+    sexuality = heterosexual
+
+    trait = compassionate
+    trait = forgiving
+    trait = generous
+	trait = fecund
+
+    diplomacy = 9
+    martial = 4
+    stewardship = 7
+    intrigue = 4
+    learning = 6
+    prowess = 3
+
+    trait = education_diplomacy_4
+	trait = beauty_good_2
+
+    6999.9.19 = {
+        birth = yes
+    }
+	
+	7018.2.22 = {
+		add_matrilineal_spouse = lineofhidar15brother
+		give_nickname = nick_the_beguiling
+		effect = { add_character_flag = had_nickname_event }
+	}
+
+    7089.8.19 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linefejarand17 = { 
+    name = Desa
+    female = yes
+	dynasty = dynasty_fejarand
+
+    religion = faith_indur
+    culture = nafarati
+	dynasty = dynasty_fejarand
+
+    father = lineofhidar15brother
+    mother = linefejarand16
+
+    sexuality = heterosexual
+
+    trait = compassionate
+    trait = gregarious
+    trait = brave
+	trait = fecund
+
+    diplomacy = 8
+    martial = 2
+    stewardship = 7
+    intrigue = 5
+    learning = 5
+    prowess = 2
+
+    trait = education_diplomacy_3
+	trait = beauty_good_3
+	trait = physique_good_1
+
+    7018.11.27 = {
+        birth = yes
+    }
+	
+    7094.4.14 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+linefejarand18 = { 
+    name = Dila
+    female = yes
+	dynasty = dynasty_fejarand
+
+    religion = faith_indur
+    culture = nafarati
+	dynasty = dynasty_fejarand
+
+    father = lineofhidar15brother
+    mother = linefejarand16
+
+    sexuality = heterosexual
+
+    trait = shy
+    trait = generous
+    trait = brave
+	trait = fecund
+
+    diplomacy = 4
+    martial = 3
+    stewardship = 10
+    intrigue = 3
+    learning = 7
+    prowess = 4
+
+    trait = education_stewardship_4
+	trait = beauty_good_2
+	trait = physique_good_2
+
+    7020.2.14 = {
+        birth = yes
+    }
+	
+    7111.11.11 = {
         death = { death_reason = death_natural_causes }
     }
 }
@@ -12742,8 +13552,8 @@ lineiztachin1 = {
     name = Krejir
 
     dynasty = dynasty_iztachin
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -12777,8 +13587,8 @@ lineiztachin2 = {
     name = Fa_a_nnaja
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -12808,8 +13618,8 @@ lineiztachin3 = {
     name = De_e_lasimmir
 
     dynasty = dynasty_iztachin
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = lineiztachin1
     mother = lineiztachin2
@@ -12846,8 +13656,8 @@ lineiztachin4 = {
     name = Aifa_a_nna
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -12877,8 +13687,8 @@ lineiztachin5 = {
     name = Pakir
 
     dynasty = dynasty_iztachin
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = lineiztachin3
     mother = lineiztachin4
@@ -12915,8 +13725,8 @@ lineiztachin6 = {
     name = Su_u_nkha_a_nna
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -12946,8 +13756,8 @@ lineiztachin7 = {
     name = Arsa_a_l
 
     dynasty = dynasty_iztachin
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = lineiztachin5
     mother = lineiztachin6
@@ -12957,6 +13767,9 @@ lineiztachin7 = {
     trait = generous
     trait = forgiving
     trait = stubborn
+    trait = rowdy
+
+    disallow_random_traits = yes
 
     diplomacy = 5
     martial = 5
@@ -12984,14 +13797,16 @@ lineiztachin8 = {
     name = Ke_e_lija
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
     trait = impatient
     trait = vengeful
-    trait = diligent
+    trait = rowdy
+
+    disallow_random_traits = yes
 
     diplomacy = 5
     martial = 5
@@ -13006,6 +13821,10 @@ lineiztachin8 = {
         birth = yes
     }
 
+    6790.11.22 = {
+        trait = diligent
+    }
+
     6859.5.15 = {
         death = { death_reason = death_natural_causes }
     }
@@ -13015,8 +13834,8 @@ lineiztachin9 = {
     name = Mire_e_no
 
     dynasty = dynasty_iztachin
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = lineiztachin7
     mother = lineiztachin8
@@ -13062,8 +13881,8 @@ lineiztachin10 = {
     name = Safia
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -13093,8 +13912,8 @@ lineiztachin11 = {
     name = Krukho
 
     dynasty = dynasty_iztachin
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = lineiztachin9
     mother = lineiztachin10
@@ -13131,8 +13950,8 @@ lineiztachin12 = {
     name = Aifa_a_nna
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = bisexual
 
@@ -13162,8 +13981,8 @@ lineiztachin13 = {
     name = Rajkho
 
     dynasty = dynasty_iztachin
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = lineiztachin9
     mother = lineiztachin10
@@ -13200,8 +14019,8 @@ lineiztachin14 = {
     name = Da_a_nikha
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = heterosexual
 
@@ -13231,8 +14050,8 @@ lineiztachin15 = {
     name = Radofa_a_n
 
     dynasty = dynasty_iztachin
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = lineiztachin9
     mother = lineiztachin10
@@ -13269,8 +14088,8 @@ lineiztachin16 = {
     name = Aisata
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     sexuality = asexual
 
@@ -13300,8 +14119,8 @@ lineiztachin17 = {
     name = Aisata
     female = yes
 
-    religion = faith_kanra
-    culture = pust
+    religion = faith_arani
+    culture = darsalai
 
     father = lineiztachin9
     mother = lineiztachin10

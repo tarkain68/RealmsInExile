@@ -178,6 +178,30 @@ dynasty_talionath = {
 	motto = "dynn_talionath_motto" 
 }
 
+dynasty_menelvagor = {
+	name = "dynn_menelvagor" 
+	culture = "gondorian"
+	motto = "dynn_menelvagor_motto" 
+}
+
+dynasty_tagron = {
+	name = "dynn_tagron" 
+	culture = "gondorian"
+	motto = "dynn_tagron_motto" 
+}
+
+dynasty_durnen = {
+	name = "dynn_durnen" 
+	culture = "gondorian"
+	motto = "dynn_durnen_motto" 
+}
+
+dynasty_nengelion = {
+	name = "dynn_nengelion" 
+	culture = "gondorian"
+	motto = "dynn_nengelion_motto" 
+}
+
 dynasty_orontorion = {
 	name = "dynn_orontorion" 
 	culture = "harondorim"
@@ -242,6 +266,30 @@ dynasty_maethorionath = {
 	name = "dynn_maethorionath" 
 	culture = "harondorim"
 	motto = "dynn_maethorionath_motto" 
+}
+
+dynasty_lagrionath = {
+	name = "dynn_lagrionath" 
+	culture = "gondorian"
+	motto = "dynn_lagrionath_motto" 
+}
+
+dynasty_an_marzuk = {
+	name = "dynn_an_marzuk" 
+	culture = "gondorian"
+	motto = "dynn_an_marzuk_motto" 
+}
+
+dynasty_aistana = {
+	name = "dynn_aistana" 
+	culture = "gondorian"
+	motto = "dynn_aistana_motto" 
+}
+
+dynasty_malduin = {
+	name = "dynn_malduin" 
+	culture = "gondorian"
+	motto = "dynn_malduin_motto" 
 }
 
 dynasty_harithilien = {
@@ -651,6 +699,18 @@ dynasty_sommorionath = {
 	motto = dynn_sommorionath_motto
 }
 
+dynasty_baranorionath = {
+	name = "dynn_baranorionath"
+	culture = "caledhrim"
+	motto = dynn_baranorionath_motto
+}
+
+dynasty_namondilion = {
+	name = "dynn_namondilion"
+	culture = "caledhrim"
+	motto = dynn_namondilion_motto
+}
+
 dynasty_barahirion = {
 	name = "dynn_barahirion"
 	culture = "gondorian"
@@ -673,6 +733,36 @@ dynasty_imladrod = {
 	name = "dynn_imladrod"
 	culture = "gondorian"
 	motto = dynn_imladrod_motto
+}
+
+dynasty_farandilionath = {
+	name = "dynn_farandilionath"
+	culture = "gondorian"
+	motto = dynn_farandilionath_motto
+}
+
+dynasty_hundadionath = {
+	name = "dynn_hundadionath"
+	culture = "gondorian"
+	motto = dynn_hundadionath_motto
+}
+
+dynasty_oluchilionath = {
+	name = "dynn_oluchilionath"
+	culture = "gondorian"
+	motto = dynn_oluchilionath_motto
+}
+
+dynasty_agathorion = {
+	name = "dynn_agathorion"
+	culture = "gondorian"
+	motto = dynn_agathorion_motto
+}
+
+dynasty_dirhaelionath = {
+	name = "dynn_dirhaelionath"
+	culture = "gondorian"
+	motto = dynn_dirhaelionath_motto
 }
 
 dynasty_hallatanion = {
@@ -709,4 +799,28 @@ dynasty_sulmacil = { #minor Landless house
 	name = "dynn_sulmacil" 
 	culture = "gondorian"
 	motto = dynn_sulmacil_motto
+}
+
+dynasty_athanc = {
+	name = "dynn_athanc"
+	culture = "gondorian"
+	motto = dynn_athanc_motto
+}
+
+dynasty_methur = {
+	name = "dynn_methur"
+	culture = "gondorian"
+	motto = dynn_methur_motto
+}
+
+dynasty_talathor = {
+	name = "dynn_talathor"
+	culture = "gondorian"
+	motto = dynn_talathor_motto
+}
+
+dynasty_yrceithar = {
+	name = "dynn_yrceithar"
+	culture = "gondorian"
+	motto = dynn_yrceithar_motto
 }

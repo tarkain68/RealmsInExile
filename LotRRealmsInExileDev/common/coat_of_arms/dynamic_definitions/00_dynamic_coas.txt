@@ -221,30 +221,30 @@ k_mardruak = {
 		coat_of_arms = k_tedjin_mardruak
 	}
 }
-d_zinrenzil = {
+d_zimrenzil = {
 	item = {
 		trigger = { coa_switch_to_adunai_trigger = yes }
-		coat_of_arms = d_zinrenzil_adunic
+		coat_of_arms = d_zimrenzil_adunic
 	}
 }
 
 ### Mirkwood ###
 k_amon_lanc = {
 	item = {
-		trigger = { coa_switch_to_east_lorien_trigger = yes }
+		trigger = { coa_switch_to_elf_trigger = yes }
 		coat_of_arms = k_east_lorien
 	}
 }
 
 d_amon_lanc = {
 	item = {
-		trigger = { coa_switch_to_east_lorien_trigger = yes }
+		trigger = { coa_switch_to_elf_trigger = yes }
 		coat_of_arms = k_east_lorien
 	}
 }
 c_amon_lanc = {
 	item = {
-		trigger = { coa_switch_to_east_lorien_trigger = yes }
+		trigger = { coa_switch_to_elf_trigger = yes }
 		coat_of_arms = k_east_lorien
 	}
 }
@@ -541,6 +541,40 @@ c_malduin = {
 }
 
 #Mirlond
+d_forethir = {
+	item = {
+		trigger = { coa_switch_to_dunedain_trigger = yes }
+		coat_of_arms = d_forethir_dunedain
+	}
+	item = {
+		trigger = { coa_switch_to_adunai_trigger = yes }
+		coat_of_arms = d_forethir
+	}
+	item = {
+		trigger = { coa_switch_to_daen_trigger = yes}
+		coat_of_arms = d_daen_forethir
+	}
+}
+c_mirlond = {
+	item = {
+		trigger = { coa_switch_to_dunedain_trigger = yes }
+		coat_of_arms = c_mirlond_dunedain
+	}
+	item = {
+		trigger = { coa_switch_to_adunai_trigger = yes }
+		coat_of_arms = c_mirlond
+	}
+}
+c_menost = {
+	item = {
+		trigger = { coa_switch_to_dunedain_trigger = yes }
+		coat_of_arms = c_menost_dunedain
+	}
+	item = {
+		trigger = { coa_switch_to_donan_trigger = yes }
+		coat_of_arms = c_menost
+	}
+}
 c_korb_ugarta = {
 	item = {
 		trigger = { coa_switch_to_dunedain_trigger = yes }
@@ -549,6 +583,16 @@ c_korb_ugarta = {
 	item = {
 		trigger = { coa_switch_to_haradrim_trigger = yes }
 		coat_of_arms = c_korb_ugarta
+	}
+}
+c_menost = {
+	item = {
+		trigger = { coa_switch_to_dunedain_trigger = yes }
+		coat_of_arms = c_menost_dunedain
+	}
+	item = {
+		trigger = { coa_switch_to_donan_trigger = yes }
+		coat_of_arms = c_menost
 	}
 }
 
@@ -562,17 +606,6 @@ c_winion = {
 	item = {
 		trigger = { coa_switch_to_donan_trigger = yes }
 		coat_of_arms = c_winion
-	}
-}
-#Mirlond
-c_menost = {
-	item = {
-		trigger = { coa_switch_to_dunedain_trigger = yes }
-		coat_of_arms = c_menost_dunedain
-	}
-	item = {
-		trigger = { coa_switch_to_donan_trigger = yes }
-		coat_of_arms = c_menost
 	}
 }
 #Carnentir
@@ -1128,6 +1161,48 @@ k_rohan = {
 		}
 }
 
+d_westfold = {
+	item = {
+		trigger = {coa_switch_to_dunedain_trigger = yes}
+		coat_of_arms = d_westfold_reclaimed
+	}
+}
+
+d_westemnet = {
+	item = {
+		trigger = {coa_switch_to_dunedain_trigger = yes}
+		coat_of_arms = d_westemnet_reclaimed
+	}
+}
+
+d_eastemnet = {
+	item = {
+		trigger = {coa_switch_to_dunedain_trigger = yes}
+		coat_of_arms = d_eastemnet_reclaimed
+	}
+}
+
+d_thewold = {
+	item = {
+		trigger = {coa_switch_to_dunedain_trigger = yes}
+		coat_of_arms = d_thewold_reclaimed
+	}
+}
+
+d_thefolde = {
+	item = {
+		trigger = {coa_switch_to_dunedain_trigger = yes}
+		coat_of_arms = d_thefolde_reclaimed
+	}
+}
+
+d_eastfold = {
+	item = {
+		trigger = {coa_switch_to_dunedain_trigger = yes}
+		coat_of_arms = d_eastfold_reclaimed
+	}
+}
+
 k_isengard = {
 	item = {
 		trigger = { coa_switch_to_dunlending_trigger = yes}
@@ -1262,13 +1337,6 @@ d_harfalas = {
 	item = {
 		trigger = { coa_switch_to_daen_trigger = yes}
 		coat_of_arms = d_daen_harfalas
-	}
-}
-
-d_forethir = {
-	item = {
-		trigger = { coa_switch_to_daen_trigger = yes}
-		coat_of_arms = d_daen_forethir
 	}
 }
 

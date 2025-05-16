@@ -1,447 +1,17 @@
 ﻿namespace = elven_racial
 
-elven_racial.0011 = { # Forced conversion to elven government type
-	scope = none
-	hidden = yes
-	
-	trigger = {
-		is_elf = yes
-		NOT = { government_has_flag = government_is_elven }
-	}
+#########################
+## ELVEN RACIAL EVENTS ##
+#########################
 
-	immediate = {
-		change_government = elven_government
-	}
-}
-
-## Game Start - Elven mechanics setup
-
-elven_racial.0009 = { #Fired for every character at game start
-	scope = none
-	hidden = yes
-	
-	immediate = {
-		# Doing this will supposedly trigger the `on_natural_death_second_chance`
-		# that will prevent death and send major elves to Tirion's court
-		# and minor elves will get a "sailed_west" specific natural death 
-		if = {
-			limit = {
-				is_elf = yes
-				NOT = {
-					has_perk = know_thyself_perk
-				}
-			}
-			add_perk = know_thyself_perk 
-		}		
-		if = {
-			limit = {
-				is_elf = yes
-				any_child = { 
-					count = all
-					age < 350
-				}
-			}
-			#Do Nothing - these guys may still have children
-		}
-		else_if = {
-			limit = {
-				is_elf = yes
-				any_child = { 
-					count = all
-					age >= 350
-				}
-			}
-			#Otherwise if any kid is over 350, they're done with childbirth
-			add_character_modifier = elf_child_limit_modifier
-		}
-		
-		if = {
-			limit = {
-				is_elf = yes
-				any_spouse = {
-					count > 0
-				}
-			}
-			if = {
-				limit = { NOT = { has_relation_soulmate = primary_spouse } }
-				set_relation_soulmate = primary_spouse
-			}
-		}
-	}
-}
-
-elven_racial.0100 = { #Correct historical elf ages
-	scope = none
-	hidden = yes
-	
-	immediate = {
-		### The Noldor ###
-		# Finwe, his children, and their spouses
-		character:linefinwefather = { # Tata, second-awoken of the Elves
-			change_age = 4309
-		}
-		character:linefinwemother = { # Tatie, wife of Tata
-			change_age = 4306
-		}
-		character:linefinwe1 = { # Finwe
-			change_age = 3979
-		}
-		character:linefinwe7 = { # Miriel
-			change_age = 882
-		}
-		character:linefinwe2 = { # Feanor
-			change_age = 3170
-		}
-		character:linefinwe8 = { # Mahtan, father of Nerdanel
-			change_age = 3835
-		}
-		character:linefinwe9 = { # Nerdanel
-			change_age = 3112
-		}
-		character:linefinwe3 = { # Findis
-			change_age = 3016
-		}
-		character:linefinwe4 = { # Fingolfin
-			change_age = 2968
-		}
-		character:linefinwe19 = { # Anaire, wife of Fingolfin
-			change_age = 2777
-		}
-		character:linefinwe5 = { # Lalwen
-			change_age = 2931
-		}
-		character:linefinwe6 = { # Finarfin
-			change_age = 2873
-		}
-		
-		# House of Feanor
-		character:linefinwe10 = { # Maedhros
-			change_age = 2087
-		}
-		character:linefinwe11 = { # Maglor
-			change_age = 1915
-		}
-		character:linemaglorwife  = { # Maglor's wife, Lindissë
-			change_age = 1922
-		}
-		character:linefinwe12 = { # Celegorm
-			change_age = 1886
-		}
-		character:linefinwe13 = { # Caranthir
-			change_age = 1819
-		}
-		character:linecaranthirwife = { # Ailinel, wife of Caranthir
-			change_age = 1423
-		}
-		character:linefinwe14 = { # Curufin
-			change_age = 1771
-		}
-		character:linefinwe15 = { # Amrod
-			change_age = 1531
-		}
-		character:linefinwe16 = { # Amras
-			change_age = 1531
-		}
-		character:linefinwe17 = { # Almare, wife of Curufin
-			change_age = 1771
-		}
-		character:linefinwe18 = { # Celebrimbor
-			change_age = 621
-			
-			add_trait_xp = {
-				trait = lifestyle_artifact_crafting
-				track = enchanting_smith
-				value = 100
-			}
-			
-			add_trait_xp = {
-				trait = lifestyle_artifact_crafting
-				track = jewel_smith
-				value = 100
-			}
-		}
-		
-		# House of Fingolfin
-		character:linefinwe20 = { # Fingon
-			change_age = 2106
-		}
-		character:linefinwe21 = { # Turgon
-			change_age = 1914
-		}
-		character:linefinwe22 = { # Aredhel
-			change_age = 1290
-		}
-		character:linefinwe23 = { # Argon
-			change_age = 1110
-		}
-		character:linefinwe24 = { # Elenwe
-			change_age = 1876
-		}
-		
-		# House of Finarfin
-		character:linefinwe33 = { # Finrod
-			change_age = 1914
-		}
-		character:linefinwe34 = { # Angrod
-			change_age = 1704
-		}
-		character:linefinwe35 = { # Aegnor
-			change_age = 1500
-		}
-		character:linefinwe36 = { # Galadriel
-			change_age = 1290
-		}
-		
-		# Elu Thingol and the Sindar
-		character:lineofelwe1 = { # Enel, third-awoken of the Elves
-			change_age = 4308
-		}
-		character:lineofelwe2 = { # Enelye, wife of Enel
-			change_age = 4305
-		}
-		character:lineofelwe3 = { # Elu Thingol
-			change_age = 3915
-		}
-		character:lineofelwe4 = { # Luthien
-			change_age = 2874
-		}
-		character:lineofolwe1 = { # Olwe
-			change_age = 3905
-		}
-		character:lineofolwe2 = { # Tinelun, Olwe's Wife
-			change_age = 3895
-		}
-		character:lineofolwe3 = { # Eärwë, first prince of Alqualonde
-			change_age = 2884
-		}
-		character:lineofolwe4 = { # Elulindo, second prince of Alqualonde
-			change_age = 2803
-		}
-		character:lineofolwe5 = { # Eärwen, wife of Finarfin
-			change_age = 2754
-		}
-		character:lineofelmo1 = { # Elmo of Doriath
-			change_age = 3893
-		}
-		character:lineofelmo2 = { # Wife of Elmo
-			change_age = 3866
-		}
-		character:lineofelmo3 = { # Galadhon, son of Elmo
-			change_age = 1983
-		}
-		character:lineofelmo4 = { # Alafwen, Wife of Galadhon
-			change_age = 2003
-		}
-		character:lineofelmo5 = { # Celeborn, husband of Galadriel
-			change_age = 1101
-		}
-		character:lineofelmo6 = { # Galathil, father of Nimloth
-			change_age = 1054
-		}
-		character:lineofelmo7 = { # Lalorniel, wife of Galathil
-			change_age = 1066
-		}
-		
-		# Cirdan
-		character:lineofcirdan = { # Cirdan, Lord of the Havens
-			change_age = 3855
-		}
-		
-		# Amdir of Lorien
-		character:lineofamdir1 = { # Amdír, King of Lórinand
-			change_age = 994
-		}
-		
-		# Ingwe and the Vanyar
-		character:lineofingwe1 = { # Imin, first-awoken of the Elves
-			change_age = 4310
-		}
-		character:lineofingwe2 = { # Iminye, wife of Imin
-			change_age = 4307
-		}
-		character:lineofingwe3 = { # Ingwe, King of the Vanyar
-			change_age = 3995
-		}
-		character:lineofingwe4 = { # Iliniel, wife of Ingwe
-			change_age = 3993
-		}
-		character:lineofingwe5 = { # Ingwion, Prince of the Vanyar
-			change_age = 3340
-		}
-		character:lineofingwe6 = { # Vanimelde, Princess of the Vanyar
-			change_age = 2441
-		}
-		character:lineofingwe7 = { # Indiel, sister of Ingwe
-			change_age = 3865
-		}
-		character:lineofingwe8 = { # Istawe, husband of Indiel, father of Indis
-			change_age = 3925
-		}
-		character:lineofingwe9 = { # Indis, second wife of Finwe
-			change_age = 3246
-		}
-		character:lineoamarie = { # Amarie, beloved of Finrod
-		 	change_age = 2106
-		}
-		# character:lineofamarie = { # Amarie, beloved of Finrod - not yet added
-		# 	change_age = 2106
-		# }
-		character:lineoflenwe1 = { # Lenwë
-			change_age = 300
-		}
-		character:lineoflenwe2 = { # wife of Lenwë
-			change_age = 329
-		}
-		character:lineoflenwe3 = { # Denethor king of the Laiquendi
-			change_age = 382
-		}
-
-		# Vanity characters
-		character:lineofnacilionvector = { # Vector
-			change_age = 1977
-		}
-		
-		#Dwarf-Fathers
-		character:lineofdwalin0 = { #Dwalin 'the Wise'
-			change_age = 300
-		}
-	
-		
-		# Also throwing in Immortals here because
-		character:lineofsauron = { # Sauron
-			change_age = 14373 # not counting 33,537 years of the Lamps due it causing an overflow error 
-		}
-		character:lineofsaruman = { # Saruman
-			change_age = 14373 # not counting 33,537 years of the Lamps due it causing an overflow error 
-		}
-		character:lineofgandalf = { # Gandalf
-			change_age = 14373 # not counting 33,537 years of the Lamps due it causing an overflow error 
-		}
-		character:lineofradagast = { # Radagast
-			change_age = 14373 # not counting 33,537 years of the Lamps due it causing an overflow error 
-		}
-		character:lineofmelian = { # Melian
-			change_age = 14373 # not counting 33,537 years of the Lamps due it causing an overflow error 
-		}
-		character:lineofeonwe = { # Eonwe
-			change_age = 14373 # not counting 33,537 years of the Lamps due it causing an overflow error 
-		}
-	}
-}
-
-elven_racial.0102 = { #Ruler Design Elf Age Set
-	content_source = realms_dlc
-	type = character_event
-	title = elven_racial.0102.t
-	desc = elven_racial.0102.desc
-	theme = realm
-		
-	left_portrait = {
-		character = root
-		animation = personality_bold
-	}
-
-	immediate = {
-		
-		hidden_effect = {
-			initialise_elven_holdings = yes
-			change_government = elven_government
-		}
-	}
-
-	option = { # Third Age
-		name = elven_racial.0102.a
-		custom_tooltip = {
-			text = elven_racial.0102.a.tt
-			set_age = { 120 2999 }
-		}
-	}
-
-	option = { # Second Age
-		name = elven_racial.0102.b
-		custom_tooltip = {
-			text = elven_racial.0102.b.tt
-			set_age = { 3000 6440 }
-		}
-	}
-
-	option = { # First Age
-		name = elven_racial.0102.c
-		custom_tooltip = {
-			text = elven_racial.0102.c.tt
-			set_age = { 6441 7030 }
-		}
-	}
-
-	option = { # Age of the Trees
-		name = elven_racial.0102.d
-		custom_tooltip = {
-			text = elven_racial.0102.d.tt
-			set_age = 7031
-		}
-	}
-	option = { # Unchanged
-		name = elven_racial.0102.e
-		custom_tooltip = elven_racial.0102.e.tt
-	}
-}
-
-elven_racial.0103 = { #Ruler Design Elf Age Set Clone for Landless Characters
-	content_source = realms_dlc
-	type = character_event
-	title = elven_racial.0102.t
-	desc = elven_racial.0102.desc
-	theme = realm
-		
-	left_portrait = {
-		character = root
-		animation = personality_bold
-	}
-
-	immediate = {
-		
-		#hidden_effect = {		This effect causes instant game-over for landless characters
-		#	initialise_elven_holdings = yes
-		#	change_government = elven_government
-		#}
-	}
-
-	option = { # Third Age
-		name = elven_racial.0102.a
-		custom_tooltip = {
-			text = elven_racial.0102.a.tt
-			set_age = { 120 2999 }
-		}
-	}
-
-	option = { # Second Age
-		name = elven_racial.0102.b
-		custom_tooltip = {
-			text = elven_racial.0102.b.tt
-			set_age = { 3000 6440 }
-		}
-	}
-
-	option = { # First Age
-		name = elven_racial.0102.c
-		custom_tooltip = {
-			text = elven_racial.0102.c.tt
-			set_age = { 6441 7030 }
-		}
-	}
-
-	option = { # Age of the Trees
-		name = elven_racial.0102.d
-		custom_tooltip = {
-			text = elven_racial.0102.d.tt
-			set_age = 7031
-		}
-	}
-	option = { # Unchanged
-		name = elven_racial.0102.e
-		custom_tooltip = elven_racial.0102.e.tt
-	}
-}
+############################# Elven Racial Event
+# elven_racial.0001 - 0008 	~ Elven Pregnancy events 
+# elven_racial.0009 - 0103	~ Elven Game start events
+# elven_racial.0200 - 0250	~ Elven CB events
+# elven_racial.0300 - 0350	~ Elven scheme events
+# elven_racial.0400 - 0650	~ Elven general events
+# elven_racial.1000 - 1050 	~ Sailing West events
+# elven_racial.1200 - 1299 	~ Wander the Forest events
 
 ## Elven Pregnancy
 
@@ -818,12 +388,12 @@ elven_racial.0006 = { #Birth - single baby
 			create_character = {
 				dynasty_house = root.house
 				faith = root.faith
-				culture = root.culture				
+				culture = root.culture
+				location = root.location		
 				gender_female_chance = 50
 				age = 0
 				mother = root
 				father = primary_spouse
-				employer = root
 				save_scope_as = child
 			}
 		}
@@ -835,12 +405,12 @@ elven_racial.0006 = { #Birth - single baby
 			create_character = {
 				dynasty_house = primary_spouse.house
 				faith = root.faith
-				culture = root.culture				
+				culture = root.culture
+				location = root.location				
 				gender_female_chance = 50
 				age = 0
 				mother = primary_spouse
 				father = root
-				employer = root
 				save_scope_as = child
 			}
 		}
@@ -852,12 +422,12 @@ elven_racial.0006 = { #Birth - single baby
 			create_character = {
 				dynasty_house = primary_spouse.house
 				faith = root.faith
-				culture = root.culture				
+				culture = root.culture
+				location = root.location				
 				gender_female_chance = 50
 				age = 0
 				mother = root
 				father = primary_spouse
-				employer = root
 				save_scope_as = child
 			}
 		}
@@ -865,15 +435,28 @@ elven_racial.0006 = { #Birth - single baby
 			create_character = {
 				dynasty_house = root.house
 				faith = root.faith
-				culture = root.culture				
+				culture = root.culture
+				location = root.location				
 				gender_female_chance = 50
 				age = 0
 				mother = primary_spouse
 				father = root
-				employer = root
 				save_scope_as = child
 			}
 		}
+
+		if = {
+			limit = { exists = root.employer }
+			scope:child = {
+				set_employer = root.employer
+			}
+		}
+		else = {
+			scope:child = {
+				set_employer = root
+			}
+		}
+
 		if = {
 			limit = { 
 				has_character_flag = focused_fea_1
@@ -1119,24 +702,24 @@ elven_racial.0007 = { #Birth - twins
 			create_character = {
 				dynasty_house = root.house
 				faith = root.faith
-				culture = root.culture				
+				culture = root.culture
+				location = root.location			
 				gender_female_chance = 50
 				age = 0
 				mother = root
 				father = primary_spouse
-				employer = root
 				trait = twin
 				save_scope_as = child
 			}
 			create_character = {
 				dynasty_house = root.house
 				faith = root.faith
-				culture = root.culture				
+				culture = root.culture
+				location = root.location			
 				gender_female_chance = 50
 				age = 0
 				mother = root
 				father = primary_spouse
-				employer = root
 				trait = twin
 				save_scope_as = child_2
 			}
@@ -1146,28 +729,47 @@ elven_racial.0007 = { #Birth - twins
 			create_character = {
 				dynasty_house = root.house
 				faith = root.faith
-				culture = root.culture				
+				culture = root.culture
+				location = root.location		
 				gender_female_chance = 50
 				age = 0
 				mother = primary_spouse
 				father = root
-				employer = root
 				trait = twin
 				save_scope_as = child
 			}
 			create_character = {
 				dynasty_house = root.house
 				faith = root.faith
-				culture = root.culture				
+				culture = root.culture
+				location = root.location		
 				gender_female_chance = 50
 				age = 0
 				mother = primary_spouse
 				father = root
-				employer = root
 				trait = twin
 				save_scope_as = child_2
 			}
 		}
+
+		if = {
+			limit = { exists = root.employer }
+			scope:child = {
+				set_employer = root.employer
+			}
+			scope:child_2 = {
+				set_employer = root.employer
+			}
+		}
+		else = {
+			scope:child = {
+				set_employer = root
+			}
+			scope:child_2 = {
+				set_employer = root
+			}
+		}
+
 		if = {
 			limit = { 
 				has_character_flag = focused_fea_1
@@ -1468,6 +1070,441 @@ elven_racial.0008 = { #Spouse no longer willing to have any children
 	}
 }
 
+## Game Start - Elven mechanics setup
+
+elven_racial.0009 = { #Fired for every character at game start
+	scope = none
+	hidden = yes
+	
+	immediate = {
+		# Doing this will supposedly trigger the `on_natural_death_second_chance`
+		# that will prevent death and send major elves to Tirion's court
+		# and minor elves will get a "sailed_west" specific natural death 
+		if = {
+			limit = {
+				is_elf = yes
+				NOT = {
+					has_perk = know_thyself_perk
+				}
+			}
+			add_perk = know_thyself_perk 
+		}		
+		if = {
+			limit = {
+				is_elf = yes
+				any_child = { 
+					count = all
+					age < 350
+				}
+			}
+			#Do Nothing - these guys may still have children
+		}
+		else_if = {
+			limit = {
+				is_elf = yes
+				any_child = { 
+					count = all
+					age >= 350
+				}
+			}
+			#Otherwise if any kid is over 350, they're done with childbirth
+			add_character_modifier = elf_child_limit_modifier
+		}
+		
+		if = {
+			limit = {
+				is_elf = yes
+				any_spouse = {
+					count > 0
+				}
+			}
+			if = {
+				limit = { NOT = { has_relation_soulmate = primary_spouse } }
+				set_relation_soulmate = primary_spouse
+			}
+		}
+	}
+}
+
+elven_racial.0011 = { # Forced conversion to elven government type
+	scope = none
+	hidden = yes
+	
+	trigger = {
+		is_elf = yes
+		NOT = { government_has_flag = government_is_elven }
+	}
+
+	immediate = {
+		change_government = elven_government
+	}
+}
+
+elven_racial.0100 = { #Correct historical elf ages
+	scope = none
+	hidden = yes
+	
+	immediate = {
+		### The Noldor ###
+		# Finwe, his children, and their spouses
+		character:linefinwefather = { # Tata, second-awoken of the Elves
+			change_age = 4309
+		}
+		character:linefinwemother = { # Tatie, wife of Tata
+			change_age = 4306
+		}
+		character:linefinwe1 = { # Finwe
+			change_age = 3979
+		}
+		character:linefinwe7 = { # Miriel
+			change_age = 882
+		}
+		character:linefinwe2 = { # Feanor
+			change_age = 3170
+		}
+		character:linefinwe8 = { # Mahtan, father of Nerdanel
+			change_age = 3835
+		}
+		character:linefinwe9 = { # Nerdanel
+			change_age = 3112
+		}
+		character:linefinwe3 = { # Findis
+			change_age = 3016
+		}
+		character:linefinwe4 = { # Fingolfin
+			change_age = 2968
+		}
+		character:linefinwe19 = { # Anaire, wife of Fingolfin
+			change_age = 2777
+		}
+		character:linefinwe5 = { # Lalwen
+			change_age = 2931
+		}
+		character:linefinwe6 = { # Finarfin
+			change_age = 2873
+		}
+		
+		# House of Feanor
+		character:linefinwe10 = { # Maedhros
+			change_age = 2087
+		}
+		character:linefinwe11 = { # Maglor
+			change_age = 1915
+		}
+		character:linemaglorwife  = { # Maglor's wife, Lindissë
+			change_age = 1922
+		}
+		character:linefinwe12 = { # Celegorm
+			change_age = 1886
+		}
+		character:linefinwe13 = { # Caranthir
+			change_age = 1819
+		}
+		character:linecaranthirwife = { # Ailinel, wife of Caranthir
+			change_age = 1423
+		}
+		character:linefinwe14 = { # Curufin
+			change_age = 1771
+		}
+		character:linefinwe15 = { # Amrod
+			change_age = 1531
+		}
+		character:linefinwe16 = { # Amras
+			change_age = 1531
+		}
+		character:linefinwe17 = { # Almare, wife of Curufin
+			change_age = 1771
+		}
+		character:linefinwe18 = { # Celebrimbor
+			change_age = 621
+			
+			add_trait_xp = {
+				trait = lifestyle_artifact_crafting
+				track = enchanting_smith
+				value = 100
+			}
+			
+			add_trait_xp = {
+				trait = lifestyle_artifact_crafting
+				track = jewel_smith
+				value = 100
+			}
+		}
+		
+		# House of Fingolfin
+		character:linefinwe20 = { # Fingon
+			change_age = 2106
+		}
+		character:linefinwe21 = { # Turgon
+			change_age = 1914
+		}
+		character:linefinwe22 = { # Aredhel
+			change_age = 1290
+		}
+		character:linefinwe23 = { # Argon
+			change_age = 1110
+		}
+		character:linefinwe24 = { # Elenwe
+			change_age = 1876
+		}
+		
+		# House of Finarfin
+		character:linefinwe33 = { # Finrod
+			change_age = 1914
+		}
+		character:linefinwe34 = { # Angrod
+			change_age = 1704
+		}
+		character:linefinwe35 = { # Aegnor
+			change_age = 1500
+		}
+		character:linefinwe36 = { # Galadriel
+			change_age = 1290
+		}
+		
+		# Elu Thingol and the Sindar
+		character:lineofelwe1 = { # Enel, third-awoken of the Elves
+			change_age = 4308
+		}
+		character:lineofelwe2 = { # Enelye, wife of Enel
+			change_age = 4305
+		}
+		character:lineofelwe3 = { # Elu Thingol
+			change_age = 3915
+		}
+		character:lineofelwe4 = { # Luthien
+			change_age = 2874
+		}
+		character:lineofolwe1 = { # Olwe
+			change_age = 3905
+		}
+		character:lineofolwe2 = { # Tinelun, Olwe's Wife
+			change_age = 3895
+		}
+		character:lineofolwe3 = { # Eärwë, first prince of Alqualonde
+			change_age = 2884
+		}
+		character:lineofolwe4 = { # Elulindo, second prince of Alqualonde
+			change_age = 2803
+		}
+		character:lineofolwe5 = { # Eärwen, wife of Finarfin
+			change_age = 2754
+		}
+		character:lineofelmo1 = { # Elmo of Doriath
+			change_age = 3893
+		}
+		character:lineofelmo2 = { # Wife of Elmo
+			change_age = 3866
+		}
+		character:lineofelmo3 = { # Galadhon, son of Elmo
+			change_age = 1983
+		}
+		character:lineofelmo4 = { # Alafwen, Wife of Galadhon
+			change_age = 2003
+		}
+		character:lineofelmo5 = { # Celeborn, husband of Galadriel
+			change_age = 1101
+		}
+		character:lineofelmo6 = { # Galathil, father of Nimloth
+			change_age = 1054
+		}
+		character:lineofelmo7 = { # Lalorniel, wife of Galathil
+			change_age = 1066
+		}
+		
+		# Cirdan
+		character:lineofcirdan = { # Cirdan, Lord of the Havens
+			change_age = 3855
+		}
+		
+		# Amdir of Lorien
+		character:lineofamdir1 = { # Amdír, King of Lórinand
+			change_age = 994
+		}
+		
+		# Ingwe and the Vanyar
+		character:lineofingwe1 = { # Imin, first-awoken of the Elves
+			change_age = 4310
+		}
+		character:lineofingwe2 = { # Iminye, wife of Imin
+			change_age = 4307
+		}
+		character:lineofingwe3 = { # Ingwe, King of the Vanyar
+			change_age = 3995
+		}
+		character:lineofingwe4 = { # Iliniel, wife of Ingwe
+			change_age = 3993
+		}
+		character:lineofingwe5 = { # Ingwion, Prince of the Vanyar
+			change_age = 3340
+		}
+		character:lineofingwe6 = { # Vanimelde, Princess of the Vanyar
+			change_age = 2441
+		}
+		character:lineofingwe7 = { # Indiel, sister of Ingwe
+			change_age = 3865
+		}
+		character:lineofingwe8 = { # Istawe, husband of Indiel, father of Indis
+			change_age = 3925
+		}
+		character:lineofingwe9 = { # Indis, second wife of Finwe
+			change_age = 3246
+		}
+		character:lineoamarie = { # Amarie, beloved of Finrod
+		 	change_age = 2106
+		}
+		# character:lineofamarie = { # Amarie, beloved of Finrod - not yet added
+		# 	change_age = 2106
+		# }
+		character:lineoflenwe1 = { # Lenwë
+			change_age = 300
+		}
+		character:lineoflenwe2 = { # wife of Lenwë
+			change_age = 329
+		}
+		character:lineoflenwe3 = { # Denethor king of the Laiquendi
+			change_age = 382
+		}
+
+		# Vanity characters
+		character:lineofnacilionvector = { # Vector
+			change_age = 1977
+		}
+		
+		#Dwarf-Fathers
+		character:lineofdwalin0 = { #Dwalin 'the Wise'
+			change_age = 300
+		}
+	
+		
+		# Also throwing in Immortals here because
+		character:lineofsauron = { # Sauron
+			change_age = 14373 # not counting 33,537 years of the Lamps due it causing an overflow error 
+		}
+		character:lineofsaruman = { # Saruman
+			change_age = 14373 # not counting 33,537 years of the Lamps due it causing an overflow error 
+		}
+		character:lineofgandalf = { # Gandalf
+			change_age = 14373 # not counting 33,537 years of the Lamps due it causing an overflow error 
+		}
+		character:lineofradagast = { # Radagast
+			change_age = 14373 # not counting 33,537 years of the Lamps due it causing an overflow error 
+		}
+		character:lineofmelian = { # Melian
+			change_age = 14373 # not counting 33,537 years of the Lamps due it causing an overflow error 
+		}
+		character:lineofeonwe = { # Eonwe
+			change_age = 14373 # not counting 33,537 years of the Lamps due it causing an overflow error 
+		}
+	}
+}
+
+elven_racial.0102 = { #Ruler Design Elf Age Set
+	content_source = realms_dlc
+	type = character_event
+	title = elven_racial.0102.t
+	desc = elven_racial.0102.desc
+	theme = realm
+		
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	immediate = {
+		
+		hidden_effect = {
+			initialise_elven_holdings = yes
+			change_government = elven_government
+		}
+	}
+
+	option = { # Third Age
+		name = elven_racial.0102.a
+		custom_tooltip = {
+			text = elven_racial.0102.a.tt
+			set_age = { 120 2999 }
+		}
+	}
+
+	option = { # Second Age
+		name = elven_racial.0102.b
+		custom_tooltip = {
+			text = elven_racial.0102.b.tt
+			set_age = { 3000 6440 }
+		}
+	}
+
+	option = { # First Age
+		name = elven_racial.0102.c
+		custom_tooltip = {
+			text = elven_racial.0102.c.tt
+			set_age = { 6441 7030 }
+		}
+	}
+
+	option = { # Age of the Trees
+		name = elven_racial.0102.d
+		custom_tooltip = {
+			text = elven_racial.0102.d.tt
+			set_age = 7031
+		}
+	}
+	option = { # Unchanged
+		name = elven_racial.0102.e
+		custom_tooltip = elven_racial.0102.e.tt
+	}
+}
+
+elven_racial.0103 = { #Ruler Design Elf Age Set Clone for Landless Characters
+	content_source = realms_dlc
+	type = character_event
+	title = elven_racial.0102.t
+	desc = elven_racial.0102.desc
+	theme = realm
+		
+	left_portrait = {
+		character = root
+		animation = personality_bold
+	}
+
+	option = { # Third Age
+		name = elven_racial.0102.a
+		custom_tooltip = {
+			text = elven_racial.0102.a.tt
+			set_age = { 120 2999 }
+		}
+	}
+
+	option = { # Second Age
+		name = elven_racial.0102.b
+		custom_tooltip = {
+			text = elven_racial.0102.b.tt
+			set_age = { 3000 6440 }
+		}
+	}
+
+	option = { # First Age
+		name = elven_racial.0102.c
+		custom_tooltip = {
+			text = elven_racial.0102.c.tt
+			set_age = { 6441 7030 }
+		}
+	}
+
+	option = { # Age of the Trees
+		name = elven_racial.0102.d
+		custom_tooltip = {
+			text = elven_racial.0102.d.tt
+			set_age = 7031
+		}
+	}
+	option = { # Unchanged
+		name = elven_racial.0102.e
+		custom_tooltip = elven_racial.0102.e.tt
+	}
+}
+
 ## Elven CB Events
 
 elven_racial.0200 = { # Vanquish Darkness CB - war start event to convert and end war
@@ -1558,8 +1595,7 @@ elven_racial.0300 = { # Reject non-elf romance and seduce attempts where chance 
 	}
 }
 
-
-## Elven guest management event
+## Elven General events
 
 elven_racial.0400 = { #Elven guest management
 	hidden = yes
@@ -1648,7 +1684,8 @@ elven_racial.0600 = { #Elven marriage handling
 	}
 }
 
-### Sailing west events ###
+## Sailing west events ##
+
 elven_racial.1000 = { # Where to go?
 	title = elven_racial.1000.t
 	desc = {
@@ -1888,7 +1925,25 @@ elven_racial.1000 = { # Where to go?
 			}
 
 		}
-		else_if = { #Find the sea somewhere!
+#		else_if = { # People from Ormal sail from Ormal
+#			limit = {
+#				capital_province = {
+#					geographical_region = middleearth_bay_of_ormal
+#				}
+#			}
+#			random_province = {
+#				limit = {
+#					geographical_region = middleearth_bay_of_ormal
+#					is_coastal = yes
+#					county.holder = {
+#						faith_is_good = yes
+#					}
+#				}
+#				save_scope_as = sailing_point
+#			}
+#
+#		}
+		else = { #Find the sea somewhere!
 			random_province = {
 				limit = {
 					is_coastal = yes
@@ -2038,13 +2093,28 @@ elven_racial.1002 = { # Far Green Country
 
 	option = { # A swift sunrise
 		name = elven_racial.1002.a
+		
+		hidden_effect = {
+			if = {
+				limit = { this = character:linefinwe11 }
+				random_artifact = {
+					limit = { has_variable = silmaril }
+					save_scope_as = silmaril
+				}
+			}
+			if = { 
+				limit = { exists = scope:silmaril }
+				destroy_artifact = scope:silmaril
+				add_character_flag = had_silmaril
+			}
+		}
 
 		depose = yes
 		every_claim = {
 			root = { remove_claim = prev }
 		}
 		add_trait = sailed_west
-		remove_character_flag = departing_for_valinor
+		#remove_character_flag = departing_for_valinor
 		custom_tooltip = {
 			text = sail_to_valinor
 			set_employer = title:k_tirion.holder
@@ -2057,6 +2127,12 @@ elven_racial.1002 = { # Far Green Country
 				root = character:lineofcirdan
 			}
 			set_global_variable = lotr_achievement_52
+		}
+		hidden_effect = {
+			if = {
+				limit = { has_character_flag = had_silmaril }
+				create_artifact_silmaril_effect = { OWNER = this }
+			}
 		}
 	}
 }
@@ -2118,6 +2194,932 @@ elven_racial.1003 = { # Farewell to home
 	option = { # I have too much still to do!
 		name = elven_racial.1003.b
 		custom_tooltip = elven_racial.1003.b.tt
-		remove_character_flag = departing_for_valinor
+		#remove_character_flag = departing_for_valinor
+	}
+}
+
+## Wander the Forests events ## 
+
+elven_racial.1200 = { # Choosing a destination
+	hidden = yes 
+	immediate = {
+		random_realm_province = {
+			limit = {
+				OR = {
+					terrain = forest
+					terrain = jungle
+					terrain = deep_forest
+					terrain = mallorn_forest
+				}
+				NOT = { this = root.capital_province }
+			}
+			save_scope_as = destiny_forest_province
+		}
+		trigger_event = elven_racial.1201
+	}
+}
+
+elven_racial.1201 = { # Setting out
+	title = elven_racial.1201.t
+	type = character_event
+	desc = elven_racial.1201.desc
+	content_source = realms_dlc
+	theme = physical_health
+	override_background = { reference = throne_room }
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	option = { # I'm off
+		name = elven_racial.1201.a 
+		custom_tooltip = elven_racial.1201.a.tt 
+		start_travel_plan = { #Travel to the forest
+			destination = scope:destiny_forest_province
+			players_use_planner = yes
+			on_arrival_event = elven_racial.1202
+		}
+	}
+}
+
+elven_racial.1202 = { # Arrival - get a random event
+	hidden = yes 
+	immediate = {
+		root.location = { save_scope_as = destiny_forest_province }
+		current_travel_plan ?= { abort_travel_plan = yes }
+		trigger_event = {
+			on_action = elven_forest_events
+		}
+	}
+}
+
+elven_racial.1210 = { # Find a dying stag
+	title = elven_racial.1210.t
+	type = character_event
+	desc = elven_racial.1210.desc
+	content_source = realms_dlc
+	theme = dread
+	override_background = { reference = wilderness_forest_deep }
+	left_portrait = {
+		character = root
+		animation = sadness
+	}
+	option = { # All things must come to an end
+		name = elven_racial.1210.a 
+		add_piety = minor_piety_gain
+	}
+	option = { # Attempt to heal it
+		name = elven_racial.1210.b
+		random = {
+			chance = 25
+			add_learning_skill = 1
+		}
+	}
+	after = {
+		trigger_event = elven_racial.1299
+	}
+}
+
+elven_racial.1211 = { # Starlight from above
+	title = elven_racial.1211.t
+	type = character_event
+	desc = elven_racial.1211.desc
+	content_source = realms_dlc
+	theme = legend
+	override_background = { reference = forest_elven }
+	override_effect_2d = {
+		reference = legend_glow
+	}
+	left_portrait = {
+		character = root
+		animation = survey
+	}
+	option = { # I feel safe under Elentári's light
+		name = elven_racial.1211.a 
+		add_stress = -30
+	}
+	option = { # I wonder what the future might bring
+		name = elven_racial.1211.b 
+		random = {
+			chance = 25
+			if = {
+				limit = { has_trait = lifestyle_mystic }
+				add_trait_xp = {
+					trait = lifestyle_mystic
+					value = lifestyle_mystic_xp_gain_minor_value
+				}
+			}
+			else = { add_trait = lifestyle_mystic }
+		}	
+	}
+	after = {
+		trigger_event = elven_racial.1299
+	}
+}
+
+elven_racial.1212 = { # The young sapling
+	title = elven_racial.1212.t
+	type = character_event
+	desc = elven_racial.1212.desc
+	content_source = realms_dlc
+	theme = travel_pilgrimage
+	override_background = { reference = wilderness_forest_pine }
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	option = { # A joyous discovery
+		name = elven_racial.1212.a 
+		add_prestige = minor_prestige_gain
+	}
+	option = { # I shall tend to it myself
+		name = elven_racial.1212.b 
+		random = {
+			chance = 25
+			if = {
+				limit = { has_trait = lifestyle_gardener }
+				add_learning_lifestyle_xp = 100
+			}
+			else = { add_trait = lifestyle_gardener }
+		}
+	}
+	after = {
+		trigger_event = elven_racial.1299
+	}
+}
+
+elven_racial.1213 = { # A glimpse of rare plumage
+	title = elven_racial.1213.t
+	type = character_event
+	desc = elven_racial.1213.desc
+	content_source = realms_dlc
+	theme = diplomacy
+	override_background = { reference = wilderness_forest }
+	right_portrait = {
+		character = root
+		animation = admiration
+	}
+	option = { # Old forests hold new promises
+		name = elven_racial.1213.a 
+		add_stress = -20
+	}
+	option = { # A sign of fair days
+		name = elven_racial.1213.b 
+		random = {
+			chance = 20
+			if = {
+				limit = { has_trait = poet }
+				add_diplomacy_lifestyle_xp = 100
+			}
+			else = { add_trait = poet }
+		}
+	}
+	after = {
+		trigger_event = elven_racial.1299
+	}
+}
+
+elven_racial.1214 = { # Drunken revelry
+	title = elven_racial.1214.t
+	type = character_event
+	desc = elven_racial.1214.desc
+	content_source = realms_dlc
+	theme = feast_activity
+	override_background = { reference = forest_elven }
+	left_portrait = {
+		character = scope:elven_drunk
+		animation = wedding_drunk
+	}
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+	trigger = {
+		is_elf = yes
+		is_landed = yes
+		OR = {
+			AND = {
+				culture = culture:lasgalendrim
+				capital_county = { culture = culture:lasgalendrim }
+			}
+			AND = {
+				culture = culture:penni
+				capital_county = { culture = culture:penni }
+			}
+		}
+	}
+	immediate = {
+		create_character = {
+			age = { young_age middle_age }
+			culture = root.capital_county.culture
+			faith = root.capital_county.faith
+			dynasty = none
+			location = root.location
+			gender_female_chance = 50
+			# Traits.
+			## Education.
+			random_traits_list = {
+				count = 1
+				education_diplomacy_1 = {}
+				education_diplomacy_2 = {}
+				education_intrigue_1 = {}
+				education_intrigue_2 = {}
+				education_martial_1 = {}
+				education_martial_2 = {}
+				education_stewardship_1 = {}
+				education_stewardship_2 = {}
+				education_learning_1 = {}
+				education_learning_2 = {}
+			}
+			save_scope_as = elven_drunk
+			after_creation = {
+				scope:elven_drunk = { replace_unelven_traits = yes } 
+			}
+		}
+	}
+	option = { # Join in the merriment
+		name = elven_racial.1214.a 
+		add_stress = -30
+		random = {
+			chance = 5
+			if = {
+				limit = { has_trait = drunkard }
+			}
+			else = { add_trait = drunkard }
+		}
+	}
+	option = { # This is not how Elves behave
+		name = elven_racial.1214.b 
+		add_diplomacy_lifestyle_xp = 300
+	}
+	after = {
+		trigger_event = elven_racial.1299
+		hidden_effect = { scope:elven_drunk = { silent_disappearance_effect = yes } }
+	}
+}
+
+elven_racial.1215 = { # Solace Beneath the Stars
+	title = elven_racial.1215.t
+	type = character_event
+	desc = elven_racial.1215.desc
+	content_source = realms_dlc
+	theme = mental_health
+	override_background = { reference = wilderness_forest_deep }
+	right_portrait = {
+		character = root
+		animation = sadness
+	}
+	option = { # It is beautiful beneath Varda's lights
+		name = elven_racial.1215.a 
+		add_stress = -30 
+	}
+	option = { # After all that has happened, I am still here.
+		trigger = {
+			OR = {
+				has_trait = depressed_1
+				has_trait = depressed_genetic
+			}
+		}
+		name = elven_racial.1215.b
+		add_stress = -10
+		if = {
+			limit = { has_trait = depressed_1 }
+			remove_trait = depressed_1
+		}
+		else = {
+			remove_trait = depressed_genetic
+		}
+	}
+	after = {
+		trigger_event = elven_racial.1299
+	}
+}
+
+elven_racial.1216 = { # A Feast in the Forest
+	title = elven_racial.1216.t
+	type = character_event
+	desc = elven_racial.1216.desc
+	content_source = realms_dlc
+	theme = feast_activity
+	override_background = { reference = wilderness_forest_deep }
+	left_portrait = {
+		character = root
+		animation = toast_goblet
+	}
+	right_portrait = {	
+		character = scope:random_courtier
+		animation = dancing
+	}
+	immediate = {
+		random_courtier = { save_scope_as = random_courtier }
+	}
+	option = { # Let's hope everything goes well!
+		name = elven_racial.1216.a 
+		custom_tooltip = elven_racial.1216.a.tt 
+		hidden_effect = {
+			random_list = {
+				50 = { # It's a happy party
+					trigger_event = elven_racial.1217
+				}
+				50 = { # The feast is disturbed 
+					trigger_event = elven_racial.1218 
+				}
+			}
+		}
+	}
+}
+
+elven_racial.1217 = { # Happy feast
+	title = elven_racial.1217.t
+	type = character_event
+	desc = elven_racial.1217.desc
+	content_source = realms_dlc
+	theme = feast_activity
+	override_background = { reference = forest_elven }
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	right_portrait = {	
+		character = scope:random_courtier
+		animation = toast
+	}
+	immediate = {
+		random_courtier = { save_scope_as = random_courtier }
+	}
+	option = { # How nice!
+		name = elven_racial.1217.a 
+		add_prestige = medium_prestige_gain
+		add_stress = -40 
+		add_character_modifier = {
+			modifier = ate_good_meal
+			years = 2
+		}
+	}
+	after = {
+		trigger_event = elven_racial.1299
+	}
+}
+
+elven_racial.1218 = { # Disturbed feast
+	title = elven_racial.1218.t
+	type = character_event
+	desc = elven_racial.1218.desc
+	content_source = realms_dlc
+	theme = feast_activity
+	override_background = { reference = wilderness_forest_deep }
+	left_portrait = {
+		character = root
+		animation = anger
+	}
+	right_portrait = {	
+		character = scope:uninvited_traveler
+		animation = beg
+	}
+	immediate = {
+		if = {	# Rhovanion
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_west_rhovanion }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = 28
+				gender_female_chance = 20
+				culture = culture:woodmen
+				faith = faith:faith_woodmen
+				trait = lifestyle_traveler
+				trait = beauty_bad_1
+				save_scope_as = uninvited_traveler
+			}
+		}
+		else_if = {	 # Eriador
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_west_arnor }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = 28
+				gender_female_chance = 20
+				culture = culture:hillmen
+				faith = faith:faith_hillmen
+				trait = lifestyle_traveler
+				trait = beauty_bad_1
+				save_scope_as = uninvited_traveler
+			}
+		}
+		else_if = {	 # Enedhwaith
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_west_enedhwaith }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = 28
+				gender_female_chance = 20
+				culture = culture:enedhwaithrim
+				faith = faith:faith_gwathuirim_dynion
+				trait = lifestyle_traveler
+				trait = beauty_bad_1
+				save_scope_as = uninvited_traveler
+			}
+		}
+		else_if = {	 # Gondor
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_west_gondor }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = 28
+				gender_female_chance = 20
+				culture = culture:orodbedhrim
+				faith = faith:faith_edain
+				trait = lifestyle_traveler
+				trait = beauty_bad_1
+				save_scope_as = uninvited_traveler
+			}
+		}
+		else_if = {	 # Rhûn
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_rhun }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = 28
+				gender_female_chance = 20
+				culture = culture:igath
+				faith = faith:faith_rhun_pantheistic
+				trait = lifestyle_traveler
+				trait = beauty_bad_1
+				save_scope_as = uninvited_traveler
+			}
+		}
+		else_if = {	 # Lindon
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_west_beleriand }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = 99
+				gender_female_chance = 20
+				culture = culture:broadbeams
+				faith = faith:faith_broadbeams
+				trait = lifestyle_traveler
+				trait = beauty_bad_1
+				save_scope_as = uninvited_traveler
+			}
+		}
+		else_if = {	 # Harad
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_harad }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = 27
+				gender_female_chance = 20
+				culture = culture:sand_people
+				faith = faith:faith_arani
+				trait = lifestyle_traveler
+				trait = beauty_bad_1
+				save_scope_as = uninvited_traveler
+			}
+		}
+		else_if = {	 # Utter South
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_uttersouth }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = 27
+				gender_female_chance = 20
+				culture = culture:usakani
+				faith = faith:faith_amav
+				trait = lifestyle_traveler
+				trait = beauty_bad_1
+				save_scope_as = uninvited_traveler
+			}
+		}
+		else = {	 # Fallback
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = 27
+				gender_female_chance = 20
+				culture = culture:leofring
+				faith = faith:faith_midde_court
+				trait = lifestyle_traveler
+				trait = beauty_bad_1
+				save_scope_as = uninvited_traveler
+			}
+		}
+	}
+	option = { # How rude! We're outta here.
+		name = elven_racial.1218.a 
+		add_prestige = minor_prestige_gain
+		add_dread = miniscule_dread_gain
+		stress_impact = {
+			arrogant = major_stress_impact_loss
+			paranoid = major_stress_impact_loss
+			callous = medium_stress_impact_loss
+			shy = medium_stress_impact_loss
+			humble = medium_stress_impact_gain
+			compassionate = major_stress_impact_gain
+			trusting = medium_stress_impact_gain
+			gregarious = major_stress_impact_gain
+		}
+	}
+	option = { # *FINE* you can stay
+		name = elven_racial.1218.b 
+		add_prestige = minor_prestige_loss
+		add_character_modifier = {
+			modifier = ate_good_meal
+			years = 2
+		}
+		stress_impact = {
+			arrogant = major_stress_impact_gain
+			paranoid = major_stress_impact_gain
+			callous = medium_stress_impact_gain
+			shy = medium_stress_impact_gain
+			humble = medium_stress_impact_loss
+			compassionate = major_stress_impact_loss 
+			trusting = medium_stress_impact_loss 
+			gregarious = major_stress_impact_loss 
+		}
+	}
+	after = {
+		trigger_event = elven_racial.1299
+		hidden_effect = { scope:uninvited_traveler = { silent_disappearance_effect = yes } }
+	}
+}
+
+elven_racial.1219 = { # Accursed Enemies
+	title = elven_racial.1219.t
+	type = character_event
+	desc = elven_racial.1219.desc
+	content_source = realms_dlc
+	theme = feast_activity
+	left_portrait = {
+		character = root
+		animation = shock
+	}
+	right_portrait = {	
+		character = scope:orc_tresspasser
+		animation = aggressive_axe
+	}
+	immediate = {
+		if = {	# Rhovanion
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_west_rhovanion }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:kazgumhoth
+				faith = faith:sons_of_sauron
+				save_scope_as = orc_tresspasser
+			}
+		}
+		else_if = {	 # Eriador
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_west_arnor }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:worauthai_madur
+				faith = faith:way_of_strength
+				save_scope_as = orc_tresspasser
+			}
+		}
+		else_if = {	 # Enedhwaith
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_west_enedhwaith }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = 28
+				gender_female_chance = 0
+				culture = culture:isengard_urukhai
+				faith = faith:white_hand_cult
+				save_scope_as = orc_tresspasser
+			}
+		}
+		else_if = {	 # Rhûn
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_rhun }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = 28
+				gender_female_chance = 0
+				culture = culture:kazgumhoth
+				faith = faith:sons_of_sauron
+				save_scope_as = orc_tresspasser
+			}
+		}
+		else_if = {	 # Lindon
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_west_beleriand }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:generic_goblin
+				faith = faith:way_of_strength
+				save_scope_as = orc_tresspasser
+			}
+		}
+		else_if = {	 # Harad
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_harad }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:sons_of_sauron
+				save_scope_as = orc_tresspasser
+			}
+		}
+		else_if = {	 # Utter South
+			limit = {
+				root.capital_county.title_province ?= { geographical_region = middleearth_uttersouth }
+			}
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = 27
+				gender_female_chance = 0
+				culture = culture:rukhashai
+				faith = faith:volcano_cult
+				save_scope_as = orc_tresspasser
+			}
+		}
+		else = {	 # Fallback
+			create_character = {
+				dynasty = none
+				location = root.location
+				age = { young_age middle_age }
+				gender_female_chance = 0
+				culture = culture:generic_goblin
+				faith = faith:sons_of_sauron
+				save_scope_as = orc_tresspasser
+			}
+		}
+	}
+	option = { # Slay the intruders! To arms!
+		name = elven_racial.1219.a 
+		stress_impact = {
+			craven = medium_stress_impact_gain
+			paranoid = medium_stress_impact_gain 
+			brave = medium_stress_impact_loss 
+			just = medium_stress_impact_loss 
+		}
+		duel = {
+ 			skill = prowess
+			target = scope:orc_tresspasser 
+ 			50 = {
+				# You're successful
+ 				desc = elven_racial.1219.a.success
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = 3.5
+ 					min = -49
+ 				}
+ 				hidden_effect = { 
+					send_interface_toast = {
+						title = elven_racial.1219.a.success
+						left_icon = root
+						right_icon = scope:orc_tresspasser
+					}
+				}
+				add_prestige = medium_prestige_gain
+				scope:orc_tresspasser = { death = { death_reason = death_fight killer = root } }
+ 			}
+ 			50 = {
+ 				# You failed
+ 				desc = elven_racial.1219.a.failure
+ 				compare_modifier = {
+ 					value = scope:duel_value
+ 					multiplier = -3.5
+ 					min = -49
+ 				}
+				hidden_effect = {
+					send_interface_toast = {
+						title = elven_racial.1219.a.failure
+						left_icon = root
+						right_icon = scope:orc_tresspasser
+					}
+				}
+				increase_wounds_effect = { REASON = fight }
+				hidden_effect = { scope:orc_tresspasser = { silent_disappearance_effect = yes } }
+ 			}
+		}
+	}
+	option = { # Run Away
+		name = elven_racial.1219.b 
+		add_prestige = major_prestige_loss
+		add_legitimacy = minor_legitimacy_loss
+		stress_impact = {
+			brave = medium_stress_impact_gain
+			just = medium_stress_impact_gain 
+			craven = medium_stress_impact_loss 
+			paranoid = medium_stress_impact_loss 
+		}
+	}
+	after = {
+		trigger_event = elven_racial.1299
+	}
+}
+
+elven_racial.1220 = { # A Hope Rekindled
+	title = elven_racial.1220.t
+	type = character_event
+	desc = elven_racial.1220.desc
+	content_source = realms_dlc
+	theme = legend
+	override_background = { reference = forest_elven }
+	right_portrait = {
+		character = root
+		animation = storyteller
+	}
+	left_portrait = {
+		character = scope:random_council_member
+		animation = happiness 
+	}
+	immediate = {
+		random_councillor = { save_scope_as = random_council_member }
+	}
+	option = { # We must not despair against the Long Defeat 
+		name = elven_racial.1220.a 
+		add_legitimacy = medium_legitimacy_gain
+		# Make this add hope once the new elven gameplay rework is functional
+	}
+	option = { # I shall inspire my vassals and councillors
+		every_vassal = {
+			add_opinion = {
+				target = root
+				modifier = friendliness_opinion
+				opinion = 15
+			}
+		}
+		every_tributary = {
+			add_opinion = {
+				target = root
+				modifier = friendliness_opinion
+				opinion = 15
+			}
+		}
+		every_councillor = {
+			add_opinion = {
+				target = root
+				modifier = friendliness_opinion
+				opinion = 15
+			}
+		}
+	}
+	after = {
+		trigger_event = elven_racial.1299
+	}
+}
+
+elven_racial.1221 = { # An Undisturbed Moment
+	title = elven_racial.1221.t
+	type = character_event
+	desc = elven_racial.1221.desc
+	content_source = realms_dlc
+	theme = love
+	override_background = { reference = wilderness_forest_pine }
+	trigger = { is_married = yes }
+	right_portrait = {
+		character = root
+		animation = flirtation
+	}
+	left_portrait = {
+		character = primary_spouse
+		animation = admiration 
+	}
+	immediate = { root.primary_spouse = { save_scope_as = elven_spouse } }
+	option = { # What a wonderful, rare occasion
+		name = elven_racial.1221.a 
+		root = {
+			had_sex_with_effect = {
+				CHARACTER = scope:elven_spouse
+				PREGNANCY_CHANCE = 75
+			}
+		}
+		stress_impact = {
+			base = medium_stress_impact_loss
+			lustful = minor_stress_impact_loss
+			rakish = minor_stress_impact_loss
+			chaste = major_stress_impact_gain
+			shy = medium_stress_impact_gain
+			impatient = minor_stress_impact_gain
+		}
+	}
+	option = { # Let's just talk, just you and me
+		name = elven_racial.1221.b
+		scope:elven_spouse = {
+			add_opinion = {
+				target = root
+				modifier = friendliness_opinion
+				opinion = 50
+			}
+		}
+	}
+	after = {
+		trigger_event = elven_racial.1299
+	}
+}
+
+elven_racial.1222 = { # How to Fight in the Forest
+	title = elven_racial.1222.t
+	type = character_event
+	desc = elven_racial.1222.desc
+	content_source = realms_dlc
+	theme = martial_chivalry_focus
+	override_background = { reference = wilderness_forest }
+	left_portrait = {
+		character = root
+		animation = throne_room_one_handed_passive_1
+	}
+	right_portrait = {
+		character = scope:elven_marshal
+		animation = marshal 
+	}
+	trigger = { exists = cp:councillor_marshal }
+	immediate = { root.cp:councillor_marshal = { save_scope_as = elven_marshal } }
+	option = { # Show me how to fight in the forest
+		name = elven_racial.1222.a 
+		random = {
+			chance = 50 
+			if = {
+				limit = { has_trait = forest_fighter }
+				add_trait_xp = {
+					trait = forest_fighter 
+					value = 20 
+				}
+			}
+			else = {
+				add_trait = forest_fighter 
+			}
+		}
+	}
+	option = { # Some sparring would be great
+		name = elven_racial.1222.b
+		random = {
+			chance = 50 
+			if = {
+				limit = { has_trait = lifestyle_blademaster }
+				add_trait_xp = {
+					trait = lifestyle_blademaster 
+					value = 20 
+				}
+			}
+			else = {
+				add_trait = lifestyle_blademaster 
+			}
+		}
+	}
+	after = {
+		trigger_event = elven_racial.1299
+	}
+}
+
+elven_racial.1299 = { # Returning home
+	title = elven_racial.1299.t
+	type = character_event
+	desc = elven_racial.1299.desc
+	content_source = realms_dlc
+	theme = physical_health
+	override_background = { reference = wilderness_forest }
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+	option = { # I'm going home
+		name = elven_racial.1299.a 
+		custom_tooltip = elven_racial.1299.a.tt 
+		start_travel_plan = { #Travel home
+			destination = root.capital_county.title_province
+			return_trip = no
+			players_use_planner = no
+			on_arrival_destinations = all
+		}
 	}
 }

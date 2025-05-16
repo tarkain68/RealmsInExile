@@ -5728,6 +5728,14 @@
 			shadow_of_mordor
 		}
 	}
+	7075.3.1 = {
+		culture = gondorian
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_01
+		}
+	}
 }
 
 608 = {	#Lag Dagur (b_lag_dagur)
@@ -5878,6 +5886,9 @@
 		culture = leofring
 		religion = faith_withered_court
 		holding = tribal_holding
+	}
+	7082.4.12 = {
+		religion = faith_rohirric
 	}		
 }			
 182 = {		#b_lashkarg	
@@ -5914,6 +5925,9 @@
 		religion = faith_withered_court
 		holding = tribal_holding
 	}
+	7082.4.12 = {
+		religion = faith_midde_court
+	}
 }			
 186 = {			
 	culture = leofring		
@@ -5940,6 +5954,9 @@
 		culture = leofring
 		religion = faith_withered_court
 		holding = tribal_holding
+	}
+	7082.4.12 = {
+		religion = faith_woodmen
 	}	
 }				
 188 = {			
@@ -6075,6 +6092,9 @@
 		religion = faith_northmen
 		holding = tribal_holding
 	}
+	7060.1.1 = {
+		religion = faith_woodmen
+	}
 }		
 						
 197 = {			
@@ -6106,13 +6126,15 @@
 		buildings = {
 			dense_growth
 			wild_orcs
-			
 		}
 	}
 	6953.3.26 = {
 		culture = rhovannic
 		religion = faith_withered_court
 		holding = tribal_holding
+	}
+	7082.4.12 = {
+		religion = faith_woodmen
 	}
 }	
 196 = {			
@@ -6206,6 +6228,9 @@
 			tribe_02
 			palisades_02
 		}
+	}
+	7060.1.1 = {
+		religion = faith_woodmen
 	}
 }
 
@@ -7371,6 +7396,9 @@
 		religion = faith_northmen
 		holding = tribal_holding
 	}
+	7060.1.1 = {
+		religion = faith_woodmen
+	}
 }
 
 3853 = {	#Burh Shalca (b_burh_shalca)
@@ -7683,6 +7711,9 @@
 		religion = faith_northmen
 		holding = tribal_holding
 	}
+	7060.1.1 = {
+		religion = faith_dale
+	}
 }
 
 3868 = {	#Aleshem (b_aleshem)
@@ -7782,7 +7813,7 @@
 3873 = {	#Burh Ailgra (b_burh_ailgra)
 	culture = wastelands
 	religion = faith_wastelands_pagan
-	holding = tribal_holding
+	holding = wastelands_holding
 	3912.1.1 = { # Realms-in-Exile Start (Post Akallabeth)
 		culture = northron
 		religion = faith_northmen

@@ -369,7 +369,7 @@ middleearth_harad_far_bellakar_bayoffelaya = {
 	duchies = {
 		# e_umbar
 			# k_mardruak
-		d_nykkea d_narik_zadan d_khasmanakor d_zinrenzil d_khibilkadar d_dhajran
+		d_nykkea d_narik_zadan d_khasmanakor d_zimrenzil d_khibilkadar d_dhajran
 		# e_bellakar
 			# k_felaya
 		d_hazaj_tollin d_kes_ebb d_rothurush d_hulja d_adazayin d_urudath
@@ -470,6 +470,22 @@ middleearth_harad_bayoformal_sirayn = {
 		d_ne_tava d_erim_poa d_ne_sargoa d_nafar_poan
 	}
 }
+middleearth_harad_bayoformal_sirayn_west = {
+	duchies = {
+		#k_chennacatt
+		d_silvesa d_delritha d_sola
+		#k_poa
+		d_ne_tava d_erim_poa d_ne_sargoa d_nafar_poan
+	}
+}
+middleearth_harad_bayoformal_sirayn_east = {
+	duchies = {
+		#k_isra
+		d_maudara d_sirsisa d_dredara d_sara_bask d_bahresk
+		#k_kirmlesra
+		d_harina d_ornad d_kirma d_devesa d_kalathun
+	}
+}
 middleearth_harad_bayoformal_harshandatt = {
 	duchies = {
 		#k_harshandatt
@@ -547,7 +563,7 @@ middleearth_uttersouth_mumakan_usakan = {
 }
 middleearth_uttersouth_mumakan_shayn = {
 	duchies = {
-		#k_lynerian_league
+		#k_lyneria
 		d_meloria d_sylara d_bhal_ghur
 	}
 }
@@ -606,12 +622,18 @@ middleearth_rhun_seaofrhun = {
 	}
 }
 middleearth_rhun_khand = {
+	regions = { middleearth_rhun_upper_khand middleearth_rhun_lower_khand }
+}
+middleearth_rhun_upper_khand = {
 	duchies = {
-		# e_khand
-		# k_lower_khand
-		d_starlurtsa d_itakh_khand d_khand_amu d_khur_khand
 		# k_upper_khand
 		d_madh_ortogh d_uda_khand d_gap_of_khand d_khand_khuvesra d_subi_khand
+	}
+}
+middleearth_rhun_lower_khand = {
+	duchies = {
+		# k_lower_khand
+		d_starlurtsa d_itakh_khand d_khand_amu d_khur_khand
 	}
 }
 middleearth_rhun_nurunkizdin = {
@@ -1491,7 +1513,7 @@ hunt_animal_boar_region = {
 		# West
 		middleearth_west
 		# Haradwaith
-		adventure_nearharad
+		middleearth_harad_near
 		middleearth_harad_far
 		# Rhûn
 		middleearth_rhun
@@ -1507,7 +1529,7 @@ hunt_animal_bear_region = { # middleearth_west_arnor_arthedain
 		middleearth_west_enedhwaith	middleearth_west_rohan middleearth_west_rhovanion
 		middleearth_west_gondor middleearth_west_arnor_cardolan middleearth_west_arnor_rhudaur
 		# Haradwaith
-		adventure_nearharad
+		middleearth_harad_near
 		middleearth_harad_far
 		# Rhûn
 		middleearth_rhun
@@ -1536,7 +1558,7 @@ hunt_animal_big_cat_region = {
 hunt_animal_bison_region = {
 	regions = {
 		# Haradwaith
-		adventure_nearharad
+		middleearth_harad_near
 		middleearth_harad_far_ray
 		middleearth_harad_far_bellakar
 		middleearth_harad_dunesea_naraktedja
@@ -1795,6 +1817,41 @@ special_region_innovation_all_things = {
 	}
 }
 
+special_region_nuar_river_valley = { # Nuar river in Harshandatt
+	duchies = {
+		#k_harshandatt
+		d_elaenar d_coajanir d_darazir d_jelhat_kurj d_ahanim d_fazralim d_yelzhat_harj
+	}
+}
+
+special_region_innovation_namalo = { # Namâlo merchant region of influence
+	regions = {
+		middleearth_harad_far_bellakar
+		middleearth_harad_far_ray
+		middleearth_harad_far_tulwang
+		middleearth_harad_bayoformal
+		middleearth_harad_dunesea_mirroroffire
+		middleearth_harad_dunesea_abrakhan
+		middleearth_harad_dunesea_arysis
+		middleearth_harad_dunesea_qarsaaukar
+		middleearth_uttersouth_mumakan_shayn
+		middleearth_uttersouth_thanihazad_upper
+		middleearth_mountains_yellow_east
+	}
+	duchies = {
+		# e_dune_sea
+			# k_tedja
+		d_kref_nilja d_kref_urt d_kref_tuvvaj
+	}
+}
+
+special_region_greater_harad = { # Mumakil import area
+	regions = {
+		middleearth_harad
+		middleearth_uttersouth
+	}
+}
+
 special_region_build_mumakil_pens = {
 	generate_modifiers = yes
 	regions = {
@@ -1834,7 +1891,7 @@ special_region_murex = {
 		d_umbar d_calenfalas d_annabrith d_glinfalas d_tol_uialgaer
 		d_sakal_an_khar d_dusalan
 		# k_mardruak
-		d_nykkea d_narik_zadan d_khasmanakor d_zinrenzil 
+		d_nykkea d_narik_zadan d_khasmanakor d_zimrenzil 
 		# k_felaya
 		d_hazaj_tollin d_kes_ebb d_adazayin
 		# k_belezan
@@ -1858,7 +1915,7 @@ custom_dolguldur = {
 custom_reform_tedjin_confederacy = {
 	duchies = {
 		#k_mardruak
-		d_zinrenzil d_dhajran d_khibilkadar d_khasmanakor d_narik_zadan d_nykkea
+		d_zimrenzil d_dhajran d_khibilkadar d_khasmanakor d_narik_zadan d_nykkea
 		#k_tedja
 		d_kref_nilja d_kref_urt d_kref_tuvvaj
 		#k_felaya
@@ -2003,6 +2060,15 @@ custom_greater_ray = {
 	}
 }
 
+custom_greater_arysis = {
+	duchies = {
+			#k_arysis
+		d_menarysis d_mannasha d_khadok d_moraghos d_sarysis d_omuzen
+			# k_lurmsakun
+		d_kuvango d_siakan
+	}
+}
+
 custom_pelargir_league = {
 	duchies = {
 		d_pelargir d_lebennivet d_tolfalas d_annun d_laergaladrin d_harithilien
@@ -2032,7 +2098,7 @@ custom_close_corsair_coast = {
 		# k_umbar
 		d_umbar d_calenfalas d_annabrith d_glinfalas d_sakal_an_khar d_dusalan
 		# k_mardruak
-		d_nykkea d_narik_zadan d_khasmanakor d_zinrenzil d_khibilkadar d_dhajran
+		d_nykkea d_narik_zadan d_khasmanakor d_zimrenzil d_khibilkadar d_dhajran
 		# k_tulwang
 		d_bishra d_kanjar
 	}
@@ -2047,7 +2113,7 @@ custom_greater_corsair_coast = {
 		# k_umbar
 		d_umbar d_calenfalas d_annabrith d_glinfalas d_sakal_an_khar d_dusalan
 		# k_mardruak
-		d_nykkea d_narik_zadan d_khasmanakor d_zinrenzil d_khibilkadar d_dhajran
+		d_nykkea d_narik_zadan d_khasmanakor d_zimrenzil d_khibilkadar d_dhajran
 		# k_felaya
 		d_hazaj_tollin d_kes_ebb  d_adazayin 
 		# k_bellazen
@@ -2287,7 +2353,7 @@ special_pharazain = { # The vague area of 'Pharazain'
 	duchies = { 
 		# e_umbar
 			# k_mardruak
-			d_nykkea d_narik_zadan d_khasmanakor d_zinrenzil d_khibilkadar d_dhajran
+			d_nykkea d_narik_zadan d_khasmanakor d_zimrenzil d_khibilkadar d_dhajran
 		# e_bellakar
 			# k_felaya
 			d_hazaj_tollin d_kes_ebb d_rothurush d_hulja d_adazayin d_urudath
@@ -2431,7 +2497,7 @@ special_region_haradwaith_harnen = {
 special_region_capeofmardruak_coastal = {
 	duchies = {
 		d_annabrith d_dusalan
-		d_khasmanakor d_narik_zadan d_nykkea d_zinrenzil
+		d_khasmanakor d_narik_zadan d_nykkea d_zimrenzil
 		d_kes_ebb d_adazayin 
 	}
 }
@@ -2576,7 +2642,7 @@ dlc_fp1_region_lotr_wildmen_pool = {
 
 dlc_fp3_region_lotr_easterling_invasion_targets = {
 	regions = {
-		middleearth_west_rhovanion middleearth_rhun adventure_nearharad middleearth_harad_far_bellakar
+		middleearth_west_rhovanion middleearth_rhun middleearth_harad_near middleearth_harad_far_bellakar
 	}
 	duchies = {
 		d_harithilien d_cormalthen d_thewold d_eastemnet d_lithlad d_ghurzun
@@ -2592,9 +2658,21 @@ dlc_fp3_region_pukel_men = {
 	}
 }
 
-dlc_fp3_greater_gondorian_frontier_regions = {
+dlc_fp3_frontier_regions = {
 	regions = {
-		middleearth_west_gondor_andrast middleearth_west_gondor_ithilien middleearth_harad_near_harondor
+		#Gondorian regions
+		middleearth_west_gondor_andrast middleearth_west_gondor_ithilien middleearth_harad_near_harondor 
+	}
+	duchies = {
+		#Khyan border duchies
+		#k_cly
+		d_urvolath
+		#k_mejhanir
+		d_mejhat d_naishan
+		#k_bulchyades
+		d_jorash d_mafazat
+		#k_ashanur
+		d_belshadar d_khamaryath d_dravoryan
 	}
 }
 
@@ -2604,10 +2682,6 @@ dlc_fp3_greater_gondorian_frontier_regions = {
 
 adventure_west = {
 	regions = { middleearth_west_enedhwaith middleearth_west_isengard middleearth_west_rohan middleearth_west_lothlorien}
-}
-
-adventure_nearharad = {
-	regions = { middleearth_harad_near_harondor middleearth_harad_near_harnen middleearth_harad_near_umbar }
 }
 
 adventure_elvenlands = {
@@ -2794,9 +2868,6 @@ dlc_ep1_southwest_silk_road_trade_region = { # Silk Road
 #	}
 #}
 
-
-
-
 ### END RC Regions
 
 divergence_island_regions = {
@@ -2807,6 +2878,27 @@ divergence_island_regions = {
 		# Potential to split these duchy's islands into their own.
 		#d_bishra
 		#d_urezayan d_adazayin
+	}
+}
+
+#############################
+### LotR Seasonal Regions ###
+#############################
+
+forochel_region_permafrost = {
+	regions = { middleearth_forodwaith_forochel }
+}
+
+dune_sea_nomad_area = {
+	duchies = {
+		# k_narak
+		d_kes_jelut d_zar_uran d_kes_aluk d_kes_karrak
+		# k_qarsa
+		d_kes_weza d_auz_bekar d_kes_susad d_kes_arik d_kes_kriz
+	}
+	regions = {
+		#k_koanoz
+		middleearth_harad_dunesea_mirroroffire
 	}
 }
 

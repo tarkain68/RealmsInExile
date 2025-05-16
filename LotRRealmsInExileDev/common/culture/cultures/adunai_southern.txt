@@ -9,6 +9,7 @@
 	heritage = heritage_southern_adunaic
 	language = language_adunaic #Proper linguistic divergence later is flavorful
 	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
 	traditions = {
 		tradition_blacknumenorean_legacy #Representing pre kharadunaim/anballukhori split
 		tradition_ruling_caste
@@ -38,6 +39,7 @@ anbalukkhori = {
 	heritage = heritage_southern_adunaic
 	language = language_kharadunaic
 	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
 	traditions = {
 		tradition_anbalukkhori
 		tradition_ruling_caste
@@ -48,7 +50,7 @@ anbalukkhori = {
 	
 	name_list = name_list_south_adunaic
 	
-	coa_gfx = { southern_numenorean_coa_gfx }
+	coa_gfx = { southern_evil_numenorean_coa_gfx }
 	building_gfx = { numenorean_building_gfx mediterranean_building_gfx }
 	clothing_gfx = { anbalukkhori_clothing_gfx }
 	unit_gfx = { eastern_unit_gfx }
@@ -67,6 +69,7 @@ kharadunaim = {
 	heritage = heritage_southern_adunaic
 	language = language_kharadunaic
 	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
 	traditions = {
 		tradition_kharadunai # Combines BN legacy with Hered. Hierachy and some stuff from Astute Diplomats
 		tradition_intricate_plotters
@@ -98,6 +101,7 @@ tanturaki = { # The inhabitants of the colony of Tantûrak, this culture is exti
 	heritage = heritage_southern_adunaic
 	language = language_kharadunaic
 	martial_custom = martial_custom_male_only
+	head_determination = head_determination_domain
 	traditions = {
 		tradition_blacknumenorean_legacy
 		tradition_spartan
@@ -108,7 +112,7 @@ tanturaki = { # The inhabitants of the colony of Tantûrak, this culture is exti
 	
 	name_list = name_list_south_adunaic
 	
-	coa_gfx = { southern_numenorean_coa_gfx }
+	coa_gfx = { southern_evil_numenorean_coa_gfx }
 	building_gfx = { numenorean_building_gfx mediterranean_building_gfx }
 	clothing_gfx = { numenorean_clothing_gfx }
 	unit_gfx = { eastern_unit_gfx }
@@ -117,5 +121,3 @@ tanturaki = { # The inhabitants of the colony of Tantûrak, this culture is exti
 		1 = southern_adunai_ethnicity
 	}
 }
-
-#Zimrathâniam / Mîrenórean - the people of the Thani Hazad

@@ -195,7 +195,9 @@ guard_of_the_citadel = {
 
 #Ithilien
 rangers_of_ithilien = {
-	can_recruit = { ithilien_rangers_trigger = yes }
+	can_recruit = {
+		ithilien_rangers_trigger = yes
+	}
 	type = archers
 	
 	damage = 60
@@ -618,7 +620,7 @@ caledhrim_cavalry = {
 
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = light_cavalry
+	icon = royal_swan_guard
 }
 
 caledhrim_footmen = {
@@ -663,7 +665,100 @@ caledhrim_footmen = {
 
 	stack = 100
 	ai_quality = { value = @cultural_maa_extra_ai_score }
-	icon = skirmishers
+	icon = pelargir_mariners
+}
+
+#Umbaredain
+umbaredain_infantry = {
+	type = heavy_infantry
+
+	can_recruit = {
+		OR = {
+			culture = { has_innovation = innovation_umbaredain_warfare }
+			AND = {
+				is_human = yes
+				is_landless_adventurer = yes
+				has_perk = planned_cultivation_perk
+				location.culture ?= { has_innovation = innovation_umbaredain_warfare }
+			}
+		}
+	}
+
+	damage = 35
+	toughness = 30
+	pursuit = 5
+	screen = 10
+	stack = 100
+
+	terrain_bonus = {
+
+	}
+
+	counters = {
+		pikemen = 1
+		skirmishers = 1
+	}
+
+	winter_bonus = {
+
+	}
+
+	buy_cost = { gold = 90 }
+	low_maintenance_cost = { gold = 0.3 }
+	high_maintenance_cost = { gold = 0.9 }
+	provision_cost = @provisions_cost_infantry_expensive
+
+	allowed_in_hired_troops = no
+	ai_quality = { value = 75 }
+
+	icon = haven_guard
+}
+
+umbaredain_spearmen = {
+	type = pikemen
+
+	can_recruit = {
+		OR = {
+			culture = { has_innovation = innovation_umbaredain_warfare }
+			AND = {
+				is_human = yes
+				is_landless_adventurer = yes
+				has_perk = planned_cultivation_perk
+				location.culture ?= { has_innovation = innovation_umbaredain_warfare }
+			}
+		}
+	}
+
+	damage = 25
+	toughness = 35
+	pursuit = 0
+	screen = 20
+	stack = 100
+
+	terrain_bonus = {
+
+	}
+
+	counters = {
+		light_cavalry = 1
+		heavy_cavalry = 1
+		camel_cavalry = 1
+		elephant_cavalry = 1
+	}
+
+	winter_bonus = {
+
+	}
+
+	buy_cost = { gold = 85 }
+	low_maintenance_cost = { gold = 0.25 }
+	high_maintenance_cost = { gold = 0.75 }
+	provision_cost = @provisions_cost_infantry_moderate
+
+	allowed_in_hired_troops = no
+	ai_quality = { value = 70 }
+
+	icon = seaward_spearmen
 }
 
 #Others
@@ -712,28 +807,28 @@ grey_company = { # Grey Company.
 	icon = grey_company
 }
 
-pelargir_mariners = {
-	can_recruit = { always = no }
-	type = skirmishers
-	damage = 40
-	toughness = 25
+# pelargir_mariners = {
+#	can_recruit = { always = no }
+#	type = skirmishers
+#	damage = 40
+#	toughness = 25
 
-	terrain_bonus = {
-		plains = { damage = 10 toughness = 10 }
-		forest = { damage = 10 toughness = 10 }
-	}
-	counters = {
-		pikemen = 1
-		heavy_infantry = 1
-	}
-	buy_cost = { gold = 60 }
-	low_maintenance_cost = { gold = 0.25 }
-	high_maintenance_cost = { gold = 0.75 }
-	stack = 100
-	ai_quality = { value = @cultural_maa_extra_ai_score }
-	allowed_in_hired_troops = no
-	icon = pelargir_mariners
-}
+#	terrain_bonus = {
+#		plains = { damage = 10 toughness = 10 }
+#		forest = { damage = 10 toughness = 10 }
+#	}
+#	counters = {
+#		pikemen = 1
+#		heavy_infantry = 1
+#	}
+#	buy_cost = { gold = 60 }
+#	low_maintenance_cost = { gold = 0.25 }
+#	high_maintenance_cost = { gold = 0.75 }
+#	stack = 100
+#	ai_quality = { value = @cultural_maa_extra_ai_score }
+#	allowed_in_hired_troops = no
+#	icon = pelargir_mariners
+#}
 
 ### Dol Amroth Special Units
 
@@ -1741,12 +1836,10 @@ mundburgian_eored = {
 
 	damage = 130
 	toughness = 50
-	pursuit = 20
-	screen = 10
+	pursuit = 25
 	
 	terrain_bonus = {
-		plains = { damage = 40 }
-		hills = { damage = 20 }
+		plains = { damage = 30 }
 		jungle = { damage = -25 }
 		deep_forest = { damage = -25 }
 		mountains = { damage = -50 }
@@ -1757,7 +1850,6 @@ mundburgian_eored = {
 	counters = {
 		archers = 2
 		skirmishers = 1
-		heavy_infantry = 1
 	}
 
 	winter_bonus = {
@@ -1771,11 +1863,12 @@ mundburgian_eored = {
 	provision_cost = @provisions_cost_cavalry_bankrupting
 	
 	stack = 50
+	max_sub_regiments = 12
 
 	allowed_in_hired_troops = no
 	ai_quality = {
 		value = @[cultural_maa_extra_ai_score + 40]
-		add = counter_synergy_ai_weight_heavy_cavalry
+		#add = counter_synergy_ai_weight_heavy_cavalry
 	}
 	icon = helmingas_warriors
 }

@@ -713,8 +713,80 @@ lineofdale35brother = {
 		birth = yes			
 	}	
 
+	6755.7.12 = {
+		add_spouse = lineofgirig15sister
+	}
+
 	6803.1.1 = {				
-		death = { death_reason = death_burned }	#Smaug
+		death = { death_reason = death_dragon }	#Smaug
+	}				
+}
+
+lineofdale35nephew = { 		
+	name = Adalvard	
+ 	dynasty = dynasty_aivadiuria	
+	religion = faith_dale				
+	culture = dalemen	
+
+	father = lineofdale35brother	
+	mother = lineofgirig15sister
+	
+	trait = humble
+	trait = brave
+	trait = just
+	trait = education_martial_4
+	
+	diplomacy = 5
+	stewardship = 5
+	martial = 12
+	intrigue = 6
+	learning = 6
+	prowess = 12
+						
+	6757.7.7 = {				
+		birth = yes			
+	}	
+
+	6803.1.1 = {				
+		death = { death_reason = death_dragon }	#Smaug
+	}				
+}
+
+lineofdale35brother2 = { 		
+	name = Halvor	
+ 	dynasty = dynasty_aivadiuria	
+	religion = faith_dale				
+	culture = dalemen	
+
+	father = lineofdale34	
+	mother = lineofdale34wife
+	
+	trait = wrathful
+	trait = brave
+	trait = zealous
+	trait = education_martial_3
+	
+	diplomacy = 7
+	stewardship = 7
+	martial = 9
+	intrigue = 6
+	learning = 6
+	prowess = 9
+						
+	6737.7.17 = {				
+		birth = yes			
+	}	
+	
+	6759.5.9 = {
+		add_spouse = lineofsnarkning13sister
+	}
+	
+	6777.7.7 = {
+		employer = lineofsnarkning11 # Master of Lake-town
+	}
+
+	6811.11.11 = {				
+		death = { death_reason = death_natural_causes }
 	}				
 }
 
@@ -740,7 +812,95 @@ lineofdale35wife = {
 		birth = yes			
 	}	
 	6803.1.1 = {				
-		death = { death_reason = death_burned }	#Smaug
+		death = { death_reason = death_dragon }	#Smaug
+	}				
+}
+
+lineofdale36cousin = { 		
+	name = Brand	
+ 	dynasty = dynasty_aivadiuria	
+	religion = faith_dale				
+	culture = dalemen	
+
+	father = lineofdale35brother2	
+	mother = lineofsnarkning13sister
+	
+	trait = cynical
+	trait = brave
+	trait = just
+	trait = education_martial_3
+	
+	diplomacy = 7
+	stewardship = 7
+	martial = 9
+	intrigue = 6
+	learning = 6
+	prowess = 9
+						
+	6762.7.16 = {				
+		birth = yes			
+	}	
+	
+	6780.8.8 = {
+		add_spouse = linenorling11sister
+	}
+	
+	6781.7.7 = {
+		employer = lineofsnarkning11 # Master of Lake-town
+	}
+
+	6833.11.13 = {				
+		death = { death_reason = death_natural_causes }
+	}				
+}
+
+lineofdale36cousin1 = { 		
+	name = Lifstan	
+ 	dynasty = dynasty_aivadiuria	
+	religion = faith_dale				
+	culture = dalemen	
+
+	father = lineofdale36cousin	
+	mother = linenorling11sister
+	
+	trait = rowdy
+	trait = twin
+			
+	6781.1.15 = {				
+		birth = yes			
+	}	
+
+	6781.7.7 = {
+		employer = lineofsnarkning11 # Master of Lake-town
+	}
+
+	6855.11.15 = {				
+		death = { death_reason = death_natural_causes }
+	}				
+}
+
+lineofdale36cousin2 = { 		
+	name = Brynjolf	
+ 	dynasty = dynasty_aivadiuria	
+	religion = faith_dale				
+	culture = dalemen	
+
+	father = lineofdale36cousin	
+	mother = linenorling11sister
+	
+	trait = curious
+	trait = twin
+						
+	6781.1.15 = {				
+		birth = yes			
+	}	
+
+	6781.7.7 = {
+		employer = lineofsnarkning11 # Master of Lake-town
+	}
+
+	6859.12.22 = {				
+		death = { death_reason = death_natural_causes }
 	}				
 }
 
@@ -770,7 +930,7 @@ lineofdale36 = {
 	}	
 		
 	6803.2.2 = {				
-		death = { death_reason = death_burned }	# Killed by Smaug
+		death = { death_reason = death_dragon }	# Killed by Smaug
 	}				
 }
 
@@ -795,7 +955,7 @@ lineofdale36brother = {
 	}	
 		
 	6803.2.2 = {				
-		death = { death_reason = death_burned }	# Killed by Smaug
+		death = { death_reason = death_dragon }	# Killed by Smaug
 	}				
 }
 
@@ -820,7 +980,7 @@ lineofdale36sister = {
 	}	
 		
 	6803.2.2 = {				
-		death = { death_reason = death_burned }	# Killed by Smaug
+		death = { death_reason = death_dragon }	# Killed by Smaug
 	}				
 }
 
@@ -2174,6 +2334,9 @@ lineofglenbrook10 = {
     trait = shy
     trait = sadistic
     trait = ambitious
+    trait = charming
+
+    disallow_random_traits = yes
 
     diplomacy = 5
     martial = 5
@@ -4220,6 +4383,9 @@ lineoffalkes24 = {
     trait = compassionate
     trait = gregarious
     trait = lustful
+    trait = curious
+
+    disallow_random_traits = yes
 
     diplomacy = 9
     martial = 5
@@ -4944,9 +5110,7 @@ lineoftelliore9 = {
 
     sexuality = heterosexual
 
-    trait = impatient
-    trait = calm
-    trait = trusting
+    trait = curious
 
     diplomacy = 6
     martial = 6
@@ -4959,6 +5123,12 @@ lineoftelliore9 = {
 
     6782.8.9 = {
         birth = yes
+    }
+
+    6798.8.9 = {
+        trait = impatient
+        trait = calm
+        trait = trusting
     }
 
     6817.5.28 = {
@@ -7650,7 +7820,9 @@ lineofcalmar66 = {
 
     trait = lustful
     trait = content
-    trait = zealous
+    trait = curious
+    
+    disallow_random_traits = yes
 
     diplomacy = 10
     martial = 4
@@ -7663,6 +7835,10 @@ lineofcalmar66 = {
 
     7021.8.7 = {
         birth = yes
+    }
+
+    7037.8.7 = {
+        trait = zealous
     }
 
     7082.10.2 = {
@@ -7685,6 +7861,9 @@ lineofcalmar67 = {
     trait = gregarious
     trait = greedy
     trait = impatient
+    trait = rowdy
+
+    disallow_random_traits = yes
 
     diplomacy = 4
     martial = 8
@@ -7717,8 +7896,8 @@ lineofcalmar68 = {
     sexuality = heterosexual
 
     trait = content
-    trait = craven
-    trait = deceitful
+
+    disallow_random_traits = yes
 
     diplomacy = 7
     martial = 5
@@ -7731,6 +7910,11 @@ lineofcalmar68 = {
 
     7022.9.11 = {
         birth = yes
+    }
+
+    7048.9.11 = {
+        trait = craven
+        trait = deceitful
     }
 
     7045.7.12 = {
@@ -7751,10 +7935,6 @@ lineofcalmar69 = {
 
     sexuality = heterosexual
 
-    trait = stubborn
-    trait = impatient
-    trait = deceitful
-
     diplomacy = 7
     martial = 6
     stewardship = 5
@@ -7766,6 +7946,12 @@ lineofcalmar69 = {
 
     7028.10.26 = {
         birth = yes
+    }
+
+    7044.10.26 = {
+        trait = stubborn
+        trait = impatient
+        trait = deceitful
     }
 
     7089.1.28 = {
@@ -9380,10 +9566,6 @@ lineofhill37 = {
 
     sexuality = heterosexual
 
-    trait = diligent
-    trait = fickle
-    trait = humble
-
     diplomacy = 8
     martial = 2
     stewardship = 9
@@ -9395,6 +9577,12 @@ lineofhill37 = {
 
     6784.3.3 = {
         birth = yes
+    }
+
+    6800.3.3 = {
+        trait = diligent
+        trait = fickle
+        trait = humble
     }
 
     6807.8.15 = {
@@ -9828,10 +10016,6 @@ lineofhill50 = {
 
     sexuality = heterosexual
 
-    trait = calm
-    trait = callous
-    trait = stubborn
-
     diplomacy = 7
     martial = 9
     stewardship = 4
@@ -9843,6 +10027,12 @@ lineofhill50 = {
 
     7025.2.5 = {
         birth = yes
+    }
+
+    7041.2.5 = {
+        trait = calm
+        trait = callous
+        trait = stubborn
     }
 
     7098.5.14 = {
@@ -9897,10 +10087,6 @@ lineofhill52 = {
 
     sexuality = heterosexual
 
-    trait = greedy
-    trait = deceitful
-    trait = zealous
-
     diplomacy = 11
     martial = 9
     stewardship = 9
@@ -9912,6 +10098,12 @@ lineofhill52 = {
 
     7026.3.25 = {
         birth = yes
+    }
+
+    7042.3.25 = {
+        trait = greedy
+        trait = deceitful
+        trait = zealous
     }
 
     7103.7.12 = {
@@ -10239,9 +10431,7 @@ lineofhill62 = {
 
     sexuality = heterosexual
 
-    trait = content
-    trait = trusting
-    trait = vengeful
+    trait = rowdy
 
     diplomacy = 7
     martial = 9
@@ -10275,8 +10465,8 @@ lineofhill63 = {
     sexuality = heterosexual
 
     trait = patient
-    trait = callous
-    trait = vengeful
+
+    disallow_random_traits = yes
 
     diplomacy = 8
     martial = 5
@@ -10289,6 +10479,11 @@ lineofhill63 = {
 
     7022.10.12 = {
         birth = yes
+    }
+
+    7028.10.12 = {
+        trait = callous
+        trait = vengeful
     }
 
     7103.2.19 = {
@@ -11489,9 +11684,7 @@ lineofarnstyr35 = {
 
     sexuality = heterosexual
 
-    trait = patient
-    trait = gluttonous
-    trait = shy
+    trait = pensive
 
     diplomacy = 4
     martial = 5
@@ -11504,6 +11697,12 @@ lineofarnstyr35 = {
 
     6780.1.24 = {
         birth = yes
+    }
+
+    6796.1.24 = {
+        trait = patient
+        trait = gluttonous
+        trait = shy
     }
 
     6811.10.26 = {
@@ -11945,10 +12144,6 @@ lineofarnstyr48 = {
 
     sexuality = heterosexual
 
-    trait = fickle
-    trait = calm
-    trait = greedy
-
     diplomacy = 8
     martial = 1
     stewardship = 6
@@ -11960,6 +12155,12 @@ lineofarnstyr48 = {
 
     7029.12.21 = {
         birth = yes
+    }
+
+    7045.12.21 = {
+        trait = fickle
+        trait = calm
+        trait = greedy
     }
 
     7108.12.25 = {
@@ -11979,10 +12180,6 @@ lineofarnstyr49 = {
 
     sexuality = heterosexual
 
-    trait = compassionate
-    trait = generous
-    trait = temperate
-
     diplomacy = 6
     martial = 6
     stewardship = 7
@@ -11994,6 +12191,12 @@ lineofarnstyr49 = {
 
     7030.6.5 = {
         birth = yes
+    }
+
+    7046.6.5 = {
+        trait = compassionate
+        trait = generous
+        trait = temperate
     }
 
     7049.11.9 = {
@@ -12182,10 +12385,6 @@ lineofarnstyr55 = {
 
     sexuality = heterosexual
 
-    trait = compassionate
-    trait = content
-    trait = generous
-
     diplomacy = 6
     martial = 8
     stewardship = 4
@@ -12197,6 +12396,12 @@ lineofarnstyr55 = {
 
     7027.6.14 = {
         birth = yes
+    }
+
+    7043.6.14 = {
+        trait = compassionate
+        trait = content
+        trait = generous
     }
 
     7063.9.12 = {
@@ -13471,6 +13676,9 @@ linefloki35 = {
     trait = vengeful
     trait = callous
     trait = ambitious
+    trait = curious
+
+    disallow_random_traits = yes
 
     diplomacy = 8
     martial = 3
@@ -13503,9 +13711,7 @@ linefloki36 = {
 
     sexuality = heterosexual
 
-    trait = generous
-    trait = lazy
-    trait = cynical
+    trait = charming
 
     diplomacy = 8
     martial = 6
@@ -13518,6 +13724,12 @@ linefloki36 = {
 
     6783.11.15 = {
         birth = yes
+    }
+
+    6799.11.15 = {
+        trait = generous
+        trait = lazy
+        trait = cynical
     }
 
     6849.3.21 = {
@@ -14126,9 +14338,9 @@ linefloki55 = {
 
     sexuality = heterosexual
 
-    trait = temperate
-    trait = sadistic
-    trait = craven
+    trait = pensive
+
+    disallow_random_traits = yes
 
     diplomacy = 7
     martial = 5
@@ -14744,9 +14956,9 @@ linefloki73 = {
 
     sexuality = heterosexual
 
-    trait = temperate
-    trait = brave
-    trait = compassionate
+    trait = curious
+    
+    disallow_random_traits = yes
 
     diplomacy = 8
     martial = 8
@@ -14759,6 +14971,10 @@ linefloki73 = {
 
     7022.6.1 = {
         birth = yes
+    }
+
+    7038.6.1 = {
+        trait == compassionate
     }
 
     7099.1.24 = {
@@ -15509,12 +15725,21 @@ linefloki95 = {
 
     sexuality = heterosexual
 
+    trait = honest
+    trait = ambitious
+    trait = shy
+    trait = curious
+
+    disallow_random_traits = yes
+
     diplomacy = 4
     martial = 5
     stewardship = 6
     intrigue = 4
     learning = 8
     prowess = 7
+
+    trait = education_diplomacy_2
 
     7017.1.10 = {
         birth = yes
@@ -15537,9 +15762,9 @@ linefloki96 = {
 
     sexuality = heterosexual
 
-    trait = arbitrary
-    trait = brave
-    trait = gregarious
+    trait = rowdy
+
+    disallow_random_traits = yes
 
     diplomacy = 7
     martial = 8
@@ -15572,10 +15797,6 @@ linefloki97 = {
 
     sexuality = heterosexual
 
-    trait = calm
-    trait = impatient
-    trait = vengeful
-
     diplomacy = 6
     martial = 6
     stewardship = 5
@@ -15587,6 +15808,12 @@ linefloki97 = {
 
     7024.12.1 = {
         birth = yes
+    }
+
+    7040.12.1 = {
+        trait = calm
+        trait = impatient
+        trait = vengeful
     }
 
     7102.8.9 = {
@@ -15851,6 +16078,8 @@ linefloki105 = {
     trait = gluttonous
     trait = cynical
 
+    disallow_random_traits = yes
+
     diplomacy = 7
     martial = 2
     stewardship = 9
@@ -15882,10 +16111,6 @@ linefloki106 = {
 
     sexuality = heterosexual
 
-    trait = zealous
-    trait = humble
-    trait = calm
-
     diplomacy = 5
     martial = 6
     stewardship = 7
@@ -15897,6 +16122,12 @@ linefloki106 = {
 
     7031.11.15 = {
         birth = yes
+    }
+
+    7047.11.15 = {
+        trait = zealous
+        trait = humble
+        trait = calm
     }
 
     7114.9.20 = {
@@ -15916,10 +16147,6 @@ linefloki107 = {
 
     sexuality = heterosexual
 
-    trait = arrogant
-    trait = shy
-    trait = diligent
-
     diplomacy = 7
     martial = 1
     stewardship = 8
@@ -15931,6 +16158,12 @@ linefloki107 = {
 
     7025.3.16 = {
         birth = yes
+    }
+
+    7041.3.16 = {
+        trait = arrogant
+        trait = shy
+        trait = diligent
     }
 
     7108.2.11 = {
@@ -16019,10 +16252,6 @@ linefloki110 = {
 
     sexuality = heterosexual
 
-    trait = arrogant
-    trait = compassionate
-    trait = craven
-
     diplomacy = 5
     martial = 5
     stewardship = 9
@@ -16034,6 +16263,12 @@ linefloki110 = {
 
     7024.6.21 = {
         birth = yes
+    }
+
+    7040.6.21 = {
+        trait = arrogant
+        trait = compassionate
+        trait = craven
     }
 
     7058.7.26 = {
@@ -16088,10 +16323,6 @@ linefloki112 = {
 
     sexuality = heterosexual
 
-    trait = generous
-    trait = lustful
-    trait = gregarious
-
     diplomacy = 5
     martial = 7
     stewardship = 4
@@ -16103,6 +16334,12 @@ linefloki112 = {
 
     7029.9.25 = {
         birth = yes
+    }
+
+    7045.9.25 = {
+        trait = generous
+        trait = lustful
+        trait = gregarious
     }
 
     7056.1.19 = {
@@ -16157,10 +16394,6 @@ linefloki114 = {
 
     sexuality = heterosexual
 
-    trait = content
-    trait = fickle
-    trait = honest
-
     diplomacy = 7
     martial = 9
     stewardship = 7
@@ -16172,6 +16405,12 @@ linefloki114 = {
 
     7030.8.6 = {
         birth = yes
+    }
+
+    7046.8.6 = {
+        trait = content
+        trait = fickle
+        trait = honest
     }
 
     7067.7.24 = {
@@ -16569,10 +16808,6 @@ linefloki126 = {
 
     sexuality = bisexual
 
-    trait = brave
-    trait = callous
-    trait = wrathful
-
     diplomacy = 8
     martial = 4
     stewardship = 8
@@ -16584,6 +16819,12 @@ linefloki126 = {
 
     7030.12.22 = {
         birth = yes
+    }
+
+    7046.12.22 = {
+        trait = brave
+        trait = callous
+        trait = wrathful
     }
 
     7055.9.15 = {
@@ -18362,7 +18603,9 @@ linepedermoor49 = {
 
     trait = vengeful
     trait = deceitful
-    trait = stubborn
+    trait = bossy
+    
+    disallow_random_traits = yes
 
     diplomacy = 5
     martial = 3
@@ -18375,6 +18618,10 @@ linepedermoor49 = {
 
     7021.5.11 = {
         birth = yes
+    }
+
+    7037.5.11 = {
+        trait = stubborn
     }
 
     7096.6.2 = {
@@ -18808,10 +19055,6 @@ linepedermoor62 = {
 
     sexuality = homosexual
 
-    trait = deceitful
-    trait = calm
-    trait = stubborn
-
     diplomacy = 4
     martial = 6
     stewardship = 7
@@ -18823,6 +19066,12 @@ linepedermoor62 = {
 
     7024.5.17 = {
         birth = yes
+    }
+
+    7040.5.17 = {
+        trait = deceitful
+        trait = calm
+        trait = stubborn
     }
 
     7094.4.8 = {
@@ -18913,7 +19162,8 @@ linepedermoor65 = {
 
     trait = honest
     trait = calm
-    trait = temperate
+    
+    disallow_random_traits = yes
 
     diplomacy = 7
     martial = 10
@@ -18926,6 +19176,10 @@ linepedermoor65 = {
 
     7022.2.10 = {
         birth = yes
+    }
+
+    7038.2.10 = {
+        trait = temperate
     }
 
     7096.6.11 = {
@@ -18983,6 +19237,9 @@ linepedermoor67 = {
     trait = craven
     trait = sadistic
     trait = gregarious
+    trait = charming
+
+    disallow_random_traits = yes
 
     diplomacy = 8
     martial = 7
@@ -19703,7 +19960,9 @@ linepedermoor88 = {
 
     trait = sadistic
     trait = generous
-    trait = gluttonous
+    trait = rowdy
+    
+    disallow_random_traits = yes
 
     diplomacy = 1
     martial = 6
@@ -19716,6 +19975,10 @@ linepedermoor88 = {
 
     7021.10.2 = {
         birth = yes
+    }
+
+    7037.10.2 = {
+        trait = gluttonous
     }
 
     7056.7.26 = {
@@ -19769,10 +20032,6 @@ linepedermoor90 = {
 
     sexuality = bisexual
 
-    trait = paranoid
-    trait = greedy
-    trait = gregarious
-
     diplomacy = 7
     martial = 7
     stewardship = 6
@@ -19784,6 +20043,12 @@ linepedermoor90 = {
 
     7027.6.19 = {
         birth = yes
+    }
+
+    7043.6.19 = {
+        trait = paranoid
+        trait = greedy
+        trait = gregarious
     }
 
     7104.7.10 = {
@@ -20217,8 +20482,9 @@ lineandersson12 = {
     sexuality = heterosexual
 
     trait = just
-    trait = lustful
-    trait = brave
+    trait = curious
+
+    disallow_random_traits = yes
 
     diplomacy = 8
     martial = 2
@@ -20231,6 +20497,11 @@ lineandersson12 = {
 
     6776.7.13 = {
         birth = yes
+    }
+
+    6792.7.13 = {
+        trait = lustful
+    trait = brave
     }
 
     6826.3.20 = {
@@ -20837,7 +21108,6 @@ lineandersson30 = {
     sexuality = heterosexual
 
     trait = bossy
-    disallow_random_traits = yes
 
     diplomacy = 8
     martial = 8
@@ -21390,9 +21660,7 @@ linefortinbras12 = {
 
     sexuality = heterosexual
 
-    trait = humble
-    trait = vengeful
-    trait = diligent
+    trait = charming
 
     diplomacy = 7
     martial = 4
@@ -21405,6 +21673,12 @@ linefortinbras12 = {
 
     6783.2.21 = {
         birth = yes
+    }
+
+    6799.2.21 = {
+        trait = humble
+        trait = vengeful
+        trait = diligent
     }
 
     6843.10.19 = {
@@ -21987,9 +22261,7 @@ linefortinbras29 = {
 
     sexuality = heterosexual
 
-    trait = wrathful
-    trait = deceitful
-    trait = gluttonous
+    trait = bossy
 
     diplomacy = 6
     martial = 3
@@ -22021,9 +22293,7 @@ linefortinbras30 = {
 
     sexuality = heterosexual
 
-    trait = greedy
-    trait = zealous
-    trait = patient
+    trait = pensive
 
     diplomacy = 2
     martial = 6
@@ -22502,6 +22772,9 @@ linehenkild12 = {
     trait = wrathful
     trait = patient
     trait = ambitious
+    trait = bossy
+
+    disallow_random_traits = yes
 
     diplomacy = 6
     martial = 4
@@ -22998,7 +23271,7 @@ linehenkild26 = {
     }
 
     6998.10.11 = {
-        add_spouse = lineorming8
+        add_spouse = lineorming7
     }
 
     7054.1.4 = {
@@ -23049,7 +23322,7 @@ linehenkild28 = {
     culture = dalemen
 
     father = linehenkild24
-    mother = lineorming8
+    mother = lineorming7
 
     sexuality = heterosexual
 
@@ -26140,10 +26413,6 @@ linedagrun12 = {
 
     sexuality = heterosexual
 
-    trait = arrogant
-    trait = lazy
-    trait = shy
-
     diplomacy = 6
     martial = 7
     stewardship = 2
@@ -26155,6 +26424,12 @@ linedagrun12 = {
 
     5379.7.9 = {
         birth = yes
+    }
+
+    5395.7.9 = {
+        trait = arrogant
+        trait = lazy
+        trait = shy
     }
 
     5472.9.20 = {
@@ -26174,9 +26449,7 @@ linedagrun13 = {
 
     sexuality = heterosexual
 
-    trait = callous
-    trait = humble
-    trait = honest
+    trait = rowdy
 
     diplomacy = 2
     martial = 3
@@ -26189,6 +26462,12 @@ linedagrun13 = {
 
     5379.2.4 = {
         birth = yes
+    }
+
+    5395.2.4 = {
+        trait = callous
+        trait = humble
+        trait = honest
     }
 
     5407.4.5 = {
@@ -26209,9 +26488,7 @@ linedagrun14 = {
 
     sexuality = heterosexual
 
-    trait = generous
-    trait = calm
-    trait = fickle
+    trait = curious
 
     diplomacy = 5
     martial = 5
@@ -26224,6 +26501,12 @@ linedagrun14 = {
 
     5377.8.18 = {
         birth = yes
+    }
+
+    5393.8.18 = {
+        trait = generous
+        trait = calm
+        trait = fickle
     }
 
     5466.2.13 = {
@@ -27818,6 +28101,40 @@ linenorling11 = {
     }
 }
 
+linenorling11sister = {
+    name = Freja
+	female = yes
+
+    dynasty = dynasty_norling
+    religion = faith_dale
+    culture = dalemen
+
+    father = linenorling9
+    mother = linenorling10
+
+    sexuality = heterosexual
+
+    trait = just
+    trait = honest
+    trait = diligent
+
+    diplomacy = 6
+    martial = 5
+    stewardship = 10
+    intrigue = 3
+    learning = 5
+    prowess = 3
+
+    trait = education_stewardship_4
+
+    6762.6.26 = {
+        birth = yes
+    }
+    6844.4.4 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
 ### Snarkning family ~ LW Lake Town masters
 
 lineofsnarkning1 = {
@@ -28245,7 +28562,7 @@ lineofsnarkning13 = {
 
     religion = faith_dale
     culture = dalemen
-
+	dynasty = dynasty_snarkning
     father = lineofsnarkning11
     mother = lineofsnarkning12
 
@@ -28272,6 +28589,41 @@ lineofsnarkning13 = {
         death = { death_reason = death_natural_causes }
     }
 }
+
+lineofsnarkning13sister = {
+    name = Rikissa
+    female = yes
+
+    religion = faith_dale
+    culture = dalemen
+	dynasty = dynasty_snarkning
+    father = lineofsnarkning11
+    mother = lineofsnarkning12
+
+    sexuality = heterosexual
+
+    trait = content
+    trait = lustful
+    trait = humble
+
+    diplomacy = 7
+    martial = 5
+    stewardship = 8
+    intrigue = 7
+    learning = 5
+    prowess = 3
+
+    trait = education_stewardship_3
+
+    6738.8.18 = {
+        birth = yes
+    }
+
+    6812.12.24 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
 
 lineofsnarkning14 = {
     name = Stenar
@@ -28756,8 +29108,6 @@ lineofsnarkning27 = {
     sexuality = heterosexual
 
     trait = gregarious
-    trait = impatient
-    trait = wrathful
     trait = charming
     disallow_random_traits = yes
 
@@ -28772,6 +29122,11 @@ lineofsnarkning27 = {
 
     6776.6.6 = {
         birth = yes
+    }
+
+    6792.6.6 = {
+        trait = impatient
+        trait = wrathful
     }
 
     6844.6.8 = {
@@ -28793,7 +29148,6 @@ lineofsnarkning28 = {
 
     trait = gluttonous
     trait = impatient
-    trait = calm
     trait = curious
     disallow_random_traits = yes
 
@@ -28808,6 +29162,10 @@ lineofsnarkning28 = {
 
     6774.8.2 = {
         birth = yes
+    }
+
+    6790.8.2 = {
+        trait = calm
     }
 
     6849.8.4 = {
@@ -29339,6 +29697,41 @@ lineofgirig15 = {
     }
 }
 
+lineofgirig15sister = {
+    name = Halvor
+	female = yes
+
+    dynasty = dynasty_girig
+    religion = faith_dale
+    culture = dalemen
+
+    father = lineofgirig13
+    mother = lineofgirig14
+
+    sexuality = heterosexual
+
+    trait = compassionate
+    trait = just
+    trait = gregarious
+
+    diplomacy = 7
+    martial = 4
+    stewardship = 9
+    intrigue = 7
+    learning = 4
+    prowess = 1
+
+    trait = education_stewardship_3
+
+    6737.7.29 = {
+        birth = yes
+    }
+
+    6803.3.3 = {
+        death = { death_reason = death_dragon } # Smaug
+    }
+}
+
 lineofgirig16 = {
     name = Erika
     female = yes
@@ -29636,4 +30029,137 @@ lineofgirig26 = {
     6849.2.2 = {
         death = { death_reason = death_natural_causes }
     }
+}
+
+
+
+###
+
+lineofkcd1 = { # Henry of Skalitz Easter Egg for Kingdom Come: Deliverance
+    name = Henrik
+    
+    dynasty = dynasty_kobyla
+    religion = faith_dale				
+	culture = dalemen
+    dna = henry_of_skalitz_dna
+
+    sexuality = bisexual
+
+    trait = gluttonous
+    trait = brave
+    trait = vengeful
+
+    diplomacy = 2
+    martial = 5
+    stewardship = 1
+    intrigue = 9
+    learning = 3
+    prowess = 12
+
+    trait = education_martial_2
+    trait = physique_good_3
+	trait = strong
+	trait = lifestyle_blademaster	
+    trait = bastard
+
+    6767.3.23 = {
+        birth = yes
+    }
+
+    6767.1.4 = {
+		employer = lineofdale35
+	}
+
+    6786.1.23 = { effect = { set_relation_friend = character:lineofkcd2 } }
+
+    
+    6849.2.2 = {
+        death = { death_reason = death_natural_causes }
+    }
+    
+}
+
+lineofkcd2 = { # Hans Capon Easter Egg for Kingdom Come: Deliverance
+    name = Hans
+    
+    dynasty = dynasty_capon
+    religion = faith_dale				
+	culture = dalemen
+
+    sexuality = bisexual
+
+    trait = arrogant
+    trait = gregarious
+    trait = stubborn
+
+    diplomacy = 7
+    martial = 5
+    stewardship = 8
+    intrigue = 3
+    learning = 11
+    prowess = 12
+
+    trait = education_diplomacy_2
+    trait = lifestyle_hunter
+    
+
+    6767.1.4 = {
+        birth = yes
+    }
+
+    6767.1.4 = {
+		employer = lineofdale35
+	}
+
+    6786.1.23 = { effect = { set_relation_friend = character:lineofkcd1 } }
+
+    
+    6819.8.16 = {
+        death = { death_reason = death_battle }
+    }
+    
+}
+
+lineofkcd3 = { # Father Godwin Easter Egg for Kingdom Come: Deliverance
+    name = Godwine
+    
+    dynasty = dynasty_oderin
+    religion = faith_dale				
+	culture = dalemen
+    dna = father_godwin_dna
+
+    sexuality = heterosexual
+
+    trait = zealous
+    trait = gregarious
+    trait = humble
+
+    diplomacy = 7
+    martial = 8
+    stewardship = 4
+    intrigue = 3
+    learning = 15
+    prowess = 12
+
+    trait = education_learning_3
+    trait = drunkard
+    trait = disinherited
+    trait = fornicator
+    
+
+    6740.7.4 = {
+        birth = yes
+    }
+
+    6767.1.4 = {
+		employer = lineofdale35
+	}
+
+    6786.1.23 = { effect = { set_relation_friend = character:lineofkcd1 } }
+
+    
+    6811.8.16 = {
+        death = { death_reason = death_natural_causes }
+    }
+    
 }

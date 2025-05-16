@@ -1862,10 +1862,13 @@ tour_travel.3120 = {
 				scope:vassal_inn = {
 					random_character_artifact = {
 						limit = {
-							NOT = {
-								has_variable = ring_of_power
-								has_variable = silmaril
-							} 
+							NOR = {
+								AND = { 
+									has_variable = ring_of_power
+									sauron_is_alive = yes
+								}
+								has_variable = silmaril	
+							}
 						}
 						save_scope_as = vassal_artifact 
 					}
@@ -2329,6 +2332,13 @@ tour_travel.3140 = {
 				faith = root.location.faith
 				dynasty = none
 				save_scope_as = brothel_worker
+
+				after_creation = {
+					lotr_character_template_age_traits_effect = { #LOTR trait/lifespan fixes
+						MAX = middle_age
+						MIN = majority_age
+					}
+				}
 			}
 		}
 		scope:brothel_worker = { get_quirk_character_effect = yes } #localization

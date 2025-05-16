@@ -3,7 +3,7 @@
 # Critical note: These events carry on numbering into the lotr_gondor_events.txt. DO NOT make events ids greater than 4000 in this file
 
 # Events about Denethor
-#       gondor.0101-17	Denethor and the Palantir
+#      gondor.0101-17	Denethor and the Palantir
 #		gondor.120		Defense of Osgiliath
 
 # Events about Faramir
@@ -37,7 +37,7 @@
 
 # Gondor War Events
 #		gondor.2202	 Enemy at our Gates 
-#       gondor.3900  Umbar invades Gondor - Long Winter start
+#      gondor.3900  Umbar invades Gondor - Long Winter start
 
 # Gondor Unites With Bellakar Events
 # 		gondor.2901	Unite with Bellakar event chain
@@ -190,15 +190,15 @@ gondor.0302 = { # Faramir marries Eowyn
 		animation = love
 	}
 	right_portrait = {
-		character = character:6000035
+		character = character:lineofeofor18
 		animation = admiration
 	}
 
 	option = {
 		name = gondor.0302.a # Marries Eowyn.
 		remove_trait = cannot_marry
-		marry = character:6000035
-		set_relation_soulmate = character:6000035
+		marry = character:lineofeofor18
+		set_relation_soulmate = character:lineofeofor18
 		ai_chance = {
 			base = 0 # LotR: This should be tied to WotR mode.
 			modifier = { # Game Rule
@@ -871,7 +871,7 @@ gondor.0500 = {
 			character:dolamroth31 = {
 				remove_trait = cannot_marry
 			}
-			character:6000035 = {
+			character:lineofeofor18 = {
 				remove_trait = cannot_marry
 			}
 			character:linefinwe30 = {
@@ -880,7 +880,7 @@ gondor.0500 = {
 			character:linesteward40 = {
 				remove_trait = cannot_marry
 			} 
-			character:6000018 = {
+			character:lineofeofor17 = {
 				remove_trait = cannot_marry
 			}
 		}
@@ -1180,8 +1180,8 @@ gondor.0502 = { # Aragorn is allowed into Minas Tirith and is coronated
 	option = { 
 		name = gondor.0502.a # Gondor kingdom restored and given to Aragorn
 		# add_character_modifier = {	# To give him a fighting chance after loosing all the MAA - for some time, the gondorians fighting spirit is renewed
-		# 	modifier = return_of_the_king_modifier
-		# 	years = 20
+			# modifier = return_of_the_king_modifier
+			# years = 20
 		# }
 		add_character_modifier = { #To give him time to get married in peace
 			modifier = fp1_reprieve_from_sa_modifier
@@ -1301,7 +1301,7 @@ gondor.0502 = { # Aragorn is allowed into Minas Tirith and is coronated
 				holder = root
 				change = scope:change
 			}
-			set_variable = founded_munburgian_eored #The Eored is transferred to the King once more
+			set_variable = founded_mundburgian_eored #The Eored is transferred to the King once more
 		}
 		if = { #The Mace of Anarion is returned to the King
 			limit = {
@@ -1960,7 +1960,7 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 			character:dolamroth31 = {
 				remove_trait = cannot_marry
 			}
-			character:6000035 = {
+			character:lineofeofor18 = {
 				remove_trait = cannot_marry
 			}
 			character:linefinwe30 = {
@@ -2018,7 +2018,7 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 		}
 		
 		hidden_effect = {
-			character:6000018 = { # Eomer marries Lothíriel.
+			character:lineofeofor17 = { # Eomer marries Lothíriel.
 				if = { 
 					limit = { 
 						is_married = no
@@ -2032,7 +2032,7 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 				if = { 
 					limit = { 
 						is_married = no
-						character:6000035 = { is_ai = yes }
+						character:lineofeofor18 = { is_ai = yes }
 					}
 					trigger_event = {
 						id = gondor.0302
@@ -2041,9 +2041,9 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 				else_if = { 
 					limit = { 
 						is_married = no
-						character:6000035 = { is_ai = no }
+						character:lineofeofor18 = { is_ai = no }
 					}
-					character:6000035 = {
+					character:lineofeofor18 = {
 						trigger_event = {
 							id = gondor.0304
 						}
@@ -2078,7 +2078,7 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 	
 	option = {  # Perhaps there is another. Marry Éowyn.
 		name = gondor.0506.b	
-		trigger = { character:6000035 = { is_alive = yes } }
+		trigger = { character:lineofeofor18 = { is_alive = yes } }
 		
 		if = {
 			limit = {
@@ -2086,12 +2086,12 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 				has_dlc_feature = advanced_activities
 			}
 			#Setting up the betrothal
-			create_betrothal = character:6000035
+			create_betrothal = character:lineofeofor18
 			set_grand_wedding_betrothal_variables = {
 				SPOUSE_1 = root
-				SPOUSE_2 = character:6000035
+				SPOUSE_2 = character:lineofeofor18
 				HOST = root
-				PROMISEE = character:6000035.liege
+				PROMISEE = character:lineofeofor18.liege
 			}
 			add_character_flag = aragorn_gw
 			
@@ -2105,11 +2105,11 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 			}
 		}
 		else = {
-			marry = character:6000035
+			marry = character:lineofeofor18
 		}
 		
 		hidden_effect = {
-			character:6000018 = { # Eomer marries Lothíriel.
+			character:lineofeofor17 = { # Eomer marries Lothíriel.
 				if = { 
 					limit = { 
 						is_married = no
@@ -2184,7 +2184,7 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 		}
 		
 		hidden_effect = {
-			character:6000018 = { # Eomer is sad...
+			character:lineofeofor17 = { # Eomer is sad...
 				if = { 
 					limit = { 
 						is_married = no
@@ -2198,7 +2198,7 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 				if = { 
 					limit = { 
 						is_married = no
-						character:6000035 = { is_ai = yes }
+						character:lineofeofor18 = { is_ai = yes }
 					}
 					trigger_event = {
 						id = gondor.0302
@@ -2207,9 +2207,9 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 				else_if = { 
 					limit = { 
 						is_married = no
-						character:6000035 = { is_ai = no }
+						character:lineofeofor18 = { is_ai = no }
 					}
-					character:6000035 = {
+					character:lineofeofor18 = {
 						trigger_event = {
 							id = gondor.0304
 						}
@@ -2276,7 +2276,7 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 		}
 		
 		hidden_effect = {
-			character:6000018 = { # Eomer marries Lothíriel.
+			character:lineofeofor17 = { # Eomer marries Lothíriel.
 				if = { 
 					limit = { 
 						is_married = no
@@ -2290,7 +2290,7 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 				if = { 
 					limit = { 
 						is_married = no
-						character:6000035 = { is_ai = yes }
+						character:lineofeofor18 = { is_ai = yes }
 					}
 					trigger_event = {
 						id = gondor.0302
@@ -2299,9 +2299,9 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 				else_if = { 
 					limit = { 
 						is_married = no
-						character:6000035 = { is_ai = no }
+						character:lineofeofor18 = { is_ai = no }
 					}
-					character:6000035 = {
+					character:lineofeofor18 = {
 						trigger_event = {
 							id = gondor.0304
 						}
@@ -2332,7 +2332,7 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 	option = {  # It was but a dream. Do not marry any of the above options
 		name = gondor.0506.e
 		hidden_effect = {
-			character:6000018 = { # Eomer marries Lothíriel.
+			character:lineofeofor17 = { # Eomer marries Lothíriel.
 				if = { 
 					limit = { 
 						is_married = no
@@ -2346,7 +2346,7 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 				if = { 
 					limit = { 
 						is_married = no
-						character:6000035 = { is_ai = yes }
+						character:lineofeofor18 = { is_ai = yes }
 					}
 					trigger_event = {
 						id = gondor.0302
@@ -2355,9 +2355,9 @@ gondor.0506 = { # A dream from long ago... Will Aragorn marry Arwen?
 				else_if = { 
 					limit = { 
 						is_married = no
-						character:6000035 = { is_ai = no }
+						character:lineofeofor18 = { is_ai = no }
 					}
-					character:6000035 = {
+					character:lineofeofor18 = {
 						trigger_event = {
 							id = gondor.0304
 						}
@@ -2423,9 +2423,6 @@ gondor.0517 = { #Aragorn wedding if he was too stupid to do it himself
 				remove_variable = promised_grand_wedding_marriage_countdown
 			}
 		}
-	}
-	
-	after = {
 		if = {
 			limit = {
 				any_spouse = { this = character:linefinwe30 }
@@ -2505,6 +2502,15 @@ gondor.0507 = { # The Glory of Gondor Restored
 					override = yes
 					name = TRUCE_GONDOR_MORDOR
 				}
+			}
+		}
+		if = { # If he was put on the throne by the Liberation of Gondor cb
+			limit = { has_character_flag = selected_to_rule_gondor }
+			add_gold = 300 
+			create_maa_regiment = {
+				type = guard_of_the_citadel
+				check_can_recruit = no
+				size = 3
 			}
 		}
 	}
@@ -4457,7 +4463,7 @@ gondor.0562 = { # Royalist victory - Aragorn is crowned
 				holder = root
 				change = scope:change
 			}
-			set_variable = founded_munburgian_eored #The Eored serves the King once more
+			set_variable = founded_mundburgian_eored #The Eored serves the King once more
 		}
 		if = { #The Mace of Anarion is returned to the King
 			limit = {
@@ -4885,7 +4891,7 @@ gondor.0565 = { # Royalist victory - Aragorn is dead, we must find a new king
 			character:dolamroth31 = {
 				remove_trait = cannot_marry
 			}
-			character:6000035 = {
+			character:lineofeofor18 = {
 				remove_trait = cannot_marry
 			}
 			character:linefinwe30 = {
@@ -4894,7 +4900,7 @@ gondor.0565 = { # Royalist victory - Aragorn is dead, we must find a new king
 			character:linesteward40 = {
 				remove_trait = cannot_marry
 			} 
-			character:6000018 = {
+			character:lineofeofor17 = {
 				remove_trait = cannot_marry
 			}
 		}
@@ -4963,7 +4969,7 @@ gondor.0566 = { # Royalist victory - A Dúnedain King has been found!
 			character:dolamroth31 = {
 				remove_trait = cannot_marry
 			}
-			character:6000035 = {
+			character:lineofeofor18 = {
 				remove_trait = cannot_marry
 			}
 			character:linefinwe30 = {
@@ -4972,7 +4978,7 @@ gondor.0566 = { # Royalist victory - A Dúnedain King has been found!
 			character:linesteward40 = {
 				remove_trait = cannot_marry
 			} 
-			character:6000018 = {
+			character:lineofeofor17 = {
 				remove_trait = cannot_marry
 			}
 		}
@@ -5006,7 +5012,7 @@ gondor.0567 = { # Royalist victory - A new Dúnedain King is crowned
 				holder = root
 				change = scope:change
 			}
-			set_variable = founded_munburgian_eored #The Eored serves the King once more
+			set_variable = founded_mundburgian_eored #The Eored serves the King once more
 		}
 		if = { #The Mace of Anarion is returned to the King
 			limit = {
@@ -5091,7 +5097,7 @@ gondor.0567 = { # Royalist victory - A new Dúnedain King is crowned
 		destroy_title = title:d_northern_dunedain 
 		destroy_title = title:e_gondor_steward
 		trigger_event = gondor.0563
-		character:6000018 = { # Eomer marries Lothíriel.
+		character:lineofeofor17 = { # Eomer marries Lothíriel.
 			if = { 
 				limit = { 
 					is_married = no
@@ -5170,7 +5176,7 @@ gondor.0569 = { # Royalist victory - No heir to the throne available
 			character:dolamroth31 = {
 				remove_trait = cannot_marry
 			}
-			character:6000035 = {
+			character:lineofeofor18 = {
 				remove_trait = cannot_marry
 			}
 			character:linefinwe30 = {
@@ -5179,7 +5185,7 @@ gondor.0569 = { # Royalist victory - No heir to the throne available
 			character:linesteward40 = {
 				remove_trait = cannot_marry
 			} 
-			character:6000018 = {
+			character:lineofeofor17 = {
 				remove_trait = cannot_marry
 			}
 		}
@@ -5212,7 +5218,7 @@ gondor.0570 = { # Royalist victory - Dol Amroth is crowned, Gondor is changed
 				holder = root
 				change = scope:change
 			}
-			set_variable = founded_munburgian_eored #The Eored serves the King once more
+			set_variable = founded_mundburgian_eored #The Eored serves the King once more
 		}
 		if = { #The Mace of Anarion is returned to the King
 			limit = {
@@ -5282,7 +5288,7 @@ gondor.0570 = { # Royalist victory - Dol Amroth is crowned, Gondor is changed
 		}
 		add_realm_law_skip_effects = crown_authority_0
 		trigger_event = gondor.0563
-		character:6000018 = { # Eomer marries Lothíriel.
+		character:lineofeofor17 = { # Eomer marries Lothíriel.
 			if = { 
 				limit = { 
 					is_married = no
@@ -5359,7 +5365,7 @@ gondor.0572 = { # Royalist defeat
 			character:dolamroth31 = {
 				remove_trait = cannot_marry
 			}
-			character:6000035 = {
+			character:lineofeofor18 = {
 				remove_trait = cannot_marry
 			}
 			character:linefinwe30 = {
@@ -5368,7 +5374,7 @@ gondor.0572 = { # Royalist defeat
 			character:linesteward40 = {
 				remove_trait = cannot_marry
 			} 
-			character:6000018 = {
+			character:lineofeofor17 = {
 				remove_trait = cannot_marry
 			}
 		}
@@ -5431,7 +5437,7 @@ gondor.0573 = { # Option for Stewards to become Kings
 	}
 	
 	after = {
-		character:6000018 = { # Eomer marries Lothíriel.
+		character:lineofeofor17 = { # Eomer marries Lothíriel.
 			if = { 
 				limit = { 
 					is_married = no
@@ -6099,7 +6105,7 @@ gondor.2000 = { # The Oath of Eorl - Rohan calls for aid!
 				factor = 0.5
 				title:k_rohan.holder = {
 					any_character_war = {
-						scope:attacker = character:lineoffreca3
+						scope:attacker ?= character:lineoffreca3
 					}
 				}
 			}
@@ -6234,7 +6240,7 @@ gondor.2002 = { # Rohan sends a large host
 				stacks = 8
 			}
 			men_at_arms = {
-				type = eotheod_horse_axemen
+				type = riders_of_rohan
 				stacks = 6
 			}	
 			men_at_arms = {
@@ -6268,7 +6274,7 @@ gondor.2003 = { # Rohan sends a small host
 		spawn_army = {
 			levies = 1000
 			men_at_arms = {
-				type = eotheod_horse_axemen
+				type = riders_of_rohan
 				stacks = 2
 			}	
 			men_at_arms = {
@@ -6470,67 +6476,68 @@ gondor.2102 = { # Victory, Mordor Shattered
 	}
 }
 
-gondor.2103 = { # Victory, Every other ruler gets news
-	content_source = realms_dlc
-	type = character_event
-	title = gondor.2103.t
-	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					OR = {
-						culture = culture:gondorian
-						culture = culture:arnorian
-						culture = culture:dunedain_ranger
-						culture = { any_parent_culture_or_above = { this = culture:gondorian } }
-						culture = { any_parent_culture_or_above = { this = culture:arnorian } }
-						culture = { any_parent_culture_or_above = { this = culture:dunedain_ranger } }
-					}
-				}
-				desc = gondor.2103.desc
-			}
-			desc = gondor.2103.desc.a
-		}
-	}
-	theme = diplomacy_majesty_focus
-	override_background = {
-		reference = barad_dur
-	}
-	left_portrait = {
-		character = root
-		animation = disbelief
-	}
-	right_portrait = {
-		character = title:e_gondor.holder
-		animation = personality_bold
-	}
-	trigger = {
-		NOR = {
-			has_title = title:e_gondor
-			has_title = title:e_gondor_steward
-		}
-	}
-	immediate = {
-		add_to_global_variable_list = {
-			name = unavailable_unique_decisions
-			target = flag:mordor_is_destroyed_by_gondor
-		}
-		save_scope_as = killer_of_sauron #For localization
-		play_music_cue = lotr_cue_gondor
-	}
-	option = {
-		name = gondor.2103.a
-		trigger = { NOT = { this = character:mouthofsauron } }
-	}
-	option = {	#for the mouth of sauron only
-		name = gondor.2103.b
-		trigger = { this = character:mouthofsauron }
-		set_character_faith = faith:lidless_eye
-		add_stress = 250
-		add_trait = lunatic_1
-		add_trait = depressed_1
-	}
-}
+# Moved to news_event.0063
+# gondor.2103 = { # Victory, Every other ruler gets news
+# 	content_source = realms_dlc
+# 	type = character_event
+# 	title = gondor.2103.t
+# 	desc = {
+# 		first_valid = {
+# 			triggered_desc = {
+# 				trigger = {
+# 					OR = {
+# 						culture = culture:gondorian
+# 						culture = culture:arnorian
+# 						culture = culture:dunedain_ranger
+# 						culture = { any_parent_culture_or_above = { this = culture:gondorian } }
+# 						culture = { any_parent_culture_or_above = { this = culture:arnorian } }
+# 						culture = { any_parent_culture_or_above = { this = culture:dunedain_ranger } }
+# 					}
+# 				}
+# 				desc = gondor.2103.desc
+# 			}
+# 			desc = gondor.2103.desc.a
+# 		}
+# 	}
+# 	theme = diplomacy_majesty_focus
+# 	override_background = {
+# 		reference = barad_dur
+# 	}
+# 	left_portrait = {
+# 		character = root
+# 		animation = disbelief
+# 	}
+# 	right_portrait = {
+# 		character = title:e_gondor.holder
+# 		animation = personality_bold
+# 	}
+# 	trigger = {
+# 		NOR = {
+# 			has_title = title:e_gondor
+# 			has_title = title:e_gondor_steward
+# 		}
+# 	}
+# 	immediate = {
+# 		add_to_global_variable_list = {
+# 			name = unavailable_unique_decisions
+# 			target = flag:mordor_is_destroyed_by_gondor
+# 		}
+# 		save_scope_as = killer_of_sauron #For localization
+# 		play_music_cue = lotr_cue_gondor
+# 	}
+# 	option = {
+# 		name = gondor.2103.a
+# 		trigger = { NOT = { this = character:mouthofsauron } }
+# 	}
+# 	option = {	#for the mouth of sauron only
+# 		name = gondor.2103.b
+# 		trigger = { this = character:mouthofsauron }
+# 		set_character_faith = faith:lidless_eye
+# 		add_stress = 250
+# 		add_trait = lunatic_1
+# 		add_trait = depressed_1
+# 	}
+# }
 
 gondor.2104 = {	#triggered if sauron dies from a bug or unexpectedly, without proper cause
 	content_source = realms_dlc
@@ -6735,12 +6742,6 @@ gondor.2105 = { #Event that handles unexpected sauron death effects
 			}
 		}
 		faith:lidless_eye = {
-			change_fervor = {
-				value = -100
-				desc = fervor_dark_lord_defeated
-			}
-		}
-		faith:cult_of_zigur = {
 			change_fervor = {
 				value = -100
 				desc = fervor_dark_lord_defeated
@@ -7827,7 +7828,7 @@ gondor.2602 = { # Soldiers of Pelargir
 		spawn_army = {
 			levies = 500
 			men_at_arms = {
-				type = pelargir_mariners
+				type = gondorian_marines
 				stacks = 3
 			}
 			location = capital_province
@@ -9254,6 +9255,13 @@ gondor.2900 = { # Maintenance event to start the combination of Bellakar x Gondo
 
 	trigger = {
 		NOT = {
+			OR = {
+				has_title = title:e_gondor
+				has_title = title:e_reunitedkingdom
+			}
+			has_title = title:e_bellakar
+		}
+		NOT = {
 			is_target_in_global_variable_list = { # Event chain has not yet started (Need this so it only fires once)
 				name = unavailable_unique_decisions
 				target = flag:gondor_x_bellakar_event_chain
@@ -9816,10 +9824,10 @@ gondor.3600 = { # integrate the northern provinces
 	title = gondor.3600.t
 	desc = gondor.3600.desc
 	theme = war
-	
+	override_background = { reference = forodwaith } 
 	left_portrait = {
 		character = root
-		animation = accepting
+		animation = happiness
 	}
 
 	option = {
@@ -9986,7 +9994,7 @@ gondor.3800 = { #Return of the King - Long Winter edition
 		}
 		
 		get_title = title:e_gondor
-		title:e_gondor = { set_variable = founded_munburgian_eored } #The Eored is transferred to the King once more
+		title:e_gondor = { set_variable = founded_mundburgian_eored } #The Eored is transferred to the King once more
 		if = { #The Mace of Anarion is returned to the King
 			limit = {
 				any_vassal_or_below = {
@@ -10414,7 +10422,7 @@ gondor.3803 = { #Arassuil arrives at Pelargir
 	theme = diplomacy
 	window = visit_settlement_window
 	override_background = {
-		reference = docks_dunedain
+		reference = docks_gondor
 	}
 	left_portrait = {
 		character = root

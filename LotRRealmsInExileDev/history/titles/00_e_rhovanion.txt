@@ -5232,7 +5232,7 @@ d_rinnavuld = {
 	6000.1.1 = {
 		de_jure_liege = k_dorwinion
 	}
-		6582.3.28 = {
+	6582.3.28 = {
         holder = lineofcapariana1 #Hulda
 		government = feudal_government
 		liege = k_dorwinion
@@ -8850,7 +8850,7 @@ k_south_rhovanion = {
 		holder = 0 # Castamir neglected it
 		liege = 0
 	}
-	5480.4.1 = {
+	5480.8.22 = {
 		holder = lineofanarion27 # Eldacar
 	}
 	5480.6.3 = {
@@ -8880,7 +8880,7 @@ k_south_rhovanion = {
         effect = {
             set_de_jure_liege_title = title:e_rhovanion
         }
-        
+        government = clan_government
 	}
 }
 
@@ -8911,7 +8911,7 @@ d_talath_harroch = {
 	5472.1.1 = {
 	 	holder = 0 # Castamir neglected it
 	}
-	5480.4.1 = {
+	5480.8.22 = {
 		holder = lineofanarion27 # Eldacar
 	}
 	5480.6.3 = {
@@ -8938,6 +8938,7 @@ d_talath_harroch = {
 	}
 	5889.1.1 = { 
 	 	holder = 0 # Gondor loses the province to the Wainraiders
+        government = clan_government
 	}
 
     6782.5.16 = { #The Jangovar's realm retracts
@@ -8984,7 +8985,7 @@ c_thoron = {
 	# 5472.1.1 = {
 	# 	holder = 0 # Castamir neglected it
 	# }
-	5480.4.1 = {
+	5480.8.22 = {
 		holder = lineofanarion27 # Eldacar
 	}
 	5480.6.3 = {
@@ -9339,6 +9340,7 @@ d_men_rhunen = {
 	5889.1.1 = {
 		holder = 0
 		liege = 0
+        government = clan_government
 	}
 	6724.9.6 = { #Long winter start date ruler
         holder = lineofkarmian1 #Karm
@@ -9497,6 +9499,7 @@ c_vadisa = {
     5447.6.26 = {
         holder = linewirgand11 #Sigismund
     }
+
 	6750.11.18 = { #Long winter start date ruler
 		holder = lineofnikathian03 #Nikath
 		liege = d_men_rhunen
@@ -9662,6 +9665,7 @@ d_vethrafell = {
 	}
 	5889.1.1 = {
 		holder = 0
+        government = clan_government
 	}
 
     6745.6.20 = { # Arpov Warlord conquers vethrafell
@@ -9917,7 +9921,7 @@ d_taj_ures = {
 	6000.1.1 = {
 		holder = 0
 		liege = 0
-        government = feudal_government
+        government = clan_government
 	}
 
 	6500.10.19 = { #Khundolar Warlord rises
@@ -10436,6 +10440,11 @@ d_dagorlad = {
 	5473.1.1 = {
 		holder = 0
 	}
+    7075.3.1 = {
+		holder = lineisildur42 #Current King, remove when designating duke
+        change_development_level = 3
+        government = feudal_government
+	}
 }
 
 # Dead Marshes			
@@ -10513,6 +10522,11 @@ c_dagorlad = {
 	    change_development_level = -100			
 	    government = wastelands_government
     }
+    7075.3.1 = {
+		holder = lineisildur42 #Current King, remove when designating duke
+        change_development_level = 3
+        government = feudal_government
+	}
 }	
 
 # Salur
@@ -10556,7 +10570,19 @@ c_salur = {
 }
 
 ### Kingdom of the Brown Lands ###
-#k_brownlands = {}
+k_brownlands = {
+    5283.1.1 = {
+        effect = {
+            set_de_jure_liege_title = title:e_gondor 
+        }
+	}
+    5889.1.1 = { 
+        effect = {
+            set_de_jure_liege_title = title:e_rhovanion
+        }
+	}
+
+}
 
 ## Duchy of the Undeeps ##
 d_undeeps = {
@@ -10572,6 +10598,27 @@ d_undeeps = {
     7029.10.25 = {
 		holder = linegriming7 #Maccus II
 	}
+    7052.4.6 = {
+		holder = lineofguthmunding7 #Cerdic
+	}
+    7066.10.3 = {
+		holder = lineofguthmunding28 #Byrhtnoth
+	}
+	7074.6.2 = {
+		holder = lineofguthmunding30 #Ulfcytel
+	}
+    7082.4.12 = {
+        holder = linemorcargas7 #Morcar
+    }
+    7087.1.12 = {
+        holder = linemorcargas11 #Guthmund
+    }
+    7133.7.6 = {
+        holder = linemorcargas15 #E_lfgar
+    }
+    7169.8.14 = {
+        holder = linemorcargas20 # Morcar
+    }
 }
 
 # Berennyn
@@ -10616,6 +10663,28 @@ c_berennyn = {
 	7027.7.12 = {
 		holder = linehardingas14
 	}
+    7052.4.6 = {
+		holder = lineofguthmunding7 #Cerdic
+	}
+    7066.10.3 = {
+		holder = lineofguthmunding28 #Byrhtnoth
+	}
+	7074.6.2 = {
+		holder = lineofguthmunding30 #Ulfcytel
+	}
+    7082.4.12 = {
+        holder = linemorcargas7 #Morcar
+        change_development_level = 5
+    }
+    7087.1.12 = {
+        holder = linemorcargas11 #Guthmund
+    }
+    7133.7.6 = {
+        holder = linemorcargas15 #E_lfgar
+    }
+    7169.8.14 = {
+        holder = linemorcargas20 # Morcar
+    }
 }
 
 # South Undeep
@@ -10660,6 +10729,29 @@ c_southundeep = {
     7029.10.25 = {
 		holder = linegriming7 #Maccus II
 	}
+    7052.4.6 = {
+		holder = lineofguthmunding7 #Cerdic
+	}
+    7066.10.3 = {
+		holder = lineofguthmunding28 #Byrhtnoth
+	}
+	7074.6.2 = {
+		holder = lineofguthmunding30 #Ulfcytel
+	}
+    7082.4.12 = {
+        holder = linebregdan4 #B_eorhtma_e_r
+        liege = d_undeeps
+        change_development_level = 4
+    }
+    7107.6.11 = {
+        holder = linebregdan8 #ME_rleswegn 
+    }
+    7126.2.16 = {
+        holder = linebregdan10 #Gamall 
+    }
+    7159.3.14 = {
+        holder = linebregdan15 #Beorhtwine 
+    }
 }
 
 # Wudcomb
@@ -10683,6 +10775,28 @@ c_wudcomb = {
     7029.10.25 = {
 		holder = linegriming7 #Maccus II
 	}
+    7052.4.6 = {
+		holder = lineofguthmunding7 #Cerdic
+	}
+    7066.10.3 = {
+		holder = lineofguthmunding28 #Byrhtnoth
+	}
+	7074.6.2 = {
+		holder = lineofguthmunding30 #Ulfcytel
+	}
+    7082.4.12 = {
+        holder = linefasthelm4 #Darm_od
+        liege = d_undeeps
+    }
+    7094.3.27 = {
+        holder = linefasthelm8 #Thurcytel
+    }
+    7117.7.23 = {
+        holder = linefasthelm10 #Eadweard
+    }
+    7154.10.7 = {
+        holder = linefasthelm12 #Eastmund
+    }
 }
 
 ## Duchy of Tumcelon
@@ -10920,13 +11034,13 @@ c_brunstal = {
         holder = lineorming5 #Guthfrith
     }
     7010.10.13 = {
-        holder = lineorming7 #EadrE_d
+        holder = lineorming6 #EadrE_d
     }
-	7031.1.18.= {
-        holder = lineorming10 #E_lfstan
+	7031.1.18 = {
+        holder = lineorming9 #E_lfstan
     }
 	7032.9.8= {
-        holder = lineorming12 #Eormenric
+        holder = lineorming11 #Eormenric
     }
 }
 			
@@ -11838,7 +11952,7 @@ d_anthardor = {
 	6540.1.1 = {
         holder = lineofjangovar1 #Jangov
     }
-	6543.4.12 = { # Balchoth Empire collapses in the wake of the Field of Celebrant
+	6543.4.15 = { # Balchoth Empire collapses in the wake of the Field of Celebrant
         liege = e_rostamush
     }
     6569.7.3 = {

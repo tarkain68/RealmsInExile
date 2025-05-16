@@ -22,7 +22,7 @@
 # Ôvatha I - The Nazgul, by birth Ûvatha. First unifier of Khand, the cult of Tumrakhi ascends in his long reign
 # Ôvatha II - Descendent of Ôvatha I, ascending the throne after his ancestor is summoned to Mordor, his wraith visage too terrifying for functional rulership. Played off as Tumrakhi ascending him as a champion
 # Ôvatha III - Son of Ôvatha II. After his death, the rule of the line of Ôvatha I is broken, and the long tradition of Khandish disunity begins. From his daughters many of the clans claim descend from the unifier
-# Ôvatha IV - High-King of Khand at the time of the Last Alliance, born Oldur of Ûbesêsh. He recieved a vision/visit from Ôvatha I, who at the direction of Sauron after the Akallabeth set to rousing the Variags
+# Ôvatha IV - High-King of Khand at the time of the Last Alliance, born Oldur of Ûbesêsh. He received a vision/visit from Ôvatha I, who at the direction of Sauron after the Akallabeth set to rousing the Variags
 # Ôvatha V - First unifier of Khand since the Last Alliance, around 1050 T.A. Known for being reclusive yet a terrifying warrior, it is speculated that this may be Ôvatha I returned, his rule is short but reinvigorates the Variags
 # Ôvatha VI - 'The Great', born Yursal in the aftermath of the coalition assault upon Gondor, he exploited the much weakened Easterlings and Haradrim and culled Variag elite to rise swiftly, with his reign beginning what is considered one of Khand's golden ages
 # Ôvatha VII - 'The Preserver', born Kedezh, grandson of Ovatha VI, who continued the golden age of Khand
@@ -1819,19 +1819,30 @@ keiseimuofkhand = { # Keiseimu, Khûdriag (King) of Upper Khand. A Variag tradit
 	trait = callous
 	trait = zealous
 	trait = lifestyle_blademaster
+    trait = open_terrain_expert
 	
 	6990.1.1 = {						
 		birth = yes					
 	}
 
 	7018.1.1 = {
-		make_tributary = { # The lords of Khand are in the service of Sauron
-			TYPE = tributary_non_permanent
-			SUZERAIN = character:lineofsauron
-			TRIBUTARY = character:keiseimuofkhand
-		}
-		add_character_flag = no_auto_family
+            add_character_flag = no_auto_family
+        effect = {
+            start_tributary = { # The lords of Khand are in the service of Sauron
+                contract_group = tributary_subjugated
+                suzerain = character:lineofsauron
+            }
+        }
 	}
+
+    7030.1.1 = {
+        effect = {
+            add_trait_xp = {
+                trait = open_terrain_expert
+                value = 34
+            }
+        }
+    }
 
 	7050.1.1 = {						
 		death = { death_reason = death_natural_causes }  					
@@ -1880,6 +1891,7 @@ vangarisofkhand = { # Vangaris, Khûdriag (King) of Lower Khand. He is less conc
 	trait = strong
 	trait = physique_good_2
 	trait = lifestyle_blademaster
+    trait = open_terrain_expert
 	
 	6998.7.22 = {						
 		birth = yes	
@@ -1930,18 +1942,21 @@ vangarisofkhand = { # Vangaris, Khûdriag (King) of Lower Khand. He is less conc
 	}
 	
 	7032.12.30 = {
-		make_tributary = { # The lords of Khand are in the service of Sauron
-			TYPE = tributary_non_permanent
-			SUZERAIN = character:lineofsauron
-			TRIBUTARY = character:vangarisofkhand
-		}
 		add_character_flag = no_auto_family
 		add_character_flag = had_nickname_event
 		give_nickname = nick_the_whirlwind
         effect = {
+            start_tributary = { # The lords of Khand are in the service of Sauron
+                contract_group = tributary_subjugated
+                suzerain = character:lineofsauron
+            }
             add_character_flag = {
                 flag = had_nickname_event
             }
+            add_trait_xp = {
+				trait = open_terrain_expert
+				value = 67
+			}
         }
 	}
 
@@ -2085,7 +2100,7 @@ ovathaVIII = { # Ôvatha VIII - Unlike the other High-Kings, he brought them tog
     learning = 2
     prowess = 2
 
-    trait = education_diplomacy_4
+    trait = education_diplomacy_5
 	
     6754.8.17 = {
         birth = yes
@@ -11047,15 +11062,19 @@ line_khalid5 = {
     father = line_khalid3
     mother = line_khalid4
 
-    trait = craven
-    trait = humble
-    trait = gregarious
+    trait = rowdy
 	trait = education_martial_2
 	trait = lifestyle_blademaster
-	trait = black_breath
+	
 
     5377.5.1 = {
         birth = yes
+    }
+
+    5393.5.1 = {
+        trait = craven
+        trait = humble
+        trait = gregarious
     }
 
     5404.11.10 = {
@@ -11063,6 +11082,7 @@ line_khalid5 = {
     }
 
     5420.6.24 = {
+        trait = black_breath
         death = { death_reason = death_duel killer = nazgul9 }
     }
 }
@@ -11074,12 +11094,16 @@ line_khalid6 = {
     religion = faith_khandish_sauronic
     culture = variag
 
-    trait = just
-    trait = lazy
-    trait = paranoid
+    trait = education_stewardship_2
 
     5379.7.12 = {
         birth = yes
+    }
+
+    5395.7.12 = {
+        trait = just
+        trait = lazy
+        trait = paranoid
     }
 
     5445.8.11 = {
@@ -12207,9 +12231,7 @@ lineurdaid5 = {
 
     sexuality = heterosexual
 
-    trait = ambitious
-    trait = forgiving
-    trait = humble
+    trait = bossy
 
     diplomacy = 4
     martial = 5
@@ -12222,6 +12244,12 @@ lineurdaid5 = {
 
     5379.4.26 = {
         birth = yes
+    }
+
+    5395.4.26 = {
+        trait = ambitious
+        trait = forgiving
+        trait = humble
     }
 
     5401.10.21 = {
@@ -12242,9 +12270,7 @@ lineurdaid6 = {
 
     sexuality = heterosexual
 
-    trait = generous
-    trait = trusting
-    trait = sadistic
+    trait = bossy
 
     diplomacy = 3
     martial = 3
@@ -12257,6 +12283,12 @@ lineurdaid6 = {
 
     5378.9.12 = {
         birth = yes
+    }
+
+    5394.9.12 = {
+        trait = generous
+        trait = trusting
+        trait = sadistic
     }
 
     5462.10.26 = {
@@ -14137,6 +14169,14 @@ lineanzarid1 = {
     prowess = 6
 
     trait = education_martial_3
+    6735.1.1 = {
+		effect = {
+            start_tributary = {
+				contract_group = tributary_subjugated
+				suzerain = character:nazgul1
+			}
+		}
+	}
 
     6737.6.5 = {
         birth = yes
@@ -14228,10 +14268,7 @@ lineanzarid4 = {
     sexuality = heterosexual
 
     trait = rowdy
-    trait = vengeful
-    trait = wrathful
-    trait = ambitious
-	  trait = physique_bad_1
+	trait = physique_bad_1
 
     martial = 6
     prowess = 6
@@ -14241,6 +14278,12 @@ lineanzarid4 = {
     6781.7.30 = {
         birth = yes
     } #T.A.2748
+
+    6797.7.30 = {
+        trait = vengeful
+        trait = wrathful
+        trait = ambitious
+    }
 
     6800.4.16 = {
 				religion = faith_nurniag
@@ -14916,11 +14959,9 @@ oldbalunid6 = {
     religion = faith_khandish_sauronic
     culture = variag
 
+    trait = pensive
+
     sexuality = heterosexual
-    
-    trait = diligent
-    trait = cynical
-    trait = generous
             
     stewardship = 7
     
@@ -14929,6 +14970,12 @@ oldbalunid6 = {
     6783.1.12 = {
         birth = yes
     } #T.A.2750
+
+    6799.1.12 = {
+        trait = diligent
+        trait = cynical
+        trait = generous
+    }
 
     6824.8.29 = {
         death = { death_reason = death_siege }
@@ -15209,11 +15256,10 @@ atavarid2 = {
     
     trait = vengeful
     trait = honest
-    trait = brave
     trait = bossy
     trait = physique_good_1
     
-		disallow_random_traits = yes
+	disallow_random_traits = yes
 
     martial = 6
     prowess = 6
@@ -15225,9 +15271,7 @@ atavarid2 = {
     }
     
     6791.5.30 =  {
-        effect = {
-          remove_trait = bossy
-        }
+        trait = brave
     }
 
     6799.8.29 = {

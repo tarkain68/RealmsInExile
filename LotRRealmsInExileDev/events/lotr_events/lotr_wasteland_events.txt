@@ -5744,7 +5744,12 @@ wastelands.1701 = { # Lost in the Forest
 
 	option = { # I know these woods like the back of my hand
 		name = wastelands.1701.d
-		trigger = { is_druedain = yes }
+		trigger = { 
+			OR = {
+				is_druedain = yes 
+				is_elf = yes 
+			}
+		}
 		add_courtier = scope:lost_person
 		add_prestige = medium_prestige_gain
 		root = {
@@ -9026,10 +9031,9 @@ wastelands.2801 = { # Noises and shadows (ispanets)
 	option = { # Rest
 		name = wastelands.2801.b
 		skill = prowess
-		trigger = {
-			root = {
-				NOT = { is_elf = yes }
-			}
+		trigger = { 
+			cannot_be_killed = no
+			is_elf = no
 		}
 		scope:knight = {
 			duel = {
@@ -9613,6 +9617,10 @@ wastelands.2804 = { # Artifacts of old
 		}
 		random_list = {
 			50 = {
+				trigger = { 
+					cannot_be_killed = no
+					is_elf = no
+				}
 				desc = wastelands.2804.d.duel_failure
 				send_interface_toast = {
 					left_icon = root
@@ -9621,7 +9629,7 @@ wastelands.2804 = { # Artifacts of old
 				}
 			}
 			50 = {
-				desc = wastelands.2804.d.duel_failure
+				desc = wastelands.2804.d.duel_success
 				random_list = {
 					2 = {
 						send_interface_toast = {

@@ -61,10 +61,12 @@
 		HighGodName = darkness_high_god_name
 		HighGodName2 = darkness_high_god_name
 		HighGodNamePossessive = darkness_high_god_name_possessive
+		HighGodNameAlternateSheHe = CHARACTER_SHEHE_HE
 		HighGodNameSheHe = CHARACTER_SHEHE_HE
 		HighGodHerselfHimself = CHARACTER_HIMSELF
 		HighGodHerHis = CHARACTER_HERHIS_HIS
 		HighGodNameAlternate = darkness_high_god_alternate
+		HighGodName2Alternate = darkness_high_god_alternate
 		HighGodNameAlternatePossessive = darkness_high_god_alternate_possessive
 		HighGodAlternateSheHe = CHARACTER_SHEHE_HE
 		HighGodAlternateHerselfHimself = CHARACTER_HIMSELF
@@ -436,11 +438,11 @@
 			reformed_icon = custom_thistle
 			graphical_faith = dharmic_gfx
 			
-			holy_site = arokwanza
-			holy_site = alabgarda
-			holy_site = mokuba
-			holy_site = kalabanad
-			holy_site = uruloni
+			holy_site = bru_kha
+			holy_site = rok
+			holy_site = tyarrett
+			holy_site = lyneria
+			holy_site = lynhar
 			
 			# Tenets
 			doctrine = tenet_druedain_isolation

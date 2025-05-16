@@ -681,7 +681,7 @@
  dynn_ohtarion:0 "Ohtarion"
  dynn_isilmonir:0 "Isilmonir"
  dynn_calionath:0 "Calionath"
- dynn_telemnarion:0 "Telemnarion"
+ dynn_telemnarion:0 "Celevnorionath"
  dynn_astandur:0 "Astandurionath"
  dynn_borlachionath:0 "Himelin"
  dynn_tiliondilionath:0 "Dalfelena"
@@ -969,8 +969,9 @@
  dynn_zaradan:0 "Zaradân"
  dynn_zaradancadet:0 "Azûlzîroni" 
  dynn_aphurathanna:0 "Aphûrathannâ"
+ 
  ### Eriadorim ###
- dynn_reise_arnethor:0 "Reise Arnethor"
+ dynn_reise_arnethor_motto:0 "Reise Arnethor"
 
  ### HARADRIM ###
  dynn_ayerikka:0 "Ayerikkä"

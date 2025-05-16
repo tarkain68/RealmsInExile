@@ -8732,9 +8732,7 @@ linetulgwerdia162 = {
 
     sexuality = heterosexual
 
-    trait = sadistic
-    trait = temperate
-    trait = generous
+    trait = charming
 
     diplomacy = 3
     martial = 3
@@ -8747,6 +8745,12 @@ linetulgwerdia162 = {
 
     6781.10.1 = {
         birth = yes
+    }
+
+    6797.10.1 = {
+        trait = sadistic
+        trait = temperate
+        trait = generous
     }
 
     6801.8.27 = {
@@ -8767,9 +8771,7 @@ linetulgwerdia163 = {
 
     sexuality = heterosexual
 
-    trait = diligent
-    trait = lustful
-    trait = gregarious
+    trait = curious
 
     diplomacy = 7
     martial = 2
@@ -8782,6 +8784,12 @@ linetulgwerdia163 = {
 
     6780.2.22 = {
         birth = yes
+    }
+
+    6796.2.22 = {
+        trait = diligent
+        trait = lustful
+        trait = gregarious
     }
 
     6860.5.5 = {
@@ -9382,6 +9390,15 @@ linetheodring15 = {
 
     5307.7.16 = {
         birth = yes
+    }
+
+    5382.1.1 = {
+        effect = { 
+            start_tributary = {
+                contract_group = tributary_subjugated
+                suzerain = character:lineofanarion24
+            }
+		}
     }
 
     5391.3.12 = {
@@ -10561,6 +10578,15 @@ linelucidwinia9 = {
 
     5361.9.7 = {
         birth = yes
+    }
+
+    5382.1.1 = {
+        effect = { 
+            start_tributary = {
+                contract_group = tributary_subjugated
+                suzerain = character:lineofanarion24
+            }
+		}
     }
 
     5393.1.1 = {
@@ -11872,12 +11898,11 @@ linepreorming17 = {
         birth = yes
     }
 	6785.4.22 = {
-		effect = {
-			make_tributary = {
-				TYPE = tributary_permanent
-				SUZERAIN = character:lineofjangovar15
-				TRIBUTARY = character:linepreorming17
-			}
+		effect = { 
+			start_tributary = {
+                contract_group = tributary_subjugated
+                suzerain = character:lineofjangovar15
+            }
 		}
 	}
 
@@ -11933,9 +11958,7 @@ linepreorming19 = {
 
     sexuality = heterosexual
 
-    trait = trusting
-    trait = content
-    trait = diligent
+    trait = rowdy
 
     diplomacy = 2
     martial = 5
@@ -11948,6 +11971,12 @@ linepreorming19 = {
 
     6780.1.14 = {
         birth = yes
+    }
+
+    6796.1.14 = {
+        trait = trusting
+        trait = content
+        trait = diligent
     }
 
     6799.1.8 = {
@@ -11968,9 +11997,7 @@ linepreorming20 = {
 
     sexuality = heterosexual
 
-    trait = arbitrary
-    trait = craven
-    trait = zealous
+    trait = rowdy
 
     diplomacy = 5
     martial = 7
@@ -11983,6 +12010,12 @@ linepreorming20 = {
 
     6781.9.25 = {
         birth = yes
+    }
+
+    6797.9.25 = {
+        trait = arbitrary
+        trait = craven
+        trait = zealous
     }
 
     6852.4.21 = {
@@ -12301,7 +12334,7 @@ lineorming5 = {
     }
 
     6966.9.7 = {
-        add_spouse = lineorming6
+        add_spouse = lineofcorsech19
     }
 
     7010.10.13 = {
@@ -12309,7 +12342,7 @@ lineorming5 = {
     }
 }
 
-lineorming7 = {
+lineorming6 = {
     name = Eormenric
 
     dynasty = dynasty_orming
@@ -12317,7 +12350,7 @@ lineorming7 = {
     culture = rhovannic
 
     father = lineorming5
-    mother = lineorming6
+    mother = lineofcorsech19
 
     sexuality = heterosexual
 
@@ -12351,12 +12384,12 @@ lineorming7 = {
     }
 }
 
-lineorming8 = {
+lineorming7 = {
     name = Beorhtwaru
     female = yes
 
     father = lineorming5
-	mother = lineorming6
+	mother = lineofcorsech19
 
     dynasty = dynasty_orming
     religion = faith_northmen
@@ -12386,14 +12419,14 @@ lineorming8 = {
     }
 }
 
-lineorming9 = {
+lineorming8 = {
     name = E_lfrida
     female = yes
 
     religion = faith_northmen
     culture = rhovannic
 
-    father = lineorming7
+    father = lineorming6
     mother = linetoki2
 
     sexuality = heterosexual
@@ -12420,7 +12453,7 @@ lineorming9 = {
     }
 }
 
-lineorming10 = {
+lineorming9 = {
     name = E_lfstan
 
     dynasty = dynasty_orming
@@ -12428,7 +12461,7 @@ lineorming10 = {
     culture = rhovannic
 
     father = lineorming5
-    mother = lineorming6
+    mother = lineofcorsech19
 
     sexuality = heterosexual
 
@@ -12452,15 +12485,15 @@ lineorming10 = {
     }
 
     7004.12.2 = {
-        add_spouse = lineorming11
+        add_spouse = lineorming10
     }
 
     7032.9.8 = {
-        death = { death_reason = death_battle		}
+        death = { death_reason = death_battle }
     }
 }
 
-lineorming11 = {
+lineorming10 = {
     name = Sigrid
     female = yes
 
@@ -12491,15 +12524,15 @@ lineorming11 = {
     }
 }
 
-lineorming12 = {
+lineorming11 = {
     name = Eormenric
 	dynasty = dynasty_orming
 
     religion = faith_northmen
     culture = rhovannic
 
-    father = lineorming10
-    mother = lineorming11
+    father = lineorming9
+    mother = lineorming10
 
     sexuality = heterosexual
 
@@ -12526,15 +12559,15 @@ lineorming12 = {
     }
 }
 
-lineorming13 = {
+lineorming12 = {
     name = E_thelburh
     female = yes
 
     religion = faith_northmen
     culture = rhovannic
 
-    father = lineorming10
-    mother = lineorming11
+    father = lineorming9
+    mother = lineorming10
 
     sexuality = heterosexual
 
@@ -12641,9 +12674,7 @@ linepretoki3 = {
 
     sexuality = heterosexual
 
-    trait = cynical
-    trait = lazy
-    trait = forgiving
+    trait = bossy
 
     diplomacy = 1
     martial = 4
@@ -12658,7 +12689,13 @@ linepretoki3 = {
         birth = yes
     }
 
-    6794.7.17 = {
+    6794.10.23 = {
+        trait = cynical
+        trait = lazy
+        trait = forgiving
+    }
+
+    6795.7.17 = {
         add_matrilineal_spouse = linepretoki4
     }
 
@@ -12677,7 +12714,9 @@ linepretoki4 = {
 
     trait = wrathful
     trait = honest
-    trait = generous
+    trait = curious
+
+    disallow_random_traits = yes
 
     diplomacy = 4
     martial = 6
@@ -12690,6 +12729,10 @@ linepretoki4 = {
 
     6775.8.27 = {
         birth = yes
+    }
+
+    6791.8.27 = {
+        trait = generous
     }
 
     6841.2.13 = {
@@ -15848,10 +15891,6 @@ linehunulf9 = {
 
     sexuality = heterosexual
 
-    trait = arrogant
-    trait = forgiving
-    trait = arbitrary
-
     diplomacy = 5
     martial = 2
     stewardship = 6
@@ -15863,6 +15902,12 @@ linehunulf9 = {
 
     5380.3.14 = {
         birth = yes
+    }
+
+    5396.3.14 = {
+        trait = arrogant
+        trait = forgiving
+        trait = arbitrary
     }
 
     5461.8.7 = {
@@ -16605,9 +16650,7 @@ lineathalberd9 = {
 
     sexuality = heterosexual
 
-    trait = stubborn
-    trait = paranoid
-    trait = patient
+    trait = pensive
 
     diplomacy = 3
     martial = 3
@@ -16620,6 +16663,12 @@ lineathalberd9 = {
 
     5377.6.5 = {
         birth = yes
+    }
+
+    5393.6.5 = {
+        trait = stubborn
+        trait = paranoid
+        trait = patient
     }
 
     5398.11.16 = {
@@ -16640,9 +16689,7 @@ lineathalberd10 = {
 
     sexuality = heterosexual
 
-    trait = diligent
-    trait = humble
-    trait = sadistic
+    trait = curious
 
     diplomacy = 6
     martial = 3
@@ -16655,6 +16702,12 @@ lineathalberd10 = {
 
     5376.9.28 = {
         birth = yes
+    }
+
+    5392.9.28 = {
+        trait = diligent
+        trait = humble
+        trait = sadistic
     }
 
     5443.7.8 = {
@@ -16778,10 +16831,6 @@ lineathalberd14 = {
 
     sexuality = heterosexual
 
-    trait = lazy
-    trait = chaste
-    trait = trusting
-
     diplomacy = 5
     martial = 4
     stewardship = 4
@@ -16793,6 +16842,12 @@ lineathalberd14 = {
 
     5379.7.25 = {
         birth = yes
+    }
+
+    5395.7.25 = {
+        trait = lazy
+        trait = chaste
+        trait = trusting
     }
 
     5409.1.14 = {
@@ -16813,10 +16868,6 @@ lineathalberd15 = {
 
     sexuality = heterosexual
 
-    trait = compassionate
-    trait = content
-    trait = arrogant
-
     diplomacy = 3
     martial = 6
     stewardship = 4
@@ -16828,6 +16879,12 @@ lineathalberd15 = {
 
     5382.1.23 = {
         birth = yes
+    }
+
+    5398.1.23 = {
+        trait = compassionate
+        trait = content
+        trait = arrogant
     }
 
     5470.3.18 = {
@@ -16883,10 +16940,6 @@ lineathalberd17 = {
 
     sexuality = heterosexual
 
-    trait = ambitious
-    trait = paranoid
-    trait = gregarious
-
     diplomacy = 2
     martial = 6
     stewardship = 6
@@ -16898,6 +16951,12 @@ lineathalberd17 = {
 
     5380.2.12 = {
         birth = yes
+    }
+
+    5396.2.12 = {
+        trait = ambitious
+        trait = paranoid
+        trait = gregarious
     }
 
     5468.6.28 = {
@@ -17144,6 +17203,15 @@ linefrendavia7 = { #Angmar Start date ruler
         add_spouse = linefrendavia8
     }
 
+    5382.1.1 = {
+        effect = { 
+            start_tributary = {
+                contract_group = tributary_subjugated
+                suzerain = character:lineofanarion24
+            }
+		}
+    }
+
     5399.4.11 = {
         death = { death_reason = death_natural_causes }
     }
@@ -17296,10 +17364,6 @@ linefrendavia12 = {
 
     sexuality = heterosexual
 
-    trait = greedy
-    trait = forgiving
-    trait = just
-
     diplomacy = 6
     martial = 5
     stewardship = 8
@@ -17311,6 +17375,12 @@ linefrendavia12 = {
 
     5381.8.17 = {
         birth = yes
+    }
+
+    5397.8.17 = {
+        trait = greedy
+        trait = forgiving
+        trait = just
     }
 
     5447.8.9 = {
@@ -17503,9 +17573,7 @@ linefrendavia18 = {
 
     sexuality = heterosexual
 
-    trait = chaste
-    trait = arrogant
-    trait = honest
+    trait = pensive
 
     diplomacy = 5
     martial = 6
@@ -17518,6 +17586,12 @@ linefrendavia18 = {
 
     5379.3.12 = {
         birth = yes
+    }
+
+    5395.3.12 = {
+        trait = chaste
+        trait = arrogant
+        trait = honest
     }
 
     5406.9.25 = {
@@ -17538,9 +17612,7 @@ linefrendavia19 = {
 
     sexuality = heterosexual
 
-    trait = wrathful
-    trait = arbitrary
-    trait = trusting
+    trait = bossy
 
     diplomacy = 1
     martial = 6
@@ -17553,6 +17625,12 @@ linefrendavia19 = {
 
     5377.5.5 = {
         birth = yes
+    }
+
+    5393.5.5 = {
+        trait = wrathful
+        trait = arbitrary
+        trait = trusting
     }
 
     5452.11.23 = {
@@ -18266,9 +18344,7 @@ linesudhigar11 = {
 
     sexuality = heterosexual
 
-    trait = gregarious
-    trait = just
-    trait = chaste
+    trait = charming
 
     diplomacy = 7
     martial = 5
@@ -18281,6 +18357,12 @@ linesudhigar11 = {
 
     5377.1.27 = {
         birth = yes
+    }
+
+    5393.1.27 = {
+        trait = gregarious
+        trait = just
+        trait = chaste
     }
 
     5467.8.3 = {
@@ -18300,10 +18382,6 @@ linesudhigar12 = {
 
     sexuality = asexual
 
-    trait = craven
-    trait = calm
-    trait = paranoid
-
     diplomacy = 3
     martial = 6
     stewardship = 2
@@ -18315,6 +18393,12 @@ linesudhigar12 = {
 
     5381.6.13 = {
         birth = yes
+    }
+
+    5397.6.13 = {
+        trait = craven
+        trait = calm
+        trait = paranoid
     }
 
     5400.1.2 = {
@@ -19173,10 +19257,6 @@ lineparigar21 = {
 
     sexuality = heterosexual
 
-    trait = impatient
-    trait = sadistic
-    trait = generous
-
     diplomacy = 2
     martial = 5
     stewardship = 3
@@ -19188,6 +19268,12 @@ lineparigar21 = {
 
     5379.8.13 = {
         birth = yes
+    }
+
+    5395.8.13 = {
+        trait = impatient
+        trait = sadistic
+        trait = generous
     }
 
     5469.5.3 = {
@@ -22105,9 +22191,7 @@ linescathing12 = {
 
     sexuality = heterosexual
 
-    trait = wrathful
-    trait = craven
-    trait = stubborn
+    trait = curious
 
     diplomacy = 6
     martial = 4
@@ -22120,6 +22204,12 @@ linescathing12 = {
 
     5376.8.19 = {
         birth = yes
+    }
+
+    5392.8.19 = {
+        trait = wrathful
+        trait = craven
+        trait = stubborn
     }
 
     5469.3.22 = {
@@ -22483,10 +22573,6 @@ lineciuldwini11 = {
 
     sexuality = heterosexual
 
-    trait = sadistic
-    trait = trusting
-    trait = arbitrary
-
     diplomacy = 6
     martial = 5
     stewardship = 2
@@ -22498,6 +22584,12 @@ lineciuldwini11 = {
 
     5382.3.5 = {
         birth = yes
+    }
+
+    5398.3.5 = {
+        trait = sadistic
+        trait = trusting
+        trait = arbitrary
     }
 
     5417.7.22 = {
@@ -22700,10 +22792,6 @@ lineciuldwini17 = {
 
     sexuality = heterosexual
 
-    trait = ambitious
-    trait = calm
-    trait = cynical
-
     diplomacy = 5
     martial = 8
     stewardship = 3
@@ -22715,6 +22803,12 @@ lineciuldwini17 = {
 
     5379.12.11 = {
         birth = yes
+    }
+
+    5395.12.11 = {
+        trait = ambitious
+        trait = calm
+        trait = cynical
     }
 
     5411.1.12 = {
@@ -22769,10 +22863,6 @@ lineciuldwini19 = {
 
     sexuality = heterosexual
 
-    trait = generous
-    trait = fickle
-    trait = temperate
-
     diplomacy = 6
     martial = 3
     stewardship = 2
@@ -22784,6 +22874,12 @@ lineciuldwini19 = {
 
     5381.2.28 = {
         birth = yes
+    }
+
+    5397.2.28 = {
+        trait = generous
+        trait = fickle
+        trait = temperate
     }
 
     5382.5.26 = {
@@ -22813,10 +22909,6 @@ lineciuldwini20 = {
 
     sexuality = heterosexual
 
-    trait = impatient
-    trait = lustful
-    trait = lazy
-
     diplomacy = 1
     martial = 7
     stewardship = 6
@@ -22828,6 +22920,12 @@ lineciuldwini20 = {
 
     5379.7.11 = {
         birth = yes
+    }
+
+    5395.7.11 = {
+        trait = impatient
+        trait = lustful
+        trait = lazy
     }
 
     5441.10.20 = {
@@ -24212,7 +24310,6 @@ lineliuthwig17 = {
 
     trait = zealous
     trait = lustful
-    trait = generous
 	trait = physique_good_1
 
     diplomacy = 4
@@ -24228,6 +24325,10 @@ lineliuthwig17 = {
 
     6775.9.14 = {
         birth = yes
+    }
+
+    6791.9.14 = {
+        trait = generous
     }
 
     6795.9.20 = {
@@ -24249,8 +24350,9 @@ lineliuthwig18 = {
     sexuality = bisexual
 
     trait = content
-    trait = generous
-    trait = forgiving
+    trait = rowdy
+
+    disallow_random_traits = yes
 
     diplomacy = 3
     martial = 9
@@ -24263,6 +24365,11 @@ lineliuthwig18 = {
 
     6777.5.5 = {
         birth = yes
+    }
+
+    6793.5.5 = {
+        trait = generous
+        trait = forgiving
     }
 
     6844.9.28 = {
@@ -25213,7 +25320,7 @@ lineofsolvarding6 = {
     learning = 5
     prowess = 5
 
-    trait = education_martia_2
+    trait = education_martial_2
 
     5253.4.4 = {
         birth = yes
@@ -25885,7 +25992,7 @@ lineofostharing15 = {
     }
 
     5470.11.9 = {
-        death = { death_reason = death_execution killer = character:cerindur67 }
+        death = { death_reason = death_execution killer = character:lineofcerindur67 }
     }
 }
 
