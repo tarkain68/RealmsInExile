@@ -2827,11 +2827,24 @@
  decision_invite_saruman_to_isengard_tooltip: "You confer the stewardship of the tower of Orthanc to Saruman the White."
  decision_invite_saruman_to_isengard_desc: "The [GetBuilding('wonder_angrenost_01').GetName] stands as a sentinel in the heart of [GetTitleByKey('c_isengard').GetNameNoTier], its black stone rising high above the surrounding ring of mountains. Once a proud bastion of [GetTitleByKey('e_gondor').GetNameNoTier], its glory has faded, its purpose lost to time. Now, a new opportunity arises - one that could restore Isengard to prominence.\n\n[GetScriptedCharacterByHistoryID( 'lineofsaruman' ).GetFirstNameNicknamed], the most learned of the [istariconcept|E], has expressed his desire to make [orthanc|E] his seat of power. His knowledge of ancient lore and mastery of craft could transform the ancient stronghold into a beacon of strength and wisdom for the [west|E].\n\nBy granting Saruman control of Isengard, you would gain the favour of one of [thewise|E] and forge a bond with a figure of immense influence."
  decision_invite_saruman_to_isengard_confirm: "Let those who doubted us choke on their pride."
+ 
+ ### Khy Decisions ###
 
  decision_pakirh_evangelize_the_faith: "Convert the Locals"
  decision_pakirh_evangelize_the_faith_tooltip: "Bring forth the light of Iunast"
  decision_pakirh_evangelize_the_faith_desc: "DESC"
  decision_pakirh_evangelize_the_faith_confirm: "All shall bow before the light of heaven!"
  
+ ### Underground Specialist Decision ###
+ 
  recruit_halls_specialist_decision_desc: "My tough people, the [ROOT.Char.GetCulture.GetCollectiveNoun], can navigate the most treacherous underground pass. If I want to move and fight in the caverns, I can call upon a seasoned guide to help my army find its way."
  recruit_halls_specialist_decision: "Recruit Halls Specialist"
+ 
+ ############################
+ ### RING QUEST DECISIONS ###
+ ############################
+ 
+ decision_boromir_start_journey: "Speak with the Steward"
+ decision_boromir_start_journey_tooltip: "Travel to Minas Tirith to speak with your father the Steward"
+ decision_boromir_start_journey_desc: "My brother has often had these dreams, and now I as well. This is an ill portent, and I must go to speak to my father about it."
+ decision_boromir_start_journey_confirm: "I shall depart."
