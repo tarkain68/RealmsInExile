@@ -21,49 +21,221 @@
 ### In the Land of Mordor where the Shadows lie.
 
 ######### Ring Quest overview 
-# ring_quest.0001 - 0199 	reserved for mechanical set-up
+# ring_quest.0001 - 0199 		reserved for mechanical set-up
 # ring_quest.0200 - 0299		Boromir's Journey to Rivendell
 # ring_quest.0300 - 0399		Legolas's Journey to Rivendell 
 # ring_quest.0400 - 0499		Gimli's Journey to Rivendell 
 # ring_quest.0500 - 0599		Gandalf's Path to Rivendell 
 # ring_quest.0600 - 0799		The Hunt for Gollum & Aragorn's Path
 # ring_quest.0800 - 0899		Frodo's Road to Rivendell
-# ring_quest.1000 - 1999 	reserved for Fellowship events
+# ring_quest.1000 - 1999 		reserved for Fellowship events
 
 ###########################################################
 
 ###########################
-# BOROMIR SON OF DENETHOR #
+### BOROMIR and FARAMIR ###
 ###########################
 
-ring_quest.0200 = { # The Dream
+
+
+ring_quest.0200 = { # The Dream - Faramir
 	content_source = realms_dlc
 	type = character_event
-	window = visit_settlement_window
+
 	title = ring_quest.0200.t
-	desc = ring_quest.0200.desc
+	desc = {
+		desc = ring_quest.0200.desc
+		triggered_desc = {
+			trigger = {
+				var:number_of_dreams = 1
+			}
+			desc = ring_quest.0200.desc.1
+		}
+		triggered_desc = {
+			trigger = {
+				var:number_of_dreams = 2
+			}
+			desc = ring_quest.0200.desc.2
+		}
+		triggered_desc = {
+			trigger = {
+				var:number_of_dreams >= 3
+			}
+			desc = ring_quest.0200.desc.3
+		}
+	}
+
 	theme = mental_health
-	override_background = { reference = army_camp } 
+	override_background = { reference = corridor_night } 
 	
 	left_portrait = {
 		character = root
-		animation = thinking
-	}
-	right_portrait = {
-		character = scope:faramir
 		animation = worry
 	}
-	lower_left_portrait = {
-		character = scope:denethor 
+	lower_right_portrait = {
+		character = scope:brother 
 	}
 	
 	immediate = {
 		character:linesteward38 = { save_scope_as = denethor }
-		character:linesteward38 = { save_scope_as = faramir }
+		character:linesteward39 = { save_scope_as = boromir }
+		character:linesteward40 = { save_scope_as = faramir }
+		every_sibling = {
+			OR = {
+				this = character:linesteward39
+				this = character:linesteward40
+			}
+			save_scope_as = brother
+		}
+		if = {
+			limit = {
+				exists = var:number_of_dreams
+			}
+			change_variable = {
+				name = number_of_dreams
+				add = 1
+			}
+		}
+		else = {
+			set_variable = {
+				name = number_of_dreams
+				value = 1
+			}
+		}
+		
+	}
+	
+	option = { # I must speak with my brother
+		name = ring_quest.0200.a
+		trigger_event = {
+			id = ring_quest.0201
+		}
+		add_character_flag = confided_in_brother
+		# save_scope_as = dreamer
+		scope:brother = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+				trigger_event = {
+					id = ring_quest.0201
+				}
+			}
+			# save_scope_as = confidant
+		}
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+
+			modifier = {
+				this = scope:boromir # Boromir needs his brother's help all the time
+				add = 100
+			}
+			modifier = { #The more times the dream has come, the more likely you are to talk
+				add = var:number_of_dreams
+				multiply = 30
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 10
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 70
+			}
+
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	
+	option = { # Not right now. (Delay event chain)
+		name = ring_quest.0200.b
+		trigger_event = { #Re-pulse dream
+			id = ring_quest.0200
+			days = 7
+		}
+		if = {
+			limit = {
+				var:number_of_dreams >3
+			}
+			scope:boromir = {
+				trigger_event = {
+					id = ring_quest.0200
+					days = 4
+				}
+			}
+		}
+	}
+
+}
+
+ring_quest.0201 = { # A discussion with my brother
+	content_source = realms_dlc
+	type = character_event
+	title = ring_quest.0201.t
+	desc = {
+		triggered_desc = {
+			trigger = {
+				root = scope:dreamer
+			}
+			desc = ring_quest.0201.desc.dreamer
+		}
+		triggered_desc = {
+			trigger = {
+				root = scope:confidant
+			}
+			desc = ring_quest.0201.desc.confidant
+		}
+	}
+	theme = mental_health
+	override_background = { reference = army_camp } 
+	
+	left_portrait = {
+		character = scope:dreamer
+		animation = worry
+	}
+	right_portrait = {
+		character = scope:confidant
+		animation = thinking
+	}
+	lower_right_portrait = {
+		character = scope:denethor 
+	}
+	
+	cooldown = { 
+		year = 1
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				scope:faramir = {
+					has_character_flag = confided_in_brother
+				}
+			}
+			scope:faramir = {
+				save_scope_as = dreamer
+			}
+			scope:boromir = {
+				save_scope_as = confidant
+			}
+		}
+		else = {
+			scope:faramir = {
+				save_scope_as = confidant
+			}
+			scope:boromir = {
+				save_scope_as = dreamer
+			}
+		}
 	}
 	
 	option = { # I must speak with my father immediately
-		name = ring_quest.0200.a
+		name = ring_quest.0201.a
 		custom_tooltip = ring_quest.0200.a.tt
 		start_travel_plan = { #Travel to Minas Tirith via Osgiliath
 			destination = title:c_osgiliath.title_province
@@ -73,27 +245,35 @@ ring_quest.0200 = { # The Dream
 			players_use_planner = no
 			on_arrival_destinations = all
 		}
+		hidden_effect = { #give free caravan master
+			if = {
+				limit = { NOT = { employs_court_position = travel_leader_court_position } }
+				create_character = {
+					template = foreign_architect_template
+					employer = root
+					save_scope_as = caravan_master
+				}
+				appoint_court_position = {
+					recipient = scope:caravan_master
+					court_position = travel_leader_court_position
+				}
+			}
+		}
 	}
 	
 	option = { # Not right now. (Delay event chain)
-		name = ring_quest.0200.b
-		custom_tooltip = ring_quest.0200.b.tt # Unlocks a decision to go to Denethor later
+		name = ring_quest.0201.b
+		custom_tooltip = ring_quest.0201.b.tt # Unlocks a decision to go to Denethor later
 		add_character_flag = boromir_delay_journey
-	}
-	
-	option = { # AI Only - Skip the event chain for now 
-		name = ring_quest.0200.c 
-		trigger = { is_ai = yes }
-		ai_chance = { base = 100 }
 	}
 }
 
-ring_quest.0201 = { # Osgiliath - The Black Captain's Onslaught
+ring_quest.0202 = { # Osgiliath - The Black Captain's Onslaught
 	content_source = realms_dlc
 	type = character_event
 	window = visit_settlement_window
-	title = ring_quest.0201.t
-	desc = ring_quest.0201.desc
+	title = ring_quest.0202.t
+	desc = ring_quest.0202.desc
 	theme = battle
 	override_background = { reference = battlefield } 
 	
@@ -117,18 +297,18 @@ ring_quest.0201 = { # Osgiliath - The Black Captain's Onslaught
 	}
 	
 	option = { # Break the bridge and retreat across the river!
-		name = ring_quest.0201.a 
-		custom_tooltip = ring_quest.0201.b.tt # You escape by swimming and continue to Minas Tirith
+		name = ring_quest.0202.a
+		custom_tooltip = ring_quest.0202.b.tt # You escape by swimming and continue to Minas Tirith
 		#### Consider giving Mordor control of East Osgiliath at this point if they don't already own it 
 	}
 }
 
-ring_quest.0202 = { # Minas Tirith - Denethor's Errand (Bring this thing to Gondor)
+ring_quest.0203 = { # Minas Tirith - Denethor's Errand (Bring this thing to Gondor)
 	content_source = realms_dlc
 	type = character_event
 	window = visit_settlement_window
-	title = ring_quest.0202.t
-	desc = ring_quest.0202.desc
+	title = ring_quest.0203.t
+	desc = ring_quest.0203.desc
 	theme = stewardship_duty_focus
 	override_background = { reference = throne_room_dunedain } 
 	
@@ -145,14 +325,9 @@ ring_quest.0202 = { # Minas Tirith - Denethor's Errand (Bring this thing to Gond
 		animation = anger
 	}
 	
-	immediate = {
-		character:linesteward38 = { save_scope_as = denethor }
-		character:linesteward38 = { save_scope_as = faramir }
-	}
-	
 	option = { # I will go, father.
-		name = ring_quest.0202.a
-		custom_tooltip = ring_quest.0202.a.tt # Begin the journey to Rivendell yourself
+		name = ring_quest.0203.a
+		custom_tooltip = ring_quest.0203.a.tt # Begin the journey to Rivendell yourself
 		start_travel_plan = { #Travel to Rivendell via Edoras and Tharbad
 			destination = title:c_kingstead.title_province
 			destination = title:c_tharbad.title_province
@@ -165,8 +340,8 @@ ring_quest.0202 = { # Minas Tirith - Denethor's Errand (Bring this thing to Gond
 	}
 	
 	option = { # My place is here, as Gondor's defender. Faramir will go.
-		name = ring_quest.0202.b 
-		custom_tooltip = ring_quest.0202.b.tt # Faramir will go. Change player character to Faramir
+		name = ring_quest.0203.b 
+		custom_tooltip = ring_quest.0203.b.tt # Faramir will go. Change player character to Faramir
 		scope:faramir = {
 			start_travel_plan = { #Travel to Rivendell via Edoras and Tharbad
 				destination = title:c_kingstead.title_province
@@ -182,12 +357,12 @@ ring_quest.0202 = { # Minas Tirith - Denethor's Errand (Bring this thing to Gond
 	}
 }
 
-ring_quest.0203 = { # Edoras: Rohan in a Gloomy State
+ring_quest.0204 = { # Edoras: Rohan in a Gloomy State
 	content_source = realms_dlc
 	type = character_event
 	#window = visit_settlement_window
-	title = ring_quest.0203.t
-	desc = ring_quest.0203.desc
+	title = ring_quest.0204.t
+	desc = ring_quest.0204.desc
 	theme = dread
 	override_background = { reference = edoras } 
 	
@@ -209,17 +384,17 @@ ring_quest.0203 = { # Edoras: Rohan in a Gloomy State
 	}
 	
 	option = { # Rohan stands. But it is dark, and the air is stale in this here hall.
-		name = ring_quest.0203.a
-		custom_tooltip = ring_quest.0203.a.tt # You continue your ride west
+		name = ring_quest.0204.a
+		custom_tooltip = ring_quest.0204.a.tt # You continue your ride west
 	}
 }
 
-ring_quest.0204 = { # Tharbad: Horse lost in the crossing
+ring_quest.0205 = { # Tharbad: Horse lost in the crossing
 	content_source = realms_dlc
 	type = character_event
 	#window = visit_settlement_window
-	title = ring_quest.0204.t
-	desc = ring_quest.0204.desc
+	title = ring_quest.0205.t
+	desc = ring_quest.0205.desc
 	theme = travel_danger
 	override_background = { reference = tharbad } 
 	
@@ -229,17 +404,17 @@ ring_quest.0204 = { # Tharbad: Horse lost in the crossing
 	}
 	
 	option = { # I must continue on foot. (That sucks!)
-		name = ring_quest.0204.a
-		custom_tooltip = ring_quest.0204.a.tt # You continue your journey to Rivendell
+		name = ring_quest.0205.a
+		custom_tooltip = ring_quest.0205.a.tt # You continue your journey to Rivendell
 	}
 }
 
-ring_quest.0205 = { # Tharbad: Horse lost in the crossing
+ring_quest.0206 = { # Tharbad: Horse lost in the crossing
 	content_source = realms_dlc
 	type = character_event
 	window = visit_settlement_window
-	title = ring_quest.0205.t
-	desc = ring_quest.0205.desc
+	title = ring_quest.0206.t
+	desc = ring_quest.0206.desc
 	theme = diplomacy_foreign_affairs_focus
 	override_background = { reference = throne_room_rivendell } 
 	
@@ -253,8 +428,8 @@ ring_quest.0205 = { # Tharbad: Horse lost in the crossing
 	}
 	
 	option = { # Well, I've arrived.
-		name = ring_quest.0205.a
-		#custom_tooltip = ring_quest.0205.a.tt #
+		name = ring_quest.0206.a
+		#custom_tooltip = ring_quest.0206.a.tt #
 		##### END FOR NOW - continue with Council of Elrond events
 	}
 }

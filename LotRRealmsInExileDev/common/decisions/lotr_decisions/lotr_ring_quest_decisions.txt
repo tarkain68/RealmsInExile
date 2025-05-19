@@ -20,7 +20,7 @@ decision_boromir_start_journey = {
 	decision_group_type = realms_in_exile_major
 
 	is_shown = {
-		is_landless_adventurer = yes
+		# is_landless_adventurer = yes
 		has_character_flag = boromir_delay_journey
 		NOT = {
 			is_target_in_global_variable_list = {
@@ -31,7 +31,7 @@ decision_boromir_start_journey = {
 	}
 		
 	is_valid = {
-		is_at_war = no
+		# is_at_war = no
 	}
 	
 	is_valid_showing_failures_only = {
