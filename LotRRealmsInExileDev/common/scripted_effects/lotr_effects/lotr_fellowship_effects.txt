@@ -111,3 +111,52 @@ decrease_fellowship_member_corruption = {
         AMOUNT = $VALUE$
     }
 }
+
+
+##################
+##### Events #####
+##################
+
+depart_to_imladris_effect = {
+    if = {
+        limit = {
+            has_ep3_dlc_trigger = yes	 
+        }
+        depose = yes
+        create_landless_adventurer_title_effect = {
+            REASON = flag:voluntary
+            FLAVOR_CHAR = title:e_gondor_steward.holder
+        }
+        root.primary_title = {
+            set_coa = holder.house
+        }
+        root.primary_title = {
+            set_coa = holder.house
+            if = {
+                limit = {
+                    holder = character:linesteward39
+                }
+                set_title_name = boromir_laamp_name
+            }
+            else_if = {
+                limit = {
+                    holder = character:linesteward40
+                }
+                set_title_name = faramir_laamp_name
+            }
+            else = {
+                set_title_name = quest_for_imladris
+            }
+        }
+    }
+    start_travel_plan = { #Travel to Rivendell via Edoras and Tharbad
+        destination = title:c_kingstead.title_province
+        destination = title:c_tharbad.title_province
+        destination = title:c_imladris.title_province
+        on_arrival_on_action = boromir_rivendell_on_action
+        return_trip = no
+        travel_with_domicile = yes
+        players_use_planner = no
+        on_arrival_destinations = all
+    }
+}
