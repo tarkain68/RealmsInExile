@@ -309,11 +309,11 @@ ring_quest.0202 = { # Osgiliath - The Black Captain's Onslaught
 	window = visit_settlement_window
 	title = ring_quest.0202.t
 	desc = ring_quest.0202.desc
-	theme = mental_health # PLACEHOLDER
+	theme = battle # PLACEHOLDER
 	override_background = { reference = battlefield } 
 	
 	left_portrait = {
-		character = scope:faramir
+		character = scope:brother
 		scripted_animation = bow_drawn
 	}
 	center_portrait = {
@@ -328,12 +328,23 @@ ring_quest.0202 = { # Osgiliath - The Black Captain's Onslaught
 	
 	immediate = {
 		character:nazgul1 = { save_scope_as = witchking }
-		character:linesteward38 = { save_scope_as = faramir }
+		character:linesteward38 = { save_scope_as = denethor }
+		character:linesteward39 = { save_scope_as = boromir }
+		character:linesteward40 = { save_scope_as = faramir }
+		every_sibling = {
+			limit = {
+				OR = {
+					this = character:linesteward39
+					this = character:linesteward40
+				}
+			}
+			save_scope_as = brother
+		}
 	}
 	
 	option = { # Break the bridge and retreat across the river!
 		name = ring_quest.0202.a
-		custom_tooltip = ring_quest.0202.b.tt # You escape by swimming and continue to Minas Tirith
+		custom_tooltip = ring_quest.0202.a.tt # You escape by swimming and continue to Minas Tirith
 		#### Consider giving Mordor control of East Osgiliath at this point if they don't already own it 
 	}
 }
@@ -407,9 +418,9 @@ ring_quest.0203 = { # Minas Tirith - Counsel
 		custom_tooltip = ring_quest.0203.b.tt # Faramir will go.
 		scope:faramir = {
 			save_scope_as = quester
-			trigger_event = ring_quest.0204 # Option to switch to quester
 			depart_to_imladris_effect = yes
 		}
+		trigger_event = ring_quest.0204 # Option to switch to quester
 	}
 
 	option = { # Send Boromir
@@ -422,9 +433,9 @@ ring_quest.0203 = { # Minas Tirith - Counsel
 		custom_tooltip = ring_quest.0203.c.tt # Boromir will go.
 		scope:boromir = {
 			save_scope_as = quester
-			trigger_event = ring_quest.0204 # Option to switch to quester
 			depart_to_imladris_effect = yes
 		}
+		trigger_event = ring_quest.0204 # Option to switch to quester
 	}
 }
 
@@ -512,7 +523,7 @@ ring_quest.0206 = { # Tharbad: Horse lost in the crossing
 	}
 }
 
-ring_quest.0207 = { # Tharbad: Horse lost in the crossing
+ring_quest.0207 = { # Rivendell: Arrival
 	content_source = realms_dlc
 	type = character_event
 	window = visit_settlement_window
@@ -530,6 +541,13 @@ ring_quest.0207 = { # Tharbad: Horse lost in the crossing
 		animation = personality_compassionate
 	}
 	
+	immediate = {
+		title:c_imladris.holder.top_liege = { save_scope_as = elrond }
+		domicile ?= { 
+			change_provisions = miniscule_provisions_gain 
+			move_domicile = title:c_imladris.title_province
+		}
+	}
 	option = { # Well, I've arrived.
 		name = ring_quest.0207.a
 		#custom_tooltip = ring_quest.0207.a.tt #
