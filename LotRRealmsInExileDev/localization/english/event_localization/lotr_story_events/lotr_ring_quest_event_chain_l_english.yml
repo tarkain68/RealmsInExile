@@ -61,3 +61,10 @@
  ring_quest.0207.t: "PLACEHOLDER (Arrives in Rivendell)
  ring_quest.0207.desc: "PLACEHOLDER"
  ring_quest.0207.a: "PLACEHOLDER"
+ 
+ ### The Hunt for Gollum ###
+ ring_quest.0600.t: "The Prisoner of Barad-dûr"
+ ring_quest.0600.desc: "PLACEHOLDER I should release this wretch."
+ ring_quest.0600.a: "Begone, little worm."
+ ring_quest.0600.b: "Where will this creature crawl to now?"
+ gollum_laamp: "Search for the Precious"

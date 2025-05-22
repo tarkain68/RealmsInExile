@@ -559,3 +559,88 @@ ring_quest.0207 = { # Rivendell: Arrival
 		##### END FOR NOW - continue with Council of Elrond events
 	}
 }
+
+#########################
+## THE HUNT FOR GOLLUM ##
+#########################
+
+ring_quest.0600 = { # Sauron releases Gollum
+	content_source = realms_dlc
+	type = character_event
+	#window = visit_settlement_window
+	title = ring_quest.0600.t
+	desc = ring_quest.0600.desc
+	theme = sauron
+	#override_background = { reference = barad_dur } 
+	
+	left_portrait = {
+		character = root
+		animation = personality_callous
+	}
+	right_portrait = {
+		character = scope:smeagol 
+		animation = pain
+	}
+	
+	immediate = {
+		character:lineofgollum3 = { save_scope_as = smeagol }
+		scope:smeagol = { release_from_prison = yes }
+	}
+	option = { # Off you go.
+		name = ring_quest.0600.a
+		scope:smeagol = {
+			create_landless_adventurer_title_effect = {
+				REASON = flag:voluntary
+				FLAVOR_CHAR = title:e_mordor.holder
+			}
+			primary_title = {
+				set_coa = holder.house
+			}
+			primary_title = {
+				set_coa = holder.house
+				set_title_name = gollum_laamp
+			}
+			adventurer_prestige_reset_effect = yes
+			domicile ?= { 
+				change_provisions = minor_provisions_gain 	
+				move_domicile = title:c_barad_dur.title_province				
+			}
+			start_travel_plan = { #Travel to Cirith Ungol
+				destination = title:c_cirith_ungol.title_province
+				return_trip = no
+				travel_with_domicile = yes
+				players_use_planner = no
+				on_arrival_destinations = all
+			}
+		}
+	}
+	option = { # Play as Gollum 
+		name = ring_quest.0600.b
+		scope:smeagol = {
+			create_landless_adventurer_title_effect = {
+				REASON = flag:voluntary
+				FLAVOR_CHAR = title:e_mordor.holder
+			}
+			primary_title = {
+				set_coa = holder.house
+			}
+			primary_title = {
+				set_coa = holder.house
+				set_title_name = gollum_laamp
+			}
+			adventurer_prestige_reset_effect = yes
+			domicile ?= { 
+				change_provisions = minor_provisions_gain 	
+				move_domicile = title:c_barad_dur.title_province
+			}
+			start_travel_plan = { #Travel to Cirith Ungol
+				destination = title:c_cirith_ungol.title_province
+				return_trip = no
+				travel_with_domicile = yes
+				players_use_planner = no
+				on_arrival_destinations = all
+			}
+		}
+		set_player_character = scope:smeagol
+	}
+}

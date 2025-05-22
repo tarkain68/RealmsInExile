@@ -1213,7 +1213,7 @@ lotr_intro_events.5502 = { # Introduction to Sauron
 	type = character_event
 	title = lotr_intro_events.5502.t
 	desc = lotr_intro_events.5502.desc
-	theme = battle
+	theme = sauron
 	override_background = {
 		reference = barad_dur
 	}
