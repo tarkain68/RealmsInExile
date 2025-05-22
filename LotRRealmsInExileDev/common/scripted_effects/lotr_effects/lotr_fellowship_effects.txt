@@ -171,6 +171,12 @@ depart_to_imladris_effect = {
             set_coa = holder.house
             if = {
                 limit = {
+                    holder = character:linesteward38
+                }
+                set_title_name = denethor_laamp_name
+            }
+            if = {
+                limit = {
                     holder = character:linesteward39
                 }
                 set_title_name = boromir_laamp_name

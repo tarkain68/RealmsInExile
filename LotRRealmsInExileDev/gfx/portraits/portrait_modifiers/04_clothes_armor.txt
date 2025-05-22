@@ -601,9 +601,11 @@
 				OR = {
 					has_primary_title = title:d_forithilien
 					has_primary_title = title:d_laamp_rangers_of_ithilien
-				}	
+				}
             }
+			
 		}
+		outfit_tags = { ithilien_ranger_war }
 	}	
 
     uildain_war_low = {
@@ -818,6 +820,7 @@
                 }
             }
 		}
+		outfit_tags = { gondor_war_imperial }
 	}
 	
 	castamiri_war_imperial = {

@@ -64,7 +64,7 @@ ring_quest.0200 = { # The Dream - Faramir
 		}
 	}
 
-	theme = mental_health
+	theme = ring_quest
 	override_background = { reference = corridor_night } 
 	
 	left_portrait = {
@@ -192,7 +192,7 @@ ring_quest.0201 = { # A discussion with my brother
 			desc = ring_quest.0201.desc.confidant
 		}
 	}
-	theme = mental_health
+	theme = ring_quest
 	override_background = { reference = army_camp } 
 	
 	left_portrait = {
@@ -309,16 +309,22 @@ ring_quest.0202 = { # Osgiliath - The Black Captain's Onslaught
 	window = visit_settlement_window
 	title = ring_quest.0202.t
 	desc = ring_quest.0202.desc
-	theme = battle # PLACEHOLDER
+	theme = ring_quest
 	override_background = { reference = battlefield_dunedain } 
 	
 	left_portrait = {
 		character = scope:brother
 		scripted_animation = bow_drawn
+		triggered_outfit = {
+			outfit_tags = { ithilien_ranger_war }
+		}
 	}
 	center_portrait = {
 		character = root 
 		animation = marshal_shield
+		triggered_outfit = {
+			outfit_tags = { ithilien_ranger_war }
+		}
 	}
 	right_portrait = {
 		character = scope:witchking
@@ -373,7 +379,7 @@ ring_quest.0203 = { # Minas Tirith - Counsel
 			desc = ring_quest.0203.desc.denethor
 		}
 	}
-	theme = mental_health # PLACEHOLDER
+	theme = ring_quest
 	override_background = { reference = throne_room_dunedain } 
 	
 	left_portrait = {
@@ -443,7 +449,7 @@ ring_quest.0204 = { # Depature and player swap option
 	type = character_event
 	title = ring_quest.0204.t
 	desc = ring_quest.0204.desc
-	theme = mental_health # PLACEHOLDER
+	theme = ring_quest
 	override_background = { reference = minas_tirith } 
 	
 	left_portrait = {
@@ -476,7 +482,7 @@ ring_quest.0205 = { # Edoras: Rohan in a Gloomy State
 	type = character_event
 	title = ring_quest.0205.t
 	desc = ring_quest.0205.desc
-	theme = mental_health # PLACEHOLDER
+	theme = ring_quest
 	override_background = { reference = edoras } 
 	
 	left_portrait = {
@@ -508,7 +514,7 @@ ring_quest.0206 = { # Tharbad: Horse lost in the crossing
 	#window = visit_settlement_window
 	title = ring_quest.0206.t
 	desc = ring_quest.0206.desc
-	theme = mental_health # PLACEHOLDER
+	theme = ring_quest
 	override_background = { reference = tharbad } 
 	
 	left_portrait = {
@@ -528,7 +534,7 @@ ring_quest.0207 = { # Rivendell: Arrival
 	window = visit_settlement_window
 	title = ring_quest.0207.t
 	desc = ring_quest.0207.desc
-	theme = mental_health # PLACEHOLDER
+	theme = ring_quest
 	override_background = { reference = throne_room_rivendell } 
 	
 	left_portrait = {
