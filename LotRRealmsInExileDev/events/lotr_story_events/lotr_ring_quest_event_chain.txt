@@ -310,7 +310,7 @@ ring_quest.0202 = { # Osgiliath - The Black Captain's Onslaught
 	title = ring_quest.0202.t
 	desc = ring_quest.0202.desc
 	theme = battle # PLACEHOLDER
-	override_background = { reference = battlefield } 
+	override_background = { reference = battlefield_dunedain } 
 	
 	left_portrait = {
 		character = scope:brother
@@ -322,8 +322,7 @@ ring_quest.0202 = { # Osgiliath - The Black Captain's Onslaught
 	}
 	right_portrait = {
 		character = scope:witchking
-		animation = horse_sword_shield
-		camera = camera_event_horse_right
+		animation = aggressive_sword
 	}
 	
 	immediate = {
