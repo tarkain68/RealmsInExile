@@ -103,3 +103,9 @@
  ring_quest.0600.a: "Begone, little worm."
  ring_quest.0600.b: "Where will this creature crawl to now?"
  gollum_laamp: "Search for the Precious"
+ 
+ ### The Road to Rivendell ###
+ ring_quest.0800.t: "A Long-expected Party"
+ ring_quest.0800.desc: "PLACEHOLDER."
+ ring_quest.0800.a: "What fun we shall have!"
+ ring_quest.0800.a.tt: "The festivities will begin soon"

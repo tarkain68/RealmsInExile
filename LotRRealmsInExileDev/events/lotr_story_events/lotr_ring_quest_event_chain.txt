@@ -10,7 +10,7 @@
 #########################################
 #########################################
 
-######
+########
 ### Three Rings for the Elven-kings under the sky,
 ### Seven for the Dwarf-lords in their halls of stone,
 ### Nine for Mortal Men, doomed to die,
@@ -880,5 +880,41 @@ ring_quest.0600 = { # Sauron releases Gollum
 			}
 		}
 		set_player_character = scope:smeagol
+	}
+}
+
+#############################
+### THE ROAD TO RIVENDELL ###
+#############################
+
+ring_quest.0800 = { # A Long-expected Party
+	content_source = realms_dlc
+	type = character_event
+	window = visit_settlement_window
+	title = ring_quest.0800.t
+	desc = ring_quest.0800.desc
+	theme = ring_quest
+	override_background = { reference = hobbit_tavern } 
+	
+	left_portrait = {
+		character = scope:frodo
+		animation = personality_compassionate
+	}
+	center_portrait = {	
+		character = root 
+		animation = storyteller 
+	}
+	right_portrait = {
+		character = scope:gandalf 
+		animation = holding_staff
+	}
+	
+	immediate = {
+		character:lineofgandalf = { save_scope_as = gandalf }
+		character:lineofbaggins29 = { save_scope_as = frodo }
+	}
+	option = { # What fun we shall have!
+		name = ring_quest.0800.a 
+		custom_tooltip = ring_quest.0800.a.tt 
 	}
 }
