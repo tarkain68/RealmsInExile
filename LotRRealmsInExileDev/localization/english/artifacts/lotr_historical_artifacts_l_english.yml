@@ -36,7 +36,7 @@
  ## Maiar ##
 
  sword_of_manwe_name: "Sword of Manwë"
- sword_of_manwe_description: "The blade of [manwecharactershort|E], known as [Glossary('Námalcassë','namalcasse_gloss')], refers to the weapon of the [elderkingcharacter|E], the [valagod|E] [manwecharactershort|E]. Blazing like lightning given form, it is the incarnation of the final role of the [elderkingcharacter|E] as both judge and executor of the Law. Wielded in ancient days by [manwecharactershort|E] himself, whole armies fell beneath its fury, withering and scattered like leaves before a mighty tempest.\n\nThe blade would not be seen again until the War of Wrath - when it was wielded by [manwecharactershort|E]'s herald, [eonwecharacter|E], who held it in his master's stead. It was with this blade that [morgothcharacter|E] was once more bested and bound anew with chains to be brought before the [elderkingcharacter|E] in [Glossary('Máhanaxar','mahanaxar_gloss')]. If it should be needed again before the End, it shall once more serve as the weapon of judgement to all those who would overturn the Law, and the Order of [eru|E].\n\n#TOLKIENQUOTE It came to pass that at last the gates of [utumno|E] were broken and its halls unroofed, and [melkorcharacter|E] took refuge in the uttermost pit. Thence, seeing that all was lost (for that time), he sent forth on a sudden a host of [balrogs|E], the last of his servants that remained, and they assailed the standard of Manwë, as it were a tide of flame. But they were withered in the wind of his wrath and slain with the lightning of his sword; and Melkor stood at last alone.#!"
+ sword_of_manwe_description: "The blade of [manwecharactershort|E], known as [Glossary('Námalcassë','namalcasse_gloss')], refers to the weapon of the [elderkingcharacter|E], the [valagod|E] [manwecharactershort|E]. Blazing like lightning given form, it is the incarnation of the final role of the [elderkingcharacter|E] as both judge and executor of the Law. Wielded in ancient days by [manwecharactershort|E] himself, whole armies fell beneath its fury, withering and scattered like leaves before a mighty tempest.\n\nThe blade would not be seen again until the [warofwrath|E] - when it was wielded by [manwecharactershort|E]'s herald, [eonwecharacter|E], who held it in his master's stead. It was with this blade that [morgothcharacter|E] was once more bested and bound anew with chains to be brought before the [elderkingcharacter|E] in [Glossary('Máhanaxar','mahanaxar_gloss')]. If it should be needed again before the End, it shall once more serve as the weapon of judgement to all those who would overturn the Law, and the Order of [eru|E].\n\n#TOLKIENQUOTE It came to pass that at last the gates of [utumno|E] were broken and its halls unroofed, and [melkorcharacter|E] took refuge in the uttermost pit. Thence, seeing that all was lost (for that time), he sent forth on a sudden a host of [balrogs|E], the last of his servants that remained, and they assailed the standard of Manwë, as it were a tide of flame. But they were withered in the wind of his wrath and slain with the lightning of his sword; and Melkor stood at last alone.#!"
  
  ## Wizards ##
  
@@ -57,10 +57,10 @@
  staff_radagast_the_brown_description: "The staff of [radagastcharacter|E] the Brown, fourth of the [istariconcept|E] to come to [middleearth|E]. He is known for his protection of the great forests and his care for animals, worrying little with the affairs of [conceptracemen|E] and [elves|E], but he was far more knowledgeable in plants, birds and beasts in the forest. A wooden staff with a green gem placed on top of it."
  
  staff_alatar_the_blue_name: "Staff of Alatar The Blue"
- staff_alatar_the_blue_description: "The staff of [alatarcharacter|E] the Blue, second of the [istariconcept|E] to come to [middleearth|E]. Made of white wood Inscribed with runes and an emerald gem incrusted atop of it."
+ staff_alatar_the_blue_description: "The staff of [alatarcharacter|E] the Blue, second of the [istariconcept|E] to come to [middleearth|E]. It is made of white wood inscribed with runes and an emerald gem incrusted atop of it."
  
  staff_pallando_the_blue_name: "Staff of Pallando The Blue"
- staff_pallando_the_blue_description: "The staff of [pallandocharacter|E] the Blue, fifth of the [istariconcept|E] to come to [middleearth|E]. Hewn from dark wood with a blue placed at the top of it."
+ staff_pallando_the_blue_description: "The staff of [pallandocharacter|E] the Blue, fifth of the [istariconcept|E] to come to [middleearth|E]. it is hewn from dark wood with a blue gem placed at the top of it."
 
  pipe_of_radagast_name: "Pipe of Radagast"
  pipe_of_radagast_description: "A small, unadorned pipe once owned by the [istariconcept|E] [radagastcharacter|E]. It seems he has no more use of it, giving it away to a trusted friend."
@@ -189,7 +189,7 @@
  sauron_defying_thunder_description: "A richly embroidered tapestry depicting [sauroncharacter|E], on the silver dome of the Temple of [melkorcharacter|E] in [armenelos|E], defying the [valargods|E] and the thunder. This event took place shortly before the [downfallofnumenor|E], an event [sauronthedarklordcharacter|E] still considers his greatest achievement. This tapestry was manufactured in Rhûn after the rebuilding of Barad-Dûr."
  
  vasa_name: "Vása"
- vasa_description: "[Glossary('Vása','vasa_gloss')], the great mace of [sauronthedarklordcharacter|E] [sauroncharacter|E], a replica of the one he wielded during the [warlastalliance|E] and with which he mortally wounded [elendil|E] the Tall. Its inspiration is, of course, Grond, the Hammer of the Underworld, the weapon of [morgothcharacter|E], [sauroncharacter|E]'s master before the War of Wrath."
+ vasa_description: "[Glossary('Vása','vasa_gloss')], the great mace of [sauronthedarklordcharacter|E] [sauroncharacter|E], a replica of the one he wielded during the [warlastalliance|E] and with which he mortally wounded [elendil|E] the Tall. Its inspiration is, of course, Grond, the Hammer of the Underworld, the weapon of [morgothcharacter|E], [sauroncharacter|E]'s master before the [warofwrath|E]."
  
  morgul_blade_name: "Morgul Blade"
  morgul_blade_description: "This blade, made in the dread forges of [minasmorgul|E] and enchanted with spells of death and ruin, is the weapon of choice of the [nazgulcharacter|E] for enemies they want to turn to their service. After stabbing their victim, the blade will break, and the shards will worm their way slowly to the heart of the victim. If not cured fast, the victim will die and turn into a lesser wraith, in thrall of the [ringwraiths|E]. There is no permanent cure for a wound caused by such a knife, save perhaps a voyage to the [undyinglands|E]."
@@ -213,11 +213,13 @@
  ## Mountain Orc ##
  
  ulukai_name: "Ulûkai"
- ulukai_description: "The [Glossary('Ulûkai','ulukai_gloss')] is an orcish artifact, an unholy gem believed to have been crafted after one of the three [silmaril|E] was stolen from [morgothcharacter|E] as a replacement. But the jewel sorely disappointed Morgoth, for it could not replace that which he had lost, for the jewel seemed to consume light, not give it. Enraged and embittered, the Dark Lord cast it into the Vaults of Angband, and it was one of the few artifacts saved from the end of the War of Wrath by orcs who fled east during the ruin of the Iron Hell. It was lost during the Great Northern War with Durin's Folk but would be rediscovered by Skorg, the first Orc-Lord of [gundabad|E], during the Sack of Gundabad.\n\nThe Gem itself is believed to hold some of the dark essence of Morgoth's evil spirit and whisper cruel wisdom to its bearer. The holder of the [Glossary('Ulûkai','ulukai_gloss')] is believed by the Orcs of the North to have the right and destiny to rule the northern parts of [middleearth|E] as [Glossary('Ashdurbúk','Ashdurbuk_gloss')]."
+ ulukai_description: "The [Glossary('Ulûkai','ulukai_gloss')] is an orcish artifact, an unholy gem believed to have been crafted after one of the three [silmaril|E] was stolen from [morgothcharacter|E] as a replacement. But the jewel sorely disappointed Morgoth, for it could not replace that which he had lost, for the jewel seemed to consume light, not give it. Enraged and embittered, the Dark Lord cast it into the Vaults of Angband, and it was one of the few artifacts saved from the end of the [warofwrath|E] by [orcs|E] who fled east during the ruin of the Iron Hell. It was lost during the Great Northern War with [durinsfolk|E] but would be rediscovered by Skorg, the first Orc-Lord of [gundabad|E], during the Sack of Gundabad.\n\nThe Gem itself is believed to hold some of the dark essence of Morgoth's evil spirit and whisper cruel wisdom to its bearer. The holder of the [Glossary('Ulûkai','ulukai_gloss')] is believed by the Orcs of the North to have the right and destiny to rule the northern parts of [middleearth|E] as [Glossary('Ashdurbúk','Ashdurbuk_gloss')]."
  
  bellowers_horn_name: "Horn of the Bellower"
- bellowers_horn_description: "This horn is made from the very tip of a Mûmak's tusk slain by Chieftain Gazduf in single combat.\n\nIt was later revealed that "single combat" in fact meant running at high speed while being chased by an enraged Oliphant until the beast's endurance was exhausted. It was subsequently impaled by a hail of spears.\n\nThe horn is flawless. When blown, its tone is deafening. Chieftain Gazduf's lungs possess a strength seldom found among his peers, indeed."
+ bellowers_horn_description: "This horn is made from the very tip of a Mûmak's tusk slain by Chieftain Gazduf in single combat.\n\nIt was later revealed that 'single combat' in fact meant running at high speed while being chased by an enraged Oliphant until the beast's endurance was exhausted. It was subsequently impaled by a hail of spears.\n\nThe horn is flawless. When blown, its tone is deafening. Chieftain Gazduf's lungs possess a strength seldom found among his peers, indeed."
 
+ red_maw_name: "Red Maw"
+ red_maw_description: "The bloody spear wielded by Bo Lagg 'the Butcher' in his raids on Chennacatt.\n\nAppearing to be little more than a jagged knife affixed to a shaft, the spear-tip is whispered among the orcs to be the broken end of a sword once wielded by the [ringwraith|E] [khorahil|E]."
  ## Hobbits ##
  
  sting_name: "Sting"
@@ -269,6 +271,11 @@
  
  watch_chronicle_name: "Chronicle of the Watch on Mordor"
  watch_chronicle_description: "Herein is documented the history and deeds of the Watch on Mordor, founded by [isildur|E] before he departed from the realm of [gondor|E]. It lists the names and titles of the commanders of the Watch and records important events that occurred during the Watch's tenure."
+
+ horse_book_name: "Studbook of Roquendil"
+ horse_book_description: "This ancient tome contains a record of the horses of the $dynn_roquendilin$ dating back to the days of Roquendil the First, edited and appended by his successors to provide an accurate ancestry of their herd. The trade and breeding of these mounts, descended from the doughty Númenorean horses of Calenardhon and [dol_amroth|E], but also from the fierce and hardy stallions of [harad|E] and [rhun|E], provided a stable income for various scions of the Roquendilioni in times of strife.\n\nAt the end of the studbook is a set of journal entries of the various lords of the house, as well as sketches of particularly noble steeds. Also attached is a child's drawing of [GetScriptedCharacterByHistoryID( 'lineofroquendil2sister' ).GetFirstName] $dynn_roquendilin$, with her foal named 'Ferdal'."
+ horse_book_description_ks: "\n\nDuring the ruinous [kinstrife|E], many of these prized steeds were lost, either falling in battle with Castamir's forces or stolen in the night by some of his least honourable followers. In the aftermath, the Roquendilioni regained their lands to find herds decimated with several of the most ancient bloodlines wiped out. It took their lords several centuries to recover the herds to their pre [kinstrife|E] size and pedigree."
+ horse_book_description_eorl: "\n\nThough the record is long outdated, it still holds great value to the [rohirrim|E] especially, with many among them holding that the meticulous efforts of these long dead lords are responsible for the quality of their horses even centuries later, perhaps even as the ancestors of some of the Mearas."
 
  ## Arnor ##
 
@@ -327,7 +334,7 @@
  wrothblada_description: "A gift from the wizard [sarumancharacter|E] to the lord of the Éothéod, Frumgar, this sword passed to his son and heir, Fram, when Frumgar was killed by the dragon Scatha. Fulfilling his oath of vengeance, Fram wielded Wrothbláda when he slew Scatha and ended the dragon's threat to the northern lands."
  
  helm_of_nordinbad_name: "Helm of Nordinbad"
- helm_of_nordinbad_description: "This heavy helmet is of dwarven design and make, crafted by one of the smiths of Nordinbad as a gift to the Lord of the Framlings. It became an heirloom of their house, but due to its weight, it was only rarely used in battle."
+ helm_of_nordinbad_description: "This heavy helmet is of dwarven design and make, crafted by one of the smiths of [nordinbad|E] as a gift to the Lord of the Framlings. It became an heirloom of their house, but due to its weight, it was only rarely used in battle."
  
  ## Bellakar ##
 
@@ -525,7 +532,7 @@
  mahal_figurine_description: "This small golden figurine cast in the elaborate, geometrical style favoured by [dwarven|E] artists is a representation of [mahalcharacter|E], bearing his traditional attributes: full beard and smith's hammer."
  
  stonesinger_tablet_name: "Stonesinger's tablet"
- stonesinger_tablet_description: "This heavy stone tablet is carved with [cirth|E]. The sound of the text is musical and rich and raises unfamiliar echoes as it is read out loud. Unfortunately, the meaning remains hidden to any who do not understand Khuzdul, the secret language of the [dwarves|E]."
+ stonesinger_tablet_description: "This heavy stone tablet is carved with [cirth|E]. The sound of the text is musical and rich and raises unfamiliar echoes as it is read out loud. Unfortunately, the meaning remains hidden to any who do not understand [khuzdul|E], the secret language of the [dwarves|E]."
  
  windlance_bolt_name: "Windlance Bolt"
  windlance_bolt_description: "An invention of the [longbeards|E], a [dwarven|E] Windlance was a special type of ballista, designed to fire great metal bolts (hence the name). These bolts were extraordinarily heavy and tough, capable of breaking stone or plate armor. No mannish lance could compare to the raw penetrating power of it. It required such power, for these were weapons designed with one purpose - to pierce scale and slay [dragons|E].\n\nLong did the dwarves feud with the [drakes|E], and nowhere more fiercely than in the far north and the [greymountains|E]. Though not all Dragons fly, many did, and the dwarves, short but ingenious, soon devised a means of striking their foes from the skies - the Windlance. On account of the power they had to hurl their bolts with, Windlances were large and unwieldy but functioned well as static defenses.\n\nThis is a lance from one such weapon - it has evidently seen use and remains heavy enough a man might use it as a sort of club if pressed."
@@ -697,6 +704,25 @@
 
  ### Thani Hazad artifacts ###
 
+ ### Sirayn artifacts ###
+ tarat_balazayn_name: "Tarat Balazayn"
+ tarat_balazayn_description: "The Tayee believe that the earth was created by the gods for the use of their children. They also believe that the gods would not leave them stranded without the knowledge of how to live, and so maintain a set of holy books that teach the correct ways. The tomes, collectively called Tarat Balazayn (Ta. “Book of the Land”) were dictated to Augar by the scribe-god Nûm himself, and notate the rituals and prayers for the faith as well as rules for proper conduct.\n\nThey have been passed down through the ages and their pages contain all of the religious knowledge of the Tayee.\n\nThe Tarat Balazayn tells of the creation of the world, the strife between the gods, and the foundation of the Tayee faith. Within its pages can be found guidelines for correct living and the prayers of the faithful. The priests of the Tayee faith use this book as the foundation of their religion."
+
+ ring_maubezin_name: "Ring of the Maubezin"
+ ring_maubezin_description: "A badge of office signifying membership in the esteemed Karstet ir Maubezin (Ta. 'Gathering of Speakers'), the governing body of Tul Harar. Subject to the tarb, the Karstet ir Maubezin acts as an advisory council, made up of prominent families, patricians, and guilds."
+ 
+ sikentr_bone_name: "Appendage of Sikentr"
+ sikentr_bone_description: "A finger-bone claimed to belong to the legendary Bulgan conqueror and hero Sikentr.\n\nDuring the first half of the 6th Century T.A., Sikentr united large portions of Sîrayn, Shayn, and Harshandatt under Bulgan rule, and even assaulted Anarike and Khy. Sikentr finally met his end in 542 T.A., facing a coalition of Bellakar, Ray, and An-Balkûmagân in the hills of Raishoul. His body was never recovered."
+ 
+ ny_cennacatt_tome_sorcery_name: "Ancient Grimoire"
+ ny_cennacatt_tome_sorcery_description: "This dusty tome, retrieved from the dark libraries beneath Ny Cénnacatt, contains illustrated diagrams and instructions for performing occult rituals. It appears to be bound in human skin."
+ 
+ ny_cennacatt_tome_warfare_name: "Ancient Grimoire"
+ ny_cennacatt_tome_warfare_description: "This dusty tome, retrieved from the dark libraries beneath Ny Cénnacatt, discusses the military techniques that the [ringwraith|E] [khorahil|E] used to subjugate the South."
+ 
+ ny_cennacatt_tome_assassin_name: "Ancient Grimoire"
+ ny_cennacatt_tome_assassin_description: "This dusty tome, retrieved from the dark libraries beneath Ny Cénnacatt, contains the secret histories of the Tayb Assasins. The ledger contains the names of prominent members, targets of assassination, and techniques for infiltration and the brewing of poisons."
+ 
  # ep1_mena_box_small_basic_01_a
  ivory_box_small_1_name: "Ornate Small Ivory Box of [ROOT.Char.GetName]"
  ivory_box_small_2_name: "Carved Small Ivory Box of [ROOT.Char.GetName]"

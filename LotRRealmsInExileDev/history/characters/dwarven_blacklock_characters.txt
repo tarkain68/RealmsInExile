@@ -8,6 +8,8 @@
 # Line of Argan	# The axe that walks
 # Line of Blackflame
 # Line of Grásil ~ Angmar start date Iron Hills
+# Line of Ramdin
+
 
 ##########################
 ### The Line of Thrár ####
@@ -6464,11 +6466,11 @@ thirdlineofthrar89 = {
         birth = yes
     }
 
-    7035.3.19 = {
-        add_spouse = thirdlineofthrar90
+    7025.7.11 = {
+        trait = cannot_marry
     }
 
-    7200.10.5 = {
+    7178.10.5 = {
         death = { death_reason = death_attacked }
     }
 }
@@ -6497,6 +6499,10 @@ thirdlineofthrar90 = {
 
     6956.12.3 = {
         birth = yes
+    }
+
+    7026.12.3 = {
+        trait = cannot_marry
     }
 
     7179.7.22 = {
@@ -6562,9 +6568,15 @@ thirdlineofthrar92 = {
     prowess = 4
 
     trait = education_diplomacy_3
+    trait = charming
+
+    disallow_random_traits = yes
 
     6958.4.17 = {
         birth = yes
+        effect = {
+			add_character_flag = historically_conceived_dorfdad # Much more likely to sire dwarven father
+		}
     }
 
     7061.8.10 = {
@@ -6585,11 +6597,11 @@ thirdlineofthrar93 = {
 
     sexuality = heterosexual
 
-    trait = deceitful
+    trait = gregarious
     trait = chaste
     trait = lazy
 
-    diplomacy = 6
+    diplomacy = 7
     martial = 6
     stewardship = 5
     intrigue = 4
@@ -6597,8 +6609,11 @@ thirdlineofthrar93 = {
     prowess = 1
 
     trait = education_diplomacy_2
+    trait = pensive
 
-    6958.1.6 = {
+    disallow_random_traits = yes
+
+    6988.1.6 = {
         birth = yes
     }
 
@@ -6634,6 +6649,10 @@ thirdlineofthrar94 = {
 
     6839.1.2 = {
         birth = yes
+    }
+
+    6909.1.2 = {
+        trait = cannot_marry
     }
 
     7082.4.17 = {
@@ -6709,8 +6728,87 @@ thirdlineofthrar96 = {
     }
 }
 
+thirdlineofthrar97 = { # Thrár VII the Last, he leads the Blacklocks back to Bizarûldûm and the Axes of Nargubraz back to Nargubraz
+    name = Thr_ar
 
+    dynasty = dynasty_thrar
+    religion = faith_blacklocks
+    culture = blacklocks
 
+    dna = thrar_dna
+
+    father = thirdlineofthrar92
+    mother = thirdlineofthrar93
+
+    trait = arrogant
+    trait = stubborn
+    trait = brave
+	trait = dwarf_father
+
+    diplomacy = 5
+    martial = 3
+    stewardship = 10
+    intrigue = 4
+    learning = 5
+    prowess = 13
+
+	trait = education_martial_4
+
+    7115.4.12 = {
+        birth = yes
+        effect = {
+            # Add "reflection of" modifier
+            add_character_modifier = reflection_of_thrar
+        }
+    }
+
+    7115.4.12 = {
+        trait = dwarf_father
+        remove_character_modifier = reflection_of_thrar
+        give_nickname = nick_the_last_dorfdad_thrar
+        effect = {
+            add_character_flag = {
+                flag = had_nickname_event
+            }
+        }
+    }
+
+    7558.8.19 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+thirdlineofthrar98 = {
+    name = Ma_a_na_a_n
+
+    dynasty = dynasty_thrar
+    religion = faith_blacklocks
+    culture = blacklocks
+
+    father = thirdlineofthrar92
+    mother = thirdlineofthrar93
+
+    trait = wrathful
+    trait = eccentric
+    trait = just
+
+    diplomacy = 8
+    martial = 4
+    stewardship = 5
+    intrigue = 3
+    learning = 6
+    prowess = 6
+
+	trait = education_diplomacy_3
+
+    7127.5.28 = {
+        birth = yes
+    }
+
+    7385.11.17 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
 
 ##########################
 ### The Line of Argan ###
@@ -6845,8 +6943,8 @@ lineofargan2 = {
         give_nickname = nick_the_axe_that_walks_unique
     }
 
-    7047.12.21 = {
-        death = { death_reason = death_decapitated }
+    7052.3.14 = { # Dies in the Battle of Dale and Erebor
+        death = { death_reason = death_battle }
     }
 }
 
@@ -6904,7 +7002,7 @@ lineofargan3 = {
 		}
     }
 
-    7047.12.21 = {
+    7052.3.14 = { # Dies in the Battle of Dale and Erebor
         death = { death_reason = death_battle }
     }
 }
@@ -6920,8 +7018,6 @@ lineofargan4 = {
     #mother = lineofargan1
 
     trait = shy
-    trait = diligent
-    trait = compassionate
     
 
     diplomacy = 7
@@ -6938,10 +7034,19 @@ lineofargan4 = {
     trait = depressed_genetic
     trait = physique_good_1
     trait = legitimized_bastard
-    trait = lifestyle_traveler
+
+    trait = curious
+
+    disallow_random_traits = yes
 
     6964.5.3 = {
         birth = yes
+    }
+
+    6980.5.3 = { 
+        trait = diligent
+        trait = compassionate
+        trait = lifestyle_traveler
         effect = {
 			#add_character_flag = has_scripted_appearance
 			#add_character_flag = no_headgear
@@ -6963,7 +7068,7 @@ lineofargan4 = {
 		}
     }
 
-    7047.12.21 = {
+    7052.3.14 = { # Dies in the Battle of Dale and Erebor
         death = { death_reason = death_battle }
     }
 }
@@ -6977,12 +7082,7 @@ lineofargan5 = {
 
     father = lineofargan3
     #mother = lineofargan1
-
-    trait = gregarious
-    trait = deceitful
-    trait = vengeful
     
-
     diplomacy = 7
     martial = 8
     stewardship = 5
@@ -6997,10 +7097,20 @@ lineofargan5 = {
     trait = depressed_genetic
     #trait = physique_good_1
     trait = legitimized_bastard
-    trait = lifestyle_traveler
+
+    trait = curious
+
+    disallow_random_traits = yes
 
     6967.5.3 = {
         birth = yes
+    }
+
+    6980.5.3 = { 
+        trait = gregarious
+        trait = deceitful
+        trait = vengeful
+        trait = lifestyle_traveler
         effect = {
 			#add_character_flag = has_scripted_appearance
 			#add_character_flag = no_headgear
@@ -7022,7 +7132,7 @@ lineofargan5 = {
 		}
     }
 
-    7047.12.21 = {
+    7052.3.14 = { # Dies in the Battle of Dale and Erebor
         death = { death_reason = death_battle }
     }
 }
@@ -7082,7 +7192,7 @@ lineofargan6 = {
 		}
     }
 
-    7047.12.21 = {
+    7052.3.14 = { # Dies in the Battle of Dale and Erebor
         death = { death_reason = death_battle }
     }
 }
@@ -7142,7 +7252,7 @@ lineofargan7 = {
 		}
     }
 
-    7047.12.21 = {
+    7052.3.14 = { # Dies in the Battle of Dale and Erebor
         death = { death_reason = death_battle }
     }
 }
@@ -9438,7 +9548,7 @@ lineofzirak66 = {
     }
 
     7017.7.13 = {
-        add_spouse = lineofzirak661
+        add_spouse = lineofzirak66a
     }
 
     7115.2.20 = {
@@ -9446,7 +9556,7 @@ lineofzirak66 = {
     }
 }
 
-lineofzirak661 = {
+lineofzirak66a = {
     name = Arasti
     female = yes
 	
@@ -9480,7 +9590,7 @@ lineofzirak661 = {
     }
 }
 
-lineofzirak662 = {
+lineofzirak66b = {
     name = Dru_u_rn
 
     dynasty = dynasty_zirak
@@ -9488,7 +9598,7 @@ lineofzirak662 = {
     culture = blacklocks
 
     father = lineofzirak66
-    mother = lineofzirak661
+    mother = lineofzirak66a
 
     sexuality = heterosexual
 	
@@ -11014,7 +11124,7 @@ lineofkreyir38 = {
 
     trait = education_intrigue_3
 
-    6574.6.9 = {
+    6580.6.9 = {
         birth = yes
     }
 
@@ -11162,6 +11272,72 @@ lineofkreyir42 = {
         death = { death_reason = death_natural_causes }
     }
 }
+
+lineofkreyir43 = {
+    name = Bala_a_kho_o_ri_i_
+    female = yes
+
+    religion = faith_blacklocks
+    culture = blacklocks_nargubraz
+
+    sexuality = heterosexual
+
+    trait = cynical
+    trait = diligent
+    trait = arrogant
+
+    diplomacy = 7
+    martial = 5
+    stewardship = 3
+    intrigue = 4
+    learning = 8
+    prowess = 5
+
+    trait = education_diplomacy_1
+
+    6911.3.12 = {
+        birth = yes
+    }
+
+    7151.6.23 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineofkreyir44 = {
+    name = Kharan
+
+    dynasty = dynasty_kreyir
+    religion = faith_blacklocks
+    culture = blacklocks_nargubraz
+
+    father = lineofkreyir42
+    mother = lineofkreyir43
+
+    sexuality = heterosexual
+
+    trait = ambitious
+    trait = just
+    trait = gregarious
+
+    diplomacy = 7
+    martial = 3
+    stewardship = 4
+    intrigue = 6
+    learning = 3
+    prowess = 7
+
+    trait = education_intrigue_2
+
+    7076.7.6 = {
+        birth = yes
+    }
+
+    7328.3.12 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
 
 ##############################
 ### The Line of Blackflame ###
@@ -12608,6 +12784,189 @@ linegrasil9 = {
         death = { death_reason = death_natural_causes }
     }
 }
+
+### Line of Ramdin
+
+lineoframdin1 = { # Blacklocks expand in the Yellow Mountains
+    name = Ramdin
+
+    religion = faith_blacklocks
+    culture = blacklocks
+
+    sexuality = heterosexual
+
+    trait = humble
+    trait = fickle
+    trait = content
+
+    diplomacy = 5
+    martial = 7
+    stewardship = 5
+    intrigue = 2
+    learning = 4
+    prowess = 7
+
+    trait = education_martial_3
+
+    6943.7.25 = {
+        birth = yes
+    }
+
+    7017.7.25 = {
+        employer = thirdlineofthrar87
+    }
+
+    7028.10.1 = {
+        add_spouse = lineoframdin2
+    }
+
+    7047.7.25 = {
+        dynasty = dynasty_ramdin
+    }
+
+    7153.10.8 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoframdin2 = {
+    name = Kibilahil
+    female = yes
+
+    religion = faith_blacklocks
+    culture = blacklocks
+
+    sexuality = heterosexual
+
+    trait = zealous
+    trait = craven
+    trait = callous
+
+    diplomacy = 3
+    martial = 5
+    stewardship = 6
+    intrigue = 2
+    learning = 5
+    prowess = 5
+
+    trait = education_stewardship_2
+
+    6947.12.6 = {
+        birth = yes
+    }
+
+    7145.11.24 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoframdin3 = {
+    name = Harsa_a_l
+
+    dynasty = dynasty_ramdin
+    religion = faith_blacklocks
+    culture = blacklocks
+
+    father = lineoframdin1
+    mother = lineoframdin2
+
+    sexuality = heterosexual
+
+    trait = deceitful
+    trait = ambitious
+    trait = greedy
+
+    diplomacy = 2
+    martial = 7
+    stewardship = 5
+    intrigue = 3
+    learning = 4
+    prowess = 6
+
+    trait = education_stewardship_2
+
+    7085.4.16 = {
+        birth = yes
+    }
+
+    7193.3.20 = {
+        add_spouse = lineoframdin4
+    }
+
+    7322.4.25 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoframdin4 = {
+    name = Imra_a_beth
+    female = yes
+
+    religion = faith_blacklocks
+    culture = blacklocks
+
+    sexuality = heterosexual
+
+    trait = lustful  
+    trait = gregarious  
+    trait = arrogant  
+
+    diplomacy = 6
+    stewardship = 4
+    intrigue = 2
+    learning = 7
+    prowess = 4
+
+    trait = education_diplomacy_2
+
+    7088.4.2 = {
+        birth = yes
+    }
+
+    7314.1.6 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+lineoframdin5 = {
+    name = Aba_a_ruzi_i_r
+
+    dynasty = dynasty_ramdin
+    religion = faith_blacklocks
+    culture = blacklocks
+
+    father = lineoframdin1
+    mother = lineoframdin2
+
+    sexuality = heterosexual
+
+    trait = callous  
+    trait = cynical  
+    trait = ambitious 
+
+    diplomacy = 1
+    martial = 6
+    stewardship = 4
+    intrigue = 6
+    learning = 3
+    prowess = 5
+
+    trait = education_martial_1
+
+    7098.6.23 = {
+        birth = yes
+    }
+
+    7158.8.6 = {
+        add_spouse = lineoframdin10
+    }
+
+    7380.5.24 = {
+        death = { death_reason = death_natural_causes }
+    }
+}
+
+### Line of Goat
 
 lineofgoat = {
     name = U_U_rzarkho_o_r

@@ -1,0 +1,490 @@
+﻿namespace = tharbad_story
+
+tharbad_story.0001 = { # Gurnow Intro
+	content_source = realms_dlc
+	type = character_event
+	title = tharbad_story.0001.t
+	desc = tharbad_story.0001.desc
+	theme = realm
+
+	right_portrait = {
+		character = root
+		animation = marshal
+	}
+	
+	left_portrait = {
+		character = character:lineofgunrnow3wife
+		animation = spymaster
+	}
+	
+	override_background = {
+		reference = tharbad
+	}
+	
+	immediate = { 
+		set_global_variable = tharbad_story_active
+		add_character_flag = { 
+			flag = tharbad_leader_lw_trigger
+			years = 100
+		}
+		save_scope_as = tharbad_leader
+		
+		
+	}
+
+	option = { 
+		name = tharbad_story.0001.a
+		
+		character:tombrass = {
+			save_scope_as = tharbad_guard
+			set_knight_status = force
+		}
+		character:lineofgwilleth1 = {
+			save_scope_as = tharbad_ranger
+			
+		}
+		appoint_court_position = {
+			recipient = character:lineofgwilleth1
+			court_position = travel_leader_court_position
+		}
+		
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 70
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+
+	
+}
+
+tharbad_story.0002 = { # LW reaches Tharbad
+	content_source = realms_dlc
+	type = character_event
+	title = tharbad_story.0002.t
+	desc = tharbad_story.0002.desc
+	theme = death
+
+	trigger = { # This is the set of requirements necessary for this event to enable (a gigant IF statement for the event itself)
+		exists = global_var:tharbad_story_active
+		
+	}
+	
+	right_portrait = {
+		character = root
+		animation = personality_greedy
+	}
+	
+	
+	
+	override_background = {
+		reference = forodwaith
+	}
+	
+	
+	
+	immediate = { 
+		
+	}
+
+	option = { 
+		name = tharbad_story.0002.a
+		add_legitimacy = -100
+		trigger_event = { id = tharbad_story.0003 days = 3 }
+		
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 70
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	
+	option = { 
+		name = tharbad_story.0002.b
+		
+		custom_tooltip = {
+			text = lw_mitagation
+			every_sub_realm_county = {
+				every_county_province  = {
+					add_province_modifier = { modifier = lw_mediation_modifier months = 6 }
+				}
+			}
+		}
+		remove_short_term_gold = 200
+		trigger_event = { id = tharbad_story.0006 months = 3 }
+		
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 30
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	
+	
+
+	
+}
+
+tharbad_story.0003 = { # palace coup
+	content_source = realms_dlc
+	type = character_event
+	title = tharbad_story.0003.t
+	desc = tharbad_story.0003.desc
+	theme = war
+
+	trigger = { # This is the set of requirements necessary for this event to enable (a gigant IF statement for the event itself)
+		exists = global_var:tharbad_story_active
+		
+	}
+	
+	right_portrait = {
+		character = character:lineofgwilleth1
+		animation = marshal
+	}
+	
+	left_portrait = {
+		character = character:tombrass
+		animation = marshal
+	}
+	
+	override_background = {
+		reference = tharbad
+	}
+	
+	
+	
+	immediate = { 
+		character:tombrass = {
+			save_scope_as = tharbad_guard
+			
+		}
+		character:lineofgwilleth1 = {
+			save_scope_as = tharbad_ranger
+			
+		}
+	}
+
+	option = { 
+		name = tharbad_story.0003.a
+		
+		character:lineofgwilleth1 = {
+			save_scope_as = newleader
+			trigger_event = { id = tharbad_story.0004 days = 1 }
+		}
+		
+		create_title_and_vassal_change = {
+			type = usurped
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+
+		every_held_title = {
+			change_title_holder = {
+				holder = scope:newleader
+				change = scope:title_change
+			}
+		}
+		
+		set_player_character = scope:newleader
+
+		resolve_title_and_vassal_change = scope:title_change
+		
+		death = {
+			killer = scope:newleader
+			death_reason = death_duel
+		}
+		
+		
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 50
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+	
+	option = { 
+		name = tharbad_story.0003.b
+		
+		
+		
+		character:tombrass = {
+			save_scope_as = newleader
+			trigger_event = { id = tharbad_story.0004 days = 1 }
+		}
+		
+		create_title_and_vassal_change = {
+			type = usurped
+			save_scope_as = title_change
+			add_claim_on_loss = no
+		}
+
+		every_held_title = {
+			change_title_holder = {
+				holder = scope:newleader
+				change = scope:title_change
+			}
+		}
+		
+		set_player_character = scope:newleader
+
+		resolve_title_and_vassal_change = scope:title_change
+		
+		death = {
+			killer = scope:newleader
+			death_reason = death_duel
+		}
+		
+		
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 0
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 50
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+}
+
+tharbad_story.0004 = { # post coup Intro
+	content_source = realms_dlc
+	type = character_event
+	title = tharbad_story.0004.t
+	desc = tharbad_story.0004.desc
+	theme = stewardship_duty_focus
+
+	right_portrait = {
+		character = root
+		animation = marshal
+	}
+	
+	
+	override_background = {
+		reference = tharbad
+	}
+	
+	immediate = { 
+		
+	}
+
+	option = { 
+		name = tharbad_story.0004.a
+		
+		add_legitimacy = 500
+		add_short_term_gold = 50
+		add_trait = populist_leader
+		
+		trigger_event = { id = tharbad_story.0005 months = 6 }
+		
+		hidden_effect = {
+			add_courtier = scope:tharbad_guard
+			add_courtier = scope:tharbad_ranger
+			create_character = {
+				location = root.location
+				template = lotr_dunedain_traveler_template
+				save_temporary_scope_as = newchar
+			}
+			add_courtier = scope:newchar
+			create_character = {
+				location = root.location
+				template = priest_character_template
+				save_temporary_scope_as = newchar				
+			}
+			add_courtier = scope:newchar
+			create_character = {
+				location = root.location
+				template = royal_architect_court_position_template	
+				save_temporary_scope_as = newchar
+			}
+			add_courtier = scope:newchar
+		}
+		
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 70
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+
+	
+}
+
+tharbad_story.0005 = { # Rangers Arrive - End of Ahistorical path
+	content_source = realms_dlc
+	type = character_event
+	title = tharbad_story.0005.t
+	desc = tharbad_story.0005.desc
+	theme = diplomacy
+
+	right_portrait = {
+		character = title:d_northern_dunedain.holder
+		
+		animation = marshal
+	}
+	
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	
+	override_background = {
+		reference = tharbad
+	}
+	
+	immediate = { 
+		title:d_northern_dunedain.holder = {
+			save_scope_as = ranger_leader
+		}
+		title:d_tharbad_titular.previous_holder = {
+			save_scope_as = overthrown
+		}
+	}
+
+	option = { 
+		name = tharbad_story.0005.a
+		
+		scope:ranger_leader = {
+			add_opinion = {
+					target = root
+					modifier = impressed_modifier
+					opinion = 50
+				}
+		}
+		
+		root = {
+			spawn_army = {
+				men_at_arms = { 
+					type = dunedain_rangers
+					stacks = 2
+				}
+			location = province:4537
+			name = "Dunedain Rangers"
+			}
+		}
+		
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 70
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+
+	
+}
+
+tharbad_story.0006 = { # Revolution fizzles out
+	content_source = realms_dlc
+	type = character_event
+	title = tharbad_story.0006.t
+	desc = tharbad_story.0006.desc
+	theme = realm
+
+	right_portrait = {
+		character = character:lineofgunrnow3wife
+		animation = happiness
+	}
+	
+	left_portrait = {
+		character = root
+		animation = happiness
+	}
+	
+	override_background = {
+		reference = tharbad
+	}
+	
+	immediate = { 
+		
+	}
+
+	option = { 
+		name = tharbad_story.0006.a
+		add_legitimacy = 100
+		
+		
+		ai_chance = {
+			base = 0 # LotR: This should be tied to WotR mode.
+			modifier = { # Game Rule
+				has_game_rule = default_ai_behavior
+				add = 100
+			}
+			modifier = { # Game Rule
+				has_game_rule = weighted_ai_behavior
+				add = 70
+			}
+			modifier = { # Game Rule
+				has_game_rule = random_ai_behavior
+				add = 50
+			}
+		}
+	}
+
+	
+}

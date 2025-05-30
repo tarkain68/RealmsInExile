@@ -1112,6 +1112,11 @@
 			dragon_attack
 		}
 	}
+	7140.3.25 = { #Finally resettled after Longbeards take Grey Mountains
+		culture = dalemen
+		religion = faith_dale
+		holding = castle_holding
+	}
 }
 
 3617 = {	#Strandborg (b_standborg)
@@ -3597,6 +3602,12 @@
 			# palisades_01 
 		}
 	}
+	7101.8.19 = {
+		holding = castle_holding
+		buildings = {
+			curtain_walls_01
+		}
+	}
 }
 
 3582 = {	#Toolcurgu (b_toolcurgu)
@@ -3653,6 +3664,14 @@
 		culture = logath
 		religion = faith_logath
 		holding = tribal_holding
+	}
+	7101.8.19 = {
+		culture = dalemen
+		religion = faith_dale
+		holding = castle_holding
+		buildings = {
+			hill_forts_01
+		}
 	}
 }
 
@@ -4038,8 +4057,17 @@
 		holding = castle_holding
 		buildings = {
 			castle_02
-			horse_pastures_03
 			curtain_walls_04
+			horse_pastures_03
+		}
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_04
+			stables_03
 		}
 	}
 }
@@ -4070,6 +4098,13 @@
 		religion = faith_kerkassk
 		holding = castle_holding
 	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+		buildings = {
+			castle_01
+			curtain_walls_01
+		}
+	}
 }
 
 3732 = {	#Kerarnor (b_kerarnor)
@@ -4099,6 +4134,13 @@
 		holding = castle_holding
 		buildings = {
 			hunting_grounds_02
+		}
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+		buildings = {
+			castle_01
+			hill_forts_01
 		}
 	}
 }
@@ -4170,7 +4212,6 @@
 		culture = asdriag
 		religion = faith_rhun_pantheistic
 		holding = tribal_holding
-		
 	}
 	6424.1.1 = {
 		culture = magriag
@@ -4179,6 +4220,9 @@
 	}
 	7028.4.22 = {
 		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
 	}
 }
 
@@ -4328,6 +4372,9 @@
 		religion = faith_northmen
 		holding = tribal_holding
 	}
+	7174.1.1 = {
+		religion = faith_edain
+	}
 }
 
 3800 = {	#Yeldhom (b_yeldhom)
@@ -4388,6 +4435,16 @@
 			tribe_02
 			market_villages_02
 			horse_pastures_02
+		}
+	}
+	7174.1.1 = {
+		religion = faith_edain
+		holding = castle_holding
+		buildings = {
+			castle_02
+			curtain_walls_04
+			smiths_02
+			stables_02
 		}
 	}
 }
@@ -4485,6 +4542,9 @@
 		culture = magriag
 		religion = faith_kerkassk
 		holding = tribal_holding
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
 	}
 }
 
@@ -4766,6 +4826,9 @@
 		religion = faith_kerkassk
 		holding = tribal_holding
 	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
 }
 
 3793 = {	#Hisaradi (b_hisaradi)
@@ -4882,6 +4945,9 @@
 			war_camps_02
 			horse_pastures_02
 		}
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
 	}
 }
 
@@ -5026,6 +5092,10 @@
 		religion = faith_kerkassk
 		holding = tribal_holding
 	}
+	7174.1.1 = {
+		culture = magriag
+		religion = faith_rhun_pantheistic
+	}
 }
 
 3779 = {	#Catala (b_catala)
@@ -5095,6 +5165,9 @@
 		culture = magriag
 		religion = faith_kerkassk
 		holding = tribal_holding
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
 	}
 }
 
@@ -5200,6 +5273,9 @@
 			market_villages_02
 		}
 	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
 }
 
 3767 = {	#Yurksekoba (b_yurksekoba)
@@ -5275,6 +5351,9 @@
 			# hunting_grounds_01 
 		}
 	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
 }
 
 3770 = {	#Caberket (b_caberket)
@@ -5342,6 +5421,10 @@
 	}
 	6900.1.1 = {
 		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		culture = magriag
+		religion = faith_rhun_pantheistic
 	}
 }
 
@@ -5503,6 +5586,9 @@
 		religion = faith_kerkassk
 		holding = tribal_holding
 	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
 }
 
 3784 = {	#Mastakon (b_mastakon)
@@ -5567,6 +5653,9 @@
 		culture = odhriag
 		religion = faith_kerkassk
 		holding = tribal_holding
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
 	}
 }
 
@@ -5809,6 +5898,9 @@
 		culture = magriag
 		religion = faith_kerkassk
 		holding = tribal_holding
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
 	}
 }
 
@@ -6405,6 +6497,9 @@
 		religion = faith_kerkassk
 		holding = tribal_holding
 	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
 }
 
 3813 = {	#Razdel (b_razdel)
@@ -6565,6 +6660,9 @@
 		religion = faith_kerkassk
 		holding = tribal_holding
 	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
 }
 
 3819 = {	#Mustrak (b_mustrak)
@@ -6618,6 +6716,9 @@
 		culture = magriag
 		religion = faith_kerkassk
 		holding = tribal_holding
+	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
 	}
 }
 
@@ -6730,6 +6831,9 @@
 		religion = faith_kerkassk
 		holding = tribal_holding
 	}
+	7174.1.1 = {
+		religion = faith_rhun_pantheistic
+	}
 }
 
 3825 = {	#Staleva (b_staleva)
@@ -6791,6 +6895,11 @@
 			bandits
 			wild_orcs
 		}
+	}
+	7167.7.16 = {
+		culture = dalemen
+		religion = faith_dale
+		holding = castle_holding
 	}
 }
 
@@ -6860,6 +6969,11 @@
 			wild_orcs
 			wolf_den
 		}
+	}
+	7134.6.9 = {
+		culture = dalemen
+		religion = faith_dale
+		holding = castle_holding
 	}
 }
 
@@ -7063,6 +7177,11 @@
 			bandits
 			wild_orcs
 		}
+	}
+	7112.7.26 = {
+		culture = dalemen
+		religion = faith_dale
+		holding = castle_holding
 	}
 }
 
@@ -7397,7 +7516,8 @@
 		holding = tribal_holding
 	}
 	7060.1.1 = {
-		religion = faith_woodmen
+		culture = magriag
+		religion = faith_rhun_pantheistic
 	}
 }
 
@@ -7712,6 +7832,7 @@
 		holding = tribal_holding
 	}
 	7060.1.1 = {
+		culture = dalemen
 		religion = faith_dale
 	}
 }
@@ -7838,6 +7959,9 @@
 		religion = faith_dale
 		holding = tribal_holding
 	}
+	7062.6.19 = {
+		holding = castle_holding
+	}
 }
 
 3874 = {	#Gasdal (b_gasdal)
@@ -7953,6 +8077,10 @@
 			# hunting_grounds_03 
 			# logging_camps_05 
 		}
+	}
+	7174.1.1 = {
+		culture = magriag
+		religion = faith_rhun_pantheistic
 	}
 }
 
@@ -8148,6 +8276,10 @@
 		religion = faith_kerkassk
 		holding = tribal_holding
 	}
+	7174.1.1 = {
+		culture = magriag
+		religion = faith_rhun_pantheistic
+	}
 }
 
 3886 = {	#Eorstan (b_eorstan)
@@ -8236,6 +8368,10 @@
 	}
 	6900.1.1 = {
 		religion = faith_kerkassk
+	}
+	7174.1.1 = {
+		culture = magriag
+		religion = faith_rhun_pantheistic
 	}
 }
 

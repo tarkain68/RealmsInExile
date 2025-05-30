@@ -815,7 +815,7 @@ c_dath_nethryn = {
 		holder = weakorc9
 		change_development_level = 3
 	}
-	7000.1.1 = {		
+    6974.1.1 = {							
 		liege = e_mordor
 	}
     7052.3.25 = { # Final Defeat of Sauron
@@ -966,7 +966,10 @@ c_kirithgal = {
 	6959.1.1 = {							
 		holder = weakorc4
 		change_development_level = 4
-	}						
+	}
+    6974.1.1 = {							
+		liege = e_mordor
+	}			
 	7033.1.1 = {							
 		liege = e_mordor
 	}
@@ -1027,6 +1030,9 @@ c_agarnaith = {
 	6916.1.1 = {							
 		holder = strongorc1
 		change_development_level = 5
+	}
+    6974.1.1 = {							
+		liege = e_mordor
 	}							
 	7033.1.1 = {							
 		liege = e_mordor
@@ -1609,6 +1615,7 @@ c_gurthrant = {
 	6492.8.25 = {
         holder = lineudo1 
 		change_development_level = 11
+        liege = d_nurn
     }
     6576.4.18 = {
         holder = lineudo5 
@@ -1693,6 +1700,9 @@ c_rul = {
 	6869.1.1 = {							
 		holder = strongorc4
 		change_development_level = 8
+	}
+    6974.1.1 = {							
+		liege = e_mordor
 	}			
 	7033.1.1 = {							
 		liege = k_nurn
@@ -2279,6 +2289,7 @@ c_maghak = {
 d_nargil = {							
 	5800.3.20 = {	# Old Nurniag Dynasty
         holder = lineadro1 
+        liege = k_nurn
     }
     5876.11.12 = {
         holder = lineadro3
@@ -2293,16 +2304,16 @@ d_nargil = {
         holder = lineadro11 
     }
 	5909.8.26 = {
-        holder = lineibo1 
+        holder = lineibo1
+        liege = k_nurn
     }
     5970.3.2 = {
         holder = lineibo3 
     }
     6032.10.13 = {
-        holder = lineibo5 
+        holder = lineibo5
     }
 	6035.1.1 = { # The Nazgûl take Minas Ithil and prepare Mordor for Sauron's return, diminishing the authority of the Núrniags until proven fully loyal
-		liege = k_nurn
 		government = clan_government
 	}	
     6049.7.20 = {
@@ -3830,7 +3841,10 @@ c_morlith = {
 	6951.1.1 = {							
 		holder = strongorc12
 		change_development_level = 6
-	}						
+	}
+    6974.1.1 = {							
+		liege = e_mordor
+	}					
 	7033.1.1 = {							
 		liege = k_nurn
 	}		

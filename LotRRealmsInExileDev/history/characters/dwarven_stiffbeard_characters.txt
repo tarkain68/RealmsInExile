@@ -1913,6 +1913,10 @@ lineofsnail55sister = {
         birth = yes
     }
 
+    6783.11.18 = {
+        trait = cannot_marry
+    }
+
     6980.4.8 = {
         death = { death_reason = death_ill }
     }
@@ -1995,12 +1999,12 @@ lineofsnail57 = { # Main vanity char
 		}
         }
 
-        7032.12.30 = { 
-            start_tributary = { # The stiffbeards pledge loyalty to the lords of the king of Durin's folk
-				contract_group = tributary_subjugated
-				suzerain = character:lineofdurin90
-			}
-        }
+    7032.12.30 = { 
+        start_tributary = { # The stiffbeards pledge loyalty to the lords of the king of Durin's folk
+			contract_group = tributary_subjugated
+			suzerain = character:lineofdurin90
+		}
+    }
 
     7169.4.8 = {
         death = { death_reason = death_natural_causes }
@@ -2036,6 +2040,10 @@ lineofsnail57sister = {
         effect = { add_character_flag = no_auto_family }
     }
 
+    6982.6.9 = {
+        trait = cannot_marry
+    }
+
     7169.4.8 = {
         death = { death_reason = death_natural_causes }
     }
@@ -2068,6 +2076,10 @@ lineofsnail57sister2 = {
     6867.6.9 = {
         birth = yes
         effect = { add_character_flag = no_auto_family }
+    }
+
+    6937.6.9 = {
+        trait = cannot_marry
     }
 
     7032.1.1 = { # Gudmundr asks Jauffre to help his sister with the merchantile way
@@ -2107,6 +2119,10 @@ lineofsnail57brother1 = {
         effect = { add_character_flag = no_auto_family }
     }
 
+    6967.6.9 = {
+        trait = cannot_marry
+    }
+
     7169.4.8 = {
         death = { death_reason = death_natural_causes }
     }
@@ -2138,6 +2154,10 @@ lineofsnail57brother2 = {
     6857.6.9 = {
         birth = yes
         effect = { add_character_flag = no_auto_family }
+    }
+    6927.6.9 = {
+        trait = cannot_marry
+        trait = disinherited
     }
     7169.4.8 = {
         death = { death_reason = death_natural_causes }
@@ -2214,6 +2234,10 @@ lineofsnail60 = {
         birth = yes
     }
 
+    6901.4.3 = {
+        trait = cannot_marry
+    }
+
     7169.4.8 = {
         death = { death_reason = death_natural_causes }
     }
@@ -2237,6 +2261,10 @@ lineofsnail61 = {
 
     6911.4.3 = {
         birth = yes
+    }
+
+    6981.4.3 = {
+        trait = cannot_marry
     }
 
     7169.4.8 = {
@@ -2361,6 +2389,10 @@ lineofsnail66 = {
         birth = yes
     }
 
+    6973.11.18 = {
+        trait = cannot_marry
+    }
+
     7053.4.8 = {
         death = { death_reason = death_natural_causes }
     }
@@ -2408,6 +2440,10 @@ lineofsnail68 = {
 
     6883.11.18 = {
         birth = yes
+    }
+
+    6953.11.18 = {
+        trait = cannot_marry
     }
 
     7085.4.8 = {
@@ -2924,7 +2960,7 @@ lineofsnail85 = {
         birth = yes
     }
 
-    6889.8.19 = {
+    6880.8.19 = {
         add_spouse = lineofsnail86
     }
 
@@ -3029,6 +3065,15 @@ lineofsnail88 = {
         }
     }
 
+    7174.1.1 = {
+        effect = {
+            start_tributary = {
+				contract_group = tributary_protectorate
+				suzerain = character:lineofdurin91
+			}
+		}
+    }
+
     7174.5.27 = {
         death = { death_reason = death_natural_causes }
     }
@@ -3088,6 +3133,10 @@ lineofsnail91 = {
 
     6607.12.22 = {
         birth = yes
+    }
+
+    6677.12.22 = {
+        trait = cannot_marry
     }
 
     6887.2.6 = {
@@ -4427,7 +4476,7 @@ lineofsnail133 = {
         birth = yes
     }
 
-    6890.10.20 = {
+    6930.10.20 = {
         death = { death_reason = death_hunting_accident  }
     }
 }
@@ -4440,8 +4489,8 @@ lineofsnail134 = {
     culture = stiffbeards
     dynasty = dynasty_snail
 
-    father = lineofsnail132
-    mother = lineofsnail133
+    father = lineofsnail85
+    mother = lineofsnail86
 
     trait = temperate
     trait = diligent
@@ -4467,10 +4516,10 @@ lineofsnail134 = {
         }
     }
     7001.3.11 = {
-        add_spouse = lineofuni61
+        add_spouse = lineofhunduzir67
     }
     7020.8.8 = {
-        employer = lineofuni31
+        employer = lineofhunduzir47
     }
     7205.2.3 = {
         death = { death_reason = death_natural_causes }
@@ -4495,20 +4544,20 @@ lineofsnail135 = {
 
     trait = education_intrigue_4
 
-    6886.1.1 = {
+    6929.5.7 = {
         birth = yes
     }
-    6989.1.1 = {
+    6999.6.8 = {
         set_relation_rival = {
             target = character:lineofsnail57
             reason = rival_spurned_advances
         }
     }
     7002.1.1 = {
-        add_spouse = lineofuni42
+        add_spouse = lineoftherrel77
     }
     7020.8.8 = {
-        employer = lineofuni31
+        employer = lineoftherrel71
     }
     7165.2.3 = {
         death = { death_reason = death_natural_causes }
@@ -4905,17 +4954,12 @@ lineofsnail148 = {
     name = Ulla
     female = yes
 
-    dynasty = dynasty_snail
     religion = faith_stiffbeards
     culture = stiffbeards
-
-    father = lineofsnail146
-    mother = lineofsnail147
 
     trait = craven
     trait = wrathful
     trait = deceitful
-    trait = twin
 
     trait = education_learning_2
 
@@ -4974,6 +5018,10 @@ lineofsnail150 = {
     6896.1.1 = {
         birth = yes
     }
+
+    6966.1.1 = {
+        trait = cannot_marry
+    }
     
     6989.1.1 = {
         set_relation_rival = {
@@ -4992,18 +5040,18 @@ lineofsnail150 = {
 }
 
 lineofsnail151 = {
-    name = R_athswithur
-    dynasty = dynasty_uni
+    name = Bogi
+    dynasty = dynasty_hundu_zir
 
-    religion = faith_stiffbeards
-    culture = stiffbeards
+    religion = faith_khazad
+    culture = iron_hills
     
-    father = lineofuni61
+    father = lineofhunduzir67
     mother = lineofsnail134
 
     7025.3.1 = {
         birth = yes
-        employer = lineofhor34
+        employer = lineofhunduzir47
     }
 
     7165.2.3 = {
@@ -5012,18 +5060,18 @@ lineofsnail151 = {
 }
 
 lineofsnail152 = {
-    name = R_athswithur
-    dynasty = dynasty_uni
+    name = Ebbi
+    dynasty = dynasty_hundu_zir
 
-    religion = faith_stiffbeards
-    culture = stiffbeards
+    religion = faith_khazad
+    culture = iron_hills
     
-    father = lineofuni61
+    father = lineofhunduzir67
     mother = lineofsnail134
 
     7027.3.1 = {
         birth = yes
-        employer = lineofhor34
+        employer = lineofhunduzir47
     }
 
     7265.2.3 = {
@@ -5033,18 +5081,18 @@ lineofsnail152 = {
 
 lineofsnail153 = {
     name = Gortra
-    dynasty = dynasty_uni
+    dynasty = dynasty_therrel
     female = yes
 
-    religion = faith_stiffbeards
-    culture = stiffbeards
+    religion = faith_khazad
+    culture = iron_hills
     
-    father = lineofuni42
+    father = lineoftherrel77
     mother = lineofsnail135
 
     7027.3.1 = {
         birth = yes
-        employer = lineofuni31
+        employer = lineoftherrel71
     }
 
     7295.2.3 = {

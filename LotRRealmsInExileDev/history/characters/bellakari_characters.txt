@@ -28070,7 +28070,6 @@ lineofsakalroth20 = {
     religion = faith_infinite_wisdom
     culture = bellakaze
 
-    dynasty = dynasty_lominalu
     father = lineofsakalroth14
     mother = lineoftumakveh79a1
 
@@ -46151,12 +46150,6 @@ lineofdukalian6 = {
 
     6786.6.10 = {
         birth = yes
-    }
-
-    6802.6.10 = {
-        trait = diligent
-        trait = temperate
-        trait = brave
     }
 
     6788.3.14 = {

@@ -1,5 +1,11 @@
 ﻿#### Empire of Sirayn ####
 e_sirayn = {
+	4549.6.11 = { # Sikentr conquers the Masra
+		holder = lineofsikentr0
+	}
+	4575.9.7 = { # Sikentr dies
+		holder = 0
+	}
 	5183.1.1 = {
 		holder = nazgul5
 	}
@@ -213,13 +219,10 @@ c_amoth = {
 		change_development_level = 7
 		liege = d_ne_tava
     }
-    6916.12.17 = {
+    6919.5.25 = {
         holder = lineamoth3 #Gabar
     }
-    6919.5.25 = {
-        holder = lineamoth5 #Somakh
-    }
-    6916.4.1 = {
+    6927.8.20 = {
         holder = lineamoth7 #Haynar
     }
     6985.1.8 = {
@@ -271,12 +274,13 @@ c_velen = {
         holder = linevelen5 #Ja_a_chisran
 		liege = d_ne_tava
     }
-    6846.2.9 = {
+	6831.6.4 = {
         holder = linevelen7 #Za_a_ran
     }
-    6831.6.4 = {
+    6846.2.9 = {
         holder = linevelen9 #Aku_u_rayl
     }
+    
     6912.8.14 = {
         holder = linevelen11 #Kalwa_a_n
     }
@@ -341,10 +345,10 @@ c_evepoa = {
         holder = linevelen5 #Ja_a_chisran
 		liege = d_ne_tava
     }
-    6846.2.9 = {
+	6831.6.4 = {
         holder = linevelen7 #Za_a_ran
     }
-    6831.6.4 = {
+    6846.2.9 = {
         holder = linevelen9 #Aku_u_rayl
     }
     6912.8.14 = {
@@ -488,9 +492,6 @@ c_bampoa = {
     6957.9.15 = {
         holder = linebampoa9 #Ja_a_chisran
     }
-    6983.7.6 = {
-        holder = linebampoa11 #Mayb
-    }
     6977.9.12 = {
         holder = linebampoa13 #Haynar
     }
@@ -624,9 +625,6 @@ d_ne_sargoa = {
         holder = lineofshayennat5 #Za_a_ttakha_a_nt
     }
     5315.3.18 = {
-        holder = lineofshayennat7 #Sha_a_shar
-    }
-    5309.7.23 = {
         holder = lineofshayennat9 #Kantu_u_r
     }
     5348.9.19 = {
@@ -683,9 +681,6 @@ c_sargoa = {
         holder = lineofshayennat5 #Za_a_ttakha_a_nt
     }
     5315.3.18 = {
-        holder = lineofshayennat7 #Sha_a_shar
-    }
-    5309.7.23 = {
         holder = lineofshayennat9 #Kantu_u_r
     }
     5348.9.19 = {
@@ -744,9 +739,6 @@ c_nolis = {
         holder = lineofshayennat5 #Za_a_ttakha_a_nt
     }
     5315.3.18 = {
-        holder = lineofshayennat7 #Sha_a_shar
-    }
-    5309.7.23 = {
         holder = lineofshayennat9 #Kantu_u_r
     }
     5348.9.19 = {
@@ -842,10 +834,10 @@ c_fejaraz = {
 		holder = lineofkamratt3sister #Kali
 		liege = d_ne_sargoa
 	}
-	6757.10.7 = { # Long Winter Start date ruler
-		holder = lineofkamratt3 #Kzal
-	}
-	6807.1.2 = {
+	#6757.10.7 = { # Long Winter Start date ruler
+	#	holder = lineofkamratt3 #Kzal
+	#}
+	6822.2.12 = {
 		holder = lineofkamratt5 #Tarta_a_shazazn
 	}
 	6852.2.11 = {
@@ -881,9 +873,6 @@ c_varin = {
         holder = lineofshayennat5 #Za_a_ttakha_a_nt
     }
     5315.3.18 = {
-        holder = lineofshayennat7 #Sha_a_shar
-    }
-    5309.7.23 = {
         holder = lineofshayennat9 #Kantu_u_r
     }
     5348.9.19 = {
@@ -903,10 +892,10 @@ c_varin = {
 		holder = lineofkamratt3sister #Kali
 		liege = d_ne_sargoa
 	}
-	6757.10.7 = { # Long Winter Start date ruler
-		holder = lineofkamratt3 #Kzal
-	}
-	6807.1.2 = {
+	#6757.10.7 = { # Long Winter Start date ruler
+	#	holder = lineofkamratt3 #Kzal
+	#}
+	6822.2.12 = {
 		holder = lineofkamratt5 #Tarta_a_shazazn
 	}
 	6852.2.11 = {
@@ -1642,9 +1631,6 @@ c_bashriska = {
 		holder = lineofsanzidhi17 #Rankh
 	}
 	5448.12.9 = {
-		holder = lineofsanzidhi19 #Za_a_wonkh
-	}
-	5443.12.25 = {
 		holder = lineofsanzidhi21 #Pozatan
 	}
 	5519.1.9 = {
@@ -1774,9 +1760,6 @@ c_moruneth = {
 		holder = lineofsanzidhi17 #Rankh
 	}
 	5448.12.9 = {
-		holder = lineofsanzidhi19 #Za_a_wonkh
-	}
-	5443.12.25 = {
 		holder = lineofsanzidhi21 #Pozatan
 	}
 	5519.1.9 = {
@@ -4246,9 +4229,6 @@ d_devesa = {
 		holder = lineofmuladha7 #Warakh
 	}
 	5321.3.19 = {
-		holder = lineofmuladha9 #Karyi_i_ra
-	}
-	5317.11.19 = {
 		holder = lineofmuladha11 #Hadya_a_
 	}
 	5363.3.26 = {
@@ -4284,9 +4264,6 @@ c_aysha = {
 		holder = lineofmuladha7 #Warakh
 	}
 	5321.3.19 = {
-		holder = lineofmuladha9 #Karyi_i_ra
-	}
-	5317.11.19 = {
 		holder = lineofmuladha11 #Hadya_a_
 	}
 	5363.3.26 = {
@@ -4361,9 +4338,6 @@ c_farun = {
 		holder = lineofmuladha7 #Warakh
 	}
 	5321.3.19 = {
-		holder = lineofmuladha9 #Karyi_i_ra
-	}
-	5317.11.19 = {
 		holder = lineofmuladha11 #Hadya_a_
 	}
 	5363.3.26 = {
@@ -4430,9 +4404,6 @@ c_bal = {
 		holder = lineofmuladha7 #Warakh
 	}
 	5321.3.19 = {
-		holder = lineofmuladha9 #Karyi_i_ra
-	}
-	5317.11.19 = {
 		holder = lineofmuladha11 #Hadya_a_
 	}
 	5363.3.26 = {
@@ -4502,9 +4473,6 @@ c_dunris = {
 		holder = lineofmuladha7 #Warakh
 	}
 	5321.3.19 = {
-		holder = lineofmuladha9 #Karyi_i_ra
-	}
-	5317.11.19 = {
 		holder = lineofmuladha11 #Hadya_a_
 	}
 	5363.3.26 = {
@@ -4578,9 +4546,6 @@ c_morun = {
 		holder = lineofmuladha7 #Warakh
 	}
 	5321.3.19 = {
-		holder = lineofmuladha9 #Karyi_i_ra
-	}
-	5317.11.19 = {
 		holder = lineofmuladha11 #Hadya_a_
 	}
 	5363.3.26 = {
@@ -4655,9 +4620,6 @@ c_marnesk = {
 		holder = lineofmuladha7 #Warakh
 	}
 	5321.3.19 = {
-		holder = lineofmuladha9 #Karyi_i_ra
-	}
-	5317.11.19 = {
 		holder = lineofmuladha11 #Hadya_a_
 	}
 	5363.3.26 = {
@@ -4824,9 +4786,6 @@ c_kirmar = {
 		holder = lineofmuladha7 #Warakh
 	}
 	5321.3.19 = {
-		holder = lineofmuladha9 #Karyi_i_ra
-	}
-	5317.11.19 = {
 		holder = lineofmuladha11 #Hadya_a_
 	}
 	5363.3.26 = {

@@ -341,10 +341,8 @@ lotr_laamp_4001_contract_scheme = {
 	
 	# Core Triggers
 	valid = {
-		valid_laamp_basic_trigger = {
-			EMPLOYER = scope:target
-			LAAMP = scope:owner
-		}
+		scope:target = { is_landed = yes }
+		scope:owner = { is_landless_adventurer = yes }
 	}
 
 	# Agents
@@ -478,6 +476,10 @@ lotr_laamp_4001_contract_scheme = {
 	}
 }
 
+##################################################
+# PROWESS CONTRACT SCHEMES
+
+# Raid settlement
 lotr_laamp_5001_contract_scheme = {
 	# Basic Setup
 	skill = prowess
@@ -506,7 +508,7 @@ lotr_laamp_5001_contract_scheme = {
 
 	# Core Triggers
 	valid = {
-		valid_laamp_basic_trigger = {
+		valid_hostile_ranger_laamp_basic_trigger = {
 			EMPLOYER = scope:target
 			LAAMP = scope:owner
 		}
@@ -658,17 +660,22 @@ lotr_laamp_5001_contract_scheme = {
 		scheme_target_character = { save_scope_as = target }
 		scheme_owner = {
 			save_scope_as = owner
-			send_interface_toast = {
-				title = scheme_invalidated_title
-				type = prowess_contract_scheme_invalidated_message
-				left_icon = scope:target
-				if = { # Capital province raided
-					limit = {
-						scope:target.capital_province = {
-							has_province_modifier = recently_looted_modifier
-						}
-					}
+			if = {
+				limit = {
+					scope:target.capital_province = { has_province_modifier = recently_looted_modifier }
+				}
+				send_interface_toast = {
+					title = scheme_invalidated_title
+					type = martial_contract_scheme_invalidated_message
+					left_icon = scope:target
 					custom_tooltip = scheme_target_capital_raided
+				}
+			} 
+			else = {
+				send_interface_toast = {
+					title = scheme_invalidated_title
+					type = martial_contract_scheme_invalidated_message
+					left_icon = scope:target
 				}
 			}
 		}

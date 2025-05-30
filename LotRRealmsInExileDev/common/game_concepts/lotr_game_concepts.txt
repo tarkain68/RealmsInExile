@@ -815,6 +815,12 @@ eriador = {
 	texture = "gfx/interface/icons/concept_icons/conceptarnorrealm.dds"
 	parent = conceptplace
 }
+
+nelvorin = {
+	
+	parent = conceptplace
+}
+
 mistymountains = {
 	parent = conceptplace
 	alias = { hithaeglir themountains }
@@ -838,6 +844,14 @@ whitemountains = {
 yellowmountains = {
 	parent = conceptplace
 	alias = { eredmellin }
+}
+ironhills = {
+	parent = conceptplace
+	alias = { }
+}
+nordinbad = {
+	parent = conceptplace
+	alias = { }
 }
 anduin = {
 	parent = conceptplace
@@ -1483,6 +1497,10 @@ allianceofdwarvesandmen = {
 	texture = "gfx/interface/icons/concept_icons/conceptcharactersauron.dds"
 	parent = concepthistoricevent
 }
+warofdwarvesandorcs = {
+	parent = concepthistoricevent
+	alias = { }
+}
 angmar_war = {
 	parent = concepthistoricevent
 	alias = { angmar_wars }
@@ -1683,6 +1701,10 @@ sindarin = {
 
 
 ##### Dwarven Concepts #####
+khuzdul = {
+	parent = conceptmajorloreidea
+	alias = { khuzdul_short }
+}
 songofdurin = {
 	parent = conceptmajorloreidea
 }
