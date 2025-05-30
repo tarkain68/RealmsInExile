@@ -695,13 +695,30 @@ sauron.3000 = { # A tempting offer
 	}
 	
 	immediate = {
-		random_courtier = {
+		if = {
 			limit = {
-				is_nazgul = yes
-				is_landed = no
-				is_available_ai = yes
+				character:mouthofsauron = {
+					is_available_ai = yes
+				}
 			}
-			save_scope_as = messenger_nazgul
+			character:mouthofsauron = {
+				save_scope_as = messenger_nazgul
+			}
+		}
+		else_if = {
+			random_courtier = {
+				limit = {
+					is_nazgul = yes
+					is_landed = no
+					is_available_ai = yes
+				}
+				save_scope_as = messenger_nazgul
+			}
+		}
+		else = {
+			random_courtier = {
+				save_scope_as = messenger_nazgul
+			}
 		}
 	}
 	
@@ -717,7 +734,8 @@ sauron.3000 = { # A tempting offer
 			}
 			dynasty:dynasty_durin.dynast = {
 				trigger_event = {
-					id = sauron.3001
+					#id = sauron.3001
+					id = ring_quest.0400
 					days = 14
 				}
 			}

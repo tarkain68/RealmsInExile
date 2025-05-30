@@ -9,7 +9,7 @@
  # Best practice for Realms: place all gloss defintitions here, for easy acess, under the correct language alphabetiacally. If possible, mention where it is used for reference. 
 
  
- ###### Elven Languages #######
+###### Elven Languages #######
  
  # Quenya #
  
@@ -37,7 +37,7 @@
 
  envinyatar_gloss: "[quenya_short|E] #boldEnvinyatar#! means 'the Renewer'."
 
- eru_gloss: "[quenya_short|E] #bold Eru#! means 'The One', someone unique, single, and alone."
+ eru_gloss: "[quenya_short|E] #bold Eru#! means 'The One', someone unique, singular, and alone."
 
  fea_gloss: "[quenya_short|E] #bold fëa#! is the [elven|E] word for 'spirit', specifically one indwelling in a [Glossary('hröa','hroa_gloss')], sometimes described poetically as the [Glossary('cöacalina','coacalina_gloss')]."
 
@@ -92,7 +92,7 @@
  voronwe_gloss: "[quenya_short|E] #boldVoronwë#! means 'The Steadfast' or 'The Faithful'. It is the name of Tuor's [elven|E] guide to Gondolin; the name of a companion of [elendil|E]; and the epithet taken by Mardil Voronwë, the first Ruling Steward of [gondor|E]."
 
 
- ##### Sindarin ######
+##### Sindarin ######
 
  aeglos_gloss: "[sindarin_short|E] #bold Aeglos#! means 'Snow Point' or 'Icicle', and is the name both of Gil-Galad's spear and a gorse-like plant of the [firstage|E]."
 
@@ -196,7 +196,7 @@
 
  # Kinn-lai # 
 
- ########## Adunaic ############
+########## Adunaic ############
 
  agannalumaba_aru_gloss: "Ad. #bold $agannalumaba_aru$#! translates to 'the King without the Shadow of Death', referring to [pharazon_golden|E]."
 
@@ -212,13 +212,13 @@
 
  zayan_an_agan_gloss: "Ad. #bold Zâyan an-Agan#! is the [adunaic|E] name for the 'Field of Black Death', the site of the largest battle in [bellakarean|E] history. Here, the host of the Tedjin met the host of [bellakar|E] during the Tedjin-Qarsag invasion.\n\nFor centuries after, the bones of the dead would poke out of the arid soil, and every spring flood would wash up pieces of metal and wargear in the quicksand. The spirits of the dead still lingered here, and this stretch of the valley would be avoided by the supersticious folk of the area."
 
- ##### Westron ######
+##### Westron ######
  
  castar_gloss: "The W. #bold Castar#! is a [gondorian|E] coin, the chief currency used in that realm. It is equivalent to four [Glossary('tharni','tharni_gloss')], and is also known in [sindarin|E] as the [Glossary('mirian','mirian_gloss')]. Its original meaning is unknown, but it is perhaps related to the old word #italic kastu#! meaning 'mathom, precious thing'."
 
  tharni_gloss: "The Westron word #bold Tharni#! meaning 'quarter' or 'farthing' is in Gondor used for a silver coin, the fourth part of the [Glossary('castar','castar_gloss')], and also known in [sindarin|E] as the [Glossary('canath','canath_gloss')]. \n\nAmong the hobbits of the Shire, it is also used for their major administrative divisons, the four Farthings."
  
- ########## Khuzdul ############
+########## Khuzdul ############
 
  bulnd_mabul_gloss: "Kh. #bold Bûlnd-Mabûl#! means 'Blacklock-Mountains'."
  barazanthual_gloss: "Kh. #bold Barazanthual#! means 'Red Axe'."
@@ -228,8 +228,7 @@
  ibriz_garan_gloss: "Kh. #bold Ibriz-Garân#! means 'Sunset Caverns'."
  zelemabkhan_gloss: "Kh. #bold Zelemabkhan#! means 'Litany of Stone'."
 
- ######### Dwarven MAA #########
-
+ ## Dwarven MAA ##
  # Longbeards #
 
  craban_azgith_gloss: "Kh. #bold Craban Azgîth#! means 'Raven Eyes'."
@@ -295,6 +294,7 @@
  herugrim_gloss: "Roh. #bold Heregrim#! means 'fell' or 'savage', a fitting name for a sword of Kings."
 
  steelsheen_gloss: "Roh. #bold Stýlescíene#! means 'Steely-Beauty'."
+
  ######### Dunlending ##########
 
  forgoil_gloss: "Dun. #bold Forgoil#! means 'Strawheads' in the [dunlending|E] tongue, their name for the fair-haired Rohirrim who stole their ancient lands."

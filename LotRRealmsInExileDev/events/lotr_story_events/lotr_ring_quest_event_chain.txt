@@ -612,6 +612,13 @@ ring_quest.0400 = { # Messenger of Mordor - Dáin Ironfoot
 		name = ring_quest.0400.c
 		custom_tooltip = ring_quest.0400.c.tt
 	}
+
+	after = {
+		trigger_event = {
+			id = dale.0003 
+			days = 7
+		}
+	}
 }
 
 ring_quest.0401 = { # Messenger of Mordor - Glóin 

@@ -518,7 +518,7 @@ dale.0502 = {
 dale.0503 = {
 	hidden = yes 
 	immediate = {
-		title:k_dale.holder = { trigger_event = dale.0003 }
+		#title:k_dale.holder = { trigger_event = dale.0003 } # Triggered via Ring Quest
 	}
 }
 

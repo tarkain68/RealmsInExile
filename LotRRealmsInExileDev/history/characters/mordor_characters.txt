@@ -8,10 +8,6 @@
 ###############				
 ##### Men #####				
 ###############				
-				
-## Special Characters				
-# Mouth of Sauron				
-				
 
 ### Special Characters				
 # Mouth of Sauron				
