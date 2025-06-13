@@ -6005,6 +6005,8 @@ lineofferchar13 = {
 	trait = brave	
 						
     disallow_random_traits = yes
+
+    trait = bossy
                 		
 	7023.1.1 = {
 		birth = yes				
@@ -25285,8 +25287,8 @@ lineofgunrnow3wife = {
 lineofgurnow3 = { 
 	name = Gurnow
 	dynasty = dynasty_gurnow
-    religion = faith_gwathuirim_dynion
-    culture = enedhwaithrim
+    religion = faith_dunlending_luta_ies
+    culture = dunlending
 	dna = lineofgurnow3_dna
 	
 	
@@ -25297,6 +25299,8 @@ lineofgurnow3 = {
 	trait = strong
 	trait = greedy
 	trait = whole_of_body
+	trait = arrogant
+	trait = education_martial_2
 	
     6728.6.5 = {
         birth = yes
@@ -25358,6 +25362,7 @@ lineofgurnow6 = {
 	dynasty = dynasty_gurnow
     religion = faith_gwathuirim_dynion
     culture = enedhwaithrim 
+	dna = lineofgurnow6_dna
 	
 	sexuality = homosexual
 	
@@ -25459,22 +25464,27 @@ tombrass = {
 	dynasty = dynasty_brass
     religion = faith_gwathuirim_dynion
     culture = enedhwaithrim 
+	dna = tombrass_dna
 	
-	diplomacy = 8
-	martial = 12
-	stewardship = 8
-	intrigue = 10
-	learning = 6
-	prowess = 12
+	diplomacy = 5
+	martial = 9
+	stewardship = 5
+	intrigue = 7
+	learning = 3
+	prowess = 10
 	
     trait = physique_good_2
 	trait = schemer
 	trait = lifestyle_blademaster
 	trait = disloyal
+	trait = shrewd
     
 	trait = ambitious
 	trait = cynical
 	trait = brave
+	
+	trait = winter_soldier
+	trait = unyielding_defender
 	
 	trait = education_martial_3
 	

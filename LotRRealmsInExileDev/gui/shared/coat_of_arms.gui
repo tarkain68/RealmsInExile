@@ -311,8 +311,8 @@ types CoATypes
 					coa_realm_topframe = {
 						texture ="gfx/interface/coat_of_arms/topframe_62.dds"
 						position = { 0 -2 }
-						size = { 64 68 }
-						framesize = { 64 68 }
+						size = { 62 68 } #LotR
+						framesize = { 62 68 } #LotR
 					}
 				}
 			}
@@ -1705,8 +1705,10 @@ types CoATypes
 					alwaystransparent = yes
 					visible = "[Not(BookmarkCharacter.HasDynastyHouse)]"
 
-					coat_of_arms = "[BookmarkCharacter.GetDynastyTemplate.GetCoA.GetTexture('(int32)124','(int32)124')]"
-					coat_of_arms_slot = "[BookmarkCharacter.GetDynastyTemplate.GetCoA.GetSlot('(int32)124','(int32)124')]"
+#					coat_of_arms = "[BookmarkCharacter.GetDynastyTemplate.GetCoA.GetTexture('(int32)124','(int32)124')]"
+#					coat_of_arms_slot = "[BookmarkCharacter.GetDynastyTemplate.GetCoA.GetSlot('(int32)124','(int32)124')]"
+					coat_of_arms = "[BookmarkCharacter.GetLandedTitleTemplate.GetCoA.GetTexture('(int32)124','(int32)124')]" # LotR - Clan uses realm CoA, not house CoA
+					coat_of_arms_slot = "[BookmarkCharacter.GetLandedTitleTemplate.GetCoA.GetSlot('(int32)124','(int32)124')]" # LotR
 					coat_of_arms_mask = "[BookmarkCharacter.GetGovernmentType.GetRealmMask]"
 
 					modify_texture = {
@@ -1739,8 +1741,10 @@ types CoATypes
 					alwaystransparent = yes
 					visible = "[BookmarkCharacter.HasDynastyHouse]"
 
-					coat_of_arms = "[BookmarkCharacter.GetDynastyHouseTemplate.GetCoA.GetTexture('(int32)124','(int32)124')]"
-					coat_of_arms_slot = "[BookmarkCharacter.GetDynastyHouseTemplate.GetCoA.GetSlot('(int32)124','(int32)124')]"
+#					coat_of_arms = "[BookmarkCharacter.GetDynastyHouseTemplate.GetCoA.GetTexture('(int32)124','(int32)124')]"
+#					coat_of_arms_slot = "[BookmarkCharacter.GetDynastyHouseTemplate.GetCoA.GetSlot('(int32)124','(int32)124')]"
+					coat_of_arms = "[BookmarkCharacter.GetLandedTitleTemplate.GetCoA.GetTexture('(int32)124','(int32)124')]" # LotR - Clan uses realm CoA, not house CoA
+					coat_of_arms_slot = "[BookmarkCharacter.GetLandedTitleTemplate.GetCoA.GetSlot('(int32)124','(int32)124')]" # LotR
 					coat_of_arms_mask = "[BookmarkCharacter.GetGovernmentType.GetRealmMask]"
 
 					modify_texture = {

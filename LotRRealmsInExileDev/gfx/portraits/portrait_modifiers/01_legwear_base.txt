@@ -1301,6 +1301,7 @@
 					portrait_african_proxy_clothing_trigger = yes
 					portrait_pel_clothing_trigger = yes
 					portrait_variag_clothing_trigger = yes
+					portrait_khailuza_clothing_trigger = yes
 				}
 			}
 		}
@@ -1380,7 +1381,7 @@
 		weight = {
 			base = 0
 			modifier = {
-				add = 100
+				add = 101
 				portrait_wear_armor_trigger = yes
 				OR = {
 					portrait_muranian_clothing_trigger = yes

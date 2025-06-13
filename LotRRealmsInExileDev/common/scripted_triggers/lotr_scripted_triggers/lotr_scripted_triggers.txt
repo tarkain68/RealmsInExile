@@ -262,6 +262,47 @@ lotr_steppe_cultures_trigger = {
 	}
 }
 
+lotr_is_clan_culture = { # Defines the cultures and herititages that should take clan governement and not feudal. Triggered from a non-culture scope
+	culture = {
+		OR = {
+			# Talathrim
+			has_cultural_pillar = heritage_ioriag
+			has_cultural_pillar = heritage_igath
+			has_cultural_pillar = heritage_tedjin
+			# Apysaic
+			AND = {
+				has_cultural_pillar = heritage_northern_apysaic
+				NOT = {
+					any_parent_culture_or_above = {
+						this = culture:umbaredain
+					}
+				}
+			}
+			has_cultural_pillar = heritage_middle_apysaic
+			has_cultural_pillar = heritage_southern_apysaic
+			has_cultural_pillar = heritage_elinse
+			# Sirayni
+			has_cultural_pillar = heritage_new_sirayni
+			has_cultural_pillar = heritage_old_sirayni
+			# Mumakani
+			has_cultural_pillar = heritage_shayn
+			has_cultural_pillar = heritage_nafarati
+			has_cultural_pillar = heritage_kirani
+			# Khailuza
+			AND = {
+				has_cultural_pillar = heritage_south_khailuza
+				NOT = { #Not Anarikean, Buchaydean, or Mejhanian
+					any_parent_culture_or_above = {
+						OR = {
+							this = culture:bulchyadean
+							this = culture:muranian
+						}
+					}
+				}
+			}
+		}
+	}
+}
 lotr_has_sauron_faith = { # For destroy mordor religious effects
 	OR = {
 		faith = faith:lidless_eye
@@ -613,17 +654,17 @@ lotr_warbands_haradrim_trigger = {
 }
 
 
-not_in_use_trigger = {
-	OR = {
-		culture = { has_cultural_pillar = heritage_daen_lintis }
-		culture = { has_cultural_pillar = heritage_hadorim }
-	}
-	NOT = {
-		culture = culture:rohirrim
-		culture = { has_cultural_pillar = heritage_ainur }
-		has_character_flag = is_saruman
-	}
-}
+# not_in_use_trigger = {
+# 	OR = {
+# 		culture = { has_cultural_pillar = heritage_daen_lintis }
+# 		culture = { has_cultural_pillar = heritage_hadorim }
+# 	}
+# 	NOT = {
+# 		culture = culture:rohirrim
+# 		culture = { has_cultural_pillar = heritage_ainur }
+# 		has_character_flag = is_saruman
+# 	}
+# }
 
 lotr_isengard_urukhai_culture_trigger = {
 	culture = culture:isengard_urukhai
@@ -794,6 +835,14 @@ lotr_has_southern_numenorean_culture_trigger = {
 			has_cultural_pillar = heritage_northern_adunaic
 			has_cultural_pillar = heritage_southern_adunaic
 		}
+	}
+}
+
+lotr_culture_has_adunaic_supremacy_tradition = { #Fired from a culture scope
+	OR = {
+		has_cultural_tradition = tradition_anbalukkhori
+		has_cultural_tradition = tradition_kharadunai
+		has_cultural_tradition = tradition_blacknumenorean_legacy
 	}
 }
 
@@ -1405,7 +1454,6 @@ balan_lai_united_might_trigger = {
     			        NOT = { is_imprisoned_by = root }
 						NOT = { is_vassal_or_below_of = root }
 				    }
-					limit = { exists = current_military_strength }
 					add = current_military_strength
 				}
 			}
@@ -1731,12 +1779,6 @@ saruman_is_defeated = {
 	}
 }
 
-golden_king_is_alive = {
-	character:nazgul3 = {
-		is_alive = yes
-	}
-}
-
 witch_king_is_alive = {
 	character:nazgul1 = {
 		is_alive = yes
@@ -1798,6 +1840,7 @@ lotr_can_be_activity_guest = {
 	NOT = { has_trait = sauron_ringless }
 	is_nazgul = no
 	is_in_valinor = no
+	lotr_race_and_alignment_compatibility_trigger = { CHARACTER = scope:host } #Basic race and alignment compatibility
 
 	# Orcs only attend Orcish events
 	trigger_if = {
@@ -1805,34 +1848,6 @@ lotr_can_be_activity_guest = {
 		is_orc = yes
 	}
 	trigger_else = { NOT = { is_orc = yes } }
-
-	#Humans and Dwarves may tolerate other alignments but Elves and Istari do not
-	trigger_if = {
-		limit = {
-			scope:host ?= {
-				faith_is_good = yes
-				is_human = no
-				NOT = { is_dwarf = yes }
-			}
-		}
-		faith_is_good = yes
-	}
-
-	#Same goes for Sauron and the Nazgûl (if allowed to host activities)
-	trigger_else_if = {
-		limit = {
-			scope:host ?= {
-				is_human = no
-				NOT = { is_dwarf = yes }
-				faith_is_evil = yes
-			}
-		}
-		faith_is_evil = yes
-	}
-
-	trigger_else = {
-		always = yes
-	}
 }
 
 unique_human_archives_trigger = {
@@ -1914,7 +1929,7 @@ lotr_canon_safe_from_harm_trigger = {
 		this = character:linegilraen12 #Halbarad
 		this = character:linelamedon30 #Angbor
 		this = character:lossarnach28 #Forlong
-		this = character:1518 #Hirluin
+		this = character:linepinnathgelin43 #Hirluin
 		this = character:lineofeorl28 #Théoden
 		this = character:lineofeofor17 #Eomer
 		this = character:lineofeorl33 #Théodred
@@ -2243,11 +2258,7 @@ owns_multiple_counties_not_colony = { # Owns more than one county, not including
 		text = lotr_must_own_more_than_one_county_not_colony
 		is_landed = yes
 		any_held_county = {
-			limit = {
-				NOT = {
-					title_province = { has_holding_type = settlement_holding }
-				}
-			}
+			NOT = { title_province = { has_holding_type = settlement_holding } }
 			count > 1 #Don't give away your only title
 		}
 	}

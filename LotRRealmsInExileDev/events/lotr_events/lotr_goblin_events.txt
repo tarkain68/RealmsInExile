@@ -65,7 +65,7 @@ goblins.0201 = { # First time putting on the mask
 		character = root
 		animation = happiness
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 
@@ -89,7 +89,7 @@ goblins.0202 = { # Second time putting on the mask
 		character = root
 		animation = ecstasy
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 
@@ -120,7 +120,7 @@ goblins.0203 = { # Third time putting on the mask
 		character = root
 		animation = hero_flex
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 
@@ -152,7 +152,7 @@ goblins.0210 = { # Gain gold from... somewhere
 		character = root
 		animation = personality_greedy
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 	
@@ -177,7 +177,7 @@ goblins.0211 = { # Come across a tasty fish
 		character = root
 		animation = happiness
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 	
@@ -205,7 +205,7 @@ goblins.0212 = { # You relieve yourself in public
 		character = root
 		animation = pain
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 	
@@ -234,7 +234,7 @@ goblins.0213 = { # Courtier turns up dead
 		character = root
 		animation = shock
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 	right_portrait = {
@@ -274,7 +274,7 @@ goblins.0214 = { # A building is destroyed
 		character = root
 		animation = fear
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 	
@@ -304,7 +304,7 @@ goblins.0215 = { # An ominous sight
 		character = root
 		animation = fear
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 
@@ -312,7 +312,7 @@ goblins.0215 = { # An ominous sight
 		character = root
 		animation = lunatic
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 
@@ -334,7 +334,7 @@ goblins.0216 = { # Get wounded
 		character = root
 		animation = severelywounded
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 	
@@ -359,7 +359,7 @@ goblins.0217 = { # Climb a mountain with no gear
 		character = root
 		animation = hero_flex
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 	
@@ -385,7 +385,7 @@ goblins.0218 = { # Run around naked
 		character = root
 		animation = crying
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 	
@@ -415,7 +415,7 @@ goblins.0219 = { # AVENGE ME
 		character = root
 		animation = fear
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 	
@@ -569,7 +569,7 @@ goblins.0284 = { # The Mask demands attention - Tier 5
 		character = root
 		animation = severelywounded
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 	
@@ -654,7 +654,7 @@ goblins.0291 = { # Call a random mask event
 	hidden = yes
 	immediate = {
 		trigger_event = {
-			on_action = goblin_mask_events
+			on_action = goblin_mask_cursed_events
 		}
 	}
 }
@@ -826,7 +826,7 @@ goblins.0303 = { # Give the Mask to another goblin - Success
 		character = scope:unlucky_goblin
 		animation = happiness
 		triggered_outfit = {
-			outfit_tags = { goblin_mask }
+			outfit_tags = { goblin_mask_cursed }
 		}
 	}
 	
@@ -958,3 +958,427 @@ goblins.0306 = { # Destroy the Mask - Failure
 		add_stress = 50
 	}
 }
+
+### Foundations of Stone Creepy Events ###
+goblins.1000 = { # Ominous Toasts
+	hidden = yes
+	#trigger = {
+	#	is_ruler = yes
+	#	any_realm_county = {
+	#		has_county_modifier = foundations_of_stone_county_modifier
+	#	}
+	#}
+	immediate = {
+		random_list = {
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt1	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt2	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt3	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt4	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt5	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt6	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt7	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt8	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt9	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt10	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt11	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt12	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt13	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt14	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt15	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt16	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt17	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt18	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt19	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt20	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+						2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt21	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt22	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt23	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt24	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt25	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt26	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt27	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt28	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt29	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt30	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt31	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt32	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt33	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt34	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt35	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt36	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt37	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt38	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt39	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt40	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt41	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt42	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt43	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt44	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt45	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt46	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt47	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt48	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt49	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+			2 = {
+				root = {
+					send_interface_toast = {
+						title = goblins.1000.tt50	
+						add_stress = minor_stress_gain
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+

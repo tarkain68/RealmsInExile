@@ -27,6 +27,7 @@
  middleearth_west_eregion: "[eregion|E]"
  middleearth_west_eregion_south: "Southern [eregion|E]"
  middleearth_west_eregion_imladris: "Imladris"
+ custom_eriador: "[eriador|E]"
 
  middleearth_harad: "[harad|E]"
  middleearth_harad_near: "[nearharad|E]"
@@ -48,6 +49,8 @@
  middleearth_harad_bayoformal: "the Bay of Ormal"
  middleearth_harad_bayoformal_harshandatt: "Harshandatt"
  middleearth_harad_bayoformal_sirayn: "Sîrayn"
+ middleearth_harad_bayoformal_sirayn_east: "Eastern Sîrayn"
+ middleearth_harad_bayoformal_sirayn_west: "Western Sîrayn"
  middleearth_harad_bayoformal_khy: "Khy"
 
  middleearth_uttersouth: "the Utter South"
@@ -57,6 +60,7 @@
  middleearth_uttersouth_twinkingdoms: "the Twin Kingdoms"
  middleearth_uttersouth_twinkingdoms_mag: "Mag"
  middleearth_uttersouth_twinkingdoms_tumag: "Tûmag"
+ middleearth_uttersouth_mumakan: "Mûmakan"
  middleearth_uttersouth_mumakan_usakan: "Ûsakan"
  middleearth_uttersouth_mumakan_shayn: "Shayn"
 
@@ -121,11 +125,12 @@
  special_region_nuar_river_valley: "the Banks of the Núar"
  special_region_innovation_namalo: "the Namâlo Trade Network"
  special_royal_road: "Royal Road"
+ special_region_khy_ardacheran: "Ardâcheran Khy"
  custom_dolguldur: "[dolguldur|E]"
  custom_reform_tedjin_confederacy: "the Tedjin Confederacy"
  custom_bayoftulwang:0 "the [bayoftulwang|E]"
  custom_gondor_calenardhon: "[calenardhon|E]"
- custom_reunited_kingdom: "the Reunited Kingdom"
+ custom_reunited_kingdom: "the [reunitedkingdom|E]"
  custom_elendil_high_kingdom: "the High Kingdom of Númenor-in-Exile"
  custom_harnendor: "Mouth of the Harnen"
  custom_jelut: "the Jelut Heartlands"

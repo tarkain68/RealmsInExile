@@ -143,7 +143,7 @@
  dunedain_collective_noun: "Dúnedain"
  dunedain_prefix: "Dúnedain"
  dunedain_ethnicity: "Dúnedain"
- dunedain_desc: "#size:15    [dunedain|E] is a term used to refer to those descended from the [faithful|E] [numenoreans|E] in [middleearth|E]. They primarily populated the realms of [arnor|E] and [gondor|E], and because of this, many of the great events of the [thirdage|E] revolved around this proud people. Their strength and number have dwindled with the destruction of [arnor|E] and the constant assaults on [gondor|E], but the heirs of [numenor|E] retain much of the wisdom and nobility of their ancient forefathers.#!"
+ dunedain_desc: "#size:15    [dunedain|E] is a term used to refer to those descended from the [faithful|E] [numenoreans|E] in [middleearth|E]. They primarily populated the realms of [arnor|E] and [gondor|E], and because of this, many of the great events of the [thirdage|E] revolved around this proud people. Their strength and number have dwindled with the destruction of Arnor and the constant assaults on Gondor, but the heirs of [numenor|E] retain much of the wisdom and nobility of their ancient forefathers.#!"
 
  gondorian: "Gondorian"
  gondorian_collective_noun: "Gondorians"
@@ -160,6 +160,11 @@
  dunedain_ranger_collective_noun: "Northern Dúnedain"
  dunedain_ranger_prefix: "Northern Dúnedain"
  dunedain_ranger_desc: "#size:15    The [dunedainnorth|E], the [dunedain|E] Rangers, are the remnants of the [arnorians|E] who survived the Battle of Fornost. A hidden and dwindling people, the rangers seek safety in secrecy, their settlements hidden from all but their own and a few key friends. They await a day when they may finally reveal themselves to the world and rebuild the lost kingdom of [arnor|E].#!"
+
+#  new_arnorian: "New Arnorian" #Arnorian, if we can manage to timelock this and the normal Arnorian Culture
+#  new_arnorian_collective_noun: "Arnorians"
+#  new_arnorian_prefix: "Arnorian"
+#  new_arnorian_desc: ""
 
  uialdain: "Uialedain"
  uialdain_collective_noun: "Uialedain"
@@ -206,7 +211,7 @@
  black_numenorean_collective_noun: "Black Númenóreans"
  black_numenorean_prefix: "Black Númenórean"
  black_numenorean_ethnicity: "Northern Adûnâi"
- black_numenorean_desc: "#size:15    The Black [numenoreans|E] are the descendants of [numenorean|E] [kingsmen|E], the loyalists of Ar-Pharazon. They began to decline soon into the [thirdage|E]. By the late [thirdage|E], they were but a tiny group desperately clinging to their faded past glories. \n\nTechnically speaking, the term 'Black Númenórean' is a pejorative term, one assigned by the [faithful|E], not by the people themselves.#!"
+ black_numenorean_desc: "#size:15    The Black [numenoreans|E] are the descendants of [numenorean|E] [kingsmen|E], the loyalists of Ar-Pharazôn. They began to decline soon into the [thirdage|E]. By the late Third Age, they were but a tiny group desperately clinging to their faded past glories. \n\nTechnically speaking, the term 'Black Númenórean' is a pejorative term, one assigned by the [faithful|E], not by the people themselves.#!"
  dynnpat_suf_ion: "ion"
  dynnpat_suf_iel: "iel"
 
@@ -299,6 +304,7 @@
  northron_desc: "#size:15    The [northrons|E] are the Edain who did not cross the [bluemountains|E], distant kin to Hador Lórindol. Also known as the [northmen|E], they have long been friends and allies with the [numenoreans|E] and their descendants.#!"
 
  woodmen: "Woodmen"
+ vale_woodmen_ethnicity: "Vale-Woodmen"
  woodmen_collective_noun: "Woodmen"
  woodmen_prefix: "Woodman"
  woodmen_desc: "#size:15    For countless centuries the Woodmen of [rhovanion|E] have lived in the Forest of [greenwood|E], particularly in its western and eastern eaves. A secretive and tribalistic folk, they suffered much from the depredations of [dolguldur|E]. Though their communities were once connected by many trails through the forest, allowing some of their folk to live in clearings deep within its heart, they became a sundered and diminished people. While the White Council's attack on the [necromancer_sauron|E] allowed the Woodmen to recover somewhat, the return of the [nazgulcharacter|E] to Dol Guldur once again threw a shadow over the forest, and some Woodman tribes in the south fell under its pall.#!"
@@ -345,12 +351,14 @@
  eotheod_desc: "#size:15    The [eothed|E] were a group of [northmen|E] who flourished near the Vales of [anduin|E] and later in northern [mirkwood|E]. They were faithful allies to [gondor|E], and eventually were the ancestors of the [rohirrim|E].#!"
 
  rohirrim: "Rohirrim"
+ rohirrim_ethnicity: "Rohirrim" 
  rohirrim_collective_noun: "Rohirrim"
  rohirrim_prefix: "Rohirro"
  rohirrim_desc: "#size:15    The Horse-Lords of [rohan|E] are the descendants of the [eothed|E] who answered the call of Cirion of [gondor|E] under their king Eorl the Young. After their victory at the fields of Celebrant, Cirion granted them the depopulated province of [calenardhon|E], which came to be known as Rohan, the land of the Horse-Lords. A martial but honorable people, the [rohirrim|E] are unmatched riders and breeders of horses, stalwart friends and terrible foes.#!"
  rohirrim_ruler_designer: "Rohirrim"
 
  leofring: "Leofring"
+ leofring_ethnicity: "Leofring" 
  leofring_collective_noun: "Leofrings"
  leofring_prefix: "Leofro"
  leofring_desc: "#size:15    A nomadic folk of riders akin to the [rohirrim|E], the Leofrings are descendants of those [eothed|E] who didn’t follow Eorl all the way to [calenardhon|E]. The Leofrings (named after their leader Leofr) chose to dwell in the Nether Vales of [anduin|E], settling the western side of the Great River between the mountains and it. Pastoralists by nature, herding sheep from atop horseback, the Leofrings have never been great in number and make few permanent abodes.\n\nAround the year 2630, the greater part of the Leofrings were scattered by a host of [orcs|E], and many of them fled the North, leading the population of the Parth Celebrant and Undeeps to swell. Some in time crossed the Limlight into [rohan|E], settling in the northern downs of the Wold. Many of these, acknowledging their kinship with the Eorlingas, swore fealty to Edoras.\n\nThe Leofrings keep close to the shores of the Great River, and at the time of the War of the Ring, some of their number have taken to working with bands of outlaws and plundering Orcs to smuggle stolen horses across the Anduin.#!"
@@ -529,7 +537,7 @@
  gai: "Gái"
  gai_collective_noun: "Gái"
  gai_prefix: "Gáian"
- gai_desc: "#size:15    The Gái are an isolationist culture, dwelling in the forest of the lesser or northern Gái between Nafarat and the more cosmopolitan [ray|E]. Because of this, they have become adept masters of defending their own land from incursion and will not leave it save at utmost need.#!"
+ gai_desc: "#size:15    The Gái are an isolationist culture, dwelling in the forest of the lesser or northern Gái between Pôwa and the more cosmopolitan [ray|E]. Because of this, they have become adept masters of defending their own land from incursion and will not leave it save at utmost need.#!"
  gai_ethnicity: "Gái"
  
  ## # Tûlwangi ###
@@ -573,10 +581,10 @@
 
  ### Sireshan ###
  old_sirayni: "Sîreshna"
- old_sirayni_ethnicity: "Sîreshna"
+ sirayni_ethnicity: "Sîreshna"
  old_sirayni_collective_noun: "Sîreshni"
  old_sirayni_prefix: "Sîreshna"
- old_sirayni_desc: "#size:15    The Sîreshni were the ancient [haradrim|E] inhabitants of the south-eastern Bay of Ormal, having migrated and settled there during the early [secondage|E]. They would found a vibrant and prosperous civilization, building great cities and settlements, with their political system based on powerful and bustling city-states. Uniquely, the Sîreshni were a matriarchal civilisation, with women being leaders of households and leaders of cities. During the height of their civilization, these city-states grew incredibly wealthy and prosperous, attracting settlers and traders from across the Bay of Ormal, Dune Sea, and beyond.\n\nThe Sîreshni golden age would end with the invasion of Khorahil, one of the bearers of the Rings of Power, during the Second Age. Following that, the Sîreshni who did not assimilate migrated and settled the coasts, becoming known as the Isavbhân.#!"
+ old_sirayni_desc: "#size:15    The Sîreshni were the ancient [haradrim|E] inhabitants of the south-eastern Bay of Ormal, having migrated and settled there during the early [secondage|E]. They would found a vibrant and prosperous civilization, building great cities and settlements, with their political system based on powerful and bustling city-states. Uniquely, the Sîreshni were a matriarchal civilisation, with women being leaders of households and leaders of cities. During the height of their civilization, these city-states grew incredibly wealthy and prosperous, attracting settlers and traders from across the Bay of Ormal, Dune Sea, and beyond.\n\nThe Sîreshni golden age would end with the invasion of [khorahil|E], one of the bearers of the Rings of Power, during the Second Age. Following that, the Sîreshni who did not assimilate migrated and settled the coasts, becoming known as the Isavbhân.#!"
  
  isauban: "Isavbhân"
  isauban_collective_noun: "Isavbhân"
@@ -591,24 +599,24 @@
  danak: "Dânak"
  danak_collective_noun: "Dânak"
  danak_prefix: "Dânak"
- danak_desc: "#size:15    Mountainmen of the Eastern Tur Betark#!"
+ danak_desc: "#size:15    Living in the northern foothills of the Yellow Mountains, the Dânak stand apart as a unique people in the cosmopolitan lands of Sîrayn. Although greatly culturally influenced both by the Sîrayna and the Sîreshna before them, they are, in fact, the last remnants of the great Mûmakani migration of the [firstage|E], choosing to remain in the north when their kinsfolk either crossed the mountain passes or journeyed along the coast into Shayn.\n\nThese days, the tend to keep to themselves, away from the hustle and bustle of Sîrayn's cities, content to tend to their flocks and farm their rocky fields up in the hills as they always have done. Many among them for their patron the god Markúr, whose calm, ascetic path meshes seemlessly into their humble lifestyle, living nigh to the mighty forest of the Sára Bask as they do. Indeed, among their folk-tales one can find stories of the Yatali-Gan far more frequently than in the legends of other peoples in Sîrayn, perhaps eluding to some ancient friendship or understanding.#!"
 
  ### Sirayni ###
  new_sirayni: "Sîrayna"
  new_sirayni_ethnicity: "Sîrayna"
  new_sirayni_collective_noun: "Sîraynê"
  new_sirayni_prefix: "Sîrayna"
- new_sirayni_desc: "#size:15    Non-matri Sîraynê, hybrid with Arani post Khorahil round 1#!"
+ new_sirayni_desc: "#size:15    When [khorahil|E] invaded Sîrayn in the [secondage|E], his years of brutal occupation completely upended Sîreshna society. Even following his defeat at the hands of Tar-Ancalimon of [numenor|E], life for the Sîreshna would not be easy. The west of Sîrayn had suffered the worst from the [ringwraith|E]'s depradations, and the proceeding centuries saw an influx of Arani migrants into a thoroughly broken and devastated lands.\n\nThese migrants, mingling with the remaining Sîreshna, gave rise to the various Sîrayna cultures. They abandoned Sîrayn's ancient matriarchal traditions, but preserved many features of its original vernacular in their own language. It was this period of cultural exchange and assimilation that saw the Tayee religion codified into the holy scriptures of the Tarat Balazayn by the prophet Augar, adapting the gods of the Sîreshna to the new Sîrayna context and preventing them from being displaced by religious imports from the Dune Sea.#!"
 
  masra: "Mâsra"
  masra_collective_noun: "Mâsri"
  masra_prefix: "Mâsra"
- masra_desc: "#size:15    Became rulers of a Sîraynê empire#!"
+ masra_desc: "#size:15    The Mâsra are an early branch of Sîraynê, who first migrated into Sîrayn through way of Pôwa and western Harshandatt around year 300 of the Third Age, and built great cities on the shores of the Bay of Ormal. On the banks of the Sea they built a kingdom, the greatest of the powers in the Bay. However, their state was destroyed by the fierce Bulgan tribesmen, and never again did they reach such heights. In their day, Sîrayn was named 'Mavcharan', which means 'the Great Voice', for the Mâsri were excellent orators and diplomats.#!"
 
  ayten: "Aytân"
  ayten_collective_noun: "Aytâna"
  ayten_prefix: "Aytân"
- ayten_desc: "#size:15    Mâsri remnants#!"
+ ayten_desc: "#size:15    After the Bulgan Collapse and the death of Sikentr the Great, the Mâsri who helped overthrow him kept to their place in the Kirm hills, merging with the local Isavbhân matriarchs in the coasts to the east. They became the Aytâna, a sturdy people, less often seen in the cities of Sîrayn, save to uphold the ancient laws of the Bay. For the Aytâna are a judicious people, and possessed of long memory - they hold dear the memory of the ancient Mâsri kingdom, and the dominions of the Sîreshni queens. Unfortunately, they are too diminished to do anything more than remember.#!"
 
  poan: "Pôwan"
  poan_collective_noun: "Pôwana"
@@ -643,6 +651,7 @@
 
  ### Harshandatt ###
  muranian: "Muranian"
+ muranian_ethnicity: "Muranian" 
  muranian_collective_noun: "Muranians"
  muranian_prefix: "Muranian"
  muranian_desc: "#size:15    Harshandatt is an ancient land, and its civilization is among the oldest in Middle-earth. Its people, the Muranians, have lived in the valley of the Nuar for so long their origin has been utterly forgotten, though some claim that they are related in far off days to the Elinse and eastern Apysans. The Muranian civilisation was old when the Numenoreans first arrived on their shores, and despite times of conflict and crisis, remained a powerful force around the Bay until the rise of the Khyan Empire. Despite the sufferings and invasions of later days, the people of Harshandatt still endure.\n\nThe Muranians are a sophisticated and ancient culture and treasure the traditions and ritual of their heritage. Their long history and unique origins set them apart from the other inhabitants of the bay, and they preserve peculiar customs, some of which would later by adopted by their neighbours. From the Muranians originally came the widespread tradition of great funeral edifices, modelled after the tombs of their kings. The Muranians too were the source of the widespread beer production across the coast, though other elements of their cuisine such as grilled lamb and chickpeas have seen less success. They are slow to anger, but once offended a Muranian is slow to forget, and their long-held grudges demand heavy compensation. Religion plays an important role in the life of the people of Harshandatt, and is tightly woven into all ranks of society, from the exalted Nhazadh to the lowliest temple slave.!"
@@ -657,7 +666,7 @@
  lynerian: "Lynerian"
  lynerian_collective_noun: "Lynerians"
  lynerian_prefix: "Lynerian"
- lynerian_desc: "#size:15    Inhabitants of the loosely confederated city states of the Lynerian League#!"
+ lynerian_desc: "#size:15    Lyneria is a land of coastal city-states, filled with steadfast sailors and ingenious merchants, drawing attention for their skills from across the Bay of Ormal and beyond.\n\nTheir mythical origin places them as descendants of the sons of Lynîr, who at his death quarreled among each other over who would rule his realm. Much like their mythical ancestors, the Lynerians are rarely united, far prefering to live in a loose coalition of cities, sparring with each other through word and song, rather than war.#!"
 
  ### Kirani ###
  kirani: "Kîrani"
@@ -679,13 +688,13 @@
  usakani: "Ûsakani"
  usakani_collective_noun: "Ûsakani"
  usakani_prefix: "Ûsaka"
- usakani_desc: "#size:15    The long-standing natives of the lands of Ûsakan, the Ûsakani, are a resilient people.\n\nWhereas the Sederi escaped Tanturak with the aid of the Kinn-lai, not all were willing to abandon their homes. The Ûsakani chose to stand and fight, and endure the long strife against the Tanturaki oppression. Ultimately succeeding, they won their freedom with iron and blood, and as a result, will fight fiercely any who would dare try to deprive them of their liberties again.#!"
+ usakani_desc: "#size:15    The long-standing natives of the lands of Ûsakan, the Ûsakani are a resilient people.\n\nWhereas the Sederi escaped Tanturak with the aid of the Kinn-lai, not all were willing to abandon their homes. The Ûsakani chose to stand and fight, and endure the long strife against the Tanturaki oppression. Ultimately succeeding, they won their freedom with iron and blood, and as a result, will fight fiercely any who would dare try to deprive them of their liberties again.#!"
 
  ### Nafarati ###
  nafarati: "Nâfarati"
  nafarati_collective_noun: "Nâfarati"
  nafarati_prefix: "Nâfar"
- nafarati_desc: "#size:15    WIP#!"
+ nafarati_desc: "#size:15   Hailing from the southern slopes of the [yellowmountains|E] in Mûmakan, the Nâfarati are a warrior culture and take pride in feats of bravery and battle. Though the bulk of their folk remain in Geshan, a great portion of the Nâfarati split from their kin in the Late Third Age, traveling west to wage war in Ûsakan and Chennacatt, and eventually settling in the northern foothills of the [yellowmountains|E].\n\nLong-time servants and allies of the [nazgulcharacter|E] Ji-Indûr, the Nâfarati often served as enforcers in Mûmakan, during the reign of the [ringwraith|E].#!"
  # OLD DESC - #nafarati_desc: "#size:15    Akin to the famed Mûmakani south of the [yellowmountains|E], the Nafarati people live in the scrubland between the desert and the jungles of [ray|E], refusing to cross the mountains with the rest of their kin in the late [firstage|E], having judged the Nâfarat river as their sacred, prophesised homeland. Once their domains had been larger, but as the great jungle of Harad turned to waste after the [warofwrath|E], they increasingly became a constrained - and belligerent - people. The Nafarati are at their heart a warrior culture and have often quarreled with the wealthy and settled Bôzishnarûd to their west. Despite their fractious nature, they seem indifferent to who rules over them, so long as it gives them the excuse to live by the sword.#!"
  nafarati_ethnicity: "Nâfarati"
  
@@ -864,8 +873,6 @@
  # Odhriags
  # Magriags
  
- rhunnic_ethnicity: "Rhûnnic"
-
  talaethrim: "Talaethrim"
  talaethrim_ethnicity: "Talaethrim"
  talaethrim_collective_noun: "Talaethrim"
@@ -883,6 +890,7 @@
  kykuria_desc: "#size:15    The Kykûrians are those of the Ioriags who dwelt in Kykûrian Kyn, forefathers of the Asdriags and Odhriags.#!"
  
  asdriag: "Asdriag"
+ asdriag_ethnicity: "Asdriag" 
  asdriag_collective_noun: "Asdriags"
  asdriag_prefix: "Asdria"
  asdriag_desc: "#size:15    The Asdriags are the most warlike of the Ioriag clans, last to arrive around the [seaofrhun|E], and the primary driving force behind the Balchoth Empire. They are steeped in a martial tradition which reveres the warrior and the glory of battle, and status in Asdriag society is determined as much by one's martial ability as by their birth.#!"
@@ -893,6 +901,7 @@
  odhriag_desc: "#size:15    The Odhriags have long dwelled on the northern side of the Mountains of Shadow. A proud people, and valiant too, they possess a fierce independent streak, though they have long been under the Shadow's influence.#!"
  
  magriag: "Magriag"
+ magriag_ethnicity: "Magriag" 
  magriag_collective_noun: "Magriags"
  magriag_prefix: "Magria"
  magriag_desc: "#size:15    The Magriags are the newest subset of the Easterlings of [rhun|E]. Formed in the wake of the Balchoth collapse, the Magriags are those of the Adriags and Odhriags who settled the frontier of their former empire and intermingled with their [northmen|E] neighbors, both free and slave. Because of that, they tend to function as the middlemen between the [northmen|E] and Rhûnnic traders.#!"
@@ -910,6 +919,7 @@
  igath_desc: "#size:15    The Igath are the second group to be known as the 'Easterlings' to the Edain, first appearing in the early [secondage|E]. They, along with some survivors of the [beleriand|E]ic Easterlings, were the overlords and primary settlers of the [seaofrhun|E] during the second age, at times clashing with the neighboring [northmen|E]. It is said that in ancient times their society was matrilineal, but now this ancient facet of their culture is preserved only in the Logath.\n\nThe Igath clans were the primary force behind the Wainriders and still maintain the tradition of training their women in arms for defense, even if they rule no longer.#!"
  
  ulgath: "Ulgath"
+ ulgath_ethnicity: "Ulgath" 
  ulgath_collective_noun: "Ulgath"
  ulgath_prefix: "Ulgathi"
  ulgath_desc: "#size:15    The Ulgath are the Igath who settled the eastern and northern shores of the [seaofrhun|E]. It is from them that the Ioriag language, Ulgathig, took its name, for traders would often have to pass through Ulgath lands and so came to refer to the broader Igath tongue by their name. Indeed, traders are fortunate that the Ulgath have a tradition of sacred hospitality, for it has allowed trade to persist in a land of a bellicose, raiding people.#!"
@@ -987,12 +997,12 @@
  noldor: "Noldor"
  noldor_collective_noun: "Noldor"
  noldor_prefix: "Noldo"
- noldor_desc: "#size:15    The [noldorelves|E] are the second clan of the [elves|E] that completed the [greatjourney|E] and came to [valinor|E], led by Finwë Ñoldóran, whom they took as their king. There they established their capital of Tirion upon Tuna and learned many things at the feet of the Powers, and most of all [aulecharacter|E]. The greatest craftsmen, loremasters, and warriors of the Eldar, the [noldorelves|E]'s story is tragic and valorous in equal measure, but their deeds shall endure forever in song, until the last days of [ardaconcept|E].\n\nThose of the [noldorelves|E] who returned to [middleearth|E] were known as the [elfexiles|E], since they had gone into exile from Valinor and had the [banofthevalar|E] fall upon them. Yet if not for the valour of the Noldor, it is likely the iron crown of [morgothcharacter|E] would have ruled over all of [middleearth|E]. The [elfexiles|E] predominantly adopted [sindarin|E] names and speech, since they learned it far more swiftly than the [sindarelves|E] did [quenya|E], and absorbed large amounts of the Sindar of [beleriand|E] into their people.\n\nUnder High-King Erenion Gil-galad, the Noldor of Middle-earth would reach the apex of their power and prosperity before slowly dwindling throughout the [thirdage|E].#!"  
+ noldor_desc: "#size:15    The [noldorelves|E] are the second clan of the [elves|E] that completed the [greatjourney|E] and came to [valinor|E], led by Finwë Ñoldóran, whom they took as their king. There they established their capital of Tirion upon Tuna and learned many things at the feet of the Powers, and most of all [aulecharacter|E]. The greatest craftsmen, loremasters, and warriors of the Eldar, the Noldor's story is tragic and valorous in equal measure, but their deeds shall endure forever in song, until the last days of [ardaconcept|E].\n\nThose of the Noldor who returned to [middleearth|E] were known as the [elfexiles|E], since they had gone into exile from Valinor and had the [banofthevalar|E] fall upon them. Yet if not for the valour of the Noldor, it is likely the iron crown of [morgothcharacter|E] would have ruled over all of Middle-earth. The [elfexiles|E] predominantly adopted [sindarin|E] names and speech, since they learned it far more swiftly than the [sindarelves|E] did [quenya|E], and absorbed large amounts of the Sindar of [beleriand|E] into their people.\n\nUnder High-King Erenion Gil-galad, the Noldor of Middle-earth would reach the apex of their power and prosperity before slowly dwindling throughout the [thirdage|E].#!"  
 
  #falmari: "Falmari"
  #falmari_collective_noun: "Falmari"
  #falmari_prefix: "Falmari"
- #falmari_desc: "#size:15    Placeholder.#!"
+ #falmari_desc: "#size:15 #!"
  
  ### UMANYAR ###
  # Sindar
@@ -1012,7 +1022,7 @@
  sindar: "Sindar"
  sindar_collective_noun: "Sindarin"
  sindar_prefix: "Sindari"
- sindar_desc: "#size:15    The [sindarelves|E] are those of the third clan of the [greatjourney|E] that remained in [beleriand|E] with their king Elwë (Elu Thingol). There they built Menegroth and were the most advanced of the Elves of [middleearth|E] until the return of the [noldorelves|E]. Their language, [sindarin|E], became the elvish lingua franca of [beleriand|E] after Elu Thingol banned the use of [quenya|E] in his lands. After the fall of Menegroth and the end of the [firstage|E], the Sindar dispersed without a king, with some becoming kings in their own right - Amdír of [lorien|E] and Oropher of the [greenwoodshort|E] are examples of these.#!"
+ sindar_desc: "#size:15    The [sindarelves|E] are those of the third clan of the [greatjourney|E] that remained in [beleriand|E] with their king Elwë Singollo ([elu_thingol|E]). There they built Menegroth and were the most advanced of the Elves of [middleearth|E] until the return of the [noldorelves|E]. Their language, [sindarin|E], became the elvish lingua franca of [beleriand|E] after Elu Thingol banned the use of [quenya|E] in his lands. After the fall of Menegroth and the end of the [firstage|E], the Sindar dispersed without a king, with some becoming kings in their own right - Amdír of [lorien|E] and Oropher of the [greenwoodshort|E] are examples of these.#!"
  
  #doriathrim: "Doriathrim"
  #doriathrim_collective_noun: "Doriathrim"
@@ -1022,7 +1032,7 @@
  #eglath: "Eglath"
  #eglath_collective_noun: "Eglathrim"
  #eglath_prefix: "Eglathro"
- #eglath_desc: "#size:15    Placeholder"
+ #eglath_desc: "#size:15"
  
  falathrim: "Falathrim"
  falathrim_collective_noun: "Falathrim"
@@ -1073,7 +1083,7 @@
  
  # lotr_quendi_group: "Quendi"
  # lotr_quendi_group_collective_noun: "Quendi"
- # lotr_quendi_group_desc: "#size:15    Placeholder" 
+ # lotr_quendi_group_desc: "#size:15    " 
  
  minyar: "Minyar"
  minyar_collective_noun: "Minyar"
@@ -1223,7 +1233,7 @@
  generic_goblin: "Goblin"
  generic_goblin_collective_noun: "Goblins"
  generic_goblin_prefix: "Goblin"
- generic_goblin_desc: "#size:15    The [goblins|E] descend from [orcs|E] that moved deep underground in ancient times and had, as a result, diverged. Compared to the orcs of other lands, their societies had a much greater proportion of snaga orcs, known to them as Goblins, with far fewer uruk types, known to them as hobgoblins. This great imbalance resulted in Goblin society not developing the Uruk-Snaga caste divide seen among most other orcs, though often what few Hobgoblins there were could be found in places of importance. As a result, Goblins are generally smaller than their Uruk cousins, and many of them have a greenish hue. When left to their own devices, they tend to be highly territorial and form very distinct tribal identities, which are impossible to tell apart for outsiders.#!"
+ generic_goblin_desc: "#size:15    The [goblins|E] descend from [orcs|E] that moved deep underground in ancient times and had, as a result, diverged. Compared to the Orcs of other lands, their societies had a much greater proportion of Snaga Orcs, known to them as Goblins, with far fewer Uruk types, known to them as Hobgoblins. This great imbalance resulted in Goblin society not developing the Uruk-Snaga caste divide seen among most other Orcs, though often what few Hobgoblins there were could be found in places of importance. As a result, Goblins are generally smaller than their Uruk cousins, and many of them have a greenish hue. When left to their own devices, they tend to be highly territorial and form very distinct tribal identities, which are impossible to tell apart for outsiders.#!"
  goblin_ethnicity: "Goblin" 
 
  towndweller_goblin: "Town-Dweller"
@@ -1234,7 +1244,7 @@
  bonesnapper_goblin: "Bone-Snapper"
  bonesnapper_goblin_collective_noun: "Bone-Snappers"
  bonesnapper_goblin_prefix: "Bone"
- bonesnapper_goblin_desc: "$generic_goblin_desc$\n#size:15 \nThe Bone-Snapper tribe had long been subservient to the larger [orcs|E] of [gundabad|E], who used them for menial labor and as cannon fodder. They considered bone marrow to be a particular delicacy and collected the remains of freshly felled foes."
+ bonesnapper_goblin_desc: "$generic_goblin_desc$\n#size:15 \nThe Bone-Snapper tribe had long been subservient to the larger [orcs|E] of [gundabad|E] and Gram, who used them for menial labor and as cannon fodder. They considered bone marrow to be a particular delicacy and collected the remains of freshly felled foes."
  
  hallroamer_goblin: "Hall-Roamer"
  hallroamer_goblin_collective_noun: "Hall-Roamers"
@@ -1327,32 +1337,32 @@
  hill_troll: "Hill Troll"
  hill_troll_collective_noun: "Hill Trolls"
  hill_troll_prefix: "Hill"
- hill_troll_desc: "#size:15    Hill Trolls can be encountered in the wilderlands of [middleearth|E]. Like most trolls, they are exceptionally stupid by most standards. Though very rare by the late [thirdage|E], some still survive in remote regions. They live in caves and burrows, for the sun turns their skin to stone."
+ hill_troll_desc: "#size:15    Hill [trolls|E] can be encountered in the wilderlands of [middleearth|E]. Like most Trolls, they are exceptionally stupid by most standards. Though very rare by the late [thirdage|E], some still survive in remote regions. They live in caves and burrows, for the sun turns their skin to stone."
  
  mountain_troll: "Mountain Troll"
  mountain_troll_collective_noun: "Mountain Trolls"
  mountain_troll_prefix: "Mountain"
- mountain_troll_desc: "#size:15    Mountain Trolls can be found in the mountains of [middleearth|E], roaming the craggy peaks in brutish packs. Left to their own devices, they live as base predators, guided more by instinct than thought, though they are sometimes bent to the will of greater powers."
+ mountain_troll_desc: "#size:15    Mountain [trolls|E] can be found in the mountains of [middleearth|E], roaming the craggy peaks in brutish packs. Left to their own devices, they live as base predators, guided more by instinct than thought, though they are sometimes bent to the will of greater powers."
 
  cave_troll: "Cave Troll"
  cave_troll_collective_noun: "Cave Trolls"
  cave_troll_prefix: "Cave"
- cave_troll_desc: "#size:15    Cave Trolls can only be encountered deep beneath the mountains of [middleearth|E]. They are mostly isolationist, content to dwell in the deep caverns and grottos beneath the world, but can rarely be persuaded to join [orcish|E] warbands with large amounts of food."
+ cave_troll_desc: "#size:15    Cave [trolls|E] can only be encountered deep beneath the mountains of [middleearth|E]. They are mostly isolationist, content to dwell in the deep caverns and grottos beneath the world, but can rarely be persuaded to join [orcish|E] warbands with large amounts of food."
  
  snow_troll: "Snow Troll"
  snow_troll_collective_noun: "Snow Trolls"
  snow_troll_prefix: "Snow"
- snow_troll_desc: "#size:15    Snow Trolls can only be encountered in the furthest northern reaches of [middleearth|E], where [angband|E] once stood. They are exceptionally rare, and only a handful are known to roam in the expansive frozen plains and tundra of Forodwaith."
+ snow_troll_desc: "#size:15    Snow [trolls|E]can only be encountered in the furthest northern reaches of [middleearth|E], where [angband|E] once stood. They are exceptionally rare, and only a handful are known to roam in the expansive frozen plains and tundra of Forodwaith."
  
  black_troll: "Olog-hai"
  black_troll_collective_noun: "Olog-hai"
  black_troll_prefix: "Olog"
- black_troll_desc: "#size:15    The Olog-hai, or Black Trolls, are brutal war machines bred by [sauroncharacter|E] to bolster the armies of [mordor|E]. Marginally more intelligent than most trolls, they are the only servants of the Lidless Eye to truly adopt Black Speech as their dominant language, taking pride in the use of the Dark Lord's tongue."
+ black_troll_desc: "#size:15    The Olog-hai, or Black [trolls|E], are brutal war machines bred by [sauroncharacter|E] to bolster the armies of [mordor|E]. Marginally more intelligent than most Trolls, they are the only servants of the Lidless Eye to truly adopt Black Speech as their dominant language, taking pride in the use of the Dark Lord's tongue."
  
  sand_troll: "Sand Troll"
  sand_troll_collective_noun: "Sand Trolls"
  sand_troll_prefix: "Sand"
- sand_troll_desc: "#size:15    Sand Trolls can be encountered in the far south of [middleearth|E]. A few of them are known to live in the arid drylands of [harad|E] and the dense jungles of the [bayoftulwang|E], and perhaps further beyond in the Utter South."
+ sand_troll_desc: "#size:15    Sand [trolls|E] can be encountered in the far south of [middleearth|E]. A few of them are known to live in the arid drylands of [harad|E] and the dense jungles of the [bayoftulwang|E], and perhaps further beyond in the Utter South."
  
  
  ### Haradrim ###
@@ -1369,7 +1379,7 @@
  haruze: "Haruze"
  haruze_collective_noun: "Haruzan"
  haruze_prefix: "Haruzani"
- haruze_desc: "#size:15    The Harûze (Har. 'godly people' or 'golden people') are the most northerly and among the most numerous of the [haradrim|E]. Originally a nomadic people, they are now mostly settled but retain a fierce warrior culture and have long been among the principal foes of [gondor|E]. They regard themselves as the native and only true Haradrim and aspire to restore their people and ancient kingdom to glory and dominance; these desires have long been manipulated by the Shadow.#!"
+ haruze_desc: "#size:15    The Haruze (Har. 'godly people' or 'golden people') are the most northerly and among the most numerous of the [haradrim|E]. Originally a nomadic people, they are now mostly settled but retain a fierce warrior culture and have long been among the principal foes of [gondor|E]. They regard themselves as the native and only true Haradrim and aspire to restore their people and ancient kingdom to glory and dominance; these desires have long been manipulated by the Shadow.#!"
  karrani: "Karrani"
  karrani_collective_noun: "Karrani"
  karrani_prefix: "Karra"
@@ -1385,7 +1395,7 @@
  chelkari: "Chelkari"
  chelkari_collective_noun: "Chelkari"
  chelkari_prefix: "Chelkari"
- chelkari_desc: "#size:15    The Chelkari are an offshoot of the Harûze, inhabiting the sheltered uplands south of Mordor, where the milder climate allowed for a more settled, prosperous and urbanised culture than in many parts of Harad. Despite their proximity to the Black Land, the Chelkari have a reputation for resisting the Shadow, and their culture gives a glimpse of what the [haradrim|E] could have been without the malign influence of Sauron.#!"
+ chelkari_desc: "#size:15    The Chelkari are an offshoot of the Haruze, inhabiting the sheltered uplands south of Mordor, where the milder climate allowed for a more settled, prosperous and urbanised culture than in many parts of Harad. Despite their proximity to the Black Land, the Chelkari have a reputation for resisting the Shadow, and their culture gives a glimpse of what the [haradrim|E] could have been without the malign influence of Sauron.#!"
  pezarsani: "Pezarsani"
  pezarsani_collective_noun: "Pezarsani"
  pezarsani_prefix: "Pezarsani"
@@ -1402,34 +1412,33 @@
  arysisani_collective_noun: "Arysori"
  arysisani_prefix: "Arysori"
  arysisani_desc: "#size:15    The Arysori are sometimes considered the easternmost of the [haradrim|E] tribes, but having long been the first contact upon the northern routes in Khy, they have greatly intermingled and been influenced by the cosmopolitan and settled Khyans, assimilating many of their cultural and religious traditions. Because of this, other [haradrim|E] tribes often view them as ‘tainted’ or ‘soft’, particularly in their religious philosophy of tranquility, trade, and coexistence. The lack of any sort of martial tradition has resulted in the Arysori largely dividing along clan lines, with any sort of larger polity having been a weaker confederation for the purposes of arbitration and trade rather than military action.#!"
- sand_people: "Arani"
- sand_people_collective_noun: "Arani"
- sand_people_prefix: "Arani"
- sand_people_desc: "#size:15    The Sand People, or 'Arani', are a collection of enigmatic tribes living in the Mirror of Fire. Only a few oasis settlements have any permanence for these nomads. Though fostering a grudge against the surrounding settled cultures of the semi-desert, whom they consider weak, they are famed for their knowledge of many tongues due to the trade caravans that ply the cross-desert routes. Their obscure religious cults are baffling and disconcerting to outsiders.#!"
+ arani: "Arani"
+ arani_collective_noun: "Arani"
+ arani_prefix: "Arani"
+ arani_desc: "#size:15    The Sand People, or 'Arani', are a collection of enigmatic tribes living in the Mirror of Fire. Only a few oasis settlements have any permanence for these nomads. Though fostering a grudge against the surrounding settled cultures of the semi-desert, whom they consider weak, they are famed for their knowledge of many tongues due to the trade caravans that ply the cross-desert routes. Their obscure religious cults are baffling and disconcerting to outsiders.#!"
  siaken: "Siakari"
  siaken_collective_noun: "Siakari"
  siaken_prefix: "Siakari"
  siaken_desc: "#size:15    The Siakari are one of the myriad peoples of eastern [harad|E], blending aspects of Lurmsakari and Arysori culture. A deeply introspective and scholarly culture, they are known for their isolationism and pacifism, desiring most of all to be left alone to muse over their scrolls of esoteric knowledge.#!"
-
- pust: "Pûst"
- pust_collective_noun: "Pûst"
- pust_prefix: "Pûsto"
- pust_desc: "#size:15    The Pûstic people have their origins in the Arani desert, but became an urbanized and settled people, known for their skill at mining. Many Pûstic have also adapted to the difficult mountainous terrain of the region. Under the malign influence of the Golden King of Abrakhân, they have developed a dread reputation as a corrupted people, their religious cults famous for exalting pain and even human sacrifice.#!"
+ harmakuze: "Harmakuze"
+ harmakuze_collective_noun: "Harmakuzan"
+ harmakuze_prefix: "Harmakuzani"
+ harmakuze_desc: "#size:15    The Harmakuzani are the [dunedain|E] influenced [haradrim|E] of Harondor who came into being after King Elessar of the [reunitedkingdom|E]'s reconquest of the region. Though they do maintain some traditions of their Haruzan heritage, it is indisputable that they are deeply influenced by Gondorian and Harondorim cultural practices, the latter of which they have often taken to intermarrying with.#!"
 
  old_pust: "Pûst"
  old_pust_collective_noun: "Pûst"
  old_pust_prefix: "Pûsto"
- old_pust_desc: "#size:15    The Pûstic people have their origins in the Arani desert, but became an urbanized and settled people, known for their skill at mining. Many Pûstic have also adapted to the difficult mountainous terrain of the region. Under the malign influence of the Golden King of Abrakhân, they have developed a dread reputation as a corrupted people, their religious cults famous for exalting pain and even human sacrifice.#!"
+ old_pust_desc: "#size:15    The Pûst were a people who originated in the depths of the Dune Sea, but moved east towards the Mirror of Fire, becoming an urbanized and settled people known for their mining skills.\n\nThey relied upon the Mirror, which provided for them, and so they did their best to care for it in return, managing it carefully through theri own labour and that of enslaved foreigners.#!"
 
  darsalai: "Uhtyâr-Pûst"
  darsalai_collective_noun: "Uhtyâr-Pûst"
  darsalai_prefix: "Uhtyâr"
- darsalai_desc: "#size:15    #!"
+ darsalai_desc: "#size:15    When the Mirror of Fire retreated, leaving behind only an unusable saline puddle, the Pûst were left devastated, with only a few surviving in Dârsalan and the eastern mountains of the Abrakhân basin.\n\nThose who survived in Dârsalan received many waves of Arani migration, falling under their rule multiple times, leading to them becoming a much more open culture which relies on the relatively meagre but steady trade which flows through their lands to sustain themselves.#!"
 
  lushek_pust: "Lûshek-Pûst"
  lushek_pust_collective_noun: "Lûshek-Pûst"
  lushek_pust_prefix: "Lûshek"
- lushek_pust_desc: "#size:15    
+ lushek_pust_desc: "#size:15    When the Mirror of Fire retreated, leaving behind only an unusable saline puddle, the Pûst were left devastated, with only a few surviving in Dârsalan and the eastern mountains of the Abrakhân basin.\n\nThose who survived in the eastern mountains (unlike their fellows in Dârsalan) never recovered, instead they reamain isolationist, dreaming of a past they can not quite remember and yet can never quite forget, not knowing that those of the same origin as them are (relatively) thriving only a short distance away.#!"
 
  variag: "Variag"
  variag_ethnicity: "Variag" 
@@ -1483,28 +1492,32 @@
 
  ### Womaw ###
 
- eastern_womaw_ethnicity: "Womarin"
- vulmaw_ethnicity: "Vulmarin"
+ vulmaw_ethnicity: "Vûlmarin"
 
- womaw: "Womaw"
- womaw_collective_noun: "Womaw"
- womaw_prefix: "Womarin"
+ womaw: "Wômaw"
+ womaw_ethnicity: "Wômarin" 
+ womaw_collective_noun: "Wômaw"
+ womaw_prefix: "Wômarin"
  womaw_desc: "#size:15 $game_concept_womaw_desc$#!"
 
- lokhaw: "Lokhaw"
- lokhaw_collective_noun: "Lokhaw"
- lokhaw_prefix: "Lokhan"
+ lokhaw: "Lôkhaw"
+ lokhaw_collective_noun: "Lôkhaw"
+ lokhaw_prefix: "Lôkhan"
  lokhaw_desc: "#size:15    As the Empire of Wômawas Drûs consolidated and took shape, some desired still greater glories and new lands. In S.A. 347, Wôma Drâl (‘One gifted with foresight or insight), second son of the Hionvar of Wômawas Drûs, opted to seek his fortune in other lands. Raising a great fleet (joined by many of the Sûrk, Wôm, and Narig tribes of the [womaw|E]), he made landfall in the lands which he would name Lôkhas, making battle upon the local peoples. With the decisive victory in the Cunâci-âc-Âlkbroda' (Battle of Hillholds) in 348, Wôma Drâl declared himself first Hionvar of Lôkhas Drûs, establishing the First Empire of Lôkhas Drûs.\n\nUnlike their Wômaw kin, the Lôkhaw maintain a more patrilineal culture. As a result of their migration from their original tribal homelands, they developed new methods of organizing themselves based on their powerful familial clans, to whom piety and devotion are paramount. They maintain a proud aristocratic and warrior culture.#!"
 
- vulmaw: "Vulmaw"
- vulmaw_collective_noun: "Vulmaw"
- vulmaw_prefix: "Vulman"
+ vulmaw: "Vûlmaw"
+ vulmaw_collective_noun: "Vûlmaw"
+ vulmaw_prefix: "Vûlman"
  vulmaw_desc: "#size:15    The Vûlmaw originate in Wômaw adventurers and settlers who made landfall in Vûlm Shryak of the Southern Archipelago in S.A. 1172. Completing their conquest of the island in 1174, they came to dominate the archipelago.\n\nThe Vûlmaw are renowned as traders and explorers and historically held a near-monopoly on trade between the Wômaw realms until this monopoly was broken by Numenor in the later Second Age. During the period of the Numenorean Empire, the Vûlmaw were forced into tributary status to Numenor, compelled to provide ships and navigators who knew the Eastern Seas. After the Akallabeth, the Vûlmaw reasserted their position in the eastern trade, developing into trading rivals with Anarikê.\n\nThe Vûlmaw are also the founders and historic rulers of the continental city-state of Kôdya, located between Yoyoyôpo and Anarikê.#!"
 
  codyan: "Côdyan"
  codyan_collective_noun: "Côdyaw"
  codyan_prefix: "Côdya"
- codyan_desc: "#size:15   The Côdyaw are in origin some of the folk of Lôkhas Drûs, who founded the city of Côdya to the south and west of their empire in 813 of the [secondage|E]. From humble beginnings paying tribute and homage to the overbearing [numenoreans|E], Côdya has risen to greatness in the [thirdage|E], establishing itself as one of the four great powers of the Bay of Ormal. Since then the city and its people have thrived as a prosperous and cosmopolitan port, handling trade from west, east, and south. The folk of Côdya are proud and independent, masters of the waves and their own destinies.#!"
+ codyan_desc: "#size:15    The Côdyaw are in origin some of the folk of Lôkhas Drûs, who founded the city of Côdya to the south and west of their empire in [ageSA|E] 813.\n\nFrom humble beginnings paying tribute and homage to the overbearing [numenoreans|E], Côdya has risen to greatness in the [thirdage|E], establishing itself as one of the four great powers of the Bay of Ormal.\n\nSince then, the city and its people have thrived as a prosperous and cosmopolitan port, handling trade from west, east, and south. The folk of Côdya are proud and independent, masters of the waves and their own destinies.#!"
+
+ ### Southern Archipelago ###
+ 
+ sare_ethnicity: "Sâre" 
 
  ### Undead ###
  # lotr_undead_group: "Wraith"

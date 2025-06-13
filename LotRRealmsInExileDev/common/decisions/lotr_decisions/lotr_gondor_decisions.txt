@@ -961,13 +961,15 @@ decision_destroy_mordor = {
 					text = destroy_mordor_decision_current_military_strength_elven_tt
 					root.script_current_military_strength >= title:e_mordor.holder.lotr_twenty_five_percent_of_current_military_strength
 				}
-			} trigger_else_if = {
+			} 
+			trigger_else_if = {
 				limit = { is_dwarf = yes }
 				custom_tooltip = {
 					text = destroy_mordor_decision_current_military_strength_dwarven_tt
 					root.script_current_military_strength >= title:e_mordor.holder.a_third_of_current_military_strength
 				}
-			} trigger_else = {
+			} 
+			trigger_else = {
 				custom_tooltip = {
 					text = destroy_mordor_decision_current_military_strength_default_tt
 					root.script_current_military_strength >= title:e_mordor.holder.fifty_percent_of_current_military_strength
@@ -1948,6 +1950,9 @@ decision_solidify_reunited_kingdom = {
 				set_de_jure_liege_title = title:e_reunitedkingdom
 			}
 			title:k_shire = {
+				set_de_jure_liege_title = title:e_reunitedkingdom
+			}
+			title:k_gondor_steward = {
 				set_de_jure_liege_title = title:e_reunitedkingdom
 			}
 			if = {
@@ -3360,8 +3365,10 @@ decision_restore_gondor_province = {
 			}
 			trigger_if = { # Dór Rhunen
 				limit = { show_dor_rhunen_trigger = yes }
-				completely_controls = title:k_south_rhovanion
-				completely_controls = title:k_brownlands
+				AND = {
+					completely_controls = title:k_south_rhovanion
+					completely_controls = title:k_brownlands
+				}
 			}
 			trigger_if = { # Enedhwaith - RK/NiE Only
 				limit = { show_enedhwaith_trigger = yes }
@@ -4035,13 +4042,10 @@ decision_restore_defeated_gondor = {
 			}
 			is_landless_adventurer = yes 
 		}
-		# custom_tooltip = { #Not needed. It's in the `is_shown` block, so this tooltip won't show up anyways
-			# text = IS_TRIBUTARY_OF_SAURON
-			NAND = {
-				exists = var:my_suzerain
-				var:my_suzerain = { is_maiar_fallen = yes }
-			}
-		# }
+		NAND = {
+			is_tributary = yes
+			suzerain = { is_maiar_fallen = yes }
+		}
 		NOT = { has_trait = sailed_west }
 	}
 	
@@ -4059,8 +4063,8 @@ decision_restore_defeated_gondor = {
 		custom_tooltip = {
 			text = IS_TRIBUTARY_OF_SAURON
 			NAND = {
-				exists = var:my_suzerain
-				var:my_suzerain = { is_maiar_fallen = yes }
+				is_tributary = yes
+				suzerain = { is_maiar_fallen = yes }
 			}
 		}
 	}
@@ -4200,7 +4204,7 @@ decision_establish_the_ithilien_rangers = {
 			
 					}
 					any_neighboring_county = {
-						holder = {
+						holder.top_liege ?= {
 							is_gondor = yes
 						}
 					}

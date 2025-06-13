@@ -183,7 +183,7 @@
  mining.1021.e: ""Get up and help me trace this vein already!""
 
  mining.1031.t: "Illegal Mining Operation"
- mining.1031.desc: "An illegal mining operation, here in the [land_owner.GetTitleTierName]'s domain? They huddle together as I approach up with my guards and fellow miners, making a poor job of hiding the cart full of freshly hewn ore behind them.\n\n"We did't do anything! We were just walking and found this... Please, have mercy, glorious [ROOT.Char.GetTitleAsNameNoTooltip]!" The dirt on their hands and faces, and the pick axes resting against the cavern walls, belie their words."
+ mining.1031.desc: "An illegal mining operation, here in the [land_owner.GetTitleTierName]'s domain? They huddle together as I approach up with my guards and fellow miners, making a poor job of hiding the cart full of freshly hewn ore behind them.\n\n"We didn't do anything! We were just walking and found this... Please, have mercy, glorious [ROOT.Char.GetTitleAsNameNoTooltip]!" The dirt on their hands and faces, and the pick axes resting against the cavern walls, belie their words."
  mining.1031.a: "They will be executed, and their business partners will pay."
  mining.1031.b: ""You all seem to be excellent hewers...""
  mining.1031.c: "The haul is mine, along with fines for their lives."
@@ -367,7 +367,7 @@
  mining.1133.desc.c:"#help “We follow seams through rock and shale,\nWhere hidden worth may yet be found.\nEach strike reveals another tale,\nOf treasure locked beneath the ground.”#!"
  mining.1133.desc.d:"#help “The mountains guard what lies beneath,\nAnd we who toil are not deterred.\nThough sharp the air and thin the breath,\nWe speak through strike, not wasted word.”#!"
  mining.1133.desc.e:"#help “This is our task, through dark and stone,\nTo search for ore beneath the land.\nNo finer place we've ever known,\nThan what we've delved with axe and hand.”#!"
- mining.1133.desc.f:"#help “With calloused hands and faces grim,\nWe carve the veins where riches lie.\nThough daylight fades and edges dim,\nOur will burns bright; beneath stone's eye.”#!"
+ mining.1133.desc.f:"#help “With calloused hands and faces grim,\nWe carve the veins where riches lie.\nThough daylight fades and edges dim,\nOur will burns bright beneath stone's eye.”#!"
  mining.1133.desc.g:"#help “The earth may groan and walls may shake,\nYet still we chip with steady force.\nFor every shard that we may take,\nMeans wealth is won along the course.”#!"
  mining.1133.desc.h:"#help “The echoes bounce from stone to stone,\nThrough narrow seams where shadows sleep.\nEach strike a claim, a step we own,\nIn caverns dark and cold and deep.”#!"
  mining.1133.desc.i:"#help “Through dust and sweat, we do persist,\nUnyielding as the mountain's frame.\nEach fallen rock, a hard-won gift,\nOur labour earns us wealth and name.”#!"
@@ -375,7 +375,7 @@
  mining.1133.desc.k:"#help “Each vein we trace, a secret told,\nOf riches buried deep below.\nWith steady hands and spirits bold,\nWe strike where silent treasures grow.”#!"
  mining.1133.desc.l:"#help “With every strike, the echoes ring,\nThrough caverns deep where silence sleeps.\nWe chase the wealth that earth will bring,\nAnd hold the treasures that it keeps.”#!"
  mining.1133.desc.outro: "\n\nFor a moment, the mine becomes a hall of song rather than toil. Should I join them in their merriment, or remind them that gold is not found by singing alone?"
- mining.1133.a: "Let us sing another song to keep our spirits high!"
+ mining.1133.a: "Let us sing another song!"
  mining.1133.b: "We have no time for these frivolities — back to work!"
 
  mining.3001.t: "A Moment to Talk"

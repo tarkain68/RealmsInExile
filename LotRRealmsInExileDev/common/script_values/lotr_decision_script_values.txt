@@ -60,18 +60,7 @@
 					}
 				}
 				#Your tributary
-				root = {
-					OR = {
-						is_target_in_variable_list = {
-							name = non_permanent_tributaries
-							target = prev
-						}
-						is_target_in_variable_list = {
-							name = permanent_tributaries
-							target = prev
-						}
-					}
-				}
+				is_tributary_of_suzerain_or_above = root
 			}
 		}
 		add = 1
@@ -249,4 +238,33 @@ lotr_northron_settlers_large_cost = {
 	#}
 	min = 75
 	max = 200
+}
+
+lotr_sakal_an_khar_geographical_region_control_complete = {
+	value = 0
+	add = lotr_sakal_an_khar_geographical_region_control
+	divide = lotr_sakal_an_khar_geographical_region
+	multiply = 100
+}
+
+
+lotr_sakal_an_khar_geographical_region_control = {
+	value = 0
+	every_county_in_region = {
+		region = special_sakal_an_khar_formable
+		limit = { 
+			culture = root.culture
+			faith = root.faith
+		}
+		add = 1
+	}
+}
+
+
+lotr_sakal_an_khar_geographical_region = {
+	value = 0
+	every_county_in_region = {
+		region = special_sakal_an_khar_formable
+		add = 1
+	}
 }
